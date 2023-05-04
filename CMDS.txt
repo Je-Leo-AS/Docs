@@ -1,1 +1,1 @@
-typst.exe compile Rlatorios/Porjeto/main.typ
+.\typst.exe compile "arquivos\caminho\main.typ"
