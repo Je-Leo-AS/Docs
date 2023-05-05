@@ -8,7 +8,7 @@
 )
 
 
-Para iniciar o exercicio foi calculado a largura da linha de transmissão e a constante de permissividade relativa, conforme ilustrado pela @largura a seguir:
+Para iniciar o exercicio foi calculado a largura da linha de transmissão e a constante de permissividade relativa, utilizando a ferramenta indicada pelo professor, conforme ilustrado pela @largura a seguir:
 
 #figure(
   caption: [Calculo da largura e da constante de permissividade relativa],
@@ -16,7 +16,7 @@ Para iniciar o exercicio foi calculado a largura da linha de transmissão e a co
   image("W.png", width: 50%),
 )<largura>
 
-Em seguida foram calculados os valores de comprimento da linha utilizando a carta de smith conforme ilustrado pela @smith a seguir:
+Em seguida foram calculados os valores de comprimento da linha utilizando a carta de smith, conforme ilustrado pela @smith a seguir:
 
 #figure(
   caption: [Calculo do comprimento das linhas de transmissão],
@@ -29,9 +29,9 @@ Em seguida foi calculado o valor dos compenentes que simulam a carga de entrada 
 
 Como a antena utilizada para esse projeto é do tipo C, então, tem-se que a impedancia dela é de $Z_L = 3,81 - 30,8571j Omega$.
 
-Para simular a resistencia foi utilizado um simples resistor de $3,81 Omega$.
+Para simular a resistência foi utilizado um simples resistor de $3,81 Omega$.
 
-Já para reatância, foi observado que pelo sinal negativo se tratava de uma reatância capacitiva. Portanto ela foi calculado da seguinte forma:
+Já para reatância, foi observado pelo sinal negativo se tratava de uma reatância capacitiva. Portanto a capacitância foi calculado da seguinte forma:
 
 #align(center)[
   \
@@ -43,9 +43,9 @@ Já para reatância, foi observado que pelo sinal negativo se tratava de uma rea
   
 ]
 
-Em seguida foi simulado o circuito no QUC's o qual o esquematico esta ilustrado pela @esquematico a seguir:
+Em seguida foi simulado o circuito no QUC's o qual o esquemático está ilustrado pela @esquematico a seguir:
 #figure(
-  caption: [Esquematico do QUCs],
+  caption: [Esquemático do QUCs],
 
   image("esquematico.png", width: 80%),
 )<esquematico>
@@ -68,7 +68,7 @@ Em seguida foi dado inicio a etapa de projeto do circuito impresso.
 A primeira etapa consistia no desenvolvimento do esquematico do circuito o qual esta ilustrado pela @esquematico_circuito a seguir: 
 
 #figure(
-  caption: [Esquematico da placa de circuito impresso],
+  caption: [Esquemático da placa de circuito impresso],
 
   image("esquematico_circuito.png", width: 80%),
 )<esquematico_circuito>

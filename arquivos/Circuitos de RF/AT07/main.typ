@@ -7,8 +7,8 @@
     "Leonardo Santos - GRR20196154",
   ),
 )
-
-A primeira etapa do exercicio foi calcular a equação do divisor de tensão do circuito ilustrado @esquematico a seguir
+#set math.equation(numbering: "(1)")
+A primeira etapa do exercicio foi calcular a equação do divisor de tensão do circuito ilustrado @esquematico a seguir.
 
 #figure(
   image("esquematico.png", width: 80%),
@@ -20,9 +20,8 @@ A primeira etapa do exercicio foi calcular a equação do divisor de tensão do 
 Portanto tem-se:
 
 #align(center)[
-  $V_2 = V * (R_2 || Z_2)/(R_1 + Z_1 + (R_2 || Z_2))$\
+  $V_2 = V_0 * (R_2 || Z_2)/(R_1 + Z_1 + (R_2 || Z_2))$\
   \
-  
 ]
 Sabe-se que:
 
@@ -35,26 +34,23 @@ Sabe-se que:
 Logo:
 
 #align(center)[
-  $V_2 = 2V_0 *  Z_1/ (Z_1 - R_1)$ <eq1>
+  $(2V_0) / V_2  = (Z_1 - R_1)/ Z_1$ <eq1> 
 ]
 
 Sabe-se pelo slide 09 do capitulo 3 que:
 
 #align(center)[
-  $S_31 = [2V_3/V sqrt(Z_1/Z_2)]$\
+  $S_31 = [(2V_3)/V sqrt(Z_1/Z_2)]$\
 ]
 Porém como busca-se o parametro $S_21$:
 
-
 #align(center)[
-  $S_21 = [(2V_0)/V_2 sqrt(Z_1/Z_2)]$ \
+  $S_21 = [(2V_0)/V_2 sqrt(Z_1/Z_2)]$ <eq2>  \
 ]
-Agora substituindo  as equações tem-se :
+Agora substituindo as equações @eq1 em @eq2, tem-se :
 
 #align(center)[
-  $S_21 = [(2V_0)/(2V_0 * Z_1) / (Z_1 - R_1) sqrt(Z_1/Z_2)]$ \
-  \
-  $S_21 = [ (Z_1 - R_1)/(Z_1)  sqrt(Z_1/Z_2)]$<eq2> \
+  $S_21 = [ (Z_1 - R_1)/(Z_1)  sqrt(Z_1/Z_2)]$\
 ]
 
 Substituindo o valor de $R_1$:
