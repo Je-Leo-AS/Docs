@@ -4,9 +4,7 @@
 // to customize this template and discover how it works.
 #show: project.with(
   title: "Projeto de linha de transmissão",
-  authors: (
-    "Leonardo Santos - GRR20196154",
-  ),
+  authors: ("Leonardo Santos - GRR20196154"),
 )
 
 
@@ -54,7 +52,7 @@ Em seguida foi simulado o circuito no QUC's o qual o esquematico esta ilustrado 
 
 Observe que a o comprimento da malha em paralelo, sofreu um leve ajuste, pois foi observado que na frequencia desejada o circuito apresentava uma atenução de $-12 d B$ aproximadamente, e portanto não satisfazia os critérios esperados pelo circuito.
 
-Então, realizando um ajuste fino de um dos comprimentos alcançou-se a atenuação de $-20 d B$, o que é o comportamento esperado do circuito.
+Então, realizando um ajuste fino de um dos comprimentos alcançou-se a atenuação de $-20 d B$, que é o comportamento esperado do circuito.
 
 O resultado da simulação esta ilustrada pela @resultado a seguir:
 
