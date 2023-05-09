@@ -4,17 +4,19 @@
 // to customize this template and discover how it works.
 #show: project.with(
   title: "Projeto de linha de transmissão",
-  authors: ("Leonardo Santos - GRR20196154"),
+  authors: ("Leonardo Santos - GRR20196154",),
 )
 
 
-Para iniciar o exercicio foi calculado a largura da linha de transmissão e a constante de permissividade relativa, utilizando a ferramenta indicada pelo professor, conforme ilustrado pela @largura a seguir:
+Para iniciar o exercicio foi calculado a largura da linha de transmissão e a constante de permissividade relativa da placa de fenolite, utilizando a ferramenta indicada pelo professor, conforme ilustrado pela @largura. É valido relembrar que os valores de dimensionamento da placa como espessura da placa do dieletétrico e espessura da linha de cobre foram tirados diretamente do anúncio do fabricante, e como o substrato dela é FR4, logo sua constante de permissiviade dielétrica é de 4,5.
+
 
 #figure(
   caption: [Calculo da largura e da constante de permissividade relativa],
 
   image("W.png", width: 50%),
 )<largura>
+
 
 Em seguida foram calculados os valores de comprimento da linha utilizando a carta de smith, conforme ilustrado pela @smith a seguir:
 
