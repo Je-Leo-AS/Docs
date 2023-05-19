@@ -8,3 +8,8 @@
 )
 
 
+#figure(
+  caption: [Esquemático do Slide],
+
+  image("", width: 50%),
+)<esquematico>
