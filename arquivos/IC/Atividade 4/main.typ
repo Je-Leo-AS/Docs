@@ -18,6 +18,18 @@ Em seguida foi avaliado se eles se encotravam entre os valores de -1 e 1. o resu
   image("prints/output.png", width: 50%),
 )<output>
 
-Com os dados normalizados foi feito a matriz de coeficientes, utilizando o seguinte trecho de código ilustrado pela a seguir: 
+Com os dados normalizados foi feito a matriz de coeficientes, utilizando o seguinte trecho de código ilustrado pela @code2 a seguir: 
 
 
+#figure(
+  caption: [Calculo das matrizes de Coeficientes],
+  image("prints/code2.png", width: 50%),
+)<code2>
+
+Em seguida foi realizados os passos do item 3 porem os valores de maximo me mino deram menores que 1. O codigo utilizado esta ilustrado pela @code3 a seguir:
+
+
+#figure(
+  caption: [Calculo da precisão em bits],
+  image("prints/code3.png", width: 50%),
+)<code3>
