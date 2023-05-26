@@ -19,3 +19,5 @@ Em seguida foi avaliado se eles se encotravam entre os valores de -1 e 1. o resu
 )<output>
 
 Com os dados normalizados foi feito a matriz de coeficientes, utilizando o seguinte trecho de código ilustrado pela a seguir: 
+
+

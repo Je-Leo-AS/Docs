@@ -9,9 +9,6 @@
   ),
 )
 
-// We generated the example code below so you can see how
-// your document will look. Go ahead and replace it with
-// your own content!
 Primeiramente foi adaptado o código da atividade 2 conforme ilustrado pela @code1 a seguir:
 
 #figure(
@@ -23,7 +20,8 @@ A partir disso foi calculado a matriz de coeficientes dos dados de validação e
 
 #figure(
   caption: [Calculo das predições],
-  image("prints/code2.png", width: 50%),
+  image("prints/code1.png", width: 50%),
+
 )<code2>
 
 Em seguida foi calculado o valor do NMSE, cujo o resultado foi -22.62 dB utilizando o seguinte trecho de código ilustrado pela @code3 a seguir : 
