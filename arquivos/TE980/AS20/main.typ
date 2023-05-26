@@ -3,7 +3,7 @@
 // Take a look at the file `template.typ` in the file panel
 // to customize this template and discover how it works.
 #show: project.with(
-  title: "Projeto de linha de transmissão",
+  title: "Atividade Fomartiva 02",
   authors: ("Leonardo Santos - GRR20196154",),
 )
 
