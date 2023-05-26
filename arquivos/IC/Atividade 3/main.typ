@@ -31,14 +31,20 @@ Em seguida foi calculado o valor do NMSE, cujo o resultado foi -22.62 dB utiliza
   image("prints/code3.png", width: 50%),
 )<code3>
 
-os resultados estão ilustrados pelas @resultado1 e @resultado2:  
+O código utilizado para plotar os graficos estão ilustrados pela @code4, cujo os resultados estão ilustrados pelas @resultado1 e @resultado2:  
+
 
 #figure(
-  caption: [Calculo calculo do nsme],
+  caption: [Código para plotar os graficos],
+  image("prints/code4.png", width: 50%),
+)<code4>
+
+#figure(
+  caption: [Gráfico AM],
   image("prints/resultado1.png", width: 50%),
 )<resultado1>
 
 #figure(
-  caption: [Calculo calculo do nsme],
+  caption: [Gráfico PM],
   image("prints/resultado2.png", width: 50%),
 )<resultado2>

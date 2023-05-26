@@ -12,7 +12,13 @@ Primeiramente foi feito a normalização dos dados, utilizando esse trecho de c�
   caption: [Código de normalização dos dados],
   image("prints/code.png", width: 50%),
 )<code>
-Em seguida foi avaliado se eles se encotravam entre os valores de -1 e 1. o resultado esta ilustrado pela @output a seguir:
+Em seguida foi utilizado o trecho de código ilustrado pela @code1, para avaliar se osvalores se encotravam entre os valores de -1 e 1. O resultado esta ilustrado pela @output a seguir:
+
+#figure(
+  caption: [Código pra plotar gráficos de entrada e saída],
+  image("prints/code1.png", width: 50%),
+)<code1>
+
 #figure(
   caption: [Gráficos entrada e saída],
   image("prints/output.png", width: 50%),
