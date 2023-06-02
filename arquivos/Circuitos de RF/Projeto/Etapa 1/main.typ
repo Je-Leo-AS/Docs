@@ -33,7 +33,7 @@ Em seguida foi importado esse arquivo para dentro da carta de smith, que deram o
   image("prints/carta de smith.png", width: 50%),
 )<csmith>
 
-A partir da tabela de ganho ilustrada pela @ganho, foi possivel selecionar a frequência de operação do transistor.
+A partir da tabela de ganho ilustrada pela @ganho, foi possivel selecionar a frequência de operação do transistor. Foi optado em utilizar a frequência de 2.4GHz pois tem uma boa aplicabilidade e o casamento de impedancia apresenta uma faixa aceitavel $(K<1)$.
 
 #figure(
   caption: [Tabela de Ganho],
