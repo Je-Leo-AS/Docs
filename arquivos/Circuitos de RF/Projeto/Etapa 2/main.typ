@@ -23,7 +23,7 @@ Como o transistor escolhido na etapa anterior foi um #link("https://www.mpulsemw
 
 De acordo com o datasheet, temos que no ponto de polarização de $V_"CE" = 10 V$ e $I_c = 5m A$ o valor tipico de $h_"FE"=β=125$. O valor de $V_"BE"$ não consta no datasheet, então por se tratar de um TBJ de silicio, irei considera-lo 0,7 V.
 
-Considerando a tensão $V_"cc"$ igual a 9V e aplicando a lei das malhas tem-se:
+Considerando a tensão $V_"cc"$ igual a 12V e aplicando a lei das malhas tem-se:
 
 #align(center)[
   $V_"cc" - R_C(I_C + I_B) - V_"CE" = 0$\
@@ -34,7 +34,9 @@ Sabe-se que $I_B = I_C/h_"FE"$ tem-se:
 
 
 #align(center)[
-  $R_B = h_"FE" * (V_"CE" + V_"BE")/ I_C = 0  #math.Omega$\
+  $R_B = h_"FE" * (V_"CE" + V_"BE")/ I_C = 232500 ohm approx 240k ohm $\ 
   \
-  $R_C = h_"FE" /(h_"FE" + 1) * (V_"cc" + V_"CE")/ I_C = 0  #math.Omega $ 
+  $R_C = h_"FE" /(h_"FE" + 1) (V_"cc" + V_"CE")/ I_C =396 ohm approx 390 ohm $ 
+
+  
 ]
