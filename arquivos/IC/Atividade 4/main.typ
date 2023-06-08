@@ -32,10 +32,16 @@ Com os dados normalizados foi feito a matriz de coeficientes, utilizando o segui
   image("prints/code2.png", width: 50%),
 )<code2>
 
-Em seguida foi realizados os passos do item 3 porem os valores de maximo me mino deram menores que 1. O codigo utilizado esta ilustrado pela @code3 a seguir:
+Em seguida foram feitos os calulos utilizando os valores do extraidos e normalizados que correspoderam a -21dB.
+
+
+Em seguida foi realizados os passos do item 3, na etapa do item a) observou-se que o maior valor, depois da conversão para um numero inteiro foi de 15, enquanto para a proxima etapa do item b) na etapa de readequação o maior valor foi arendondado para 0. A figura @code3 ilustra a o codigo utilizado:
+
 
 
 #figure(
   caption: [Calculo da precisão em bits],
   image("prints/code3.png", width: 50%),
 )<code3>
+
+Estou com dificuldade nessa etapa!
