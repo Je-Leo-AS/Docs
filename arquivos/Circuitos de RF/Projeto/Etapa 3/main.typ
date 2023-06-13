@@ -13,7 +13,10 @@
 // your document will look. Go ahead and replace it with
 // your own content!
 
-Com as etapas anteriores concluídas, foi possível realizar o casamento de impedância para as potências de entrada e saída do transistor escolhido. Para isso, utilizamos novamente a ferramenta da carta de Smith, tanto para a impedância de entrada quanto para a impedância de saída do nosso amplificador. Primeiramente, realizamos o cálculo do casamento para a entrada do amplificador. Importamos o arquivo .s2p do amplificador para o software da carta de Smith e selecionamos a frequência de atuação do amplificador (2.4 GHz). Ao importar esses dados, obtivemos um valor de impedância característica. Portanto, o casamento dessa impedância ocorrerá no complexo conjugado da mesma. O resultado desse casamento é ilustrado pela @inplane a seguir:
+Com as etapas anteriores concluídas, foi possível realizar o casamento de impedância para as potências de entrada e saída do transistor escolhido. Para isso, utilizamos novamente a ferramenta da carta de Smith, tanto para a impedância de entrada quanto para a impedância de saída do nosso amplificador. Primeiramente, realizamos o cálculo do casamento para a entrada do amplificador. Importamos o arquivo .s2p do amplificador para o software da carta de Smith e selecionamos a frequência de atuação do amplificador (2.4 GHz).
+\ 
+Ao importar esses dados, obtivemos um valor de impedância característica. Portanto, o casamento dessa impedância ocorrerá no complexo conjugado da mesma. 
+O resultado do casamento na entrada do amplificador é ilustrado pela @inplane a seguir:
 
 #figure(
   caption: [Carta de smith inplane],
@@ -34,9 +37,19 @@ Então foi realizado a simulação no QUCs desses valores calculados, afim de co
   image("prints/esquematico.png", width: 50%),
 )<esquematico>
 
+Ao realizar a simulação notou-se um pequeno deslocamento da curva da faixa de frequencia desejada. Então foi feito um pequeno ajuste da curva o qual esta ilustrado pela @esquematico1 a seguir:
+
+
+#figure(
+  caption: [Esquematico atualizado no QUCs],
+  image("prints/esquematico1.png", width: 50%),
+)<esquematico1>
+
 E o resultado obtido esta ilustrado pela @resultado a seguir:
 
 #figure(
   caption: [Resultado da Simulação no QUCs],
   image("prints/resultado.png", width: 50%),
 )<resultado>
+
+Analasiando o grafico da @resultado, observou-se um ganhor um pouco maior que 9 dB que corresponde ao valor esperado nessa faixa de frequência,conforme ilustrado pela Figura 3 da tabela de ganho do relatório da etapa 2.

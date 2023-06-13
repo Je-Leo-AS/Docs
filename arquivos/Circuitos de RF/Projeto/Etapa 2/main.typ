@@ -36,7 +36,36 @@ Sabe-se que $I_B = I_C/h_"FE"$ tem-se:
 #align(center)[
   $R_B = h_"FE" * (V_"CE" + V_"BE")/ I_C = 232500 ohm approx 240k ohm $\ 
   \
-  $R_C = h_"FE" /(h_"FE" + 1) (V_"cc" + V_"CE")/ I_C =396 ohm approx 390 ohm $ 
-
-  
+  $R_C = h_"FE" /(h_"FE" + 1) (V_"cc" + V_"CE")/ R_C =396 ohm approx 390 ohm $ 
 ]
+Afim de fazer validação dos valores calculados de $R_B$ e $R_C$, foi calculado a corrente e a tensão em função desses valores.
+
+#align(center)[
+  $V_"cc" - R_C(I_C + I_B) - V_"CE" = 0$\
+  \
+  $V_"CE" - R_B*I_B - V_"BE" = 0$\
+  \
+]
+
+Isolando o $I_C$ tem-se:
+
+
+#align(center)[
+  $I_C = (V_"cc" - V_"BE")*h_"fe"/(R_B+R_C*(h_"FE" + 1))$\
+  \
+  $I_C approx 4.8 m A$  
+]
+
+Realizando o mesmo processo para  $V_"CE"$ tem-se:
+#align(center)[
+
+  $V_"CE" - R_B*I_B - V_"BE" = 0$\
+  \
+  $V_"CE"=  R_B*I_B + V_"BE" $\
+  \
+  $V_"CE"=  R_B*I_C/h_"FE" + V_"BE" $\
+  \
+  $V_"CE" approx 10.08 V$ 
+
+]
+Analisando os resultados nota-se que ouve uma pequena variação menor que 5% o que é desejado para esse circuito.
