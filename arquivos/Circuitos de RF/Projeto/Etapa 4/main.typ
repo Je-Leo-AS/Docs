@@ -26,9 +26,9 @@ Neste esquemático, quando a impedância $Z_L$ é terminada em circuito aberto, 
 
 Considerando $Z_L = Z_H = Z_0 = 50 ohm$ e que a largura da linha de transmissão é aproximadamente 1.5 mmm o comprimento de onda deve ser igual a 1/4 do comprimento de onda na frequencia de operação, para fazer esse calculo, tem-se:
 
-$d = 1/(4*f*sqrt(u_0*epsilon_0*epsilon_r))$\
+$ d = 1/(4*f*sqrt(u_0*epsilon_0*epsilon_r))\
 \
-$d = 17.0 m m $
+d = 17.0 m m $ <eq17>
 
 Em seguida, procedeu-se com a seleção do capacitor e o cálculo de sua impedância. Optou-se por utilizar um capacitor de $100 n F$, uma vez que seu valor não é muito alto e sua impedância é significativamente menor que $50 ohm$.
 
