@@ -30,16 +30,16 @@ $ d = 1/(4*f*sqrt(u_0*epsilon_0*epsilon_r))\
 \
 d = 17.0 m m $ <eq17>
 
-Em seguida, procedeu-se com a seleção do capacitor e o cálculo de sua impedância. Optou-se por utilizar um capacitor de $100 n F$, uma vez que seu valor não é muito alto e sua impedância é significativamente menor que $50 ohm$.
+Em seguida, procedeu-se com a seleção do capacitor e o cálculo de sua impedância. Optou-se por utilizar um capacitor de $10 n F$, uma vez que seu valor não é muito alto e sua impedância é significativamente menor que $50 ohm$.
 
-Posteriormente, o esquemático foi desenvolvido no QUCs, conforme ilustrado pela figura abaixo:
+Posteriormente, o esquemático foi desenvolvido no QUCs, conforme ilustrado pela @QUCS abaixo:
 
 #figure(
   caption: [Esquematico no QUCs],
   image("print/Qucs.png", width: 50%),
 )<QUCS>
 
-O resultado da simulação no QUCs é apresentado na figura abaixo:
+O resultado da simulação no QUCs é apresentado na @res abaixo:
 
 #figure(
   caption: [Resultado da Simulção no QUCs],
