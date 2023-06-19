@@ -32,4 +32,4 @@ O resultado da simulação no QUCs é apresentado na @res abaixo:
 )<res>
 
 
-Anali
+Analisando o grafico da @res, é possivel ver que a atenuação resultando do capacitor na frequencia de operação é menor que 1 dB, portanto, despresivel.
