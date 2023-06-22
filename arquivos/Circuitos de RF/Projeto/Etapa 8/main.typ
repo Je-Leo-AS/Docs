@@ -3,13 +3,13 @@
 // Take a look at the file `template.typ` in the file panel
 // to customize this template and discover how it works.
 #show: project.with(
-  title: "1.template",
+  title: "Etapa 8",
   authors: (
     "Leonardo de Andrade Santos",
   ),
 )
 
-Com isso conclui-se o projeto cujo o esquematico do QUCs e resultado simulado está ilustrado pelas @QUCs e @resultado a seguir:
+Com isso conclui-se o projeto cujo o esquematico do QUCs e resultado simulado estão ilustrados pelas @QUCs e @resultado a seguir:
 
 #figure(
   caption: [Esquematico no QUCs],
@@ -33,4 +33,4 @@ E a placa de circuito impresso está ilustrada pela @circuito a seguir:
   image("prints/resultado4.png", width: 50%),
 )<resultado4>
 
-Comparando com os resultados obtidos na etapa 4 ilustrado pela @resultado4, nota-se que hove uma atenuação devido a adição dos capacitores de desacoplamento, e portanto, para diminuir essa atenuação uma solução seria mudar os capacitores, e por isso nao 
+Comparando com os resultados com os obtidos na etapa 4 ilustrado pela @resultado4, nota-se que hove uma atenuação devido a adição dos capacitores de desacoplamento, e portanto, para diminuir essa atenuação uma solução seria mudar os capacitores, e por isso não foi mexido nas dimensões das linhas de transmissão. 

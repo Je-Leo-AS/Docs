@@ -3,7 +3,7 @@
 // Take a look at the file `template.typ` in the file panel
 // to customize this template and discover how it works.
 #show: project.with(
-  title: "1.template",
+  title: "Etapa 6",
   authors: (
     "Leonardo de Andrade Santos",
   ),
