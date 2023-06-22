@@ -9,18 +9,28 @@
   ),
 )
 
-// We generated the example code below so you can see how
-// your document will look. Go ahead and replace it with
-// your own content!
+Com isso conclui-se o projeto cujo o esquematico do QUCs e resultado simulado está ilustrado pelas @QUCs e @resultado a seguir:
 
-= Introduction
-#lorem(60)
+#figure(
+  caption: [Esquematico no QUCs],
+  image("prints/Qucs.png", width: 50%),
+)<QUCs>
 
-== In this paper
-#lorem(20)
+#figure(
+  caption: [Resultado da Simulação],
+  image("prints/resultado.png", width: 50%),
+)<resultado>
 
-=== Contributions
-#lorem(40)
+E a placa de circuito impresso está ilustrada pela @circuito a seguir:
 
-= Related Work
-#lorem(500)
+#figure(
+  caption: [Circuito EasyEda],
+  image("prints/circuito.png", width: 50%),
+)<circuito>
+
+#figure(
+  caption: [Resultado da Simulação da etapa 4],
+  image("prints/resultado4.png", width: 50%),
+)<resultado4>
+
+Comparando com os resultados obtidos na etapa 4 ilustrado pela @resultado4, nota-se que hove uma atenuação devido a adição dos capacitores de desacoplamento, e portanto, para diminuir essa atenuação uma solução seria mudar os capacitores, e por isso nao 
