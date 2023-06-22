@@ -9,18 +9,19 @@
   ),
 )
 
-// We generated the example code below so you can see how
-// your document will look. Go ahead and replace it with
-// your own content!
+A etapa 7 consisitia em simular o circuto adapatado na etapa 6 com os capacitores escolhidos na etapa anterior, sendo assim o seguinte esquematico do QUCs, ilustrado pela @QUCs foi desenvolvido:
 
-= Introduction
-#lorem(60)
+#figure(
+  caption: [Esquematico no QUCs],
+  image("prints/Qucs.png", width: 50%),
+)<QUCs>
 
-== In this paper
-#lorem(20)
+Realizando a simulação chegou-se no seguinte resultado ilustrado pela @resultado a seguir
 
-=== Contributions
-#lorem(40)
+#figure(
+  caption: [Resultado da Simulação],
+  image("prints/resultado.png", width: 50%),
+)<resultado>
+OBS: embora nao esteja evidenciado no grafico a atenuação do Parametro $S_22$ foi de -27.4 dB.
 
-= Related Work
-#lorem(500)
+Analisando a o grafico da @resultado é possivel ver que houve uma atenuação de 0.14 dB com o parametro do casamento de impedância, que é a perda proxima da simualada na etapa 5. Além de tambem de um ganho nos demais parametros S, mas que não chegam a descaracterizar o filtro.
