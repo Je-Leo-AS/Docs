@@ -9,7 +9,7 @@
   ),
 )
 
-Com isso conclui-se o projeto cujo o esquematico do QUCs e resultado simulado estão ilustrados pelas @QUCs e @resultado a seguir:
+Com isso conclui-se o projeto cujo o esquemático do QUCs e o resultado simulado estão ilustrados pelas @QUCs e @resultado a seguir:
 
 #figure(
   caption: [Esquematico no QUCs],
@@ -21,7 +21,7 @@ Com isso conclui-se o projeto cujo o esquematico do QUCs e resultado simulado es
   image("prints/resultado.png", width: 50%),
 )<resultado>
 
-E a placa de circuito impresso está ilustrada pela @circuito a seguir:
+E a placa de circuito impresso resultante está ilustrada pela @circuito a seguir:
 
 #figure(
   caption: [Circuito EasyEda],
@@ -33,4 +33,4 @@ E a placa de circuito impresso está ilustrada pela @circuito a seguir:
   image("prints/resultado4.png", width: 50%),
 )<resultado4>
 
-Comparando com os resultados com os obtidos na etapa 4 ilustrado pela @resultado4, nota-se que hove uma atenuação devido a adição dos capacitores de desacoplamento, e portanto, para diminuir essa atenuação uma solução seria mudar os capacitores, e por isso não foi mexido nas dimensões das linhas de transmissão. 
+Comparando com os resultados com os obtidos na etapa 4 ilustrado pela @resultado4, nota-se que houve uma atenuação devido a adição do filtro mas principalmente pela adição dos capacitores, e portanto, para diminuir essa atenuação, uma solução seria mudar os capacitores, e por isso não foi feito um redimensionamento das linhas de transmissão, uma vez que a atenuação da mesma foi bem pequena. 

@@ -10,7 +10,7 @@
 )
 
 
-Para o inicio da etapa 3 foi primeiramente adaptado o projeto no QUCs de forma a deixa-lo mais facil de faze-lo em uma placa de circuito impresso.
+Para o inicio da etapa 6 foi primeiramente adaptado o projeto no QUCs de forma a deixa-lo mais facil de faze-lo em uma placa de circuito impresso.
 
 Portanto realisou-se as seguintes adaptações no esquematico do projeto, ilustrados pela figura @QUCS:
 
@@ -19,21 +19,21 @@ Portanto realisou-se as seguintes adaptações no esquematico do projeto, ilustr
   image("prints/Qucs.png", width: 50%),
 )<QUCS>
 
-Analisando a figura notouse que foram adicionados alguns trechos de linha de transmissão afim de facilitar o desenvolvimento da placa, cujo o resultado da simulção esta ilustrado pela @resultados a seguir:
+Analisando a o esquematico, ilustrado pela @QUCS, notou-se que foram adicionados alguns trechos de linha de transmissão afim de facilitar o desenvolvimento da placa, cujo o resultado da simulção esta ilustrado pelo grafico da @resultados a seguir:
 
 #figure(
   caption: [Resultados da simulação],
   image("prints/resultados.png", width: 50%),
 )<resultados>
 
-Comparando com o resultado da etapa 4 ilustrado pela @resultadopassado, é notavel que houve uma distoção dos parametros S nas frequencias de operação alem de uma leve atenuação de 0.02 dB no parametro $S_21$, alem de um ganho de nos parametrs $S_11$ e $S_22$, mas que não chegam a ser significativamente prejudiciais ao filtro.
+Comparando com o resultado da etapa 4 ilustrado pela @resultadopassado, fica evidente que houve uma distoção dos parametros S nas frequências de operação além de uma leve atenuação de 0.02 dB no parâmetro $S_21$, além de um ganho de nos parametrs $S_11$ e $S_22$, mas que não chegam a ser significativamente prejudiciais ao filtro de forma a descaracteriza-lo.
 
 #figure(
   caption: [Resultados da simulação da etapa 4],
   image("prints/resultadopassado.png", width: 50%),
 )<resultadopassado>
 
-Em seguida foi desenvolvido o projeto do circuito impresso utilizado o software EasyEda o qual está ilistrado pela @circuito a seguir:
+Em seguida foi desenvolvido o projeto do circuito impresso utilizado o software EasyEda o qual está ilustrado pela @circuito a seguir:
 
 #figure(
   caption: [Circuito EasyEda],
