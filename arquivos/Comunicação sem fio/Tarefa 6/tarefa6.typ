@@ -67,6 +67,7 @@ Tendo os pontos e o equipamento definidos, e realizando uma análise da topologi
 = Fotos do relevo
 
 O ponto de master1 e estation1 estão ilustrados pelas @svgato e @svcasa respectivamente.
+
 #figure(caption: [Street view station1 ], image("svgato.png", width: 70%))<svgato>
 
 #figure(caption: [Street view master1], image("svcasa.png", width: 70%))<svcasa>
