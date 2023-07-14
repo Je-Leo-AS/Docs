@@ -29,19 +29,14 @@ Com os dados normalizados foi feito a matriz de coeficientes, utilizando o segui
 
 #figure(
   caption: [Calculo das matrizes de Coeficientes],
-  image("prints/code2.png", width: 50%),
+  image("prints/code22.png", width: 50%),
 )<code2>
 
-Em seguida foram feitos os calulos utilizando os valores do extraidos e normalizados que correspoderam a -21dB.
-
-
-Em seguida foi realizados os passos do item 3, na etapa do item a) observou-se que o maior valor, depois da conversão para um numero inteiro foi de 15, enquanto para a proxima etapa do item b) na etapa de readequação o maior valor foi arendondado para 0. A figura @code3 ilustra a o codigo utilizado:
-
-
+Em seguida foi feito o calculo da adequeação e da multiplicação de matrizes utilizando esses trechos de código:
 
 #figure(
   caption: [Calculo da precisão em bits],
-  image("prints/code3.png", width: 50%),
+  image("prints/code31.png", width: 50%),
 )<code3>
 
-Estou com dificuldade nessa etapa!
+Porém o resultado obtido não foi o esperado!
