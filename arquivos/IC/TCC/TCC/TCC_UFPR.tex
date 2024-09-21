@@ -1,0 +1,253 @@
+\documentclass[
+	12pt,				% tamanho da fonte
+	openright,			% capÃ­tulos comeÃ§am em pÃ¡g Ã­mpar (insere pÃ¡gina vazia caso preciso)
+	oneside,			% para impressÃ£o apenas em um lado do papel
+	a4paper,			% tamanho do papel.
+	brazil				% o Ãºltimo idioma Ã© o principal do documento
+	]{abntex2}
+\usepackage{etoolbox}
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversÃ£o automÃ¡tica dos acentos)
+%\usepackage{lastpage}			% Usado pela Ficha catalogrÃ¡fica
+\usepackage{indentfirst}		% Indenta o primeiro parÃ¡grafo de cada seÃ§Ã£o.
+\setlength{\parindent}{1.5cm}   % EspaÃ§amento de 1,5cm do parÃ¡grafo
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% InclusÃ£o de grÃ¡ficos
+\usepackage{microtype} 			% para melhorias de justificaÃ§Ã£o
+\usepackage{lipsum}				% para geraÃ§Ã£o de dummy text
+\usepackage{abntex2cite}	% CitaÃ§Ãµes padrÃ£o ABNT
+\usepackage[table,xcdraw]{xcolor}% CÃ©dula colorida em tabelas
+%\usepackage{pdflscape}          % Rotaciona pÃ¡gina
+\usepackage{Capa}               % Capa e folha de rosto com modificaÃ§Ãµes
+\usepackage{float}              % Melhor posicionamento de figuras
+\usepackage{gensymb}            % sÃ­mbolo Âº
+\usepackage[justification=justified,singlelinecheck=false]{caption}
+%\usepackage{etoolbox}           % ConfiguraÃ§Ãµes adicionais de macros
+\usepackage{xparse}						
+\usepackage{multirow}
+\NewDocumentCommand\cc{+u{\cc}}{\ignorespaces}
+\usepackage[justification=centering]{caption}
+\usepackage{listings}
+
+% --------------------
+% Dados do Documento
+% --------------------
+
+\lstset{
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  tabsize=2,
+  breaklines=true,
+  breakatwhitespace=false
+}
+\titulo{Projeto de um circuito integrado de um pré-distorcedor digital baseado em polinômio de
+memória}
+\autor{Leonardo de Andrade Santos}
+\data{\the\year}
+\instituicao{Universidade Federal do Paraná}
+\local{Curitiba}
+\orientador[Orientadora:]{Sibilla Batista da Luz França}
+\coorientador[Coorientador:]{Eduardo Gonçalves de Lima}
+\preambulo{Trabalho de conclusão de curso do Curso de Graduação em Engenharia Elétrica da Universidade Federal do Paraná, como exigência parcial para obtenção do grau de Bacharel em Engenharia Elétrica.}
+
+
+% ---------------------
+% ConfiguraÃ§Ãµes bÃ¡sicas
+% --------------------
+
+% informaÃ§Ãµes do PDF
+\makeatletter
+\def\figsize{0.80\textwidth} % Define 80% da largura do texto
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+        pdfkeywords = {Desempenho AcadÃªmico}{EstatÃ­stica Descritiva}{EvasÃ£o}{Vestibular},
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,      	    % color of links to bibliography
+    	filecolor=magenta,      	% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+
+\graphicspath{{Figuras/}}
+
+% -------------------
+% InÃ­cio do documento
+% -------------------
+
+\begin{document}
+
+\frenchspacing % Retira espaÃ§o extra obsoleto entre as frases.
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÃ‰-TEXTUAIS
+% ----------------------------------------------------------
+
+% ----
+% Capa
+% ----
+\imprimircapa
+% ---
+
+% --------------
+% Folha de rosto
+% --------------
+\imprimirfolhaderosto
+% ---
+
+%\begin{dedicatoria}  % Opcional
+%\vspace*{\fill}
+% Dedico este trabalho aos meus pais .....
+%\vspace*{\fill}
+%\end{dedicatoria}
+
+% --------------
+% Agradecimentos  % Opcional
+% --------------
+
+% \begin{agradecimentos}
+
+% Inclua seus agradecimentos aqui. Há vários exemplos na internet.
+% \end{agradecimentos}
+
+% \begin{epigrafe} % Opcional
+% \vspace*{\fill}
+% \begin{flushright}
+% \textit{"Democracia é oportunizar a todos o mesmo ponto de partida. \\
+%          Quanto ao ponto de chegada, depende de cada um".\\
+%          (Fernando Sabino)}
+% \end{flushright}
+% \end{epigrafe}
+
+% ------
+% Resumo
+% ------
+\newpage
+\setlength{\absparsep}{18pt}   % ajusta o espaÃ§amento dos parÃ¡grafos do resumo
+\setlength{\abstitleskip}{1cm} % adiciona mais um cm apÃ³s o 'titulo' do Resumo para ficar com 2cm,
+
+% -------------------------------
+% Lista de abreviaturas e siglas - Opcional
+% -------------------------------
+
+\begin{siglas}  %
+ \item[DPD]  Pré-Distorcedor Digital
+ \item[FPGA] Matriz de Portas Programáveis em Campo 
+ \item[PA] Amplificador de Potência
+ \item[RF] Rádio Frequência 
+ \item[PARF] Amplificador de Potência de Rádio Frequência 
+ \item[HDL] Linguagem de Descrição de software
+ \item[VHSIC]  Circuito integrado de Velocidade Muito Elevada 
+ \item[VHDL]  VHSIC Hardware Description Language
+ \item[LUT]  Look Up Table
+ \item[SOP]  Soma de Produtos 
+ \item[LAB]  Logic Array Block 
+ \item[ALM]  Adaptive Logic Module
+ \item[LE]   Logic Element 
+ \item[HEMT] transistor de efeito de campo de heterojunção
+ \item[VSA] analisador de sinal vetorial  
+ \item[NMSE] Erro Médio Quadrado Normalizado
+\end{siglas}
+
+
+\begin{resumo}
+
+	\input{resumo}
+	.
+	\end{resumo}
+
+	
+\listoffigures*
+\cleardoublepage
+% -------
+% Sumario
+% -------
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+\makepagestyle{abntheadings}
+\makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{}
+\makeoddhead{abntheadings}{}{}{\ABNTEXfontereduzida\thepage}
+\makeheadrule{abntheadings}{\textwidth}{0in}
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+
+\textual
+
+\setcounter{page}{1}
+
+\chapter{Introdução} 
+\label{chap:introducao}
+\input{Introducao}
+
+\chapter{Revisão de Literatura} 
+\label{chap:revi}
+\input{Revisao}
+
+\chapter{Material e Métodos} 
+\label{chap:mati}
+\input{MaterialeMetodos}
+
+\chapter{Resultados e Discussão} 
+\label{chap:resul}
+\input{Resultados}
+
+\chapter{Conclusão} 
+\label{chap:conc}
+\input{concl.tex}
+
+% ----------------------------------------------------------
+% ReferÃªncias bibliogrÃ¡ficas
+% ----------------------------------------------------------
+
+%\setlength{\afterchapskip}{\baselineskip}
+
+\bibliography{Referencias}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÃ“S-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% ANEXOS
+% ----------------------------------------------------------
+
+% \begin{apendicesenv}
+
+% \partapendices
+
+% \input{apendices.tex}
+
+% \end{apendicesenv}
+
+\begin{anexosenv}
+
+\partanexos
+%\addcontentsline{toc}{chapter}{\hspace{2.105cm}ANEXOS}
+\renewcommand{\ABNTEXchapterfontsize}{\ABNTEXsectionfont}
+
+\input{anexos.tex}
+
+\end{anexosenv}
+
+
+\end{document}

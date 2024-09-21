@@ -1,0 +1,79 @@
+\documentclass[
+12pt,				% tamanho da fonte
+openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+oneside,			% para impressão apenas em um lado do papel
+a4paper,			% tamanho do papel.
+brazil				% o último idioma é o principal do documento
+]{abntex2}
+
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{fontspec}            % Fonte Arial
+\setmainfont{Arial}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}              % Controle de cores
+\usepackage{float}               % Melhor posicionamento de figuras
+\usepackage{lipsum}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{xparse}
+\usepackage[alf]{abntex2cite}  % Citações padrão ABNT no formato autor-data
+\NewDocumentCommand\cc{+u{\cc}}{\ignorespaces}
+\usepackage[justification=centering]{caption}
+\setlength{\parskip}{0pt}   % Remove o espaço entre parágrafos parágrafos
+\usepackage{indentfirst}
+
+
+
+
+% Pacote para a capa
+\usepackage{Capa}
+
+% Configurações de seções
+%\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+%\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\setcounter{secnumdepth}{3} % Profundidade da numeração
+\renewcommand{\thesection}{\arabic{section}} % Numeração de seções sem zero
+
+\graphicspath{{Figuras/}}
+
+\def\figsize{0.80\textwidth} 
+\begin{document}
+	
+	\imprimecapa % Chama a função que imprime a capa
+	
+	\section{Resumo}
+	\input{resumo.tex}
+	
+	\newpage
+	\section{Introdução}
+	\input{Introducao.tex}
+	
+	\newpage
+	\section{Pesquisa bibliográfica}
+	\input{Revisao.tex}
+	
+	\newpage
+	\section{Metodologia}
+	\input{MaterialeMetodos.tex}
+	
+	\newpage
+	\section{Resultados}
+	\input{Resultados.tex}
+	
+	\newpage
+	\section{Conclusão}
+	\input{concl.tex}
+	
+	\newpage
+	\begingroup
+	\let\clearpage\relax
+	\section{Referências}
+	\renewcommand{\bibname}{}
+	\bibliography{Referências}
+	\endgroup
+	
+\end{document}

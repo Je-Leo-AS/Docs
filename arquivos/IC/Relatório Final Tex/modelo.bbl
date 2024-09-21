@@ -1,0 +1,50 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Bonfim e Lima 2016]{Bonfim2016}
+\abntrefinfo{Bonfim e Lima}{BONFIM; LIMA}{2016}
+{BONFIM, E.~J.; LIMA, E. G.~D. \emph{A Modified Two Dimensional Volterra-Based
+  Series for the Low-Pass Equivalent Behavioral Modeling of RF Power
+  Amplifiers}. 2016. 27-35~p.}
+
+\bibitem[Chavez 2018]{Chavez2018}
+\abntrefinfo{Chavez}{CHAVEZ}{2018}
+{CHAVEZ, J.~H. \emph{Estudo comparativo entre as arquiteturas de
+  identificação de pré-distorcedores digitais através das aprendizagens
+  direta e indireta}. 2018.}
+
+\bibitem[Cripps 2006]{Cripps2006}
+\abntrefinfo{Cripps}{CRIPPS}{2006}
+{CRIPPS, S. \emph{RF Power Amplifiers for Wireless Communications}. [S.l.:
+  s.n.], 2006.}
+
+\bibitem[John 2016]{John2016}
+\abntrefinfo{John}{JOHN}{2016}
+{JOHN, E. \emph{Modelagem comportamental de amplificadores de potência de
+  radiofrequência usando termos unidimensionais e bidimensionais de séries de
+  Volterra}. 2016.}
+
+\bibitem[Kenington 2000]{Kenington2000}
+\abntrefinfo{Kenington}{KENINGTON}{2000}
+{KENINGTON, P. \emph{High Linearity RF Amplifier Design}. [S.l.: s.n.], 2000.}
+
+\bibitem[Lima e Ghione 2009]{Gonçalves2009}
+\abntrefinfo{Lima e Ghione}{LIMA; GHIONE}{2009}
+{LIMA, E.~G. de; GHIONE, G. \emph{Behavioral modeling and digital base-band
+  predistortion of RF power amplifiers}. 2009.}
+
+\bibitem[Pedroni 2010]{Pedroni2010}
+\abntrefinfo{Pedroni}{PEDRONI}{2010}
+{PEDRONI, V. \emph{Eletrônica Digital e VHDL}. [S.l.: s.n.], 2010.}
+
+\bibitem[Schuartz e Lima 2017]{Schuartz2017}
+\abntrefinfo{Schuartz e Lima}{SCHUARTZ; LIMA}{2017}
+{SCHUARTZ, L.; LIMA, E. \emph{Polinômios com Memória de Complexidade Reduzida
+  e sua Aplicação na Pré-distorção Digital de Amplificadores de
+  Potência}. 2017.}
+
+\end{thebibliography}
