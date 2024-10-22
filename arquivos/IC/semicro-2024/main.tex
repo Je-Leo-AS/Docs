@@ -1,0 +1,77 @@
+\documentclass[twocolumn, a4paper]{article}
+\fontsize{10.5}{10}\selectfont
+\def\figsize{0.50\textwidth} 
+% ------------------------------------------------------------------
+% Importação do arquivo de definições
+\input{Definicoes}
+% ------------------------------------------------------------------
+% Início do documento
+\begin{document}
+% ------------------------------------------------------------------
+% Definição da parte do titulo do arquivo 
+\begin{strip}
+  \vspace*{\dimexpr-\baselineskip-\stripsep\relax}
+  %\centering
+   \maketitle
+  \vskip\baselineskip
+\noindent %\makebox[\textwidth]{\rule{1.1\paperwidth}{0.4pt}} Linha horizontal
+  \vskip\baselineskip
+\end{strip}
+
+% ------------------------------------------------------------------
+% Nota de rodarezzé da primeira página
+\thispagestyle{specialfooter}
+% ------------------------------------------------------------------
+% Resumo (definição em itálico e negrito)
+\vspace{3pt}\textbf{\textit{Resumo - A evolução da comunicação sem fio impulsionou aplicações como IoT, onde a eficiência energética é crucial para dispositivos móveis e estações de rádio. No entanto, essa eficiência compromete a linearidade dos amplificadores, afetando modulações de fase e amplitude. Sendo assim, uma alternativa para contornar esse obstáculo é a implementação de um (DPD) em cascata com um Amplificador de Potência (PA). Portanto, este trabalho visa implementar um código em VHDL para processar as características de um amplificador em tempo real, minimizando não linearidades e consumo de energia. A modelagem foi feita inicialmente em software e implementada em FPGA (Field-Programmable Gate Array) para validação e análise de desempenho. Durante o desenvolvimento, testes e análises foram realizados com um polinômio de memória de segundo grau e um sinal de amostra memorizado, mostrando uma redução efetiva nas distorções do PA. Foi utilizada a métrica de Erro Quadrático Médio Normalizado (NMSE - Normalized Mean Squared Error) para quantificar a qualidade da modelagem implementada. O NMSE de -23,57 dB mostrou eficiência na redução de distorções. Valores menores de NMSE refletem melhor capacidade de reduzir distorções e preservação da fidelidade do sinal. Assim a próxima etapa consiste na modelagem do PA em vírgula fixa, a fim de atingir o NMSE mais próximo do atingido em vírgula flutuante com a menor resolução em bits, visando alcançar a melhor desempenho em hardware. A modelagem em vírgula fixa com 8 bits otimizou o desempenho. Por fim foi feit o desenvolvido a implementação do modelo em hardware, na placa Virtex5 XC5VLX50T, essa implementação contou com uma quantidade total de 150 registradores, 692 LUTs e 4 DSP48Es, atuando a uma frequência de 61.44 MHz}}
+% ------------------------------------------------------------------
+
+\section{INTRODUÇÃO}
+\input{introdução.tex}
+
+\section{MODELAGEM MATEMÁTICA}
+\input{model.tex}
+
+\section{IMPLEMENTAÇÃO EM SOFTWARE} \label{sec:implsoft}
+\input{soft.tex}
+
+\section{IMPLEMENTAÇÃO EM FPGA}
+\input{hardware}
+
+\section{RESULTADOS}
+\input{Resultados.tex}
+
+\section{CONCLUSÃO}
+\input{concl.tex}
+
+\section*{REFERÊNCIAS}
+\begingroup
+\renewcommand{\section}[2]{}%
+
+\begin{thebibliography}{}
+	\bibitem{Schuartz2017} Luis Schuartz and Eduardo Lima, ``Polinômios com Memória de Complexidade Reduzida e sua Aplicação na Pré-distorção Digital de Amplificadores de Potência", 2017.
+	\bibitem{Wayne} Wayne Wolf, ``Modern VLSI Design: IP-Based Design, Fourth Edition", Prentice Hall Modern Semiconductor Design Series.
+	\bibitem{John2016} Elton John, ``Modelagem comportamental de amplificadores de potência de radiofrequência usando termos unidimensionais e bidimensionais de séries de Volterra", 2016.
+	\bibitem{Kenington2000} Peter Kenington, ``High Linearity RF Amplifier Design", 2000.
+	\bibitem{Raychaudhuri2012} Dipankar Raychaudhuri and Narayan B. Mandayam, ``Frontiers of Wireless and Mobile Communications", Proceedings of the IEEE, vol. 100, no. 4, pp. 824-840, 2012.
+	\bibitem{Silva2013} Pedro Silva, ``Combinação entre pré-distorção digital e redução de fator de crista para linearização de amplificadores de potência para sistemas de telecomunicações móveis", 2013.
+	\bibitem{Cripps2006} Steve Cripps, ``RF Power Amplifiers for Wireless Communications", 2006.
+	\bibitem{Bonfim2016} Elton J Bonfim and Eduardo G De Lima, ``A Modified Two Dimensional Volterra-Based Series for the Low-Pass Equivalent Behavioral Modeling of RF Power Amplifiers", vol. 47, pp. 27-35, 2016.
+	\bibitem{Lima2009} Eduardo Gonçalves de Lima and Giovanni Ghione, ``Behavioral modeling and digital base-band predistortion of RF power amplifiers", 2009.
+	\bibitem{Chavez2018} Joel Huanca Chavez, ``Estudo comparativo entre as arquiteturas de identificação de pré-distorcedores digitais através das aprendizagens direta e indireta", 2018.
+	\bibitem{CMOS2010} Neil H.E.Weste and David Money Harris, ``CMOS VLSI Design: A Circuits and Systems Perspective (4th Edition)", 2010.
+	\bibitem{Pedroni2010} Volnei Pedroni, ``Eletrônica Digital e VHDL ", 2010.
+	\bibitem{Pedroni2020} Volnei Pedroni, ``Circuit design with VHDL", 2020.
+	\bibitem{Gonçalves2009} Eduardo Gonçalves de Lima and Giovanni Ghione, ``Behavioral modeling and digital base-band predistortion of RF power amplifiers", 2009.
+\end{thebibliography}
+
+
+
+
+\endgroup
+	
+
+
+
+
+\end{document}
