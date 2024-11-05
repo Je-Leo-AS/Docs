@@ -11,11 +11,11 @@ Os núcleos de Volterra \( h_n \) são funções de várias variáveis que captu
 
 \subsection{Polinômio de memória}
 
-Um modelo simples, utilizado na modelagem comportamental simplificada das séries de Volterra considerando apenas componentes unidimensionais\footnote{Cada termo do somatório é composto por amostras no mesmo instante, por exemplo: $x(n)|x(n)|,x(n - 1)|x(n - 1)|$; termos bidimensionais são compostos por amostras em instantes de tempos distintos, como por exemplo: $x(n)|x(n - 1)|$} é o MP, que é um modelo compacto, de baixo custo computacional e linear em seus parâmetros. O MP gera baixo erro quando aplicado à PAs que apresentam pouco efeito de memória. O DPD e pós distorsor apresentam característica inversa a do PA \cite{Schuartz2017}, portanto o mesmo modelo pode ser utilizado. A equação \ref{eq:mp} apresenta o MP conforme é ilustrado por \cite{Schuartz2017}: 
+Um modelo simples, utilizado na modelagem comportamental simplificada das séries de Volterra considerando apenas componentes unidimensionais\footnote{Cada termo do somatório é composto por amostras no mesmo instante, por exemplo: $x(n)|x(n)|,x(n - 1)|x(n - 1)|$; termos bidimensionais são compostos por amostras em instantes de tempos distintos, como por exemplo: $x(n)|x(n - 1)|$} é o MP, que é um modelo compacto, de baixo custo computacional e linear em seus parâmetros. O MP gera baixo erro quando aplicado a PAs que apresentam pouco efeito de memória. O DPD e pós distorsor apresentam característica inversa a do PA \cite{Schuartz2017}, portanto o mesmo modelo pode ser utilizado. A equação \ref{eq:mp} apresenta o MP conforme é ilustrado por \cite{Schuartz2017}: 
 
 \begin{equation}
 	y(n) = \sum_{p=1}^{P} \sum_{m=0}^{M} h_{p,m} x(n - m) \left| x(n - m) \right|^{p-1}
 	\label{eq:mp}
 \end{equation}
 
-Como a proposta do trabalho é a implementação em hardware desse modelo, torna-se necessário paralelizar operações aritméticas de forma a alcançar uma taxa de operação que satisfaça a norma regulamentadora. Nesse contexto, as FPGAs apresentam-se como uma alternativa viável para a implementação de circuitos pré-distorcedores.
+Como a proposta do trabalho é a implementação em hardware desse modelo, torna-se necessário paralelizar operações aritméticas de forma a alcançar altas taxas de operação. Nesse contexto, as FPGAs apresentam-se como uma alternativa viável para a implementação de circuitos pré-distorcedores.
