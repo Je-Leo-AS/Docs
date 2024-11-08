@@ -22,15 +22,16 @@
 \contentsline {section}{\numberline {4.1}Modelagem do PA}{11}{section.4.1}%
 \contentsline {section}{\numberline {4.2}levantamento do número de bits}{11}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Modelagem do DPD}{12}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Implementação em FPGA}{14}{section.4.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{15}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{16}{chapter.5}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{16}{section*.23}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{17}{section*.24}%
 \vspace {\cftbeforechapterskip }
 \cftinsert {AAA}
 \renewcommand *{\cftappendixname }{ANEXO \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Anexos}}{17}{section*.25}%
+\contentsline {part}{\uppercase {Anexos}}{18}{section*.26}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}

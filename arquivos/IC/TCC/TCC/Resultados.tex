@@ -43,7 +43,7 @@ Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade to
 \section{Modelagem do DPD}
 A partir dos resultados obtidos foi possível fazer a modelagem do DPD, para isso foi feito o mesmo processo de modelagem do PA, porém para alcançar a característica de transferência inversa PA foi invertido a ordem dos dados de entrada e saída para extração dos coeficientes do DPD. O resultado desta modelagem está ilustrado pela figura \ref{fig:modelodpd} a seguir.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
     \centering
     \captionsetup{justification=centering}
     \caption*{Fonte: Autor}
@@ -51,3 +51,28 @@ A partir dos resultados obtidos foi possível fazer a modelagem do DPD, para iss
     \caption{Modelo do DPD em vírgula fixa}
     \label{fig:modelodpd}
 \end{figure}
+
+\section{Implementação em FPGA}
+Em seguida foi feito o código em VHDL para a implementação em FPGA, nessa implementação cada operação aritmética é feita de maneira síncrona, e o fluxo dos cálculos desse processo esta sendo ilustrado pelo diagrama da figura \ref{fig:fluxocal} a seguir.
+
+\begin{figure}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption*{Fonte: Autor}
+	\includegraphics[width=\figsize]{fluxo_de_calculo.png}
+	\caption{Fluxo de calculo FPGA}
+	\label{fig:fluxocal}
+\end{figure}
+
+No primeiro ciclo de clock é feito o registro do sinal de entrada, para em seguida ele ser elevado ao quadrado N graus do polinômio, para depois esse valor ser adicionado a outro buffer de matriz de extração para para todos os sinais de amostra e por fim ser multiplicado pelos seus respectivos e somado para o sinal de saída.
+
+A figura \ref{fig:simfpga} ilustra o resultado dessa implementação na  FPGA Virtex5 XC5VLX50T,utilizando um total de 150 registradores, 692 LUTs e 4 unidades DSP48E, operando a uma frequência de 61,5 MHz.
+\begin{figure}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption*{Fonte: Autor}
+	\includegraphics[width=\figsize]{fpgasim.png}
+	\caption{}
+	\label{fig:simfpga}
+\end{figure}
+
