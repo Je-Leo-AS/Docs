@@ -1,5 +1,5 @@
 Conforme dito no capítulo \ref{chap:mati}, o trabalho foi dividido em 4 etapas, nas quais a primeira etapa consistiu no estudo dos DPDs e nos métodos de modelagem deles, a segunda etapa consistiu na implementação desta modelagem em software, a qual utilizou-se o python, a etapa 3 que consiste na implementação do modelo de DPD escolhido em hardware utilizando a linguagem VHDL e finalmente na quarta etapa é feita o design do circuito integrado.
-Neste capítulo sãi exibidos os resultados da etapa 2 já que a etapa 1 consiste na pesquisa bibliográfica e as etapas 3 e 4 serão desenvolvidas na segunda etapa do projeto.
+Neste capítulo são exibidos os resultados da etapa 2 já que a etapa 1 consiste na pesquisa bibliográfica e as etapas 3 e 4 serão desenvolvidas na segunda etapa do projeto.
 
 \section{Modelagem do PA}
 
@@ -76,3 +76,15 @@ A figura \ref{fig:simfpga} ilustra o resultado dessa implementação na  FPGA Vi
 	\label{fig:simfpga}
 \end{figure}
 
+
+\section{Síntese lógica}
+Por fim foi feito a síntese lógica do circuito e feita a simulação pos síntese cujo o resultado esta disponível na Figura \ref{fig:simpost}
+
+\begin{figure}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption*{Fonte: Autor}
+	\includegraphics[width=\figsize]{sim_pos_sin.png}
+	\caption{Simulação pós síntese}
+	\label{fig:simpost}
+\end{figure}
