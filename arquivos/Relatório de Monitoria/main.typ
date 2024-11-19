@@ -10,7 +10,7 @@
 )
 
 = Resumo das atividades desenvolvidas:
-A principal atividade desenvolvida durante o semestre, foi o suporte dos alunos de turma de microeletronica, nas atividade laboratórias desenvolvidas em aula.
+A principal atividade desenvolvida durante o semestre, foi o suporte dos alunos de turma de microeletrônica, nas atividade laboratórias desenvolvidas em aula.
 
 =	Elencar os aspectos positivos vivenciados nesta experiência de Monitoria:
 
