@@ -232,9 +232,16 @@
 			\item Etapa 1: Estudos do DPD e modelagem matemática do PA;
 			\item Etapa 2: Implementação do DPD em software;
 			\item Etapa 3: Implementação do DPD em FPGA;
-			\item Etapa 4: Design do Circuito Integrado
+			\item Etapa 4: Simulação em FPGA;
+			\item Etapa 5: Design do Circuito Integrado
+			\item Etapa 6: Simulação pós síntese;
 		\end{itemize}
 	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	
+	\includegraphics[scale=0.1]{diagrama.png}
+	
+	\end{minipage}%
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dados Utilizados}
@@ -253,6 +260,11 @@
 			\item Os dados de entrada e saída do amplificador de potência foram medidos usando um analisador de sinal vetorial (VSA) Rohde \& Schwarz FSQ com uma taxa de amostragem de 61,44 MHz;
 		\end{itemize}
 	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		
+		\includegraphics[scale=0.4]{analisador.jpeg}
+		
+	\end{minipage}%
 \end{frame}
 
 \section{Implementação e software}
@@ -265,7 +277,7 @@
 		\begin{itemize}
 			\item  Implementação em Python;
 			\item Modelagem do PA, com calculo em virgula flutuante;
-			\item NMSE de -23,57 dB, para um Polinômio de 2° grau com uma amostra de memória;
+			\item NMSE de -23,57 dB, para um Polinômio de $2^{\circ}$  grau com uma amostra de memória;
 		\end{itemize}
 	\end{minipage}%
 	\hspace{0.04\textwidth}
