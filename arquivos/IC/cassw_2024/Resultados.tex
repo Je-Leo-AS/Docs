@@ -1,14 +1,6 @@
 \subsection{Modelagem do PA}
 
-Para fazer a modelagem em software foi utilizada a linguagem de programação Python. Para isso, separou-se os dados citados na seção \ref{sec:implsoft}, em dados de extração e dados de validação, os quais são utilizados para extração dos coeficientes do modelo do MP e validação do modelo encontrado, respectivamente. Para fazer a validação do modelo utilizou-se a métrica do NMSE, que consiste em calcular o erro quadrático médio do valor medido pelo VSA (Analisador de Sinal Vetorial) para o valor calculado pelo modelo. Portanto, quanto menor o NMSE mais fiel é o modelo do PA. Nesta etapa obteve-se um NMSE de -23.57 dB, para cálculos em vírgula flutuante, onde o resultado está presente no gráfico da figura \ref{fig:modelopafloat}.
-
-\begin{figure}[htbp]
-    \centering
-    \captionsetup{justification=centering}
-    \includegraphics[width=\figsize]{modeloPAfloat.png}
-    \caption{Modelo do PA em vírgula flutuante}
-    \label{fig:modelopafloat}
-\end{figure}
+Para fazer a modelagem em software foi utilizada a linguagem de programação Python. Para isso, separou-se os dados citados na seção \ref{sec:implsoft}, em dados de extração e dados de validação, os quais são utilizados para extração dos coeficientes do modelo do MP e validação do modelo encontrado, respectivamente. Para fazer a validação do modelo utilizou-se a métrica do NMSE, que consiste em calcular o erro quadrático médio do valor medido pelo VSA (Analisador de Sinal Vetorial) para o valor calculado pelo modelo. Portanto, quanto menor o NMSE mais fiel é o modelo do PA. Nesta etapa obteve-se um NMSE de -23.57 dB, para cálculos em vírgula flutuante.
 
 \subsection{Definição do número de bits}
 
@@ -24,26 +16,10 @@ O resultado desse levantamento está presente no gráfico na figura \ref{fig:bit
     \label{fig:bits}
 \end{figure}
 
-Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade total de bits contando com os bits de overflow necessárias para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 8 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits. O resultado alcançado está ilustrado pela figura \ref{fig:modelopa}.
-
-\begin{figure}[htbp]
-    \centering
-    \captionsetup{justification=centering}
-    \includegraphics[width=\figsize]{modeloPA.png}
-    \caption{Modelo do PA em vírgula fixa}
-    \label{fig:modelopa}
-\end{figure}
+Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade total de bits contando com os bits de overflow necessárias para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 8 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits. 
 
 \subsection{Modelagem do DPD}
-A partir dos resultados obtidos foi possível fazer a modelagem do DPD, para isso foi feito o mesmo processo de modelagem do PA, porém para alcançar a característica de transferência inversa do PA foi invertido a ordem dos dados de entrada e saída para extração dos coeficientes do DPD. O resultado desta modelagem está ilustrado pela figura \ref{fig:modelodpd} a seguir.
-
-\begin{figure}[htbp]
-    \centering
-    \captionsetup{justification=centering}
-    \includegraphics[width=\figsize]{modelodpd.png}
-    \caption{Modelo do DPD em vírgula fixa}
-    \label{fig:modelodpd}
-\end{figure}
+A partir dos resultados obtidos foi possível fazer a modelagem do DPD, para isso foi feito o mesmo processo de modelagem do PA, porém para alcançar a característica de transferência inversa do PA foi invertido a ordem dos dados de entrada e saída para extração dos coeficientes do DPD.
 
 \subsection{Implementação do DPD em FPGA}
 
