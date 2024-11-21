@@ -1,29 +1,29 @@
 \documentclass[
 	12pt,				% tamanho da fonte
-	openright,			% capÃ­tulos comeÃ§am em pÃ¡g Ã­mpar (insere pÃ¡gina vazia caso preciso)
+	openright,			% capÃ­tulos começam em pÃ¡g Ã­mpar (insere pÃ¡gina vazia caso preciso)
 	oneside,			% para impressÃ£o apenas em um lado do papel
 	a4paper,			% tamanho do papel.
 	brazil				% o Ãºltimo idioma Ã© o principal do documento
 	]{abntex2}
 \usepackage{etoolbox}
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversÃ£o automÃ¡tica dos acentos)
-%\usepackage{lastpage}			% Usado pela Ficha catalogrÃ¡fica
-\usepackage{indentfirst}		% Indenta o primeiro parÃ¡grafo de cada seÃ§Ã£o.
-\setlength{\parindent}{1.5cm}   % EspaÃ§amento de 1,5cm do parÃ¡grafo
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+%\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parÃ¡grafo de cada seçÃ£o.
+\setlength{\parindent}{1.5cm}   % Espaçamento de 1,5cm do parÃ¡grafo
 \usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% InclusÃ£o de grÃ¡ficos
-\usepackage{microtype} 			% para melhorias de justificaÃ§Ã£o
-\usepackage{lipsum}				% para geraÃ§Ã£o de dummy text
-\usepackage{abntex2cite}	% CitaÃ§Ãµes padrÃ£o ABNT
-\usepackage[table,xcdraw]{xcolor}% CÃ©dula colorida em tabelas
-%\usepackage{pdflscape}          % Rotaciona pÃ¡gina
-\usepackage{Capa}               % Capa e folha de rosto com modificaÃ§Ãµes
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificaçÃ£o
+\usepackage{lipsum}				% para geraçÃ£o de dummy text
+\usepackage{abntex2cite}	% Citações padrão ABNT
+\usepackage[table,xcdraw]{xcolor}% Coluna colorida em tabelas
+%\usepackage{pdflscape}          % Rotaciona página
+\usepackage{Capa}               % Capa e folha de rosto com modificações
 \usepackage{float}              % Melhor posicionamento de figuras
 \usepackage{gensymb}            % sÃ­mbolo Âº
 \usepackage[justification=justified,singlelinecheck=false]{caption}
-%\usepackage{etoolbox}           % ConfiguraÃ§Ãµes adicionais de macros
+%\usepackage{etoolbox}           % Configurações adicionais de macros
 \usepackage{xparse}						
 \usepackage{multirow}
 \NewDocumentCommand\cc{+u{\cc}}{\ignorespaces}
@@ -61,10 +61,10 @@ memória}
 
 
 % ---------------------
-% ConfiguraÃ§Ãµes bÃ¡sicas
+% Configurações básicas
 % --------------------
 
-% informaÃ§Ãµes do PDF
+% informações do PDF
 \makeatletter
 \def\figsize{0.80\textwidth} % Define 80% da largura do texto
 \hypersetup{
@@ -72,7 +72,7 @@ memória}
 		pdftitle={\@title},
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
-        pdfkeywords = {Desempenho AcadÃªmico}{EstatÃ­stica Descritiva}{EvasÃ£o}{Vestibular},
+        pdfkeywords = {PARF}{VHDL}{DPD}{FPGA},
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=black,          	% color of internal links
     	citecolor=black,      	    % color of links to bibliography
@@ -85,15 +85,15 @@ memória}
 \graphicspath{{Figuras/}}
 
 % -------------------
-% InÃ­cio do documento
+% Ini­cio do documento
 % -------------------
 
 \begin{document}
 
-\frenchspacing % Retira espaÃ§o extra obsoleto entre as frases.
+\frenchspacing % Retira espaço extra obsoleto entre as frases.
 
 % ----------------------------------------------------------
-% ELEMENTOS PRÃ‰-TEXTUAIS
+% ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
 
 % ----
@@ -136,7 +136,7 @@ memória}
 % Resumo
 % ------
 \newpage
-\setlength{\absparsep}{18pt}   % ajusta o espaÃ§amento dos parÃ¡grafos do resumo
+\setlength{\absparsep}{18pt}   % ajusta o espaçamento dos parÃ¡grafos do resumo
 \setlength{\abstitleskip}{1cm} % adiciona mais um cm apÃ³s o 'titulo' do Resumo para ficar com 2cm,
 
 % -------------------------------
@@ -214,7 +214,7 @@ memória}
 \input{concl.tex}
 
 % ----------------------------------------------------------
-% ReferÃªncias bibliogrÃ¡ficas
+% Referências bibliográficas
 % ----------------------------------------------------------
 
 %\setlength{\afterchapskip}{\baselineskip}
