@@ -4,7 +4,7 @@
 % --------------------------------------------------- %
 \title[Pré-distorcedor digital descrito em linguagem VHDL e baseado em polinômio com memória.]{\textbf{Pré-distorcedor digital descrito em linguagem VHDL e baseado em polinômio com memória}}
 \subtitle{}
-\author[Leonardo de Andrade Santos]{\large \negrito{Leonardo de Andrade Santos} \\ \negrito{Sibilla Batista da Luz França}}
+\author[Leonardo de Andrade Santos]{\large \negrito{Leonardo de Andrade Santos}}
 \institute[UFPR/PR]{
     \small \textit{Universidade Federal do Paraná} \\
     %\textit{Uned Itaguaí}
@@ -43,8 +43,9 @@
 	Objetivo deste trabalho é desenvolver um circuito integrado dedicado de um DPD.
 	\begin{itemize}
 		\item Realizar a modelagem de um PA e do DPD com o modelo de polinômio de memória;
-		\item Implementar a descrição de hardware em linguagem VHDL;
-		\item Validar o sistema em FPGA;
+		\item Implementar a descrição de hardware em 
+		linguagem VHDL;
+		\item Fazer o desing do circuito integrado utilizando as ferramentas de design do Cadence;
 	\end{itemize}
 \end{frame}
 
@@ -137,6 +138,20 @@
 	\end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Séries de Volterra}
+\begin{frame}{Séries de Volterra}
+		\begin{itemize}
+			\item As séries de Volterra são bastante difundidas para a modelagem comportamental;
+			\item Não dependerem de parâmetros físicos do circuito; 
+			\item Podem ser aplicados na modelagem de qualquer PA;
+			\item Apenas medidas das informações de entrada (in) e saída (out) em domínio temporal são necessárias;
+		\end{itemize}
+		\vspace{0.05\textwidth}
+			\[
+		y(t) = h_0 + \int h_1(\tau_1) x(t - \tau_1) \, d\tau_1 + \int \int h_2(\tau_1, \tau_2) x(t - \tau_1) x(t - \tau_2) \, d\tau_1 \, d\tau_2 + \cdots
+		\]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Polinômio de Memória}
 \begin{frame}{Polinômio de Memória}
 	\begin{minipage}{0.5\textwidth}
@@ -155,11 +170,11 @@
 				\end{bmatrix}
 				=
 				\begin{bmatrix}
-					x(1) & x(0) & x(1)\lvert x(1) \rvert & x(0)\lvert x(0) \rvert \\ 
-					x(2) & x(1) & x(2)\lvert x(2) \rvert & x(1)\lvert x(1) \rvert \\ 
-					x(3) & x(2) & x(3)\lvert x(3) \rvert & x(2)\lvert x(2) \rvert \\ 
-					x(4) & x(3) & x(4)\lvert x(4) \rvert & x(3)\lvert x(3) \rvert \\ 
-					x(5) & x(4) & x(5)\lvert x(5) \rvert & x(4)\lvert x(4) \rvert
+					x(1) & x(0) & x(1)x(1) & x(0)x(0) \\
+					x(2) & x(1) & x(2)x(2) & x(1)x(1) \\
+					x(3) & x(2) & x(3)x(3) & x(2)x(2) \\
+					x(4) & x(3) & x(4)x(4) & x(3)x(3) \\
+					x(5) & x(4) & x(5)x(5) & x(4)x(4)
 				\end{bmatrix}
 				\begin{bmatrix}
 					h_{1,0} \\
@@ -176,7 +191,7 @@
 	\begin{minipage}{0.5\textwidth}
 		\begin{itemize}
 			\item Utilizado na modelagem comportamental simplificada das séries de Volterra.
-			\item Considera apenas componentes unidimensionais;
+			\item Considera apenas componentes unidimensionais2;
 			\item Modelo compacto;
 			\item Baixo custo computacional;
 			\item Modelo linear nos coeficientes;
@@ -188,7 +203,7 @@
 \begin{frame}{Field Port Gate Array (FPGA)}
 	\begin{minipage}{0.5\textwidth}
 	
-			\includegraphics[scale=0.25]{FPGA Stratix X da Intel.png}
+			\includegraphics[scale=0.5]{DPDCascata.png}
 		
 	\end{minipage}%
 	\hspace{0.04\textwidth}
@@ -218,6 +233,8 @@
 			\item Etapa 2: Implementação do DPD em software;
 			\item Etapa 3: Implementação do DPD em FPGA;
 			\item Etapa 4: Simulação em FPGA;
+			\item Etapa 5: Design do Circuito Integrado
+			\item Etapa 6: Simulação pós síntese;
 		\end{itemize}
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}

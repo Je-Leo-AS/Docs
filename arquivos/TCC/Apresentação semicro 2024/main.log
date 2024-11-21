@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2024.11.20)  21 NOV 2024 19:39
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2024.11.20)  20 NOV 2024 19:20
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1221,12 +1221,9 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 ("C:/Program Files/MiKTeX/tex/latex/beamer/beamercolorthemestructure.sty")
 ("C:/Program Files/MiKTeX/tex/latex/beamer/beamerinnerthemerectangles.sty")
 ("C:/Program Files/MiKTeX/tex/latex/beamer/beamerouterthememiniframes.sty"))
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 7.
-
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 23
 .
+
 ("C:/Program Files/MiKTeX/tex/latex/psnfss/t1phv.fd"
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
@@ -1428,7 +1425,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 27.
 
 
-<ufpr.png, id=130, 295.1025pt x 201.75375pt>
+<ufpr.png, id=136, 295.1025pt x 201.75375pt>
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
 Package luatex.def Info: ufpr.png  used on input line 27.
@@ -1502,12 +1499,12 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 [3
 
 ]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 49--49
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 50--50
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 49--49
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 50--50
 [][] 
  []
 
@@ -1515,7 +1512,7 @@ Overfull \hbox (1.38991pt too wide) in paragraph at lines 49--49
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 49.
+Package luatex.def Info: ufpr.png  used on input line 50.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1530,12 +1527,12 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 [4
 
 ]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 57--57
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 58--58
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 57--57
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 58--58
 [][] 
  []
 
@@ -1543,7 +1540,7 @@ Overfull \hbox (1.38991pt too wide) in paragraph at lines 57--57
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 57.
+Package luatex.def Info: ufpr.png  used on input line 58.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1558,26 +1555,26 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 [5
 
 ]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 68--68
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 69--69
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 68--68
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 69--69
 [][] 
  []
 
-<figuras/sistematrasmissorpng.png, id=453, 529.98pt x 102.98476pt>
+<figuras/sistematrasmissorpng.png, id=471, 529.98pt x 102.98476pt>
 File: figuras/sistematrasmissorpng.png Graphic file (type png)
 <use figuras/sistematrasmissorpng.png>
 Package luatex.def Info: figuras/sistematrasmissorpng.png  used on input line 6
-8.
+9.
 (luatex.def)             Requested size: 264.98933pt x 51.49223pt.
 
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 68.
+Package luatex.def Info: ufpr.png  used on input line 69.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1592,39 +1589,39 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 [6
 
 <./figuras/sistematrasmissorpng.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 92--92
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 93--93
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 92--92
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 93--93
 [][] 
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 92.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
 
 ("C:/Program Files/MiKTeX/tex/latex/amsfonts/umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 92.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
 
 
 ("C:/Program Files/MiKTeX/tex/latex/amsfonts/umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 92.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 93.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 92.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 93.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 92.
-<figuras/normareg.png, id=510, 616.55344pt x 435.12563pt>
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 93.
+<figuras/normareg.png, id=530, 616.55344pt x 435.12563pt>
 File: figuras/normareg.png Graphic file (type png)
 <use figuras/normareg.png>
-Package luatex.def Info: figuras/normareg.png  used on input line 92.
+Package luatex.def Info: figuras/normareg.png  used on input line 93.
 (luatex.def)             Requested size: 154.13797pt x 108.78113pt.
 
-Overfull \hbox (3.56425pt too wide) in paragraph at lines 92--92
+Overfull \hbox (3.56425pt too wide) in paragraph at lines 93--93
 [][] 
  []
 
@@ -1632,7 +1629,7 @@ Overfull \hbox (3.56425pt too wide) in paragraph at lines 92--92
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 92.
+Package luatex.def Info: ufpr.png  used on input line 93.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1647,22 +1644,22 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 [7
 
 <./figuras/normareg.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 116--116
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 117--117
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 116--116
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 117--117
 [][] 
  []
 
-<figuras/curvasaidaparf.png, id=567, 344.78813pt x 249.18094pt>
+<figuras/curvasaidaparf.png, id=589, 344.78813pt x 249.18094pt>
 File: figuras/curvasaidaparf.png Graphic file (type png)
 <use figuras/curvasaidaparf.png>
-Package luatex.def Info: figuras/curvasaidaparf.png  used on input line 116.
+Package luatex.def Info: figuras/curvasaidaparf.png  used on input line 117.
 (luatex.def)             Requested size: 172.39363pt x 124.59015pt.
 
-Overfull \hbox (21.81992pt too wide) in paragraph at lines 116--116
+Overfull \hbox (21.81992pt too wide) in paragraph at lines 117--117
 [][] 
  []
 
@@ -1670,7 +1667,7 @@ Overfull \hbox (21.81992pt too wide) in paragraph at lines 116--116
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 116.
+Package luatex.def Info: ufpr.png  used on input line 117.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1685,27 +1682,27 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 [8
 
 <./figuras/curvasaidaparf.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 138--138
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 139--139
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 138--138
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 139--139
 [][] 
  []
 
-<figuras/DPDCascata.png, id=624, 354.72525pt x 145.7445pt>
+<figuras/DPDCascata.png, id=648, 354.72525pt x 145.7445pt>
 File: figuras/DPDCascata.png Graphic file (type png)
 <use figuras/DPDCascata.png>
-Package luatex.def Info: figuras/DPDCascata.png  used on input line 138.
+Package luatex.def Info: figuras/DPDCascata.png  used on input line 139.
 (luatex.def)             Requested size: 177.36218pt x 72.87207pt.
 
-Overfull \hbox (23.71725pt too wide) in paragraph at lines 138--138
+Overfull \hbox (23.71725pt too wide) in paragraph at lines 139--139
 [][] 
  []
 
 
-Overfull \hbox (13.9855pt too wide) in paragraph at lines 138--138
+Overfull \hbox (13.9855pt too wide) in paragraph at lines 139--139
 []$[]$  $[]$ 
  []
 
@@ -1713,7 +1710,7 @@ Overfull \hbox (13.9855pt too wide) in paragraph at lines 138--138
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 138.
+Package luatex.def Info: ufpr.png  used on input line 139.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1728,25 +1725,20 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 [9
 
 <./figuras/DPDCascata.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 185--185
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 153--153
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 185--185
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 153--153
 [][] 
- []
-
-
-Overfull \hbox (32.42683pt too wide) in paragraph at lines 185--185
-[]$[]$  $[]$ 
  []
 
 
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 185.
+Package luatex.def Info: ufpr.png  used on input line 153.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1761,28 +1753,17 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 [10
 
 ]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 204--204
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 200--200
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 204--204
-[][] 
- []
-
-<figuras/FPGA Stratix X da Intel.png, id=740, 627.5445pt x 268.00125pt>
-File: figuras/FPGA Stratix X da Intel.png Graphic file (type png)
-<use figuras/FPGA Stratix X da Intel.png>
-Package luatex.def Info: figuras/FPGA Stratix X da Intel.png  used on input lin
-e 204.
-(luatex.def)             Requested size: 156.88573pt x 67.00014pt.
-
-Overfull \hbox (3.2408pt too wide) in paragraph at lines 204--204
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 200--200
 [][] 
  []
 
 
-Overfull \hbox (13.9855pt too wide) in paragraph at lines 204--204
+Overfull \hbox (32.42683pt too wide) in paragraph at lines 200--200
 []$[]$  $[]$ 
  []
 
@@ -1790,7 +1771,7 @@ Overfull \hbox (13.9855pt too wide) in paragraph at lines 204--204
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 204.
+Package luatex.def Info: ufpr.png  used on input line 200.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1804,31 +1785,35 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [11
 
-<./figuras/FPGA Stratix X da Intel.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 228--228
+]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 219--219
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 228--228
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 219--219
 [][] 
  []
 
-<figuras/diagrama.png, id=798, 1233.408pt x 1233.408pt>
-File: figuras/diagrama.png Graphic file (type png)
-<use figuras/diagrama.png>
-Package luatex.def Info: figuras/diagrama.png  used on input line 228.
-(luatex.def)             Requested size: 123.34802pt x 123.34802pt.
+File: figuras/DPDCascata.png Graphic file (type png)
+<use figuras/DPDCascata.png>
+Package luatex.def Info: figuras/DPDCascata.png  used on input line 219.
+(luatex.def)             Requested size: 177.36218pt x 72.87207pt.
 
-Overfull \hbox (15.6815pt too wide) in paragraph at lines 228--228
-[]$[]$  $[]$ $[]$ 
+Overfull \hbox (23.71725pt too wide) in paragraph at lines 219--219
+[][] 
+ []
+
+
+Overfull \hbox (13.9855pt too wide) in paragraph at lines 219--219
+[]$[]$  $[]$ 
  []
 
 
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 228.
+Package luatex.def Info: ufpr.png  used on input line 219.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1842,23 +1827,23 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [12
 
-<./figuras/diagrama.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 251--251
+]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 245--245
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 251--251
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 245--245
 [][] 
  []
 
-<figuras/analisador.jpeg, id=854, 252.945pt x 252.945pt>
-File: figuras/analisador.jpeg Graphic file (type jpg)
-<use figuras/analisador.jpeg>
-Package luatex.def Info: figuras/analisador.jpeg  used on input line 251.
-(luatex.def)             Requested size: 101.17621pt x 101.17621pt.
+<figuras/diagrama.png, id=886, 1233.408pt x 1233.408pt>
+File: figuras/diagrama.png Graphic file (type png)
+<use figuras/diagrama.png>
+Package luatex.def Info: figuras/diagrama.png  used on input line 245.
+(luatex.def)             Requested size: 123.34802pt x 123.34802pt.
 
-Overfull \hbox (15.6815pt too wide) in paragraph at lines 251--251
+Overfull \hbox (15.6815pt too wide) in paragraph at lines 245--245
 []$[]$  $[]$ $[]$ 
  []
 
@@ -1866,7 +1851,7 @@ Overfull \hbox (15.6815pt too wide) in paragraph at lines 251--251
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 251.
+Package luatex.def Info: ufpr.png  used on input line 245.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1880,21 +1865,31 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [13
 
-<./figuras/analisador.jpeg>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 253--253
+<./figuras/diagrama.png>]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 268--268
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 253--253
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 268--268
 [][] 
+ []
+
+<figuras/analisador.jpeg, id=944, 252.945pt x 252.945pt>
+File: figuras/analisador.jpeg Graphic file (type jpg)
+<use figuras/analisador.jpeg>
+Package luatex.def Info: figuras/analisador.jpeg  used on input line 268.
+(luatex.def)             Requested size: 101.17621pt x 101.17621pt.
+
+Overfull \hbox (15.6815pt too wide) in paragraph at lines 268--268
+[]$[]$  $[]$ $[]$ 
  []
 
 
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 253.
+Package luatex.def Info: ufpr.png  used on input line 268.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1908,36 +1903,21 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [14
 
-]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 272--272
+<./figuras/analisador.jpeg>]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 270--270
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 272--272
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 270--270
 [][] 
- []
-
-<figuras/modeloPA.png, id=973, 413.3844pt x 328.8285pt>
-File: figuras/modeloPA.png Graphic file (type png)
-<use figuras/modeloPA.png>
-Package luatex.def Info: figuras/modeloPA.png  used on input line 272.
-(luatex.def)             Requested size: 165.35081pt x 131.52907pt.
-
-Overfull \hbox (11.70589pt too wide) in paragraph at lines 272--272
-[][] 
- []
-
-
-Overfull \hbox (13.9855pt too wide) in paragraph at lines 272--272
-[]$[]$  $[]$ 
  []
 
 
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 272.
+Package luatex.def Info: ufpr.png  used on input line 270.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1951,28 +1931,28 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [15
 
-<./figuras/modeloPA.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 290--290
+]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 289--289
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 290--290
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 289--289
 [][] 
  []
 
-<figuras/bits.png, id=1031, 632.3625pt x 395.3169pt>
-File: figuras/bits.png Graphic file (type png)
-<use figuras/bits.png>
-Package luatex.def Info: figuras/bits.png  used on input line 290.
-(luatex.def)             Requested size: 158.09024pt x 98.82898pt.
+<figuras/modeloPA.png, id=1067, 413.3844pt x 328.8285pt>
+File: figuras/modeloPA.png Graphic file (type png)
+<use figuras/modeloPA.png>
+Package luatex.def Info: figuras/modeloPA.png  used on input line 289.
+(luatex.def)             Requested size: 165.35081pt x 131.52907pt.
 
-Overfull \hbox (4.44531pt too wide) in paragraph at lines 290--290
+Overfull \hbox (11.70589pt too wide) in paragraph at lines 289--289
 [][] 
  []
 
 
-Overfull \hbox (13.9855pt too wide) in paragraph at lines 290--290
+Overfull \hbox (13.9855pt too wide) in paragraph at lines 289--289
 []$[]$  $[]$ 
  []
 
@@ -1980,7 +1960,7 @@ Overfull \hbox (13.9855pt too wide) in paragraph at lines 290--290
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 290.
+Package luatex.def Info: ufpr.png  used on input line 289.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -1994,28 +1974,28 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [16
 
-<./figuras/bits.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 305--305
+<./figuras/modeloPA.png>]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 307--307
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 305--305
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 307--307
 [][] 
  []
 
-<figuras/modelodpd.png, id=1088, 414.8298pt x 327.3831pt>
-File: figuras/modelodpd.png Graphic file (type png)
-<use figuras/modelodpd.png>
-Package luatex.def Info: figuras/modelodpd.png  used on input line 305.
-(luatex.def)             Requested size: 165.92897pt x 130.95091pt.
+<figuras/bits.png, id=1127, 632.3625pt x 395.3169pt>
+File: figuras/bits.png Graphic file (type png)
+<use figuras/bits.png>
+Package luatex.def Info: figuras/bits.png  used on input line 307.
+(luatex.def)             Requested size: 158.09024pt x 98.82898pt.
 
-Overfull \hbox (12.28404pt too wide) in paragraph at lines 305--305
+Overfull \hbox (4.44531pt too wide) in paragraph at lines 307--307
 [][] 
  []
 
 
-Overfull \hbox (13.9855pt too wide) in paragraph at lines 305--305
+Overfull \hbox (13.9855pt too wide) in paragraph at lines 307--307
 []$[]$  $[]$ 
  []
 
@@ -2023,7 +2003,7 @@ Overfull \hbox (13.9855pt too wide) in paragraph at lines 305--305
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 305.
+Package luatex.def Info: ufpr.png  used on input line 307.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -2037,21 +2017,36 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [17
 
-<./figuras/modelodpd.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 306--306
+<./figuras/bits.png>]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 322--322
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 306--306
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 322--322
 [][] 
+ []
+
+<figuras/modelodpd.png, id=1186, 414.8298pt x 327.3831pt>
+File: figuras/modelodpd.png Graphic file (type png)
+<use figuras/modelodpd.png>
+Package luatex.def Info: figuras/modelodpd.png  used on input line 322.
+(luatex.def)             Requested size: 165.92897pt x 130.95091pt.
+
+Overfull \hbox (12.28404pt too wide) in paragraph at lines 322--322
+[][] 
+ []
+
+
+Overfull \hbox (13.9855pt too wide) in paragraph at lines 322--322
+[]$[]$  $[]$ 
  []
 
 
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 306.
+Package luatex.def Info: ufpr.png  used on input line 322.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -2065,23 +2060,13 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [18
 
-]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 312--312
+<./figuras/modelodpd.png>]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 323--323
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 312--312
-[][] 
- []
-
-<figuras/diagrama_process.png, id=1211, 1664.2175pt x 825.0825pt>
-File: figuras/diagrama_process.png Graphic file (type png)
-<use figuras/diagrama_process.png>
-Package luatex.def Info: figuras/diagrama_process.png  used on input line 312.
-(luatex.def)             Requested size: 332.8376pt x 165.01357pt.
-
-Overfull \hbox (25.54773pt too wide) in paragraph at lines 312--312
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 323--323
 [][] 
  []
 
@@ -2089,7 +2074,7 @@ Overfull \hbox (25.54773pt too wide) in paragraph at lines 312--312
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 312.
+Package luatex.def Info: ufpr.png  used on input line 323.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -2103,26 +2088,31 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [19
 
-<./figuras/diagrama_process.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 318--318
+]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 329--329
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 318--318
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 329--329
 [][] 
  []
 
-<figuras/fluxo_de_calculo.png, id=1268, 1025.8325pt x 452.69125pt>
-File: figuras/fluxo_de_calculo.png Graphic file (type png)
-<use figuras/fluxo_de_calculo.png>
-Package luatex.def Info: figuras/fluxo_de_calculo.png  used on input line 318.
-(luatex.def)             Requested size: 256.4575pt x 113.17253pt.
+<figuras/diagrama_process.png, id=1313, 1664.2175pt x 825.0825pt>
+File: figuras/diagrama_process.png Graphic file (type png)
+<use figuras/diagrama_process.png>
+Package luatex.def Info: figuras/diagrama_process.png  used on input line 329.
+(luatex.def)             Requested size: 332.8376pt x 165.01357pt.
+
+Overfull \hbox (25.54773pt too wide) in paragraph at lines 329--329
+[][] 
+ []
+
 
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 318.
+Package luatex.def Info: ufpr.png  used on input line 329.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -2136,7 +2126,7 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [20
 
-<./figuras/fluxo_de_calculo.png>]
+<./figuras/diagrama_process.png>]
 Overfull \hbox (58.4263pt too wide) in paragraph at lines 335--335
  [][][][]  
  []
@@ -2146,21 +2136,11 @@ Overfull \hbox (1.38991pt too wide) in paragraph at lines 335--335
 [][] 
  []
 
-<figuras/fpgasim.png, id=1325, 414.8298pt x 327.3831pt>
-File: figuras/fpgasim.png Graphic file (type png)
-<use figuras/fpgasim.png>
-Package luatex.def Info: figuras/fpgasim.png  used on input line 335.
-(luatex.def)             Requested size: 165.92897pt x 130.95091pt.
-
-Overfull \hbox (12.28404pt too wide) in paragraph at lines 335--335
-[][] 
- []
-
-
-Overfull \hbox (13.9855pt too wide) in paragraph at lines 335--335
-[]$[]$  $[]$ 
- []
-
+<figuras/fluxo_de_calculo.png, id=1372, 1025.8325pt x 452.69125pt>
+File: figuras/fluxo_de_calculo.png Graphic file (type png)
+<use figuras/fluxo_de_calculo.png>
+Package luatex.def Info: figuras/fluxo_de_calculo.png  used on input line 335.
+(luatex.def)             Requested size: 256.4575pt x 113.17253pt.
 
 
 File: ufpr.png Graphic file (type png)
@@ -2179,21 +2159,36 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [21
 
-<./figuras/fpgasim.png>]
-Overfull \hbox (58.4263pt too wide) in paragraph at lines 362--362
+<./figuras/fluxo_de_calculo.png>]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 352--352
  [][][][]  
  []
 
 
-Overfull \hbox (1.38991pt too wide) in paragraph at lines 362--362
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 352--352
 [][] 
+ []
+
+<figuras/fpgasim.png, id=1432, 414.8298pt x 327.3831pt>
+File: figuras/fpgasim.png Graphic file (type png)
+<use figuras/fpgasim.png>
+Package luatex.def Info: figuras/fpgasim.png  used on input line 352.
+(luatex.def)             Requested size: 165.92897pt x 130.95091pt.
+
+Overfull \hbox (12.28404pt too wide) in paragraph at lines 352--352
+[][] 
+ []
+
+
+Overfull \hbox (13.9855pt too wide) in paragraph at lines 352--352
+[]$[]$  $[]$ 
  []
 
 
 
 File: ufpr.png Graphic file (type png)
 <use ufpr.png>
-Package luatex.def Info: ufpr.png  used on input line 362.
+Package luatex.def Info: ufpr.png  used on input line 352.
 (luatex.def)             Requested size: 29.51196pt x 20.17654pt.
 
 Overfull \hbox (58.4263pt too wide) has occurred while \output is active
@@ -2207,6 +2202,34 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 
 [22
 
+<./figuras/fpgasim.png>]
+Overfull \hbox (58.4263pt too wide) in paragraph at lines 379--379
+ [][][][]  
+ []
+
+
+Overfull \hbox (1.38991pt too wide) in paragraph at lines 379--379
+[][] 
+ []
+
+
+
+File: ufpr.png Graphic file (type png)
+<use ufpr.png>
+Package luatex.def Info: ufpr.png  used on input line 379.
+(luatex.def)             Requested size: 29.51196pt x 20.17654pt.
+
+Overfull \hbox (58.4263pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+
+Overfull \hbox (1.38991pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[23
+
 <C:/Program Files/MiKTeX/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write7
 
@@ -2217,7 +2240,7 @@ Overfull \hbox (1.38991pt too wide) has occurred while \output is active
 \tf@snm=\write9
 
 \openout9 = main.snm
-runsystem(latexminted cleantemp  --timestamp 20241121193950 FAD58DE7366495DB4650
+runsystem(latexminted cleantemp  --timestamp 20241120192047 FAD58DE7366495DB4650
 CFEFAC2FCD61)...(Command execution disabled via shell_escape='p').
 
 (./main.aux)
@@ -2226,32 +2249,34 @@ LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C56F31A8904BD53EE218A79F61D967BB;2770.
+(rerunfilecheck)             Checksum: CBB26B7406A28BE3FFC65B3757EEBC06;2928.
 )
 
 Here is how much of LuaTeX's memory you used:
- 38466 strings out of 475664
+ 38470 strings out of 475664
  100000,1648299 words of node,token memory allocated
- 22571 words of node memory still in use:
-   224 hlist, 12 vlist, 20 rule, 169 disc, 12 local_par, 435 glue, 99 kern, 52 p
-enalty, 1139 glyph, 1436 attribute, 80 glue_spec, 720 attribute_list, 4 write, 2
-91 pdf_literal, 22 pdf_start_link, 22 pdf_end_link, 8 pdf_dest, 22 pdf_action, 1
-34 pdf_colorstack nodes
-   avail lists: 2:2009,3:863,4:587,5:378,6:103,7:3668,8:36,9:1106,10:16,11:385
- 60076 multiletter control sequences out of 65536+600000
+ 22890 words of node memory still in use:
+   230 hlist, 12 vlist, 20 rule, 169 disc, 12 local_par, 441 glue, 100 kern, 52 
+penalty, 1139 glyph, 1486 attribute, 80 glue_spec, 745 attribute_list, 4 write, 
+305 pdf_literal, 23 pdf_start_link, 23 pdf_end_link, 8 pdf_dest, 23 pdf_action, 
+136 pdf_colorstack nodes
+   avail lists: 2:2081,3:904,4:609,5:380,6:108,7:3680,8:51,9:1120,10:16,11:385
+ 60075 multiletter control sequences out of 65536+600000
  63 fonts using 4290623 bytes
  142i,20n,129p,598b,858s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX/fo
 nts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmss8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pf
-b><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program 
-Files/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/
-type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/
-uhvro8a.pfb>
-Output written on main.pdf (22 pages, 1376437 bytes).
+/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Pro
+gram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic
+/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Pro
+gram Files/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (23 pages, 1150242 bytes).
 
-PDF statistics: 1459 PDF objects out of 1728 (max. 8388607)
- 71 named destinations out of 1000 (max. 131072)
- 550 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1577 PDF objects out of 1728 (max. 8388607)
+ 74 named destinations out of 1000 (max. 131072)
+ 568 words of extra memory for PDF output out of 10000 (max. 100000000)
 
