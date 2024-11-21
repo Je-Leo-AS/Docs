@@ -1,5 +1,4 @@
-Conforme dito no capítulo \ref{chap:mati}, o trabalho foi dividido em 4 etapas, nas quais a primeira etapa consistiu no estudo dos DPDs e nos métodos de modelagem deles, a segunda etapa consistiu na implementação desta modelagem em software, a qual utilizou-se o python, a etapa 3 que consiste na implementação do modelo de DPD escolhido em hardware utilizando a linguagem VHDL e finalmente na quarta etapa é feita o design do circuito integrado.
-Neste capítulo são exibidos os resultados da etapa 2 já que a etapa 1 consiste na pesquisa bibliográfica e as etapas 3 e 4 serão desenvolvidas na segunda etapa do projeto.
+Conforme mencionado no capítulo \ref{chap:mati}, o desenvolvimento deste trabalho foi dividido em quatro etapas. A primeira etapa envolveu o estudo dos DPDs e dos métodos de modelagem associados. Na segunda etapa, essa modelagem foi implementada em software utilizando a linguagem Python. A terceira etapa consistiu na implementação do modelo de DPD selecionado em hardware, empregando a linguagem VHDL. Por fim, na quarta etapa, foi realizado a síntese lógica para o design do circuito integrado. Este capítulo apresenta os resultados obtidos ao longo do desenvolvimento do projeto.
 
 \section{Modelagem do PA}
 
@@ -14,7 +13,7 @@ Para fazer a modelagem em software foi utilizada a linguagem de programação Py
     \label{fig:modelopafloat}
 \end{figure}
 
-\section{levantamento do número de bits}
+\section{Apuração dos números de bits e resolução do sinal} 
 
 Após concluída a modelagem matemática, foi feita a modelagem do DPD para então ser feito o levantamento da quantidade de bits necessários para a implementação do DPD em hardware minimizando os erros de quantização. 
 Para isso foi necessário refazer a extração dos coeficientes, mas desta vez com os dados normalizados para valores de 0 a $2^{bits}$.  
