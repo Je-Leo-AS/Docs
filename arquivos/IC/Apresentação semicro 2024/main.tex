@@ -131,7 +131,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Polinômio de Memória}
 \begin{frame}{Polinômio de Memória}
-	\begin{minipage}{0.5\textwidth}
+	\begin{minipage}{0.6\textwidth}
 		\raggedleft
 		\scriptsize
 		\begin{equation}
@@ -147,11 +147,11 @@
 				\end{bmatrix}
 				=
 				\begin{bmatrix}
-					x(1) & x(0) & x(1)\lvert x(1) \rvert & x(0)\lvert x(0) \rvert \\ 
-					x(2) & x(1) & x(2)\lvert x(2) \rvert & x(1)\lvert x(1) \rvert \\ 
-					x(3) & x(2) & x(3)\lvert x(3) \rvert & x(2)\lvert x(2) \rvert \\ 
-					x(4) & x(3) & x(4)\lvert x(4) \rvert & x(3)\lvert x(3) \rvert \\ 
-					x(5) & x(4) & x(5)\lvert x(5) \rvert & x(4)\lvert x(4) \rvert
+					x(1) & x(0) & x(1)\lvert x(1) \rvert ^2 & x(0)\lvert x(0) \rvert^2  \\ 
+					x(2) & x(1) & x(2)\lvert x(2) \rvert ^2 & x(1)\lvert x(1) \rvert^2  \\ 
+					x(3) & x(2) & x(3)\lvert x(3) \rvert ^2 & x(2)\lvert x(2) \rvert^2 \\ 
+					x(4) & x(3) & x(4)\lvert x(4) \rvert ^2 & x(3)\lvert x(3) \rvert^2  \\ 
+					x(5) & x(4) & x(5)\lvert x(5) \rvert ^2 & x(4)\lvert x(4) \rvert^2 
 				\end{bmatrix}
 				\begin{bmatrix}
 					h_{1,0} \\
@@ -165,7 +165,7 @@
 		
 	\end{minipage}%
 	\hspace{0.1\textwidth}
-	\begin{minipage}{0.5\textwidth}
+	\begin{minipage}{0.4\textwidth}
 		\begin{itemize}
 			\item Utilizado na modelagem comportamental simplificada das séries de Volterra.
 			\item Considera apenas componentes unidimensionais.
@@ -223,7 +223,6 @@
 \begin{frame}{Dados Utilizados}
 	\begin{minipage}{0.5\textwidth}
 		
-		%\includegraphics[scale=0.5]{DPDCascata.png}
 		
 	\end{minipage}%
 	\hspace{0.04\textwidth}
@@ -272,8 +271,6 @@
 			\item  Dados DPD com polinômio 	de memória de grau 2 com 
 			um sinal de memória.
 		\end{itemize}
-	
-		
 	\end{minipage}%
 	\hspace{0.04\textwidth}
 	\begin{minipage}{0.5\textwidth}
@@ -300,13 +297,7 @@
 \subsection{Desenvolvimento do VHDL}
 \begin{frame}{Desenvolvimento do VHDL}
 	
-		\includegraphics[scale=0.2]{diagrama_process.png}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Fluxo de cálculo}
-\begin{frame}{Fluxo de cálculo}
-	
-	\includegraphics[scale=0.25]{fluxo_de_calculo.png}
+		\includegraphics[scale=0.3]{diagrama atualizado.png}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Resultado simulação FPGA}
@@ -314,15 +305,15 @@
 	\begin{minipage}{0.5\textwidth}
 	\begin{itemize}
 		\item FPGA Virtex5 XC5VLX50T;
-		\item frequência de operação 61,5 MHz.
+		\item frequência de operação 62,5 MHz.
 	\end{itemize}
 	\begin{tabular}{|l|r|r|}
 		\hline
 		Recursos & Unidade & Percentual \\
 		\hline
-		Registradores & 150 & 100\% \\
-		LUTs & 692 & 100\% \\
-		DSP48E & 4 & 100\% \\
+		Registradores & 150 & 1\% \\
+		LUTs & 692 & 2\% \\
+		DSP48E & 4 & 8\% \\
 		\hline
 	\end{tabular}
 	
@@ -334,13 +325,17 @@
 \end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\subsection{Conclusão}
+\begin{frame}{Conclusão}
+		A evolução dos sistemas de comunicação sem fio exige eficiência máxima, e a implementação de um Pré-Distorcedor Digital (DPD) em cascata com o Amplificador de Potência (PA) oferece uma solução de baixo custo para melhorar o desempenho. Este trabalho validou um código em linguagem de descrição de hardware capaz de processar em tempo real as características não lineares e efeitos de memória de um amplificador, minimizando o uso de recursos lógicos e o consumo de energia. Esse trabalho foi validado em uma  FPGA Virtex5 XC5VLX50T, utilizando um total de 150 registradores, 692 LUTs e 4 DSP48Es, operando a uma frequência de 62,5 MHz.  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Referências}
 \begin{frame}{Referências}
 	\setbeamertemplate{navigation symbols}{}
 	
 		\begin{thebibliography}{}
-		\bibitem{John2016} Elton John, ``Modelagem comportamental de amplificadores de potência de radiofrequência usando termos unidimensionais e bidimensionais de séries de Volterra", 2016.
+		\bibitem{John2016} Elton John, ``Modelagem comportamental de amplificadores de potência de radio frequência usando termos unidimensionais e bidimensionais de séries de Volterra", 2016.
 		\bibitem{Kenington2000} Peter Kenington, ``High Linearity RF Amplifier Design", 2000.
 		\bibitem{Cripps2006} Steve Cripps, ``RF Power Amplifiers for Wireless Communications", 2006.
 		\bibitem{Chavez2018} Joel Huanca Chavez, ``Estudo comparativo entre as arquiteturas de identificação de pré-distorcedores digitais através das aprendizagens direta e indireta", 2018.
