@@ -53,7 +53,7 @@ Analisando o gráfico é possivel ver que os resultados simulados e calculados d
 
 = d) Simular uma modulação 8-ASK (polar) usando a técnica de Monte Carlo para estimar a probabilidade de erro de símbolo (SER) para as seguintes relações sinal-ruído (Eb/N0): 0 dB, 5 dB, 10 dB e 15 dB
 \
-Para iniciar essa etapa foi feito o calculo da curva teórica do 8ASK, cujo o código esta ilustrado pela @teorica8ask a seguir:
+Para iniciar essa etapa foi feito o cálculo da curva teórica do 8ASK, cujo o código esta ilustrado pela @teorica8ask a seguir:
 #figure(caption:[Código da simulação 8 ASK], 
 image("teorica8ask.png", width: 80%)
 )<teorica8ask>

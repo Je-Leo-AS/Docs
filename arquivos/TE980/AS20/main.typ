@@ -40,7 +40,7 @@ Em seguida foi feito a trajetoria circular do o resultado esta ilustrado pela @t
 
 = B
 Pode se dizer que o erro médio de cada modelo(MSE), é a distancia média de cada modelo para o poligono definido pelos waypoints. 
-Sendo assim para fazer esse calculo foi feito um ajuste no codigo de forma o numero de amostras simuladas fosse que o mesmo numero de pontos presentes nos waypoints. Então foi calculado o erro médio. Para isso foi feito os seguintes trechos de código, que estão sendo ilustrados pelas @codeMSEret, @codeMSEretbi, @codeMSEretdiff a seguir, 
+Sendo assim para fazer esse cálculo foi feito um ajuste no codigo de forma o numero de amostras simuladas fosse que o mesmo numero de pontos presentes nos waypoints. Então foi calculado o erro médio. Para isso foi feito os seguintes trechos de código, que estão sendo ilustrados pelas @codeMSEret, @codeMSEretbi, @codeMSEretdiff a seguir, 
 
 
 #figure( 

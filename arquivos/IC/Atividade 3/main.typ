@@ -27,7 +27,7 @@ A partir disso foi calculado a matriz de coeficientes dos dados de validação e
 Em seguida foi calculado o valor do NMSE, cujo o resultado foi -21.52 dB utilizando o seguinte trecho de código ilustrado pela @code3 a seguir : 
 
 #figure(
-  caption: [Calculo calculo do nsme],
+  caption: [Calculo cálculo do nsme],
   image("prints/code3.png", width: 50%),
 )<code3>
 

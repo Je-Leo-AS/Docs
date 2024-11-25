@@ -27,17 +27,17 @@ Com os dados normalizados foi realizado a estração dos coeficientes, utilizand
   image("prints/code1.png", width: 50%),
 )<code1>
 
-Em seguida foi realizado a extração da matriz XX de validação, com a virgula fixa utilizando o seguinte trecho de codigo ilustrado pela @code2. 
+Em seguida foi realizado a extração da matriz XX de validação, com a vírgula fixa utilizando o seguinte trecho de codigo ilustrado pela @code2. 
 
 #figure(
-  caption: [Função que realiza o calculo da matriz XX inteira],
+  caption: [Função que realiza o cálculo da matriz XX inteira],
   image("prints/code2.png", width: 50%),
 )<code2>
 
 e tambem foram desenvolvido a função que realiza a multiplicação de matrizes de numeros inteiros imaginarios conforme ilustrado @code3 a seguir:
 
 #figure(
-  caption: [Função que realiza o calculo da matriz XX inteira],
+  caption: [Função que realiza o cálculo da matriz XX inteira],
   image("prints/code3.png", width: 50%),
 )<code3>
 
