@@ -21,7 +21,7 @@
 %\usepackage{pdflscape}          % Rotaciona página
 \usepackage{Capa}               % Capa e folha de rosto com modificações
 \usepackage{float}              % Melhor posicionamento de figuras
-\usepackage{gensymb}            % símbolo
+\usepackage{gensymb}            % sí­mbolo 
 \usepackage[justification=justified,singlelinecheck=false]{caption}
 %\usepackage{etoolbox}           % Configurações adicionais de macros
 \usepackage{xparse}						
@@ -29,7 +29,8 @@
 \NewDocumentCommand\cc{+u{\cc}}{\ignorespaces}
 \usepackage[justification=centering]{caption}
 \usepackage{listings}
-
+\usepackage{cite} 
+\usepackage{titlesec} % Para personalizar títulos de capítulos
 % --------------------
 % Dados do Documento
 % --------------------
@@ -142,6 +143,15 @@ memória}
 % -------------------------------
 % Lista de abreviaturas e siglas - Opcional
 % -------------------------------
+\begin{resumo}
+	
+	\input{resumo}
+	.
+\end{resumo}
+
+\chapter{Abstract} 
+	
+	\input{resumo}
 
 \begin{siglas}  %
  \item[DPD]  Pré-Distorcedor Digital
@@ -163,14 +173,12 @@ memória}
 \end{siglas}
 
 
-\begin{resumo}
 
-	\input{resumo}
-	.
-	\end{resumo}
 
 	
 \listoffigures*
+\cleardoublepage{\tiny }
+\listoftables*
 \cleardoublepage
 % -------
 % Sumario
@@ -191,7 +199,7 @@ memória}
 
 \textual
 
-\setcounter{page}{1}
+%\setcounter{page}{7}
 
 \chapter{Introdução} 
 \label{chap:introducao}
@@ -219,6 +227,8 @@ memória}
 
 %\setlength{\afterchapskip}{\baselineskip}
 
+
+\bibliographystyle{plain} % Escolha o estilo
 \bibliography{Referencias}
 
 % ----------------------------------------------------------

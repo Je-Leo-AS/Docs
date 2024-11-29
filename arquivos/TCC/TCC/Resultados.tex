@@ -65,7 +65,37 @@ Em seguida foi feito o código em VHDL para a implementação em FPGA, nessa imp
 
 No primeiro ciclo de clock é feito o registro do sinal de entrada, para em seguida ele ser elevado ao quadrado N graus do polinômio, para depois esse valor ser adicionado a outro buffer de matriz de extração para para todos os sinais de amostra e por fim ser multiplicado pelos seus respectivos e somado para o sinal de saída.
 
-A figura \ref{fig:simfpga} ilustra o resultado dessa implementação na FPGA Virtex5 XC5VLX50T,utilizando um total de 150 registradores, 692 LUTs e 4 unidades DSP48E, operando a uma frequência de 62,5 MHz.
+Essa descrição de hardware foi implementada FPGA Virtex5 XC5VLX50T, operando a uma frequência de 62,5 MHz, cujo os recursos lógicos estão sendo mostrados na tabela \ref{tab:recursos_fpga} a seguir.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|r|r|}
+		\hline
+		Recursos & Unidade & Percentual \\
+		\hline
+		Registradores & 150 & 1\% \\
+		LUTs & 692 & 2\% \\
+		DSP48E & 4 & 8\% \\
+		\hline
+	\end{tabular}
+	\caption{Utilização dos recursos do FPGA no projeto analisado.}
+	\label{tab:recursos_fpga}
+\end{table}
+
+Para fazer essa simulação foi utilizado um testbench com as mesmas entradas simuladas no python. Essa simulação foi feita no Xilinx ISE cujo o resultado está ilustrado na Figura \ref{fig:simise}.
+
+\begin{figure}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption*{Fonte: Autor}
+	\includegraphics[width=\figsize]{simulaçao ise.png}
+	\caption{Simulação ISE}
+	\label{fig:simise}
+\end{figure}
+
+O testbench utilizado nessa simulação gera um arquivo de texto com os sinais de saída para possibilitar a comparação dos sinais de saída em calculados em Python e no ISE. A figura \ref{fig:simfpga} ilustra o resultado dessa comparação.
+
+
 \begin{figure}[ht!]
 	\centering
 	\captionsetup{justification=centering}
@@ -77,7 +107,33 @@ A figura \ref{fig:simfpga} ilustra o resultado dessa implementação na FPGA Vir
 
 
 \section{Síntese lógica}
-Por fim foi feito a síntese lógica do circuito e feita a simulação pós síntese lógica, cujo o resultado esta disponível na Figura \ref{fig:simpost}.
+Por fim foi feito a síntese lógica do circuito e feita a simulação pós síntese lógica, cujo o resultado esta disponível na Figura \ref{fig:circuito_logico} e na tabela \ref{tab:recursos_sintese} 
+
+\begin{figure}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption*{Fonte: Autor}
+	\includegraphics[width=\figsize]{sim_pos_sin.png}
+	\caption{Simulação pós síntese}
+	\label{fig:circuito_logico}
+\end{figure}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|r|r|}
+		\hline
+		Recursos & Unidade & Percentual \\
+		\hline
+		Registradores & 150 & 1\% \\
+		LUTs & 692 & 2\% \\
+		DSP48E & 4 & 8\% \\
+		\hline
+	\end{tabular}
+	\caption{Utilização dos recursos de Células Lógicas.}
+	\label{tab:recursos_sintese}
+\end{table}
+
+Esse circuito foi simulado utilizando o mesmo testbench utilizado na etapa anterior de design na FPGA, porém utilizando o NcLaunch do Cadence, ou seja, essa simulação gerou um arquivo de texto com os sinais de saída para depois ser feita a validação dos sinais de saida \ref{fig:simpost}.
 
 \begin{figure}[ht!]
 	\centering
@@ -88,4 +144,6 @@ Por fim foi feito a síntese lógica do circuito e feita a simulação pós sín
 	\label{fig:simpost}
 \end{figure}
 
-Esse circuito resultou em um circuito com 1567 células lógica, com uma area total de 28116 $um^2$ e um consumo de energia de 1.6 mW, atuando a uma taxa de operação de 20 MHz, ou seja, a síntese lógica apresentou um desempenho pior que o apresentado pela FPGA. 
+1567 células lógica, com uma area total de 28116 $um^2$ e um consumo de energia de 1.6 mW
+
+Esse circuito foi simulado atuando a uma taxa de operação de 20 MHz, ou seja, a síntese lógica apresentou um desempenho pior que o apresentado pela FPGA. 

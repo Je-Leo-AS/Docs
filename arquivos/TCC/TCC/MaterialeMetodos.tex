@@ -1,15 +1,15 @@
 Como mencionado anteriormente, este trabalho tem como objetivo desenvolver o design de um circuito integrado para um DPD, partindo de um modelo previamente validado tanto em software quanto em hardware, especificamente em FPGA. O projeto foi dividido em quatro etapas principais:
 
 \begin{itemize}
-\item Estudo do DPD;
-\item Implementação em software;
-\item Implementação em FPGA;
-\item Design e validação do circuito integrado.
+\item Estudo sobre PA e modelagem matemática;
+\item Implementação em software do PA e do DPD;
+\item Implementação em do DPD em FPGA;
+\item Design e validação do circuito implementado com a tecnologia de 8HP 130nm.
 \end{itemize}
 
 
-\section{Estudo dos DPDs}
-A etapa consistiu no estudo dos DPDs, conforme apresentado no Capítulo \ref{chap:revi}, onde foi feito todo o levantamento sobre os tipos de modelagem dos DPDs. O objetivo deste estudo é entender as diferentes abordagens de modelagem, avaliar seus desempenhos e identificar as mais adequadas para a aplicação em amplificadores de potência.
+\section{Estudo sobre PA e modelagem matemática}
+A etapa consistiu no estudo de modelagens de Amplificadores de potência para posteriormente fazer a modelagem do DPDs, conforme apresentado no Capítulo \ref{chap:revi}, onde foi feito todo o levantamento sobre os tipos de modelagem dos DPDs. O objetivo deste estudo é entender as diferentes abordagens de modelagem, avaliar seus desempenhos e identificar as mais adequadas para a aplicação em amplificadores de potência.
 
 \section{Implementação em software} \label{sec:implsoft}
 
@@ -34,16 +34,4 @@ Essa etapa consiste na implementação do DPD em FPGA. Para isso, é necessário
 \end{figure}
 
 \section{Design e validação}
-Finalmente, na última etapa, realiza-se o processo de concepção do circuito integrado do DPD como um circuito dedicado integrado na tecnologia BiCMOS 130 nm 8HP, utilizando as ferramentas específicas de desing de circuito integrado.
-O fluxo de projeto VLSI para design de um circuito integrado de aplicação específica, inclui a descrição do circuito em VHDL, síntese lógica utilizando as células padrão da tecnologia, PAR (\textit{place and route}) e simulações comportamentais e temporais. O diagrama do fluxo VLSI pode ser ilustrado pela figura \ref{fig:CMOS2010}.
-
-\begin{figure}[ht!]
-  \centering
-  \captionsetup{justification=centering}
-  \caption*{Fonte: \cite{CMOS2010}}
-  \includegraphics[width=0.25\textwidth]{fluxovlsi.png}
-  \caption{Fluxo de projeto VLSI.}
-  \label{fig:CMOS2010}
-\end{figure}
-
-No processo de desenvolvimento do circuito várias etapas são executadas. Primeiro, há a simulação comportamental para verificar se o circuito descrito em VHDL atende às expectativas, utilizando um \textit{testbench} em VHDL e a ferramenta Cadence NCLaunch. Em seguida, ocorre a síntese lógica, onde a partir do modelo comportamental, utiliza-se a ferramenta Genus para criar um modelo RTL com células padrão de tecnologia específica, considerando restrições de área, frequência e consumo de energia. A síntese gera dois arquivos: um com componentes e conexões, em Verilog, e outro com informações de atraso no formato SDF. A simulação pós-síntese é realizada para validar o netlist gerado usando o mesmo \textit{testbench} da simulação comportamental. Em seguida, na etapa de PAR, o layout é criado posicionando as células e realizando as conexões entre essas células, utilizando a ferramenta Innovus. Por fim, na simulação pós-PAR, o circuito é simulado considerando as resistências e capacitâncias parasitas. Cada etapa é fundamental para garantir o correto funcionamento do circuito.  
+Finalmente, na última etapa, realiza-se o processo de concepção da síntese lógica do circuito do DPD  na tecnologia BiCMOS 130 nm 8HP, utilizando as ferramentas específicas de desing de circuito integrado. 
