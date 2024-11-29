@@ -2,7 +2,7 @@ Conforme mencionado no capítulo \ref{chap:mati}, o desenvolvimento deste trabal
 
 \section{Modelagem do PA}
 
-Para fazer a modelagem em software foi utilizada a linguagem de programação Python. Para isso, separou-se os dados citados na seção \ref{sec:implsoft} do capítulo \ref{chap:mati}, em dados de extração e dados de validação, os quais são utilizados para extração dos coeficientes do modelo do MP e validação do modelo encontrado, respectivamente. Para fazer a validação do modelo utilizou-se a métrica do NMSE, que consiste em calcular o erro médio quadrado do valor medido pelo VSA para o valor calculado pelo modelo. Portanto, quanto menor o NMSE mais fiel é o modelo do PA. Nesta etapa obteve-se um NMSE de -23.57 dB, para cálculos em vírgula flutuante, onde o resultado está presente no gráfico da figura \ref{fig:modelopafloat}.
+Para fazer a modelagem em software foi utilizada a linguagem de programação Python. Para isso, separou-se os dados citados na seção \ref{sec:implsoft} do capítulo \ref{chap:mati}, em dados de extração e dados de validação, os quais são utilizados para extração dos coeficientes do modelo do MP e validação do modelo encontrado, respectivamente. Para fazer a validação do modelo utilizou-se a métrica do NMSE, que consiste em calcular o erro médio quadrado do valor medido pelo VSA para o valor calculado pelo modelo. Portanto, quanto menor o NMSE mais fiel é o modelo do PA. Nesta etapa obteve-se um NMSE de -23.57 dB, para cálculos em vírgula flutuante, cujo o resultado está presente no gráfico da figura \ref{fig:modelopafloat}.
 
 \begin{figure}[ht!]
     \centering
@@ -82,7 +82,7 @@ Essa descrição de hardware foi implementada FPGA Virtex5 XC5VLX50T, operando a
 	\label{tab:recursos_fpga}
 \end{table}
 
-Para fazer essa simulação foi utilizado um testbench com as mesmas entradas simuladas no python. Essa simulação foi feita no Xilinx ISE cujo o resultado está ilustrado na Figura \ref{fig:simise}.
+Para fazer essa simulação foi utilizado um \textit{testbench} com as mesmas entradas simuladas no python. Essa simulação foi feita no Xilinx ISE cujo o resultado está ilustrado na Figura \ref{fig:simise}.
 
 \begin{figure}[ht!]
 	\centering
@@ -93,7 +93,7 @@ Para fazer essa simulação foi utilizado um testbench com as mesmas entradas si
 	\label{fig:simise}
 \end{figure}
 
-O testbench utilizado nessa simulação gera um arquivo de texto com os sinais de saída para possibilitar a comparação dos sinais de saída em calculados em Python e no ISE. A figura \ref{fig:simfpga} ilustra o resultado dessa comparação.
+O \textit{testbench} utilizado nessa simulação gera um arquivo de texto com os sinais de saída para possibilitar a validação dos sinais de saída em calculados em Python e no ISE. A validação dos sinais de saída foi feita utilizando a métrica do Erro médio Absoluto, que consiste na diferença entre os sinais de saída calculados em Python e no ISE. A figura \ref{fig:simfpga} ilustra o resultado dessa comparação.
 
 
 \begin{figure}[ht!]
@@ -107,14 +107,14 @@ O testbench utilizado nessa simulação gera um arquivo de texto com os sinais d
 
 
 \section{Síntese lógica}
-Por fim foi feito a síntese lógica do circuito e feita a simulação pós síntese lógica, cujo o resultado esta disponível na Figura \ref{fig:circuito_logico} e na tabela \ref{tab:recursos_sintese} 
+Por fim foi feito a síntese lógica do circuito e feita a simulação pós síntese lógica. A primeira parte consistiu na síntese lógica no Genus cujo o resultado está disponível na Figura \ref{fig:circuito_logico}. Já os relatórios de consumo área e afins estão disponíveis na tabela \ref{tab:recursos_sintese}. 
 
 \begin{figure}[ht!]
 	\centering
 	\captionsetup{justification=centering}
 	\caption*{Fonte: Autor}
-	\includegraphics[width=\figsize]{sim_pos_sin.png}
-	\caption{Simulação pós síntese}
+	\includegraphics[width=\figsize]{Sintesi-lógica.png}
+	\caption{Circuito lógico}
 	\label{fig:circuito_logico}
 \end{figure}
 
@@ -122,28 +122,37 @@ Por fim foi feito a síntese lógica do circuito e feita a simulação pós sín
 	\centering
 	\begin{tabular}{|l|r|r|}
 		\hline
-		Recursos & Unidade & Percentual \\
+		Recursos & Unidade  \\
 		\hline
-		Registradores & 150 & 1\% \\
-		LUTs & 692 & 2\% \\
-		DSP48E & 4 & 8\% \\
+        Células lógica & 1567  \\
+		Consumo & 1.6 mW  \\
+		Área & 28116 $um^2$  \\
 		\hline
 	\end{tabular}
 	\caption{Utilização dos recursos de Células Lógicas.}
 	\label{tab:recursos_sintese}
 \end{table}
 
-Esse circuito foi simulado utilizando o mesmo testbench utilizado na etapa anterior de design na FPGA, porém utilizando o NcLaunch do Cadence, ou seja, essa simulação gerou um arquivo de texto com os sinais de saída para depois ser feita a validação dos sinais de saida \ref{fig:simpost}.
+Esse circuito foi simulado utilizando o mesmo \textit{testbench} utilizado na etapa anterior de implementação na FPGA, porém utilizando o NcLaunch do Cadence, qual pode ser observada na figura \ref{fig:NcLaunch}. Sendo assim essa simulação gerou um arquivo de texto com os sinais de saída para depois ser feita a validação dos sinais de saída. Essa validação foi feita utilizando a métrica do Erro médio Absoluto .A figura \ref{fig:simpost} ilustra o resultado dessa comparação.
+
+
+\begin{figure}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption*{Fonte: Autor}
+	\includegraphics[width=\figsize]{NcLaunch.png}
+	\caption{Simulação NcLaunch}
+	\label{fig:NcLaunch}
+\end{figure}
+
 
 \begin{figure}[ht!]
 	\centering
 	\captionsetup{justification=centering}
 	\caption*{Fonte: Autor}
 	\includegraphics[width=\figsize]{sim_pos_sin.png}
-	\caption{Simulação pós síntese}
+	\caption{Comparação dos sinais calculados em Python e no NcLaunch} 
 	\label{fig:simpost}
 \end{figure}
 
-1567 células lógica, com uma area total de 28116 $um^2$ e um consumo de energia de 1.6 mW
-
-Esse circuito foi simulado atuando a uma taxa de operação de 20 MHz, ou seja, a síntese lógica apresentou um desempenho pior que o apresentado pela FPGA. 
+Esse circuito foi simulado atuando a uma taxa de operação de 33,34 MHz, ou seja, a síntese lógica apresentou um desempenho pior que o apresentado pela FPGA. 

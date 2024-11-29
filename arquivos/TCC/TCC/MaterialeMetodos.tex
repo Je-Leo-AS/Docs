@@ -9,7 +9,7 @@ Como mencionado anteriormente, este trabalho tem como objetivo desenvolver o des
 
 
 \section{Estudo sobre PA e modelagem matemática}
-A etapa consistiu no estudo de modelagens de Amplificadores de potência para posteriormente fazer a modelagem do DPDs, conforme apresentado no Capítulo \ref{chap:revi}, onde foi feito todo o levantamento sobre os tipos de modelagem dos DPDs. O objetivo deste estudo é entender as diferentes abordagens de modelagem, avaliar seus desempenhos e identificar as mais adequadas para a aplicação em amplificadores de potência.
+A etapa consistiu no estudo de modelagens de Amplificadores de potência para posteriormente fazer a modelagem do DPDs, conforme apresentado no Capítulo \ref{chap:revi}, na qual foi feito todo o levantamento sobre os tipos de modelagem dos DPDs. O objetivo deste estudo é entender as diferentes abordagens de modelagem, avaliar seus desempenhos e identificar as mais adequadas para a aplicação em amplificadores de potência.
 
 \section{Implementação em software} \label{sec:implsoft}
 
@@ -17,7 +17,7 @@ Nesta etapa, foi realizada a implementação do modelo DPD em software, utilizan
 
 Para essa modelagem, foram coletados sinais de entrada e saída de um amplificador de potência classe AB, que utiliza um HEMT fabricado com tecnologia GaN. O amplificador foi excitado por um sinal portador de frequência de 900 MHz, modulado por um sinal de envelope WCDMA 3GPP com aproximadamente 3,84 MHz de largura de banda. Os dados de entrada e saída do amplificador de potência foram medidos usando um VSA Rohde \& Schwarz FSQ com uma taxa de amostragem de 61,44 MHz, conforme disponível em \cite{Bonfim2016}.
 
-Em seguida, realizou-se o cálculo da estimativa do sinal utilizando números com vírgula fixa. Para verificar a precisão dessa estimativa em relação ao sinal original, calculou-se o NMSE. Para essa validação, os dados foram inicialmente divididos em conjuntos de extração e validação. A matriz de extração foi calculada com os dados de extração, utilizando o código disponível no anexo \ref{cod:mp}. Esse cálculo é essencial para a extração dos coeficientes do polinômio de memória. Após a extração dos coeficientes, calculou-se o modelo do PA, que foi então validado com os dados de validação. O NMSE obtido para um polinômio de 2° grau com uma amostra memorizada foi de -23,57 dB.
+Em seguida, realizou-se o cálculo da estimativa do sinal utilizando números com vírgula fixa. Para verificar a precisão dessa estimativa em relação ao sinal original, calculou-se o NMSE. Para essa validação, os dados foram inicialmente divididos em conjuntos de extração e validação. A matriz de extração foi calculada com os dados de extração, utilizando o código disponível no anexo \ref{cod:mp}. Esse cálculo é essencial para a extração dos coeficientes do polinômio de memória. Após a extração dos coeficientes, calculou-se o modelo do PA, que foi então validado com os dados de validação. O NMSE obtido para um polinômio de $2^\circ$ grau com uma amostra memorizada foi de -23,57 dB.
 
 Em seguida, o algoritmo foi ajustado para operar com números em vírgula fixa e o número total de bits foi reajustado para atingir a menor resolução possível, buscando o menor NMSE simulado, conforme ilustrado pelo anexo \ref{cod:mpint}. Por ser tratar de um cálculo em vírgula fixa, fez-se necessário uma readequação do resultado obtido entre cada multiplicação de forma a manter a resolução inicial.
 
@@ -35,3 +35,4 @@ Essa etapa consiste na implementação do DPD em FPGA. Para isso, é necessário
 
 \section{Design e validação}
 Finalmente, na última etapa, realiza-se o processo de concepção da síntese lógica do circuito do DPD  na tecnologia BiCMOS 130 nm 8HP, utilizando as ferramentas específicas de desing de circuito integrado. 
+

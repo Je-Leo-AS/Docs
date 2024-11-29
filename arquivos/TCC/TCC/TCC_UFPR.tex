@@ -16,7 +16,9 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{lipsum}				% para geração de dummy text
-\usepackage{abntex2cite}	% Citações padrão ABNT
+\usepackage{abntex2cite}		% Citações padrão ABNT
+\usepackage{cite}
+% \usepackage{natbib}
 \usepackage[table,xcdraw]{xcolor}% Coluna colorida em tabelas
 %\usepackage{pdflscape}          % Rotaciona página
 \usepackage{Capa}               % Capa e folha de rosto com modificações
@@ -26,11 +28,13 @@
 %\usepackage{etoolbox}           % Configurações adicionais de macros
 \usepackage{xparse}						
 \usepackage{multirow}
+\usepackage{textcomp}
 \NewDocumentCommand\cc{+u{\cc}}{\ignorespaces}
 \usepackage[justification=centering]{caption}
 \usepackage{listings}
-\usepackage{cite} 
-\usepackage{titlesec} % Para personalizar títulos de capítulos
+%\addbibresource{Referencias.bib}
+% \defbibheading{bibliography}{\chapter{Referências}} % Para mudar o título quando usa biblatex
+
 % --------------------
 % Dados do Documento
 % --------------------
@@ -149,10 +153,11 @@ memória}
 	.
 \end{resumo}
 
-\chapter{Abstract} 
-	
-	\input{resumo}
-
+\renewcommand{\resumoname}{Abstract} % Redefine o título temporariamente
+\begin{resumo}
+    \input{resumo}
+\end{resumo}
+\renewcommand{\resumoname}{Resumo}
 \begin{siglas}  %
  \item[DPD]  Pré-Distorcedor Digital
  \item[FPGA] Matriz de Portas Programáveis em Campo 
@@ -227,12 +232,33 @@ memória}
 
 %\setlength{\afterchapskip}{\baselineskip}
 
+\chapter{REFERÊNCIAS}
+\begingroup
+\renewcommand{\chapter}[2]{}%
 
-\bibliographystyle{plain} % Escolha o estilo
-\bibliography{Referencias}
+\begin{thebibliography}{}
+	\bibitem{John2016} Elton John, ``Modelagem comportamental de amplificadores de potência de radiofrequência usando termos unidimensionais e bidimensionais de séries de Volterra", 2016.
+	\bibitem{Kenington2000} Peter Kenington, ``High Linearity RF Amplifier Design", 2000.
+	\bibitem{Cripps2006} Steve Cripps, ``RF Power Amplifiers for Wireless Communications", 2006.
+	\bibitem{Chavez2018} Joel Huanca Chavez, ``Estudo comparativo entre as arquiteturas de identificação de pré-distorcedores digitais através das aprendizagens direta e indireta", 2018.
+	\bibitem{Pedroni2010} Volnei Pedroni, ``Eletrônica Digital e VHDL ", 2010.
+	\bibitem{Gonçalves2009} Eduardo Gonçalves de Lima and Giovanni Ghione, ``Behavioral modeling and digital base-band predistortion of RF power amplifiers", 2009.
+	\bibitem{Schuartz2017} Luis Schuartz and Eduardo Lima, ``Polinômios com Memória de Complexidade Reduzida e sua Aplicação na Pré-distorção Digital de Amplificadores de Potência", 2017.
+	\bibitem{Bonfim2016} Elton J Bonfim and Eduardo G De Lima, ``A Modified Two Dimensional Volterra-Based Series for the Low-Pass Equivalent Behavioral Modeling of RF Power Amplifiers", vol. 47, pp. 27-35, 2016.
+	\bibitem{Wayne} Wayne Wolf, ``Modern VLSI Design: IP-Based Design, Fourth Edition", Prentice Hall Modern Semiconductor Design Series.
+	\bibitem{Raychaudhuri2012} Dipankar Raychaudhuri and Narayan B. Mandayam, ``Frontiers of Wireless and Mobile Communications", \emph{Proceedings of the IEEE}, vol. 100, no. 4, pp. 824-840, April 2012, doi: 10.1109/JPROC.2011.2182095.
+	\bibitem{Silva2013} Pedro Silva, ``Combinação entre pré-distorção digital e redução de fator de crista para linearização de amplificadores de potência para sistemas de telecomunicações móveis", 2013.
+	\bibitem{Behavioral2009} Eduardo Gonçalves de Lima and Giovanni Ghione, ``Behavioral modeling and digital base-band predistortion of RF power amplifiers", 2009.
+	\bibitem{CMOS2010} Neil H.E.Weste and David Money Harris, ``CMOS VLSI Design: A Circuits and Systems Perspective (4th Edition)", 2010.
+	\bibitem{Pedroni2020} Volnei Pedroni, ``Circuit design with VHDL", 2020.
+\end{thebibliography}
+\endgroup
+
+%\bibliography{Referencias}
+
 
 % ----------------------------------------------------------
-% ELEMENTOS PÃ“S-TEXTUAIS
+% ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
 \postextual
 % ----------------------------------------------------------

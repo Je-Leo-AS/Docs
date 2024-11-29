@@ -13,3 +13,6 @@
 *.nav
 *.out
 *.snm
+*.bcf
+*.lot
+*.xml
