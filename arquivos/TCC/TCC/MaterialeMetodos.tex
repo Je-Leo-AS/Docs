@@ -3,17 +3,17 @@ Como mencionado anteriormente, este trabalho tem como objetivo desenvolver o des
 \begin{itemize}
 \item Estudo sobre PA e modelagem matemática;
 \item Implementação em software do PA e do DPD;
-\item Implementação em do DPD em FPGA;
+\item Implementação do DPD em FPGA;
 \item Design e validação do circuito implementado com a tecnologia de 8HP 130nm.
 \end{itemize}
 
 
 \section{Estudo sobre PA e modelagem matemática}
-A etapa consistiu no estudo de modelagens de Amplificadores de potência para posteriormente fazer a modelagem do DPDs, conforme apresentado no Capítulo \ref{chap:revi}, na qual foi feito todo o levantamento sobre os tipos de modelagem dos DPDs. O objetivo deste estudo é entender as diferentes abordagens de modelagem, avaliar seus desempenhos e identificar as mais adequadas para a aplicação em amplificadores de potência.
+A etapa consistiu no estudo de modelagens de Amplificadores de potência para posteriormente fazer a modelagem do DPD, conforme apresentado no Capítulo \ref{chap:revi}, na qual foi feito todo o levantamento sobre os tipos de modelagem dos DPDs. O objetivo deste estudo é entender as diferentes abordagens de modelagem, avaliar seus desempenhos e identificar as mais adequadas para a aplicação em amplificadores de potência.
 
 \section{Implementação em software} \label{sec:implsoft}
 
-Nesta etapa, foi realizada a implementação do modelo DPD em software, utilizando a linguagem de programação Python. Esta linguagem amigável e amplamente difundida na comunidade acadêmica.
+Nesta etapa, foi realizada a implementação do modelo DPD em software, utilizando a linguagem de programação Python. Esta linguagem amigável é amplamente difundida na comunidade acadêmica.
 
 Para essa modelagem, foram coletados sinais de entrada e saída de um amplificador de potência classe AB, que utiliza um HEMT fabricado com tecnologia GaN. O amplificador foi excitado por um sinal portador de frequência de 900 MHz, modulado por um sinal de envelope WCDMA 3GPP com aproximadamente 3,84 MHz de largura de banda. Os dados de entrada e saída do amplificador de potência foram medidos usando um VSA Rohde \& Schwarz FSQ com uma taxa de amostragem de 61,44 MHz, conforme disponível em \cite{Bonfim2016}.
 
@@ -25,7 +25,7 @@ Em seguida, o algoritmo foi ajustado para operar com números em vírgula fixa e
 Essa etapa envolve a implementação do DPD em FPGA, o que exige a paralelização das operações aritméticas. Em cada ciclo de clock, três operações são realizadas simultaneamente: o sinal atual é elevado ao quadrado, armazenado em um registrador de deslocamento dentro de uma matriz de extração \footnote{matriz que contém todas as potências e amostras anteriores necessárias para o cálculo da saída}, o cálculo do produto de todos os elementos da matriz de extração e a soma dos produtos entre os sinais do mesmo instante e seus respectivos coeficientes. Esse processo se repete \( P \) vezes, correspondendo ao grau \( P \) do polinômio de memória. Como consequência, a saída do DPD estará incompleta durante os primeiros \( P \) ciclos de clock, pois, nesse intervalo, o cálculo depende de amostras de sinais anteriores que ainda não foram processadas, resultando em uma saída parcial.
  A Figura \ref{fig:diagramaprocess} ilustra como esse processo está dividido entre cada ciclo de clock.
  
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
   \centering
   \captionsetup{justification=centering}
   \caption*{Fonte: Autor}

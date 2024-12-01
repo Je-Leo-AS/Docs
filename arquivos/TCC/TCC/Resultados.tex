@@ -2,9 +2,9 @@ Conforme mencionado no capítulo \ref{chap:mati}, o desenvolvimento deste trabal
 
 \section{Modelagem do PA}
 
-Para fazer a modelagem em software foi utilizada a linguagem de programação Python. Para isso, separou-se os dados citados na seção \ref{sec:implsoft} do capítulo \ref{chap:mati}, em dados de extração e dados de validação, os quais são utilizados para extração dos coeficientes do modelo do MP e validação do modelo encontrado, respectivamente. Para fazer a validação do modelo utilizou-se a métrica do NMSE, que consiste em calcular o erro médio quadrado do valor medido pelo VSA para o valor calculado pelo modelo. Portanto, quanto menor o NMSE mais fiel é o modelo do PA. Nesta etapa obteve-se um NMSE de -23.57 dB, para cálculos em vírgula flutuante, cujo o resultado está presente no gráfico da figura \ref{fig:modelopafloat}.
+Para fazer a modelagem em software foi utilizada a linguagem de programação Python. Para isso, separou-se os dados citados na seção \ref{sec:implsoft} do capítulo \ref{chap:mati}, em dados de extração e dados de validação, os quais são utilizados para extração dos coeficientes do modelo do MP e validação do modelo encontrado, respectivamente. Para fazer a validação do modelo utilizou-se a métrica do NMSE, que consiste em calcular o erro quadrático médio do valor medido pelo VSA para o valor calculado pelo modelo. Portanto, quanto menor o NMSE mais fiel é o modelo do PA. Nesta etapa obteve-se um NMSE de -23.57 dB, para cálculos em vírgula flutuante, cujo o resultado está presente no gráfico da figura \ref{fig:modelopafloat}.
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
     \centering
     \captionsetup{justification=centering}
     \caption*{Fonte: Autor}
@@ -19,7 +19,7 @@ Após concluída a modelagem matemática, foi feita a modelagem do DPD para ent�
 Para isso foi necessário refazer a extração dos coeficientes, mas desta vez com os dados normalizados para valores de 0 a $2^{bits}$.  
 O resultado desse levantamento está presente no gráfico na figura \ref{fig:bits}.
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
     \centering
     \captionsetup{justification=centering}
     \caption*{Fonte: Autor}
@@ -28,13 +28,13 @@ O resultado desse levantamento está presente no gráfico na figura \ref{fig:bit
     \label{fig:bits}
 \end{figure}
 
-Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade total de bits total contando com os bits de overflow necessárias para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 7 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits o resultado alcançado está ilustrado pela figura \ref{fig:modelopa}.
+Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade total de bits total contando com os bits de overflow necessários para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 7 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits o resultado alcançado está ilustrado pela figura \ref{fig:modelopa}.
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
     \centering
     \captionsetup{justification=centering}
     \caption*{Fonte: Autor}
-    \includegraphics[width=\figsize]{modeloPA.png}
+    \includegraphics[width=0.60\textwidth]{modeloPA.png}
     \caption{Modelo do PA em vírgula fixa}
     \label{fig:modelopa}
 \end{figure}
@@ -42,19 +42,19 @@ Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade to
 \section{Modelagem do DPD}
 A partir dos resultados obtidos foi possível fazer a modelagem do DPD, para isso foi feito o mesmo processo de modelagem do PA, porém para alcançar a característica de transferência inversa PA foi invertido a ordem dos dados de entrada e saída para extração dos coeficientes do DPD. O resultado desta modelagem está ilustrado pela figura \ref{fig:modelodpd} a seguir.
 
-\begin{figure}[H]
+\begin{figure}[htbp!]
     \centering
     \captionsetup{justification=centering}
     \caption*{Fonte: Autor}
-    \includegraphics[width=\figsize]{modelodpd.png}
+    \includegraphics[width=0.60\textwidth]{modelodpd.png}
     \caption{Modelo do DPD em vírgula fixa}
     \label{fig:modelodpd}
 \end{figure}
 
 \section{Implementação em FPGA}
-Em seguida foi feito o código em VHDL para a implementação em FPGA, nessa implementação cada operação aritmética é feita de maneira síncrona, e o fluxo dos cálculos desse processo esta sendo ilustrado pelo diagrama da figura \ref{fig:fluxocal} a seguir.
+Em seguida foi feito o código em VHDL para a implementação em FPGA, nessa implementação cada operação aritmética é feita de maneira síncrona, e o fluxo dos cálculos desse processo está sendo ilustrado pelo diagrama da figura \ref{fig:fluxocal} a seguir.
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
 	\centering
 	\captionsetup{justification=centering}
 	\caption*{Fonte: Autor}
@@ -67,7 +67,7 @@ No primeiro ciclo de clock é feito o registro do sinal de entrada, para em segu
 
 Essa descrição de hardware foi implementada FPGA Virtex5 XC5VLX50T, operando a uma frequência de 62,5 MHz, cujo os recursos lógicos estão sendo mostrados na tabela \ref{tab:recursos_fpga} a seguir.
 
-\begin{table}[h!]
+\begin{table}[htbp!]
 	\centering
 	\begin{tabular}{|l|r|r|}
 		\hline
@@ -84,7 +84,7 @@ Essa descrição de hardware foi implementada FPGA Virtex5 XC5VLX50T, operando a
 
 Para fazer essa simulação foi utilizado um \textit{testbench} com as mesmas entradas simuladas no python. Essa simulação foi feita no Xilinx ISE cujo o resultado está ilustrado na Figura \ref{fig:simise}.
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
 	\centering
 	\captionsetup{justification=centering}
 	\caption*{Fonte: Autor}
@@ -93,10 +93,10 @@ Para fazer essa simulação foi utilizado um \textit{testbench} com as mesmas en
 	\label{fig:simise}
 \end{figure}
 
-O \textit{testbench} utilizado nessa simulação gera um arquivo de texto com os sinais de saída para possibilitar a validação dos sinais de saída em calculados em Python e no ISE. A validação dos sinais de saída foi feita utilizando a métrica do Erro médio Absoluto, que consiste na diferença entre os sinais de saída calculados em Python e no ISE. A figura \ref{fig:simfpga} ilustra o resultado dessa comparação.
+O \textit{testbench} utilizado nessa simulação gera um arquivo de texto com os sinais de saída para possibilitar a validação dos sinais de saída em calculados em Python e no ISE. A validação dos sinais de saída foi feita utilizando a métrica do NMSE -16.77 dB, que consiste na diferença entre os sinais de saída calculados em Python e no ISE. A figura \ref{fig:simfpga} ilustra o resultado dessa comparação.
 
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
 	\centering
 	\captionsetup{justification=centering}
 	\caption*{Fonte: Autor}
@@ -109,7 +109,7 @@ O \textit{testbench} utilizado nessa simulação gera um arquivo de texto com os
 \section{Síntese lógica}
 Por fim foi feito a síntese lógica do circuito e feita a simulação pós síntese lógica. A primeira parte consistiu na síntese lógica no Genus cujo o resultado está disponível na Figura \ref{fig:circuito_logico}. Já os relatórios de consumo área e afins estão disponíveis na tabela \ref{tab:recursos_sintese}. 
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
 	\centering
 	\captionsetup{justification=centering}
 	\caption*{Fonte: Autor}
@@ -118,7 +118,7 @@ Por fim foi feito a síntese lógica do circuito e feita a simulação pós sín
 	\label{fig:circuito_logico}
 \end{figure}
 
-\begin{table}[h!]
+\begin{table}[htbp!]
 	\centering
 	\begin{tabular}{|l|r|r|}
 		\hline
@@ -133,10 +133,10 @@ Por fim foi feito a síntese lógica do circuito e feita a simulação pós sín
 	\label{tab:recursos_sintese}
 \end{table}
 
-Esse circuito foi simulado utilizando o mesmo \textit{testbench} utilizado na etapa anterior de implementação na FPGA, porém utilizando o NcLaunch do Cadence, qual pode ser observada na figura \ref{fig:NcLaunch}. Sendo assim essa simulação gerou um arquivo de texto com os sinais de saída para depois ser feita a validação dos sinais de saída. Essa validação foi feita utilizando a métrica do Erro médio Absoluto .A figura \ref{fig:simpost} ilustra o resultado dessa comparação.
+Esse circuito foi simulado utilizando o mesmo \textit{testbench} utilizado na etapa anterior de implementação na FPGA, porém utilizando o NcLaunch do Cadence, qual pode ser observada na figura \ref{fig:NcLaunch}. Sendo assim essa simulação gerou um arquivo de texto com os sinais de saída para depois ser feita a validação dos sinais de saída. Essa validação foi feita utilizando a métrica do NMSE também, o qual alcançou um NMSE de -17.53 dB. A figura \ref{fig:simpost} ilustra o resultado dessa comparação.
 
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
 	\centering
 	\captionsetup{justification=centering}
 	\caption*{Fonte: Autor}
@@ -146,11 +146,11 @@ Esse circuito foi simulado utilizando o mesmo \textit{testbench} utilizado na et
 \end{figure}
 
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
 	\centering
 	\captionsetup{justification=centering}
 	\caption*{Fonte: Autor}
-	\includegraphics[width=\figsize]{sim_pos_sin.png}
+	\includegraphics[width=0.80\textwidth]{sim_pos_sin.png}
 	\caption{Comparação dos sinais calculados em Python e no NcLaunch} 
 	\label{fig:simpost}
 \end{figure}
