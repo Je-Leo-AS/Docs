@@ -2,7 +2,7 @@
 % --------------------------------------------------- %
 %                  Presentation info	              %
 % --------------------------------------------------- %
-\title[Pré-distorcedor digital descrito em linguagem VHDL e baseado em polinômio com memória.]{\textbf{Pré-distorcedor digital descrito em linguagem VHDL e baseado em polinômio com memória}}
+\title[Pré-distorcedor digital baseado em polinômio de memória]{\textbf{Projeto de um circuito integrado de um pré-distorcedor digital baseado em polinômio de memória}}
 \subtitle{}
 \author[Leonardo de Andrade Santos]{\large \negrito{Leonardo de Andrade Santos}}
 \institute[UFPR/PR]{
@@ -75,10 +75,8 @@
 \begin{minipage}{.49\textwidth}
 
 \begin{itemize}
-    \item A curva amarela representa a restrição 
-    imposta pela norma regulamentadora;
+    \item A curva amarela representa a restrição imposta pela norma regulamentadora;
     \item A curva em verde representa a resposta em frequência do sinal da amplificação;
-    antes 
     \item A curva em azul representa o sinal após a amplificação;
     \item As diferenças de densidade de potência nas bandas adjacentes ao canal representam a distorção causada pela não linearidade do PA;
     \item Maior eficiência implica em maior distorção do sinal.
@@ -100,11 +98,9 @@
 		
 		\begin{itemize}
 			\item A característica de transferência não linear do PA 
-			é caracterizada pela potência de saída que decai 			1 dB da potência ideal, ou ponto de 1 dB de 
-			compressão de ganho (OCP1dB)
-			\item  Efeito chamado memória causado devido aos 			componentes armazenadores (capacitâncias de energia e indutâncias), contribuindo significativamente na distorção.
-			\item  O DPD, operando em banda base é uma solução 
-			eficiente com baixo custo computacional
+			é caracterizada pela potência de saída que decai 1 dB da potência ideal, ou ponto de 1 dB de compressão de ganho (OCP1dB)
+			\item  Efeito chamado memória causado devido aos componentes armazenadores (capacitâncias de energia e indutâncias), contribuindo significativamente na distorção.
+			\item  O DPD, operando em banda base é uma solução eficiente com baixo custo computacional
 		
 		\end{itemize}
 		
@@ -227,37 +223,46 @@
 	\end{minipage}%
 	\hspace{0.04\textwidth}
 	\begin{minipage}{0.5\textwidth}
-		 O trabalho foi divido em 4 etapas:
+		O trabalho foi dividido em quatro etapas:
 		\begin{itemize}
-			\item Etapa 1: Estudos do DPD e modelagem matemática do PA;
-			\item Etapa 2: Implementação do DPD em software;
-			\item Etapa 3: Implementação do DPD em FPGA;
-			\item Etapa 4: Design do Circuito Integrado
+			\item Etapa 1: Estudos do DPD e modelagem matemática do PA.
+			\item Etapa 2: Implementação do DPD em software.
+			\item Etapa 3: Implementação do DPD em FPGA.
+			\item Etapa 4: Simulação em FPGA.
 		\end{itemize}
 	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		
+		\includegraphics[scale=0.1]{diagrama.png}
+		
+	\end{minipage}%
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dados Utilizados}
 \begin{frame}{Dados Utilizados}
 	\begin{minipage}{0.5\textwidth}
 		
-		%\includegraphics[scale=0.5]{DPDCascata.png}
 		
 	\end{minipage}%
 	\hspace{0.04\textwidth}
 	\begin{minipage}{0.5\textwidth}
 		\begin{itemize}
 			\item Amplificador de potência classe AB, HEMT (transistor de efeito de campo de heterojunção) fabricado em tecnologia GaN.
-			\item Excitado por um sinal portadora de frequência de 900	MHz;
-			\item Modulado por um sinal de envoltória WCDMA 3GPP 3,84 MHz de largura de banda;
-			\item Os dados de entrada e saída do amplificador de potência foram medidos usando um analisador de sinal vetorial (VSA) Rohde \& Schwarz FSQ com uma taxa de amostragem de 61,44 MHz;
+			\item Excitado por um sinal portadora de frequência de 900	MHz.
+			\item Modulado por um sinal de envoltória WCDMA 3GPP 3,84 MHz de largura de banda.
+			\item Os dados de entrada e saída do amplificador de potência foram medidos usando um analisador de sinal vetorial (VSA) Rohde \& Schwarz FSQ com uma taxa de amostragem de 61,44 MHz.
 		\end{itemize}
 	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		
+		\includegraphics[scale=0.4]{analisador.jpeg}
+		
+	\end{minipage}%
 \end{frame}
 
 \section{Implementação e software}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modelagem do PA}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Modelagem do PA}
 	
 	
@@ -265,7 +270,7 @@
 		\begin{itemize}
 			\item  Implementação em Python;
 			\item Modelagem do PA, com cálculo em vírgula flutuante;
-			\item NMSE de -23,57 dB, para um Polinômio de 2^\circ grau com uma amostra de memória;
+			\item NMSE de -23,57 dB, para um Polinômio de $2^\circ$ grau com uma amostra de memória;
 		\end{itemize}
 	\end{minipage}%
 	\hspace{0.04\textwidth}
@@ -276,7 +281,6 @@
 	\end{minipage}%
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Ajuste da Resolução do Sinal}
 \begin{frame}{Ajuste da Resolução do Sinal}
 	\begin{minipage}{0.5\textwidth}
 		\begin{itemize}
@@ -298,7 +302,7 @@
 \begin{frame}{Modelagem do DPD}
 	\begin{minipage}{0.5\textwidth}
 		\begin{itemize}
-			\item Calculo do modulo DPD da mesma forma que do PA, apenas invertendo os dados de entrada com os de saída.
+			\item Cálculo do modulo DPD da mesma forma que do PA, apenas invertendo os dados de entrada com os de saída.
 		\end{itemize}
 		
 		
@@ -310,36 +314,83 @@
 \end{frame}
 \section{Implementação em Hardware}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Desenvolvimento do VHDL}
+\subsection{Desenvolvimento FPGA}
 \begin{frame}{Desenvolvimento do VHDL}
 	
 		\includegraphics[scale=0.2]{diagrama_process.png}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Fluxo de cálculo}
 \begin{frame}{Fluxo de cálculo}
-	
 	\includegraphics[scale=0.25]{fluxo_de_calculo.png}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Resultado simulação FPGA}
-\begin{frame}{Resultado simulação FPGA}
+\begin{frame}{Resultado da simulação da FPGA}
 	\begin{minipage}{0.5\textwidth}
-	\begin{itemize}
-		\item FPGA Virtex5 XC5VLX50T;
-		\item total de 150 registradores, 692 LUTs e 4 unidades DSP48E;
-		\item frequência de operação 61,5 MHz;
-	\end{itemize}
-	
-	
-\end{minipage}%
-\hspace{0.04\textwidth}
-\begin{minipage}{0.5\textwidth}
-	\includegraphics[scale=0.40]{fpgasim.png}
-\end{minipage}
+		\begin{itemize}
+			\item FPGA Virtex5 XC5VLX50T;
+			\item frequência de operação 62,5 MHz.
+		\end{itemize}
+		\begin{tabular}{|l|r|r|}
+			\hline
+			Recursos & Unidade & Percentual \\
+			\hline
+			Registradores & 150 & 1\% \\
+			LUTs & 692 & 2\% \\
+			DSP48E & 4 & 8\% \\
+			\hline
+		\end{tabular}
+		
+		
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[scale=0.40]{fpgasim.png}
+	\end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Desenvolvimento Tecnologia BiCMOS 8HP 130 nm}
+\begin{frame}{Síntese Lógica}
+		\begin{minipage}{0.5\textwidth}
+		\begin{itemize}
+			\item Tecnologia 8HP 130nm.
+		\end{itemize}
+		\begin{tabular}{|l|r|r|}
+			\hline
+			Recursos & Quantidade  \\
+			\hline
+			Células lógica & 1567  \\
+			Consumo & 1.6 mW  \\
+			Área & 28116 $um^2$  \\
+			\hline
+		\end{tabular}
+		
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[scale=0.10]{Sintesi-lógica.png}
+	\end{minipage}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Resultado simulação da Síntese Lógica}
+	\begin{minipage}{0.5\textwidth}
+		\begin{itemize}
+			\item Frequência de operação 33,34 MHz.
+			\item Mesmo Testbench utilizado na FPGA.
+			%\includegraphics[width=0.1]{NcLaunch.png}
+		\end{itemize}
+		
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[scale=0.40]{simpossin.png}
+	\end{minipage}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conclusão}
+	A evolução dos sistemas de comunicação sem fio exige eficiência máxima, e a implementação de um Pré-Distorcedor Digital (DPD) em cascata com o Amplificador de Potência (PA) oferece uma solução de baixo custo para melhorar o desempenho. Este trabalho validou um código em linguagem de descrição de hardware capaz de processar em tempo real as características não lineares e efeitos de memória de um amplificador, minimizando o uso de recursos lógicos e o consumo de energia. Esse trabalho foi validado em uma  FPGA Virtex5 XC5VLX50T, utilizando um total de 150 registradores, 692 LUTs e 4 DSP48Es, operando a uma frequência de 62,5 MHz.  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Referências}
 \begin{frame}{Referências}
 	\setbeamertemplate{navigation symbols}{}
