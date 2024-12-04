@@ -59,7 +59,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Sistema de comunicação}
+\subsection{Contextualização}
 \begin{frame}{Sistema de comunicação}
 	\begin{itemize}
 		\item A comunicação sem fio é dividida em 3 sub-sistemas principais:	o transmissor, o meio transmissor (ar), receptor;
@@ -69,8 +69,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Problema}
-\begin{frame}{Problema}
+\subsection{Análise da Resposta em Frequência e Distorções Adjacentes}
+\begin{frame}{Distorção do Sinal e Restrições Normativas}
 
 \begin{minipage}{.49\textwidth}
 
@@ -91,8 +91,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Mudar}
-\begin{frame}{Mudar}
+\begin{frame}{Distorção em Amplificadores de Potência}
 	
 	\begin{minipage}{.49\textwidth}
 		
@@ -134,7 +133,7 @@
 	\end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Séries de Volterra}
+\subsection{Modelagem Matemática}
 \begin{frame}{Séries de Volterra}
 		\begin{itemize}
 			\item As séries de Volterra são bastante difundidas para a modelagem comportamental;
@@ -148,7 +147,6 @@
 		\]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Polinômio de Memória}
 \begin{frame}{Polinômio de Memória}
 	\begin{minipage}{0.5\textwidth}
 		\raggedleft
@@ -195,11 +193,11 @@
 	\end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Field Port Gate Array (FPGA)}
+\subsection{Desenvolvimento em Hardware}
 \begin{frame}{Field Port Gate Array (FPGA)}
 	\begin{minipage}{0.5\textwidth}
 	
-			\includegraphics[scale=0.5]{DPDCascata.png}
+			\includegraphics[scale=0.25]{FPGA Stratix X da Intel.png}
 		
 	\end{minipage}%
 	\hspace{0.04\textwidth}
@@ -214,31 +212,27 @@
 	\end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Metodologia}
+\subsection{Metodologia} 
 \begin{frame}{Metodologia}
-	\begin{minipage}{0.5\textwidth}
-		
-		%\includegraphics[scale=0.5]{DPDCascata.png}
-		
-	\end{minipage}%
-	\hspace{0.04\textwidth}
-	\begin{minipage}{0.5\textwidth}
-		O trabalho foi dividido em quatro etapas:
+	\begin{columns}[T] % Alinhamento pela parte superior
+		\column{0.55\textwidth}
 		\begin{itemize}
-			\item Etapa 1: Estudos do DPD e modelagem matemática do PA.
-			\item Etapa 2: Implementação do DPD em software.
-			\item Etapa 3: Implementação do DPD em FPGA.
-			\item Etapa 4: Simulação em FPGA.
+			\item Etapa 1: Estudos sobre o funcionamento do DPD e modelagem matemática do PA.
+			\item Etapa 2: Implementação do DPD em software e simulação de desempenho.
+			\item Etapa 3: Implementação e validação do DPD em FPGA para prototipagem.
+			\item Etapa 4: Implementação final e validação do DPD em células utilizando a tecnologia BiCMOS 8 HP 130 nm.
 		\end{itemize}
-	\end{minipage}
-	\begin{minipage}{0.5\textwidth}
 		
-		\includegraphics[scale=0.1]{diagrama.png}
-		
-	\end{minipage}%
+		\column{0.4\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[scale=0.1]{diagrama.png} % Ajuste o tamanho conforme necessário
+			\caption{Fluxograma das etapas do projeto.}
+		\end{figure}
+	\end{columns}
 \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Dados Utilizados}
 \begin{frame}{Dados Utilizados}
 	\begin{minipage}{0.5\textwidth}
 		
