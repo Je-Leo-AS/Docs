@@ -1,4 +1,4 @@
-Conforme mencionado no capítulo \ref{chap:mati}, o desenvolvimento deste trabalho foi dividido em quatro etapas. A primeira etapa envolveu o estudo dos DPDs e dos métodos de modelagem associados. Na segunda etapa, essa modelagem foi implementada em software utilizando a linguagem Python. A terceira etapa consistiu na implementação do modelo de DPD selecionado em hardware, empregando a linguagem VHDL. Por fim, na quarta etapa, foi realizado a síntese lógica para o design do circuito integrado. Este capítulo apresenta os resultados obtidos ao longo do desenvolvimento do projeto.
+Conforme mencionado no capítulo \ref{chap:mati}, o desenvolvimento deste trabalho foi dividido em quatro etapas. A primeira etapa envolveu o estudo dos DPDs e dos métodos de modelagem associados. Na segunda etapa, essa modelagem foi implementada em software utilizando a linguagem Python. A terceira etapa consistiu na implementação do modelo de DPD selecionado em hardware, empregando a linguagem VHDL. Por fim, na quarta etapa, foi realizada a síntese lógica para o design do circuito integrado. Este capítulo apresenta os resultados obtidos ao longo do desenvolvimento do projeto.
 
 \section{Modelagem do PA}
 
@@ -28,7 +28,7 @@ O resultado desse levantamento está presente no gráfico na figura \ref{fig:bit
     \label{fig:bits}
 \end{figure}
 
-Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade total de bits total contando com os bits de overflow necessários para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 7 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits o resultado alcançado está ilustrado pela figura \ref{fig:modelopa}.
+Neste gráfico observa-se dois conjuntos de amostras, onde as amostras em azul apresenta a quantidade total de bits contando com os bits de overflow necessários para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 7 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits, cujo o resultado alcançado está ilustrado pela figura \ref{fig:modelopa}.
 
 \begin{figure}[htbp!]
     \centering
@@ -40,7 +40,7 @@ Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade to
 \end{figure}
 
 \section{Modelagem do DPD}
-A partir dos resultados obtidos foi possível fazer a modelagem do DPD, para isso foi feito o mesmo processo de modelagem do PA, porém para alcançar a característica de transferência inversa PA foi invertido a ordem dos dados de entrada e saída para extração dos coeficientes do DPD. O resultado desta modelagem está ilustrado pela figura \ref{fig:modelodpd} a seguir.
+A partir dos resultados obtidos foi possível fazer a modelagem do DPD; para isso foi feito o mesmo processo de modelagem do PA, porém para alcançar a característica de transferência inversa PA foi invertida a ordem dos dados de entrada e saída para extração dos coeficientes do DPD. O resultado desta modelagem está ilustrado pela figura \ref{fig:modelodpd}.
 
 \begin{figure}[htbp!]
     \centering
@@ -52,7 +52,7 @@ A partir dos resultados obtidos foi possível fazer a modelagem do DPD, para iss
 \end{figure}
 
 \section{Implementação em FPGA}
-Em seguida foi feito o código em VHDL para a implementação em FPGA, nessa implementação cada operação aritmética é feita de maneira síncrona, e o fluxo dos cálculos desse processo está sendo ilustrado pelo diagrama da figura \ref{fig:fluxocal} a seguir.
+Posteriormente, foi desenvolvido o código em VHDL para a implementação em FPGA; nessa implementação, cada operação aritmética é realizada de maneira síncrona, e o fluxo dos cálculos desse processo está ilustrado no diagrama da figura \ref{fig:fluxocal}.
 
 \begin{figure}[htbp!]
 	\centering
@@ -63,7 +63,10 @@ Em seguida foi feito o código em VHDL para a implementação em FPGA, nessa imp
 	\label{fig:fluxocal}
 \end{figure}
 
-No primeiro ciclo de clock é feito o registro do sinal de entrada, para em seguida ele ser elevado ao quadrado N graus do polinômio, para depois esse valor ser adicionado a outro buffer de matriz de extração para para todos os sinais de amostra e por fim ser multiplicado pelos seus respectivos e somado para o sinal de saída.
+
+No primeiro ciclo de clock, o sinal de entrada é registrado e, em seguida, elevado ao quadrado em \( P \)\footnote{\( P \) representa o grau máximo do polinômio utilizado no modelo matemático, que define o número de termos não lineares considerados no processamento do sinal.} graus do polinômio. Após essa etapa, o resultado é adicionado a um buffer de matriz de extração, que processa todos os sinais da amostra. Por fim, cada valor é multiplicado pelos seus respectivos coeficientes e somado, compondo o sinal de saída.  
+
+
 
 Essa descrição de hardware foi implementada FPGA Virtex5 XC5VLX50T, operando a uma frequência de 62,5 MHz, cujo os recursos lógicos estão sendo mostrados na tabela \ref{tab:recursos_fpga} a seguir.
 
@@ -93,7 +96,7 @@ Para fazer essa simulação foi utilizado um \textit{testbench} com as mesmas en
 	\label{fig:simise}
 \end{figure}
 
-O \textit{testbench} utilizado nessa simulação gera um arquivo de texto com os sinais de saída para possibilitar a validação dos sinais de saída em calculados em Python e no ISE. A validação dos sinais de saída foi feita utilizando a métrica do NMSE -16.77 dB, que consiste na diferença entre os sinais de saída calculados em Python e no ISE. A figura \ref{fig:simfpga} ilustra o resultado dessa comparação.
+O \textit{testbench} empregado nesta simulação gera um arquivo de texto contendo os sinais de saída, permitindo a validação desses sinais calculados pela FPGA simulados no ISE em comparação com os resultados calculados em Python.  A diferença entre os sinais foi avaliada utilizando a métrica NMSE (-16,77 dB). A figura \ref{fig:simfpga} ilustra o resultado dessa comparação.
 
 
 \begin{figure}[htbp!]
@@ -107,7 +110,7 @@ O \textit{testbench} utilizado nessa simulação gera um arquivo de texto com os
 
 
 \section{Síntese lógica}
-Por fim foi feito a síntese lógica do circuito e feita a simulação pós síntese lógica. A primeira parte consistiu na síntese lógica no Genus cujo o resultado está disponível na Figura \ref{fig:circuito_logico}. Já os relatórios de consumo área e afins estão disponíveis na tabela \ref{tab:recursos_sintese}. 
+Por fim foi feito a síntese lógica do circuito e a simulação pós síntese lógica. A primeira parte consistiu na síntese lógica no Genus cujo o resultado está disponível na Figura \ref{fig:circuito_logico}. Já os relatórios de consumo, área e afins estão disponíveis na tabela \ref{tab:recursos_sintese}. 
 
 \begin{figure}[htbp!]
 	\centering
@@ -126,14 +129,14 @@ Por fim foi feito a síntese lógica do circuito e feita a simulação pós sín
 		\hline
         Células lógica & 1567  \\
 		Consumo & 1.6 mW  \\
-		Área & 28116 $\(\mu\)m^2$  \\
+		Área & 28116 $ \mu m^2$  \\
 		\hline
 	\end{tabular}
 	\caption{Utilização dos recursos de Células Lógicas.}
 	\label{tab:recursos_sintese}
 \end{table}
 
-Esse circuito foi simulado utilizando o mesmo \textit{testbench} utilizado na etapa anterior de implementação na FPGA, porém utilizando o NcLaunch do Cadence, qual pode ser observada na figura \ref{fig:NcLaunch}. Sendo assim essa simulação gerou um arquivo de texto com os sinais de saída para depois ser feita a validação dos sinais de saída. Essa validação foi feita utilizando a métrica do NMSE também, o qual alcançou um NMSE de -17.53 dB. A figura \ref{fig:simpost} ilustra o resultado dessa comparação.
+Esse circuito foi simulado utilizando o mesmo \textit{testbench} empregado na etapa anterior de implementação na FPGA, porém desta vez no ambiente NcLaunch do Cadence, conforme ilustrado na figura \ref{fig:NcLaunch}. A simulação gerou um arquivo de texto com os sinais de saída, permitindo a comparação e validação dos resultados calculados em Python e simulados na FPGA pelo ISE. A métrica NMSE também foi aplicada nessa simulação para validar os dados obtidos no NcLaunch em relação aos calculados em Python, resultando em um NMSE de -17,53 dB. A figura \ref{fig:simpost} apresenta o resultado dessa comparação.
 
 
 \begin{figure}[htbp!]
