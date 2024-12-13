@@ -16,7 +16,7 @@ Considerando também que a largura de banda reservada para sistemas de comunica�
 
 
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
     \centering
     \captionsetup{justification=centering}
     \caption*{Fonte: \cite{Chavez2018}}
@@ -27,7 +27,7 @@ Considerando também que a largura de banda reservada para sistemas de comunica�
 
 A fim de contornar esse obstáculo foi adicionado a cadeia de transmissão um método de equalização de sinais, conforme argumentado por \cite{Kenington2000}. Um exemplo de técnica de linearização de sinais é a implementação de um pré-distorcedor de sinais digitais em banda base, o qual apresenta um melhor custo-benefício \cite{Kenington2000}. Essa técnica consiste em distorcer o sinal de entrada utilizando técnicas de processamento digital, antes que esse module uma portadora, de forma compensativa à distorção causada pelo PARF. De maneira sucinta, o DPD é conectado em cascata ao PARF e é projetado de forma que apresenta a função transferência inversa ao PARF. Para isso, é necessário um modelo de alta precisão e baixa complexidade computacional, capaz de representar as características de transferência direta e inversa de um PARF. Isso significa modelar o seu comportamento real utilizando um software.  A figura \ref{fig:cascatadpd} ilustra o processo do um pré-distorcedor digital.
 
-\begin{figure}[h!]
+\begin{figure}[htbp!]
     \centering
     \captionsetup{justification=centering}
     \caption*{Fonte: \cite{Chavez2018}}
@@ -70,7 +70,7 @@ FPGAs têm a capacidade de sintetizar arquiteturas complexas de eletrônica digi
 
 A estrutura interna de uma FPGA é composta fundamentalmente por blocos lógicos interligados, organizados em uma matriz. Cada bloco é formado por diversos sub-blocos, que por sua vez contêm os componentes mais básicos da hierarquia. FPGAs da Intel e da Xilinx possuem nomenclaturas e organizações diferentes para esses blocos e sub-blocos. Isso é ilustrado na Figura \ref{fig:Stratix} e na Figura \ref{fig:Ultrascale}, que mostram as FPGAs Intel Stratix X e Xilinx Ultrascale+, respectivamente. Embora as arquiteturas sejam fundamentalmente semelhantes, com a disposição em matriz dos blocos e funcionalidades dos componentes fundamentais sendo universais, os blocos lógicos são denominados LAB nas FPGAs da Intel e CLB nas FPGAs da Xilinx. Os sub-blocos são chamados de ALM ou LE, dependendo da FPGA da Intel, e de Slices nas FPGAs da Xilinx.
 
-\begin{figure}[h!]
+\begin{figure}[htbp!]
     \centering
     \captionsetup{justification=centering}
     \caption*{Fonte: \cite{Pedroni2010}}
@@ -79,7 +79,7 @@ A estrutura interna de uma FPGA é composta fundamentalmente por blocos lógicos
     \label{fig:Stratix}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[htbp!]
     \centering
     \captionsetup{justification=centering}
     \caption*{Fonte: \cite{Pedroni2010}}

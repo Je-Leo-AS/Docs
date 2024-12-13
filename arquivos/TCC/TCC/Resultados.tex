@@ -28,7 +28,7 @@ O resultado desse levantamento está presente no gráfico na figura \ref{fig:bit
     \label{fig:bits}
 \end{figure}
 
-Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade total de bits total contando com os bits de overflow necessários para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 7 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits o resultado alcançado está ilustrado pela figura \ref{fig:modelopa}.
+Neste gráfico observa-se duas curvas, a curva em azul apresenta a quantidade total de bits total contando com os bits de overflow necessários para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 7 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits, que por consequência aumentou o NMSE original para -21.23 dB. O result ado alcançado está ilustrado pela figura \ref{fig:modelopa}.
 
 \begin{figure}[htbp!]
     \centering
@@ -126,7 +126,7 @@ Por fim foi feito a síntese lógica do circuito e feita a simulação pós sín
 		\hline
         Células lógica & 1567  \\
 		Consumo & 1.6 mW  \\
-		Área & 28116 $\(\mu\)m^2$  \\
+		Área & 28116 $ \mu m^2$  \\
 		\hline
 	\end{tabular}
 	\caption{Utilização dos recursos de Células Lógicas.}

@@ -149,48 +149,48 @@
 		\]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Polinômio de Memória}
 \begin{frame}{Polinômio de Memória}
-	\begin{minipage}{0.5\textwidth}
+	\begin{minipage}{0.6\textwidth}
 		\raggedleft
 		\scriptsize
 		\begin{equation}
 			y(n) = \sum_{p=1}^{P} \sum_{m=0}^{M} h_{p,m} x(n-m) |x(n-m)|^{p-1}
 		\end{equation}
-			$
-				\begin{bmatrix}
-					y(1) \\
-					y(2) \\
-					y(3) \\
-					y(4) \\
-					y(5)
-				\end{bmatrix}
-				=
-				\begin{bmatrix}
-					x(1) & x(0) & x(1)x(1) & x(0)x(0) \\
-					x(2) & x(1) & x(2)x(2) & x(1)x(1) \\
-					x(3) & x(2) & x(3)x(3) & x(2)x(2) \\
-					x(4) & x(3) & x(4)x(4) & x(3)x(3) \\
-					x(5) & x(4) & x(5)x(5) & x(4)x(4)
-				\end{bmatrix}
-				\begin{bmatrix}
-					h_{1,0} \\
-					h_{1,1} \\
-					h_{2,0} \\
-					h_{2,1}
-				\end{bmatrix}
-			$
-	
-			
+		$
+		\begin{bmatrix}
+			y(1) \\
+			y(2) \\
+			y(3) \\
+			y(4) \\
+			y(5)
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			x(1) & x(0) & x(1)\lvert x(1) \rvert ^2 & x(0)\lvert x(0) \rvert^2  \\ 
+			x(2) & x(1) & x(2)\lvert x(2) \rvert ^2 & x(1)\lvert x(1) \rvert^2  \\ 
+			x(3) & x(2) & x(3)\lvert x(3) \rvert ^2 & x(2)\lvert x(2) \rvert^2 \\ 
+			x(4) & x(3) & x(4)\lvert x(4) \rvert ^2 & x(3)\lvert x(3) \rvert^2  \\ 
+			x(5) & x(4) & x(5)\lvert x(5) \rvert ^2 & x(4)\lvert x(4) \rvert^2 
+		\end{bmatrix}
+		\begin{bmatrix}
+			h_{1,0} \\
+			h_{1,1} \\
+			h_{2,0} \\
+			h_{2,1}
+		\end{bmatrix}
+		$
+		
+		
 		
 	\end{minipage}%
 	\hspace{0.1\textwidth}
-	\begin{minipage}{0.5\textwidth}
+	\begin{minipage}{0.4\textwidth}
 		\begin{itemize}
 			\item Utilizado na modelagem comportamental simplificada das séries de Volterra.
-			\item Considera apenas componentes unidimensionais;
-			\item Modelo compacto;
-			\item Baixo custo computacional;
-			\item Modelo linear nos coeficientes;
+			\item Considera apenas componentes unidimensionais.
+			\item Modelo compacto.
+			\item Modelo linear nos coeficientes.
 		\end{itemize}
 	\end{minipage}
 \end{frame}
