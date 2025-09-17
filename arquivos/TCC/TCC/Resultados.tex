@@ -28,7 +28,7 @@ O resultado desse levantamento está presente no gráfico na figura \ref{fig:bit
     \label{fig:bits}
 \end{figure}
 
-Neste gráfico observa-se dois conjuntos de amostras, onde as amostras em azul apresenta a quantidade total de bits contando com os bits de overflow necessários para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 7 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits, que por consequência aumentou o NMSE original para -21.23 dB. O resultado alcançado está ilustrado pela figura \ref{fig:modelopa}.
+Neste gráfico observa-se dois conjuntos de amostras, onde as amostras em azul apresenta a quantidade total de bits contando com os bits de overflow necessários para as operações de multiplicação, enquanto a curva em vermelho representa a quantidade de bits de resolução do sinal. Analisando este gráfico observou-se que não existem ganhos significativos no erro a partir de 7 bits, portanto foi feita a modelagem do PA utilizando uma resolução de 8 bits, que por consequência aumentou o NMSE original para -21,23 dB. O resultado alcançado está ilustrado pela figura \ref{fig:modelopa}.
 
 \begin{figure}[htbp!]
     \centering
@@ -74,7 +74,7 @@ Essa descrição de hardware foi implementada FPGA Virtex5 XC5VLX50T, operando a
 	\centering
 	\begin{tabular}{|l|r|r|}
 		\hline
-		Recursos & Unidade & Percentual \\
+		Recursos & Quantidade & Percentual \\
 		\hline
 		Registradores & 150 & 1\% \\
 		LUTs & 692 & 2\% \\
@@ -125,7 +125,7 @@ Por fim foi feito a síntese lógica do circuito e a simulação pós síntese l
 	\centering
 	\begin{tabular}{|l|r|r|}
 		\hline
-		Recursos & Unidade  \\
+		Recursos & Valor  \\
 		\hline
         Células lógica & 1567  \\
 		Consumo & 1.6 mW  \\

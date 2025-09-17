@@ -70,7 +70,7 @@
 
 % informações do PDF
 \makeatletter
-\def\figsize{0.80\textwidth} % Define 80% da largura do texto
+\def\figsize{0.75\textwidth} % Define 80% da largura do texto
 \hypersetup{
      	%pagebackref=true,
 		pdftitle={\@title},
@@ -105,6 +105,12 @@
 % ----
 \imprimircapa
 % ---
+
+\newenvironment{NoTOC}{%
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}% Reduz a profundidade do TOC para ignorar conteúdo
+}{%
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}% Restaura a profundidade padrão do TOC
+}
 
 % --------------
 % Folha de rosto
@@ -233,10 +239,11 @@
 %\setlength{\afterchapskip}{\baselineskip}
 
 \chapter{REFERÊNCIAS}
+\begin{NoTOC} 
 \begingroup
 \renewcommand{\chapter}[2]{}%
 
-\begin{thebibliography}{}
+\begin{thebibliography}{9}
 	\bibitem{John2016} Elton John, ``Modelagem comportamental de amplificadores de potência de radiofrequência usando termos unidimensionais e bidimensionais de séries de Volterra", 2016.
 	\bibitem{Kenington2000} Peter Kenington, ``High Linearity RF Amplifier Design", 2000.
 	\bibitem{Cripps2006} Steve Cripps, ``RF Power Amplifiers for Wireless Communications", 2006.
@@ -252,6 +259,7 @@
 	\bibitem{CMOS2010} Neil H.E.Weste and David Money Harris, ``CMOS VLSI Design: A Circuits and Systems Perspective (4th Edition)", 2010.
 	\bibitem{Pedroni2020} Volnei Pedroni, ``Circuit design with VHDL", 2020.
 \end{thebibliography}
+\end{NoTOC}
 \endgroup
 
 %\bibliography{Referencias}
@@ -275,15 +283,15 @@
 
 % \end{apendicesenv}
 
-\begin{anexosenv}
+%\begin{anexosenv}
 
-\partanexos
-%\addcontentsline{toc}{chapter}{\hspace{2.105cm}ANEXOS}
-\renewcommand{\ABNTEXchapterfontsize}{\ABNTEXsectionfont}
 
-\input{anexos.tex}
+%\addcontentsline{toc}{chapter}{\hspace{2.105cm}}
+%\renewcommand{\ABNTEXchapterfontsize}{\ABNTEXsectionfont}
 
-\end{anexosenv}
+%\input{anexos.tex}
+
+%\end{anexosenv}
 
 
 \end{document}

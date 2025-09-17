@@ -1,0 +1,72 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{times}
+\usepackage[portuguese]{babel}
+\usepackage{csquotes}
+\usepackage{bibentry}
+\usepackage[alf, abnt-repeated-title-omit=yes]{abntex2cite}
+% Configuring section titles
+\titleformat{\section}{\large\bfseries\centering}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+\begin{document}
+
+% Cover Page
+\begin{titlepage}
+    \centering
+    {\normalsize \textbf{PPGEE-UFPR}\par}
+    \vspace{0.1cm}
+    {\normalsize EELT7019 - Inteligência Artificial Aplicada\par}
+    \vspace{9cm}
+    {\normalsize  \textbf{Lista 05 - Levantamento Bibliográfico}\par}
+    \vspace{9cm}
+    {\normalsize  \textbf{Professor:} Dr. Alexandre Rasi Aoki\par}
+    \vspace{1cm}
+    {\normalsize  Curitiba, 2020\par}
+\end{titlepage}
+
+% Introduction Page
+\clearpage
+\section{Introdução}
+\begin{spacing}{1.5}
+
+Esta introdução detalha o processo de seleção de um portfólio bibliográfico, conforme as diretrizes para o levantamento bibliográfico solicitado. O trabalho iniciou-se com a consulta ao Portal de Periódicos da CAPES e, em seguida, ao Webqualis, onde foi baixado o arquivo que listava as revistas classificadas na área de Engenharias IV.
+
+A partir desta lista, foi realizada uma pesquisa aprofundada por artigos científicos publicados em periódicos internacionais relevantes. A pesquisa focou em publicações no período entre 2017 e 2020, com temas especificamente relacionados à Inteligência Artificial (IA) e Agricultura. Esta escolha temática é de grande relevância e alinhamento com a minha área de atuação profissional, uma vez que a empresa em que trabalho atua na área de agricultura de precisão, que busca otimizar a produtividade e a sustentabilidade no setor agrícola através de tecnologias avançadas.
+
+Dentre os periódicos pesquisados e artigos relevantes identificados, a revista Sensors, publicada pelo Multidisciplinary Digital Publishing Institute, destacou-se. O artigo selecionado foi o "Sensors Driven AI-Based Agriculture Recommendation Model for Assessing Land Suitability", publicado em 2019. Verificou-se que a revista Sensors (Basel), com ISSN 1424-8220, possui classificação 2 na área de Engenharias IV no Webqualis.
+\end{spacing}
+
+% Summary Page
+\clearpage
+\section{Resumo}
+\begin{spacing}{1.5}
+
+O artigo "Sensors Driven AI-Based Agriculture Recommendation Model for Assessing Land Suitability", publicado na revista Sensors em 2019, apresenta um modelo de recomendação baseado em inteligência artificial (IA) e sensores para avaliar a adequação de terras agrícolas. Com a projeção de crescimento populacional de dois bilhões até 2050 e o aumento limitado de áreas cultiváveis, a pesquisa destaca a necessidade de técnicas agrícolas inteligentes para aumentar a produtividade. O estudo propõe um sistema especialista que integra redes de sensores com redes neurais artificiais, especificamente o modelo Multi-Layer Perceptron (MLP), para classificar terras agrícolas em quatro categorias: mais adequada, adequada, moderadamente adequada e inadequada.
+
+A metodologia utiliza sensores IoT, como sensores de pH, umidade do solo, salinidade e eletromagnéticos, para coletar dados de parâmetros como textura do solo, drenagem interna, capacidade de troca catiônica, matéria orgânica e salinidade. Esses dados, coletados de terras em Vellore e Tiruvannamalai, na Índia, foram armazenados na nuvem AWS via Raspberry Pi e processados para treinar o modelo de IA. O conjunto de dados, composto por 1000 instâncias com 14 atributos, foi dividido em 75\% para treinamento e 25\% para teste, com normalização para lidar com valores heterogêneos. O modelo MLP com quatro camadas ocultas demonstrou maior eficácia na classificação multiclasse em comparação com redes neurais tradicionais e MLP com três camadas, alcançando até 99,9\% de acurácia com 80 neurônios por camada.
+
+Os resultados mostram que o modelo MLP com quatro camadas ocultas supera outros modelos, especialmente com maior número de neurônios, reduzindo erros (MSE e RMSE) e melhorando métricas como precisão, recall e F1-score. A classificação multiclasse permite aos agricultores identificar terras prontas para cultivo, que necessitam de melhorias ou inadequadas, minimizando perdas e otimizando a produção. O sistema é escalável, podendo ser aplicado a diferentes regiões, e representa uma inovação em relação a modelos binários tradicionais, oferecendo recomendações mais precisas.
+
+A pesquisa enfatiza a integração de IoT e IA como uma solução econômica e eficiente para a agricultura de precisão, especialmente em regiões de baixa renda. O modelo proposto contribui para o desenvolvimento agrícola sustentável, fornecendo uma ferramenta prática para tomada de decisão baseada em dados em tempo real. Conforme destacado por \cite{Vincent2019}, a abordagem combina sensores e IA para oferecer uma classificação detalhada da adequação do solo, promovendo maior produtividade e sustentabilidade na agricultura.
+
+
+
+\end{spacing}
+
+% References Page
+\clearpage
+
+
+\bibliography{artigo.bib}
+
+\end{document}
