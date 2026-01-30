@@ -1,0 +1,44 @@
+\section{\normalsize ANEXO A - função que calcula matriz de confusão em vírgula flutuante}
+\label{cod:mp}
+\small % Altera o tamanho da fonte
+\begin{lstlisting}[language = Python, ]
+def mp(P, M, xn):
+    L = xn.shape
+    XX = np.zeros((L[0] - M, P * (M+1)), dtype=np.complex128)
+    for l in range(M+1, L[0]):
+        for p in range(1, P+1):
+            for m in range(0, M+1):
+                XX[l-M-1, ((p-1)*(M+1))+m] = (np.abs(xn[l-m])**(2*p-2)*(xn[l-m]))[0]
+    return XX
+
+XX_ext = mp(P, M, in_data_ext)
+coefficients, _, _, _ = np.linalg.lstsq(XX_ext, out_data_ext[M:], rcond=None)
+predicted_val = XX_val @ coefficients
+
+\end{lstlisting}
+
+\section*{\normalsize ANEXO B - Função que calcula matriz de confusão em vírgula fixa}
+
+readeq = lambda val, precision: np.floor(val / (2 ** precision))
+
+\label{cod:mpint}
+\small % Altera o tamanho da fonte
+\begin{lstlisting}[language = Python, ]
+    def mp_int(P, M, xn, bits):
+    L = xn.shape
+    XX = np.zeros((L[0] - M, P * (M+1)), dtype=np.complex128)
+    for l in range(M+1, L[0]):
+        for p in range(1, P+1):
+            for m in range(0, M+1):
+                    A = np.real(xn[l-m])[0]
+                    B = np.imag(xn[l-m])[0]
+                    modulo_power = 2**bits 
+                    modulo_square = readeq(A ** 2 + B ** 2, bits)
+                    for _ in range(1, p):
+                       modulo_power = readeq(modulo_power * modulo_square, bits)
+                    real_part = readeq(A * modulo_power,bits)
+                    imag_part = readeq(B * modulo_power,bits)
+                    XX[l-M-1, ((p-1)*(M+1))+m] = complex(real_part,imag_part)        
+    return XX
+
+\end{lstlisting}

@@ -1,0 +1,64 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "../../TCC/TCC/TCC_UFPR.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "modelo.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 35,
+                "EditorGroup": 0,
+                "FileName": "../../TCC/TCC/TCC_UFPR.tex",
+                "FirstLine": 117,
+                "FoldedLines": "",
+                "Line": 196
+            },
+            {
+                "Col": 18,
+                "EditorGroup": 0,
+                "FileName": "../../TCC/TCC/anexos.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 11
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "../../TCC/TCC/MaterialeMetodos.tex",
+                "FirstLine": 19,
+                "FoldedLines": "",
+                "Line": 31
+            },
+            {
+                "Col": 161,
+                "EditorGroup": 0,
+                "FileName": "../../TCC/TCC/Resultados.tex",
+                "FirstLine": 30,
+                "FoldedLines": "",
+                "Line": 70
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "../../TCC/TCC/Capa.sty",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "modelo.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}

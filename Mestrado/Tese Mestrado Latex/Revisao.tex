@@ -1,0 +1,163 @@
+A evolução dos sistemas de comunicações sem fio tem impulsionado o desenvolvimento de diversas aplicações móveis. Nesse contexto, a eficiência energética emerge como uma característica essencial, beneficiando tanto a autonomia de baterias em dispositivos móveis quanto a redução de perdas em estações rádio base, onde energia é dissipada principalmente na forma de calor.
+
+O sistema de comunicação pode ser dividido em três subsistemas principais: transmissor, receptor e meio de propagação, conforme descrito por \cite{Schuartz2017}. Este trabalho concentra-se exclusivamente no subsistema transmissor, ilustrado na Figura \ref{fig:sistemadetrasmissao}, que inclui diversos componentes responsáveis pela geração e amplificação do sinal. Dentre esses, o PARF destaca-se como o elemento de maior consumo energético, pois converte energia CC da fonte em energia RF irradiada pela antena. Assim, a eficiência global do transmissor depende diretamente do desempenho do PARF.
+
+\begin{figure}[htbp!]
+    \centering
+    \captionsetup{justification=centering}
+    \caption*{Fonte: \cite{Schuartz2017}}
+    \includegraphics[width=0.5\textwidth]{sistematrasmissorpng.png}
+    \caption{Sistema de transmissão simplificado}
+    \label{fig:sistemadetrasmissao}
+\end{figure}
+
+\section{Sistema transmissor}
+
+O componente central do PARF é o transistor, responsável pela amplificação da potência do sinal de entrada proveniente de estágios anteriores. Nesse processo, energia CC das fontes de alimentação é convertida em energia CA. Para maximizar a potência de saída, o PARF deve apresentar alta eficiência, definida como a relação entre a potência entregue à carga ($P_{\text{out}}$) e a potência consumida da fonte CC ($P_{\text{cc}}$):
+
+\begin{equation}
+    \eta = \frac{P_{\text{out}}}{P_{\text{cc}}} \times 100\%
+    \label{eq:rendimento}
+\end{equation}
+
+Devido a imperfeições nos componentes e no ambiente operacional, a eficiência ideal de 100\% nunca é alcançada. Além do transistor, o circuito do PARF inclui redes de casamento de impedância (entrada e saída), que otimizam a transferência de potência, e um circuito de polarização CC, que fornece as condições operacionais adequadas ao transistor. Esses elementos, compostos por capacitores e indutores, introduzem efeitos dinâmicos (efeitos de memória). A Figura \ref{fig:circuitoparf} apresenta um circuito simplificado de PARF.
+
+\begin{figure}[htbp!]
+    \centering
+    \captionsetup{justification=centering}
+    \caption*{Fonte: \cite{Luiza2016}}
+    \includegraphics[width=0.5\linewidth]{Figuras/circuito parf.png}
+    \caption{Circuito simplificado de um PARF}
+    \label{fig:circuitoparf}
+\end{figure}
+
+Tipicamente, a eficiência do PA aumenta com a potência de saída, sendo máxima próximo à saturação. Potência não convertida em sinal útil é dissipada como calor, elevando custos de projeto e comprometendo a confiabilidade devido a temperaturas excessivas. Assim, maximizar a eficiência do PARF é crucial para redes de telecomunicações.
+
+Outra característica fundamental é a linearidade, avaliada pela curva de transferência (relação entre potência de saída e entrada, em dBm), como exemplificado na Figura \ref{fig:saidaparf}. Nessa curva, observa-se uma região linear inicial, seguida de compressão de ganho (ponto de compressão de 1 dB), onde o ganho reduz 1 dB em relação ao regime de baixa potência. Próximo à saturação, o ganho diminui progressivamente, degradando a eficiência.
+
+\begin{figure}[htbp!]
+    \centering
+    \captionsetup{justification=centering}
+    \caption*{Fonte: \cite{Chavez2018}}
+    \includegraphics[width=0.5\textwidth]{curvasaidaparf.png}
+    \caption{Curva de transferência de um PARF}
+    \label{fig:saidaparf}
+\end{figure}
+
+A largura de banda disponível para sistemas de comunicação sem fio é um recurso naturalmente limitado, o que torna essencial sua utilização de maneira eficiente. À medida que a demanda por maiores taxas de transmissão de dados cresce, surge a necessidade de empregar técnicas de modulação capazes de transmitir mais informação dentro da mesma faixa espectral. Nesse contexto, conforme apresentado por \cite{Kenington2000}, as maiores taxas de transmissão somente podem ser alcançadas por meio de esquemas de modulação que exploram simultaneamente variações na fase e na amplitude da onda portadora em radiofrequência.
+
+Entretanto, o uso de modulações que envolvem variações de amplitude impõe requisitos mais rigorosos sobre a linearidade dos sistemas de transmissão. Segundo \cite{Kenington2000}, a falta de linearidade pode resultar em distorções do sinal transmitido, ocasionando erros na comunicação e o surgimento de interferências indesejadas em canais adjacentes, prejudicando usuários vizinhos. Dessa forma, garantir um comportamento linear ao longo da cadeia de transmissão torna-se um aspecto crítico para a qualidade e confiabilidade do sistema de comunicação.
+
+Nesse cenário, o projeto do PARF assume um papel central, uma vez que esse componente é responsável por fornecer potência suficiente ao sinal modulado antes de sua transmissão pela antena. O principal desafio enfrentado pelo projetista do PARF consiste em conciliar dois requisitos conflitantes: a obtenção de alta eficiência energética e a manutenção de uma boa linearidade. Conforme discutido por \cite{Cripps2006}, amplificadores de potência tendem a apresentar maior eficiência quando operam próximos à região de saturação. Contudo, nessa região de operação, o dispositivo passa a apresentar um comportamento fortemente não linear.
+
+Assim, embora a operação próxima à saturação seja desejável do ponto de vista do consumo de energia, ela compromete a linearidade do amplificador, resultando em distorções no sinal transmitido. Esse compromisso entre eficiência e linearidade é inerente ao funcionamento do PARF e constitui um dos principais desafios no projeto de sistemas modernos de comunicação sem fio, conforme ilustrado pela Figura \ref{fig:saidaparf}.
+
+
+\subsection{Comportamento Passa Banda do PA}
+
+Nos sistemas modernos de telecomunicações, a transmissão de dados é realizada por meio de sinais em radiofrequência (RF), cujas frequências centrais situam-se tipicamente na ordem dos GHz. Esses sinais são modulados por uma envoltória complexa, responsável por carregar a informação, cuja largura de banda encontra-se na faixa dos MHz. Como a largura de banda do sinal modulado é significativamente menor do que a frequência da portadora, tais sinais são classificados como sinais passa banda, conforme descrito por \cite{Luiza2016}.
+
+Uma forma conveniente de analisar sinais passa banda consiste em representá-los por meio de sua forma equivalente em base-baixa. Essa representação separa a portadora de alta frequência da envoltória complexa, permitindo uma análise mais intuitiva dos efeitos introduzidos pelo sistema de transmissão, especialmente no que se refere às variações de amplitude e fase. Essa abordagem é amplamente utilizada na modelagem comportamental de amplificadores de potência, pois facilita a identificação e a caracterização das distorções causadas pelas não linearidades do circuito do PA.
+
+O amplificador de potência em radiofrequência (PA) desempenha um papel fundamental na cadeia de transmissão, sendo responsável por fornecer potência suficiente ao sinal antes de sua irradiação pela antena. Entretanto, os dispositivos ativos que compõem o PA apresentam comportamento inerentemente não linear, especialmente quando operam próximos à região de saturação. Como consequência, essas não linearidades afetam diretamente sinais passa banda, que possuem múltiplas componentes espectrais concentradas em torno da frequência central.
+
+\begin{figure}[htbp!]
+    \centering
+    \captionsetup{justification=centering}
+    \caption*{Fonte: \cite{Luiza2016}}
+    \includegraphics[width=1.0\linewidth]{comportamento passa banda.png}
+    \caption{Exemplo de distorção no espectro de Frequência do PARF}
+    \label{fig:comportamentopassabanda}
+\end{figure}
+
+
+A Figura \ref{fig:comportamentopassabanda} ilustra o comportamento típico de um PA passa banda, evidenciando os sinais de entrada e saída tanto no domínio do tempo quanto no domínio da frequência. Observa-se que, enquanto o espectro do sinal de entrada está confinado à banda desejada, o sinal de saída apresenta um espalhamento espectral. Esse fenômeno ocorre devido à geração de produtos de intermodulação provocados pelas não linearidades do amplificador, resultando no surgimento de componentes espectrais fora da banda original do sinal.
+
+Esse espalhamento espectral é particularmente indesejável em sistemas de comunicação sem fio, pois pode causar interferência em canais adjacentes, degradando o desempenho de usuários vizinhos e violando requisitos regulatórios de emissão espectral. Além disso, a presença de distorções no sinal transmitido compromete a qualidade da comunicação e reduz a eficiência espectral do sistema. Dessa forma, a compreensão do comportamento passa banda do PA é essencial para o desenvolvimento de técnicas de linearização, como a pré-distorção digital, que visam mitigar os efeitos das não linearidades e garantir a integridade do sinal transmitido, conforme discutido em \cite{Luiza2016}.
+
+\section{Linearização de Amplificadores de Potência}
+
+Conforme discutido na seção anterior, as não linearidades inerentes aos amplificadores de potência em radiofrequência (PARFs) causam distorções significativas em sinais passa banda, resultando em espalhamento espectral e interferência em canais adjacentes. Esse efeito torna-se especialmente crítico nos sistemas modernos de comunicação sem fio, nos quais a largura de banda disponível é limitada e há uma demanda crescente por maiores taxas de transmissão de dados. Para atender a esses requisitos, são amplamente empregadas modulações digitais complexas que variam simultaneamente a amplitude e a fase do sinal, como QAM e OFDM \cite{Kenington2000}.
+
+Entretanto, tais esquemas de modulação impõem elevados requisitos de linearidade ao sistema de transmissão, uma vez que qualquer não linearidade introduzida pelo PARF afeta diretamente a envoltória do sinal, comprometendo sua integridade e degradando a qualidade da comunicação. Por outro lado, a operação do amplificador em regiões estritamente lineares geralmente ocorre longe da saturação, o que implica baixa eficiência energética. Esse comportamento evidencia o compromisso fundamental entre eficiência e linearidade nos PARFs, amplamente discutido na literatura \cite{Cripps2006}. A baixa eficiência resulta em maior dissipação térmica, reduzindo a autonomia de dispositivos móveis alimentados por bateria e elevando os custos operacionais em estações rádio base.
+
+Diante desse cenário, diversas técnicas de linearização têm sido desenvolvidas com o objetivo de mitigar os efeitos das não linearidades do PARF, permitindo sua operação em regiões mais eficientes sem comprometer a qualidade do sinal transmitido. Dentre essas técnicas, a pré-distorção digital (Digital Predistortion – DPD) destaca-se pelo seu favorável compromisso entre desempenho e custo de implementação \cite{Kenington2000}. A técnica de DPD consiste em aplicar, em banda base, uma distorção controlada ao sinal de entrada, de forma que a sua característica de transferência seja aproximadamente inversa à do PARF.
+
+Quando o sinal pré-distorcido é aplicado ao amplificador, as não linearidades do PARF compensam a distorção introduzida pelo DPD, resultando em um comportamento global aproximadamente linear do sistema em cascata. Esse conceito é ilustrado na Figura \ref{fig:cascatadpd}, que apresenta o esquema de um pré-distorcedor digital operando em conjunto com o PARF para o qual foi projetado. Para que essa compensação seja eficaz, torna-se necessário que o DPD seja capaz de representar com precisão não apenas o comportamento não linear estático do amplificador, mas também os seus efeitos de memória.
+
+\begin{figure}[htbp!]
+    \centering
+    \captionsetup{justification=centering}
+    \caption*{Fonte: \cite{Chavez2018}}
+    \includegraphics[width=0.5\textwidth]{DPDcascata.png}
+    \caption{Esquema de pré-distorcedor digital em cascata com PARF}
+    \label{fig:cascatadpd}
+\end{figure}
+
+Nesse contexto, a modelagem comportamental constitui uma etapa fundamental no desenvolvimento de técnicas de pré-distorção digital. O diagrama de blocos apresentado na Figura \ref{fig:diagramamodelagem} exemplifica essa abordagem, na qual um modelo matemático é submetido ao mesmo sinal de entrada aplicado ao amplificador de potência, representado por $x(t)$. A saída simulada do modelo, $y_{sim}(t)$, é então comparada com a saída real do PARF, $y_{real}(t)$.
+
+Os coeficientes do modelo são ajustados a partir do erro entre $y_{real}(t)$ e $y_{sim}(t)$, por meio de algoritmos de otimização cujo objetivo é minimizar esse erro. Quando o erro mínimo é alcançado, o modelo é considerado otimizado e capaz de reproduzir adequadamente o comportamento do amplificador de potência. Nessa condição, o modelo pode ser empregado na implementação do pré-distorcedor digital, possibilitando a linearização do PARF e a mitigação do espalhamento espectral, conforme descrito em \cite{Luiza2016}.
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: \cite{Luiza2016}}
+    \includegraphics[width=0.5\linewidth]{diagrama simulação.png}
+    \caption{Diagrama de Modelagem Comportamental}
+    \label{fig:diagramamodelagem}
+\end{figure}
+
+\section{Modelagens Matemáticas}
+
+Conforme discutido na seção anterior, a técnica de pré-distorção digital (DPD) depende diretamente da capacidade de representar com precisão o comportamento não linear do amplificador de potência em radiofrequência (PARF). Para que a linearização seja eficaz, o pré-distorcedor deve reproduzir, de forma inversa, as características do amplificador, compensando tanto as não linearidades estáticas quanto os efeitos dinâmicos associados à memória do dispositivo. Dessa forma, torna-se indispensável o uso de modelos matemáticos capazes de descrever adequadamente o comportamento do PA sob diferentes condições de operação.
+
+Nos sistemas modernos de comunicação sem fio, a limitação de largura de banda disponível leva à adoção de esquemas de modulação com elevada variação de envoltória, caracterizados por altos valores de Peak-to-Average Power Ratio (PAPR). Esses sinais impõem requisitos rigorosos ao PARF, que deve operar de forma eficiente do ponto de vista energético sem comprometer a linearidade. Para atender a essas exigências, as técnicas de linearização demandam modelos computacionais precisos do comportamento do amplificador, conforme discutido em \cite{John2016}.
+
+De maneira geral, as abordagens de modelagem de amplificadores de potência podem ser classificadas em duas categorias principais: modelagem física e modelagem comportamental. A modelagem física baseia-se no conhecimento detalhado da topologia do circuito, dos dispositivos semicondutores e dos componentes passivos que constituem o amplificador. Embora essa abordagem possa oferecer elevada precisão, sua aplicação é limitada pela alta complexidade computacional e pela dificuldade de obtenção de todos os parâmetros físicos necessários. Em contrapartida, a modelagem comportamental, também conhecida como empírica, fundamenta-se exclusivamente na observação da relação entre os sinais de entrada e saída do sistema, sem a necessidade de informações detalhadas sobre a estrutura interna do circuito. Essa característica torna os modelos comportamentais particularmente atrativos para aplicações de simulação e linearização, devido à sua menor complexidade computacional.
+
+No contexto da pré-distorção digital, a modelagem comportamental é amplamente preferida, uma vez que o objetivo principal é reproduzir o comportamento inverso observável do PARF. Além das não linearidades estáticas, os efeitos de memória — isto é, a dependência da saída atual em relação a amostras passadas do sinal de entrada — desempenham um papel relevante no comportamento do amplificador. Dessa forma, os sistemas podem ser classificados como sem memória ou com memória, sendo esta última categoria a mais representativa para amplificadores operando com sinais de larga banda.
+
+Dentre os diversos modelos comportamentais propostos na literatura, destacam-se os modelos polinomiais com memória e as redes neurais artificiais. Embora as redes neurais apresentem elevada capacidade de aproximação, sua implementação pode acarretar maior complexidade computacional. Neste trabalho, opta-se por modelos baseados em simplificações da série de Volterra, priorizando estruturas polinomiais devido ao seu compromisso favorável entre capacidade de modelagem e custo computacional.
+
+\subsection{Séries de Volterra}
+
+A série de Volterra constitui uma extensão da série de Taylor para a representação de sistemas não lineares dinâmicos com memória, sendo amplamente utilizada na modelagem de amplificadores de potência \cite{GonalvesdeLima2009}. Por meio dessa abordagem, a saída do sistema é expressa como uma combinação de integrais múltiplas envolvendo o sinal de entrada e núcleos que caracterizam o comportamento do sistema em diferentes ordens de não linearidade.
+
+Matematicamente, a saída $y(t)$ de um sistema descrito pela série de Volterra pode ser expressa como:
+
+\begin{equation}
+    y(t) = h_0 + \sum_{n=1}^{\infty} \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty} h_n(\tau_1, \ldots, \tau_n) \prod_{i=1}^{n} x(t - \tau_i) \, d\tau_i
+    \label{eq:Volterra}
+\end{equation}
+
+em que $h_n(\tau_1, \ldots, \tau_n)$ representa o núcleo de Volterra de ordem $n$, responsável por descrever os efeitos não lineares e de memória do sistema. Embora a série de Volterra forneça uma descrição bastante geral e precisa do comportamento de sistemas não lineares com memória, sua aplicação prática é limitada pela elevada complexidade computacional. Por esse motivo, na maioria das aplicações, a série é truncada para ordens finitas, restringindo o número de termos considerados.
+
+\subsection{Polinômio com Memória}
+
+O modelo de polinômio com memória (\textit{Memory Polynomial} – MP) surge como uma simplificação da série de Volterra, obtida pela consideração apenas dos termos diagonais, isto é, daqueles que compartilham o mesmo atraso temporal \cite{Schuartz2017}. Essa simplificação reduz significativamente a complexidade do modelo, ao mesmo tempo em que preserva a capacidade de representar não linearidades e efeitos de memória de forma satisfatória para uma ampla classe de amplificadores de potência.
+
+O modelo MP pode ser descrito matematicamente por:
+
+\begin{equation}
+    y(n) = \sum_{p=1}^{P} \sum_{m=0}^{M} h_{p,m} \, x(n - m) \left| x(n - m) \right|^{p-1}
+    \label{eq:mp}
+\end{equation}
+
+em que $P$ representa a ordem de não linearidade do modelo, $M$ corresponde à profundidade de memória considerada, e $h_{p,m}$ são os coeficientes do modelo. Uma das principais vantagens do modelo de polinômio com memória é sua linearidade nos parâmetros, o que facilita a estimação dos coeficientes por meio de técnicas de otimização convencionais. Além disso, esse modelo apresenta boa eficácia na representação de amplificadores de potência com efeitos de memória moderados, sendo amplamente empregado em aplicações de pré-distorção digital.
+
+Observa-se que, na formulação tradicional do modelo MP, a ordem polinomial máxima $P$ é adotada de forma uniforme para todos os termos de memória, independentemente do atraso considerado. Essa restrição, embora simplifique a estrutura do modelo, não é imposta pela formulação original da série de Volterra e pode resultar em um aumento desnecessário da complexidade computacional, especialmente para termos associados a atrasos mais elevados, cujos efeitos não lineares tendem a ser menos pronunciados. Dessa forma, a adoção de ordens polinomiais diferenciadas em função do atraso de memória surge como uma alternativa potencial para reduzir a complexidade do modelo, mantendo sua capacidade de representação.
+
+Do ponto de vista de implementação em hardware, especialmente em sistemas que operam com altas taxas de amostragem, torna-se fundamental explorar arquiteturas eficientes que permitam a paralelização das operações aritméticas. Nesse contexto, avalia-se a substituição de operações de multiplicação por tabelas de consulta (\textit{Look-Up Tables} – LUTs), visando reduzir a complexidade computacional e viabilizar a implementação prática do modelo em sistemas embarcados e plataformas digitais.
+
+\section{Uso de Look-Up Tables em Pré-Distorção Digital}
+
+A implementação prática de técnicas de pré-distorção digital (DPD) em sistemas de comunicação sem fio de alta taxa impõe restrições significativas de complexidade computacional, especialmente quando se considera a operação em tempo real e com sinais de larga banda. Nesse contexto, estratégias que reduzam o custo computacional da linearização, sem comprometer de forma significativa o desempenho, têm sido amplamente investigadas na literatura. Dentre essas estratégias, destaca-se o uso de tabelas de consulta, conhecidas como LUTs, como alternativa eficiente para a implementação de pré-distorcedores digitais.
+
+As LUTs consistem em estruturas de memória que armazenam previamente valores calculados de uma determinada função, permitindo que operações matemáticas complexas sejam substituídas por simples acessos à memória. Em aplicações de DPD, as LUTs podem ser utilizadas para mapear diretamente a envoltória do sinal de entrada para valores de correção de amplitude e fase, implementando, de forma discreta, a função inversa do PARF. Essa abordagem elimina a necessidade de operações aritméticas intensivas, como multiplicações e potências, reduzindo significativamente a latência e o consumo de recursos computacionais.
+
+O trabalho apresentado por \cite{Kwan2012} demonstra a viabilidade da implementação de um pré-distorcedor digital baseado em LUTs em plataformas do tipo \textit{Field Programmable Gate Array} (FPGA), utilizando sinais Long Term Evolution (LTE) com largura de banda de até 60 MHz. Nesse estudo, os autores evidenciam que a abordagem baseada em LUTs é capaz de linearizar amplificadores de potência operando com sinais de banda larga, atendendo aos requisitos de emissão espectral impostos por padrões modernos de comunicação, ao mesmo tempo em que mantém uma arquitetura de implementação simples e eficiente.
+
+Uma das principais vantagens do uso de LUTs em DPD é a adequação natural desse tipo de estrutura a arquiteturas paralelas, como as encontradas em FPGAs. O acesso à memória pode ser realizado de forma altamente paralelizável e determinística, favorecendo a implementação em tempo real mesmo em cenários de elevada taxa de amostragem. Além disso, a granularidade da LUT pode ser ajustada conforme os requisitos de precisão e os recursos disponíveis, permitindo um compromisso controlável entre desempenho de linearização e consumo de memória.
+
+Entretanto, o uso de LUTs também apresenta desafios, como a necessidade de um processo eficiente de preenchimento e atualização da tabela, bem como a escolha adequada do número de entradas para evitar quantização excessiva da função de pré-distorção. Conforme discutido em \cite{Kwan2012}, técnicas de interpolação e estratégias de endereçamento podem ser empregadas para mitigar esses efeitos e melhorar a precisão do modelo sem aumento significativo da complexidade.
+
+Diante desse panorama, o uso de LUTs surge como uma alternativa promissora para a implementação de pré-distorção digital em amplificadores de potência, especialmente em aplicações que demandam elevada largura de banda e operação em tempo real. No contexto deste trabalho, as LUTs são consideradas como uma possível estratégia para reduzir a complexidade computacional dos modelos polinomiais com memória, viabilizando sua implementação em hardware e ampliando a aplicabilidade prática das técnicas de linearização estudadas.

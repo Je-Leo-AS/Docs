@@ -1,0 +1,340 @@
+\documentclass{if-beamer}
+% --------------------------------------------------- %
+%                  Presentation info	              %
+% --------------------------------------------------- %
+\title[Pré-distorcedor digital descrito em linguagem VHDL e baseado em polinômio com memória.]{\textbf{Pré-distorcedor digital descrito em linguagem VHDL e baseado em polinômio com memória}}
+\subtitle{}
+\author[Leonardo de Andrade Santos]{\large \negrito{Leonardo de Andrade Santos} \\ \negrito{Sibilla Batista da Luz França}}
+\institute[UFPR/PR]{
+    \small \textit{Universidade Federal do Paraná} \\
+    %\textit{Uned Itaguaí}
+}
+\date{\the\year}
+\logo{
+\includegraphics[scale=.1, clip]{ufpr.png}
+}
+\subject{Presentation subject} % metadata
+%trim={<left> <lower> <right> <upper>}
+\graphicspath{{figuras/}}
+% --------------------------------------------------- %
+%                    Title + Schedule                 %
+% --------------------------------------------------- %
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Programação}
+  \tableofcontents
+\end{frame}
+
+\begin{frame}{Introdução}
+\begin{itemize}
+	\item Devido à evolução dos sistemas de comunicação móveis, que oferecem diversos serviços, como aplicações multimídia, desenvolvimento web e IoT, houve um aumento na necessidade de criar sistemas mais energeticamente eficientes. Além disso, a largura de banda reservada para comunicações sem fio tornou-se mais limitada.
+	\item Largura de banda reservada para sistemas de comunicação sem fio reduzida
+	\item A modulação de amplitude (AM) é sensível à linearidade.
+	\item Uma alternativa para superar esses desafios é a implementação de um Pré-Distorcedor Digital (DPD) em cascata com o amplificador
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Objetivos}
+	Objetivo deste trabalho construir e validar um código em linguagem de descrição de hardware capaz de processar, em tempo real, as características de transferência inversa de um amplificador, reproduzindo suas não linearidades.
+	\begin{itemize}
+		\item Realizar a modelagem de um PA e do DPD com o modelo de polinômio de memória.
+		\item Implementar a descrição de hardware em linguagem VHDL.
+		\item Validar o sistema em FPGA.
+	\end{itemize}
+\end{frame}
+
+% --------------------------------------------------- %
+%                      Presentation                   %
+% --------------------------------------------------- %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fundamentação teórica}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Sistema de comunicação}
+\begin{frame}{Sistema de comunicação}
+	\begin{itemize}
+		\item A comunicação sem fio é dividida em 3 sub-sistemas principais: o transmissor, o meio transmissor (ar), receptor.
+		\item O PA é o componente de maior demanda energética por ser o componente que transfere potência da fonte para potência irradiada pela antena
+	\end{itemize}
+	\includegraphics[scale=0.5]{sistematrasmissorpng.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Motivação}
+\begin{frame}{Motivação}
+	
+	\begin{minipage}{.49\textwidth}
+		
+		\begin{itemize}
+			\item A característica de transferência não linear do PA é caracterizada pela potência de saída que decai 1 dB da potência ideal, ou ponto de 1 dB de compressão de ganho (OCP1dB).
+			\item  O DPD operando em banda base é uma solução eficiente com baixo custo computacional.
+		
+		\end{itemize}
+		
+		
+	\end{minipage}
+	\begin{minipage}{.49\textwidth}
+		\includegraphics[scale=0.5]{curvasaidaparf.png}
+	\end{minipage}
+	
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pré-distorcedor}
+\begin{frame}{Pré-distorcedor}
+\begin{minipage}{0.5\textwidth}
+		
+		\includegraphics[scale=0.5]{DPDCascata.png}
+		
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+		\begin{itemize}
+			\item De maneira sucinta, o DPD é conectado em cascata ao PARF (Amplificador de Potência de Rádio Frequência), e é projetado para apresentar a função de transferência inversa ao PARF.
+			\item Modelagem física: alto custo computacional.
+			\item Modelagem matemática: baixo custo computacional.
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Polinômio de Memória}
+\begin{frame}{Polinômio de Memória}
+	\begin{minipage}{0.6\textwidth}
+		\raggedleft
+		\scriptsize
+		\begin{equation}
+			y(n) = \sum_{p=1}^{P} \sum_{m=0}^{M} h_{p,m} x(n-m) |x(n-m)|^{p-1}
+		\end{equation}
+			$
+				\begin{bmatrix}
+					y(1) \\
+					y(2) \\
+					y(3) \\
+					y(4) \\
+					y(5)
+				\end{bmatrix}
+				=
+				\begin{bmatrix}
+					x(1) & x(0) & x(1)\lvert x(1) \rvert ^2 & x(0)\lvert x(0) \rvert^2  \\ 
+					x(2) & x(1) & x(2)\lvert x(2) \rvert ^2 & x(1)\lvert x(1) \rvert^2  \\ 
+					x(3) & x(2) & x(3)\lvert x(3) \rvert ^2 & x(2)\lvert x(2) \rvert^2 \\ 
+					x(4) & x(3) & x(4)\lvert x(4) \rvert ^2 & x(3)\lvert x(3) \rvert^2  \\ 
+					x(5) & x(4) & x(5)\lvert x(5) \rvert ^2 & x(4)\lvert x(4) \rvert^2 
+				\end{bmatrix}
+				\begin{bmatrix}
+					h_{1,0} \\
+					h_{1,1} \\
+					h_{2,0} \\
+					h_{2,1}
+				\end{bmatrix}
+			$
+	
+			
+		
+	\end{minipage}%
+	\hspace{0.1\textwidth}
+	\begin{minipage}{0.4\textwidth}
+		\begin{itemize}
+			\item Utilizado na modelagem comportamental simplificada das séries de Volterra.
+			\item Considera apenas componentes unidimensionais.
+			\item Modelo compacto.
+			\item Modelo linear nos coeficientes.
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Field Programmable Gate Array (FPGA)}
+\begin{frame}{Field Programmable Gate Array (FPGA)}
+	\begin{minipage}{0.5\textwidth}
+	
+			\includegraphics[scale=0.25]{FPGA Stratix X da Intel.png}
+		
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+		\begin{itemize}
+			\item FPGAs compõem uma classe de dispositivos lógicos programáveis.
+			\item Eles possuem a capacidade de sintetizar arquiteturas complexas de eletrônica digital.
+			\item São descritas como um conjunto de blocos digitais interconectados.
+			\item Permite que tarefas possam ocorrer de forma paralela e sequencial.
+			
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Metodologia}
+\begin{frame}{Metodologia}
+	\begin{minipage}{0.5\textwidth}
+		
+		%\includegraphics[scale=0.5]{DPDCascata.png}
+		
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+		 O trabalho foi dividido em quatro etapas:
+		\begin{itemize}
+			\item Etapa 1: Estudos do DPD e modelagem matemática do PA.
+			\item Etapa 2: Implementação do DPD em software.
+			\item Etapa 3: Implementação do DPD em FPGA.
+			\item Etapa 4: Simulação em FPGA.
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	
+	\includegraphics[scale=0.1]{diagrama.png}
+	
+	\end{minipage}%
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dados Utilizados}
+\begin{frame}{Dados Utilizados}
+	\begin{minipage}{0.5\textwidth}
+		
+		
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+		\begin{itemize}
+			\item Amplificador de potência classe AB, HEMT (transistor de efeito de campo de heterojunção) fabricado em tecnologia GaN.
+			\item Excitado por um sinal portadora de frequência de 900	MHz.
+			\item Modulado por um sinal de envoltória WCDMA 3GPP 3,84 MHz de largura de banda.
+			\item Os dados de entrada e saída do amplificador de potência foram medidos usando um analisador de sinal vetorial (VSA) Rohde \& Schwarz FSQ com uma taxa de amostragem de 61,44 MHz.
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}		
+		\includegraphics[scale=0.4]{analisador.jpeg}
+		\end{center}
+		
+	\end{minipage}%
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implementação e software}
+\subsection{Modelagem do PA}
+\begin{frame}{Modelagem do PA}
+	
+	
+	\begin{minipage}{0.5\textwidth}
+		\begin{itemize}
+			\item  Implementação em Python.
+			\item Modelagem do PA, com cálculo em vírgula flutuante.
+			\item NMSE de -23,57 dB, para um Polinômio de $2^{\circ}$  grau com uma amostra de memória.
+		\end{itemize}
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+		
+		\includegraphics[scale=0.4]{modeloPA.png}
+		
+	\end{minipage}%
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ajuste da Resolução do Sinal}
+\begin{frame}{Ajuste da Resolução do Sinal}
+	\begin{minipage}{0.5\textwidth}
+		\begin{itemize}
+			\item Adaptação para realizar dos cálculos em vírgula fixa, com uma resolução N de bits.
+			\item Inicialmente foi realizado uma normalização dos dados e em seguida são feitos os cálculos em vírgula fixa.
+			\item  Dados DPD com polinômio 	de memória de grau 2 com 
+			um sinal de memória.
+		\end{itemize}
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+	\includegraphics[scale=0.25]{bits.png}
+	\end{minipage}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modelagem do DPD}
+\begin{frame}{Modelagem do DPD}
+	\begin{minipage}{0.5\textwidth}
+		\begin{itemize}
+			\item Cálculo do módulo DPD da mesma forma que do PA, apenas invertendo os dados de entrada com os de saída.
+		\end{itemize}
+		
+		
+	\end{minipage}%
+	\hspace{0.04\textwidth}
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[scale=0.40]{modelodpd.png}
+	\end{minipage}
+\end{frame}
+\section{Implementação em Hardware}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Desenvolvimento do VHDL}
+\begin{frame}{Desenvolvimento do VHDL}
+	
+		\includegraphics[scale=0.2]{diagrama_process.png}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Resultado simulação FPGA}
+\begin{frame}{Resultado simulação FPGA}
+	\begin{minipage}{0.5\textwidth}
+	\begin{itemize}
+		\item FPGA Virtex5 XC5VLX50T;
+		\item frequência de operação 62,5 MHz.
+	\end{itemize}
+	\begin{tabular}{|l|r|r|}
+		\hline
+		Recursos & Unidade & Percentual \\
+		\hline
+		Registradores & 150 & 1\% \\
+		LUTs & 692 & 2\% \\
+		DSP48E & 4 & 8\% \\
+		\hline
+	\end{tabular}
+	
+	
+\end{minipage}%
+\hspace{0.04\textwidth}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[scale=0.40]{fpgasim.png}
+\end{minipage}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Conclusão}
+\begin{frame}{Conclusão}
+		A evolução dos sistemas de comunicação sem fio exige eficiência máxima, e a implementação de um Pré-Distorcedor Digital (DPD) em cascata com o Amplificador de Potência (PA) oferece uma solução de baixo custo para melhorar o desempenho. Este trabalho validou um código em linguagem de descrição de hardware capaz de processar em tempo real as características não lineares e efeitos de memória de um amplificador, minimizando o uso de recursos lógicos e o consumo de energia. Esse trabalho foi validado em uma  FPGA Virtex5 XC5VLX50T, utilizando um total de 150 registradores, 692 LUTs e 4 DSP48Es, operando a uma frequência de 62,5 MHz.  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Referências}
+\begin{frame}{Referências}
+	\setbeamertemplate{navigation symbols}{}
+	
+		\begin{thebibliography}{}
+		\bibitem{John2016} Elton John, ``Modelagem comportamental de amplificadores de potência de radio frequência usando termos unidimensionais e bidimensionais de séries de Volterra", 2016.
+		\bibitem{Kenington2000} Peter Kenington, ``High Linearity RF Amplifier Design", 2000.
+		\bibitem{Cripps2006} Steve Cripps, ``RF Power Amplifiers for Wireless Communications", 2006.
+		\bibitem{Chavez2018} Joel Huanca Chavez, ``Estudo comparativo entre as arquiteturas de identificação de pré-distorcedores digitais através das aprendizagens direta e indireta", 2018.
+		\bibitem{Pedroni2010} Volnei Pedroni, ``Eletrônica Digital e VHDL ", 2010.
+		\bibitem{Gonçalves2009} Eduardo Gonçalves de Lima and Giovanni Ghione, ``Behavioral modeling and digital base-band predistortion of RF power amplifiers", 2009.
+		\bibitem{Schuartz2017} Luis Schuartz and Eduardo Lima, ``Polinômios com Memória de Complexidade Reduzida e sua Aplicação na Pré-distorção Digital de Amplificadores de Potência", 2017.
+		
+		\bibitem{Bonfim2016} Elton J Bonfim and Eduardo G De Lima, ``A Modified Two Dimensional Volterra-Based Series for the Low-Pass Equivalent Behavioral Modeling of RF Power Amplifiers", vol. 47, pp. 27-35, 2016.
+		
+		%	\bibitem{Wayne} Wayne Wolf, ``Modern VLSI Design: IP-Based Design, Fourth Edition", Prentice Hall Modern Semiconductor Design Series.
+		%	\bibitem{Raychaudhuri2012} Dipankar Raychaudhuri and Narayan B. Mandayam, ``Frontiers of Wireless and Mobile Communications", Proceedings of the IEEE, vol. 100, no. 4, pp. 824-840, 2012.
+		%	\bibitem{Silva2013} Pedro Silva, ``Combinação entre pré-distorção digital e redução de fator de crista para linearização de amplificadores de potência para sistemas de telecomunicações móveis", 2013.
+		%	\bibitem{Lima2009} Eduardo Gonçalves de Lima and Giovanni Ghione, ``Behavioral modeling and digital base-band predistortion of RF power amplifiers", 2009.
+		%	\bibitem{CMOS2010} Neil H.E.Weste and David Money Harris, ``CMOS VLSI Design: A Circuits and Systems Perspective (4th Edition)", 2010.
+		
+		%	\bibitem{Pedroni2020} Volnei Pedroni, ``Circuit design with VHDL", 2020.
+	\end{thebibliography}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

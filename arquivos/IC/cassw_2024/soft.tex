@@ -1,5 +1,0 @@
-Nesta etapa, foi implementado o modelo DPD em software utilizando Python, com sinais de entrada e saída de um amplificador de potência classe AB baseado em HEMT GaN. O amplificador foi excitado por um sinal de 900 MHz modulado por WCDMA 3GPP, com largura de banda de aproximadamente 3,84 MHz. Os dados foram coletados usando um VSA Rohde \& Schwarz FSQ a 61,44 MHz de taxa de amostragem \cite{Bonfim2016}. 
-
-A seguir, foi calculada a estimativa do sinal utilizando números de vírgula fixa e validada com o NMSE. Para isso, os dados foram divididos em conjuntos de extração e validação. A matriz de regressão foi calculada com os dados de extração para obter os coeficientes do polinômio de memória. O modelo foi validado com os dados de validação, resultando em um NMSE de -23,57 dB para um polinômio de 2° grau com uma amostra memorizada.
-
-O algoritmo foi então ajustado para trabalhar com números em vírgula fixa, buscando a menor resolução possível e o menor NMSE simulado, o que exigiu a readequação dos resultados entre as multiplicações para manter a resolução inicial.

@@ -1,0 +1,68 @@
+\renewcommand{\imprimircapa}{%
+\begin{capa}%
+\center
+
+\begin{figure}[htb]
+\begin{center}
+\begin{minipage}[b]{0.3\linewidth}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{ufpr} 
+\end{center}
+\end{minipage}
+\begin{minipage}[b]{0.6\linewidth}
+{\normalsize UNIVERSIDADE FEDERAL DO PARANÁ\\[2pt] % \bfseries - negrito
+SETOR DE TECNOLOGIA\\[2pt]
+DEPARTAMENTO DE ENGENHARIA ELÉTRICA\\[2pt]
+CURSO DE ENGENHARIA ELÉTRICA}
+\end{minipage}
+\end{center}
+\end{figure}
+% ou se for colocar somente o nome da instituição
+% \ABNTEXchapterfont\Large \imprimirinstituicao \\
+
+\vspace*{1cm}
+{\ABNTEXchapterfont\large\imprimirautor}
+\vfill
+\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+\vfill
+\large\imprimirlocal
+\par
+\large\imprimirdata
+\vspace*{1cm}
+\end{capa}
+}
+
+
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+\begin{center}
+{\ABNTEXchapterfont\large\imprimirautor}
+\vspace*{\fill}\vspace*{\fill}
+\begin{center}
+\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+\end{center}
+\vspace*{\fill}
+\abntex@ifnotempty{\imprimirpreambulo}{%
+\hspace{.45\textwidth}
+\begin{minipage}{.5\textwidth}
+\SingleSpacing
+\imprimirpreambulo \hfill
+\end{minipage}%
+\vspace{0.5cm}
+
+\hspace{.45\textwidth}
+\begin{minipage}{.5\textwidth}
+\imprimirorientadorRotulo~\imprimirorientador \hfill
+Coorientador: Eduardo Gonçalves de Lima \hfill
+
+\end{minipage}%
+\vspace*{\fill}
+}%
+\vfill
+{\bfseries\large\imprimirlocal}
+\par
+{\bfseries\large\imprimirdata}
+\vspace*{1cm}
+\end{center}
+}
+\makeatother

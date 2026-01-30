@@ -1,1 +1,0 @@
-.\typst.exe compile "arquivos\caminho\main.typ"
