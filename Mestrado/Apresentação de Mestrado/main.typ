@@ -10,7 +10,7 @@
     short-title: [Modelagem Comportamental de PA],
     authors: [Leonardo de Andrade Santos],
     author: [Leonardo de Andrade Santos],
-    date: datetime.today(),
+    date: str(datetime.today().year()),
     institution: ([Universidade Federal do Paraná]),
     banner: image("figuras/ufpr.png")
   ),
@@ -243,7 +243,7 @@
           #set math.equation(numbering: none)
           $ y(n) = sum_(m=0)^(M-1) sum_(k=1)^K a_{k m} |x(n-m)|^(k-1) x(n-m) $
           #v(0.5em)
-          #text(size: 0.88em)[Modelo Memory Polynomial (MP)]
+          #text(size: 0.88em)[Equação 2.3 – Modelo Memory Polynomial (MP)]
         ]
       ]
     ]
@@ -354,8 +354,7 @@
     columns: (3fr, 2fr),
     gutter: 1.5em,
     [
-      - NMSE = 10 log₁₀ ( Σ |e(n)|² / Σ |y_real(n)|² )
-      - e(n) = y_real(n) − y_model(n)
+      - $e(n) = y_"real" (n) - y_"model" (n)$
       - y_real(n): saída medida do PA real
       - N: número total de amostras
       - Quanto menor o NMSE (mais negativo em dB), melhor a precisão
@@ -539,20 +538,50 @@
 ]
 
 
-= Conclusão
+// = Conclusão
 
-#slide(title: "Conclusão")[
+// #slide(title: "Conclusão")[
+//   #set text(size: 0.94em)
+//   #set par(leading: 0.65em)
+
+//   A modelagem comportamental híbrida proposta, combinando polinômios com memória de ordem dependente do atraso e tabelas de consulta (LUTs) priorizadas no termo corrente, demonstrou ser uma alternativa eficiente para representar o comportamento não linear e com memória de amplificadores de potência em sistemas de comunicação sem fio modernos. A análise sistemática do modelo Memory Polynomial (MP) clássico revelou que a não-linearidade dominante concentra-se no instante atual, permitindo redução significativa da complexidade computacional por meio de ordens polinomiais decrescentes nos atrasos sem prejuízo expressivo de precisão (medida por NMSE). A abordagem híbrida MP + LUT surge como solução promissora para implementação prática em hardware digital de baixa potência e alta taxa de amostragem, conciliando desempenho, eficiência energética e viabilidade em pré-distorção digital (DPD), com potencial para aplicações em estações rádio-base e dispositivos móveis.
+
+//   #v(1.5em)
+
+//   #align(center)[
+//     *Muito obrigado pela atenção!*
+//   ]
+// ]
+// 
+= Próximas Etapas
+
+#slide(title: "Próximas Etapas")[
   #set text(size: 0.94em)
   #set par(leading: 0.65em)
 
-  A modelagem comportamental híbrida proposta, combinando polinômios com memória de ordem dependente do atraso e tabelas de consulta (LUTs) priorizadas no termo corrente, demonstrou ser uma alternativa eficiente para representar o comportamento não linear e com memória de amplificadores de potência em sistemas de comunicação sem fio modernos. A análise sistemática do modelo Memory Polynomial (MP) clássico revelou que a não-linearidade dominante concentra-se no instante atual, permitindo redução significativa da complexidade computacional por meio de ordens polinomiais decrescentes nos atrasos sem prejuízo expressivo de precisão (medida por NMSE). A abordagem híbrida MP + LUT surge como solução promissora para implementação prática em hardware digital de baixa potência e alta taxa de amostragem, conciliando desempenho, eficiência energética e viabilidade em pré-distorção digital (DPD), com potencial para aplicações em estações rádio-base e dispositivos móveis.
+  A partir dos resultados obtidos com a modelagem comportamental híbrida — combinando Polinômio com Memória (MP) com ordens dependentes do atraso e o uso de LUTs priorizadas no termo corrente — as próximas etapas concentram-se no aprofundamento da validação em ambiente de simulação.
+
+  Entre as direções futuras, destacam-se:
+
+  • Avaliação mais abrangente do modelo híbrido utilizando diferentes sinais modulados e diferentes níveis de não linearidade do PA;
+
+  • Análise do impacto da granularidade e da estratégia de interpolação das LUTs na precisão da modelagem (NMSE);
+
+  • Investigação de critérios sistemáticos para definição das ordens polinomiais dependentes do atraso;
+
+  • Expansão da análise multiobjetivo baseada na fronteira de Pareto, incorporando métricas adicionais relacionadas à complexidade computacional;
+
+  • Comparação detalhada entre as abordagens puramente polinomial, puramente LUT e híbrida sob diferentes cenários operacionais.
+
+  Essas etapas visam consolidar a proposta como uma alternativa computacionalmente eficiente para modelagem e pré-distorção digital de amplificadores de potência em sistemas modernos de comunicação sem fio.
 
   #v(1.5em)
 
   #align(center)[
-    *Muito obrigado pela atenção!*
+    *Obrigado pela atenção!*
   ]
 ]
+
 
 #slide(title: "Referências")[
   #set text(size: 0.65em)          // fonte menor para caber tudo

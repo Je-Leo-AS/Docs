@@ -8,6 +8,28 @@
 #let appendices-state = state("article-appendices", ())
 #let annexes-state = state("article-annexes", ())
 
+// Função auxiliar para verificar se é um caminho de imagem
+#let is-image-path(path) = {
+  if type(path) == "string" {
+    let lower-path = path.to-lowercase()
+    let has-valid-extension = lower-path.ends-with(".png") or lower-path.ends-with(".jpg") or lower-path.ends-with(".jpeg") or lower-path.ends-with(".svg") or lower-path.ends-with(".gif") or lower-path.ends-with(".webp")
+    has-valid-extension 
+  } else {
+    false
+  }
+}
+
+// Função para renderizar logo ou texto
+#let render-logo-or-text(institution, fallback-text) = {
+  if institution != none  {
+    image("../" + institution, width: 5cm)
+  } else if institution != none and type(institution) == "string" {
+    strong(upper(institution))
+  } else {
+    strong(upper(fallback-text))
+  }
+}
+
 #let template(
   title: none,
   title-foreign: none,
@@ -29,6 +51,8 @@
 
   abbreviations: none,
   symbols: none,
+
+  institution: none,
   
   body,
 ) = {
@@ -89,7 +113,7 @@ page(numbering: none)[
   
   #grid(
     rows: 1fr,
-    strong(upper(linguify("university"))),
+    render-logo-or-text(institution, linguify("university")),
     strong(upper(author)),
     align(horizon, strong(upper(title))),
     [],

@@ -4,7 +4,7 @@
 
 #align(center, text(size: 10pt)[
   Ministério da Educação \
-  *Universidade Tecnológica Federal do Paraná* \
+  *Universidade Federal do Paraná* \
   Diretoria de Graduação e Educação Profissional \
   _Secretaria de Gestão Acadêmica_ \
   Departamento de Biblioteca
@@ -17,7 +17,7 @@
   align: center,
   columns: (1fr,1fr,1fr,1fr,1fr,1fr,1.75fr),
 
-  table.cell(colspan: 7,)[1. Você tem conhecimento do trabalho que está sendo realizado na UTFPR que criará o padrão da instituição para elaboração de trabalhos acadêmicos?], 
+  table.cell(colspan: 7,)[1. Você tem conhecimento do trabalho que está sendo realizado na UFPR que criará o padrão da instituição para elaboração de trabalhos acadêmicos?], 
 
   table.cell(fill:gray)[], 
   [*EM*], 

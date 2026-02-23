@@ -2,7 +2,7 @@
 default-lang = "en"
 
 [lang.en]
-university = "Federal Technological University of Paraná"
+university = "Federal University of Paraná"
 abstract = "Abstract"
 keywords = "Keywords"
 glossary = "Glossary"
@@ -24,7 +24,7 @@ symbols = "List of Symbols"
 bibliography = "References"
 
 [lang.pt]
-university = "Universidade Tecnológica Federal do Paraná"
+university = "Universidade Federal do Paraná"
 abstract = "Resumo"
 keywords = "Palavras-chave"
 glossary = "Glossário"

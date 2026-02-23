@@ -1,4 +1,4 @@
-#import "@preview/utfpr-tcc-unofficial:0.1.0": * 
+#import "../src/lib.typ": * 
 
 // For graph plotting only
 #import "@preview/cetz:0.4.2"
@@ -8,38 +8,51 @@
 
 #show: template.with(  
   title: [
-    O título deve ser claro e preciso: subtítulo (se houver) deve ser precedido de dois pontos confirmando sua vinculação ao título
+   Modelagem Comportamental Híbrida de Amplificadores de Potência Usando Polinômios com Memória e Tabelas de Busca
   ],
   title-foreign: [
-    Título traduzido título traduzido
+    Hybrid Behavioral Modeling of Power Amplifiers Using Memory Polynomials and Lookup Tables
   ],
 
   lang: "pt",
   lang-foreign: "en",
   
-  author: [NOME COMPLETO E POR EXTENSO DO(A) AUTOR(A)],
-  city: [CIDADE],
-  year: [ANO DA ENTREGA],
+  author: [Leonardo de Andrade Santos],
+  city: [Curitiba],
+  year: [2026],
+  
+  institution: "template/assets/logo-ufpr.png",  // Caminho da imagem do logo (opcional)
 
   description: [
-      Trabalho de conclusão de curso de graduação/Dissertação/Tese apresentada como requisito para obtenção do título de Bacharel/Licenciado/Tecnólogo/Mestre/Doutor em Nome do Curso/Programa da Universidade Tecnológica Federal do Paraná (UTFPR).
-    
-      Orientador(a): Nome completo e por extenso.
+      Dissertação apresentada ao Programa de Pós-Graduação em Engenharia Elétrica, Área de Concentração em Telecomunicações, Departamento de Engenharia Elétrica, Setor de Tecnologia, Universidade Federal do Paraná, como parte das exigências para obtenção do título de Mestre em Engenharia Elétrica.
 
-      Coorientador(a): Nome completo e por extenso.
+
+      Orientador(a): Eduardo Gonçalves de Lima
     ],
 
-  keywords: ([palavra 1], [palavra 2], [palavra 3], [palavra 4]),
+  keywords: ([DPD], [Polinômio de memória], [LUTs], [Amplificador de Potência]),
   keywords-foreign: ([word 1], [word 2], [word 3], [word 4]),
 
 // ↓↓↓ ELEMENTOS OPCIONAIS ↓↓↓ //
   outline-figure: true,
   outline-table: true,
   abbreviations: (
-    [ABNT], [Associação Brasileira de Normas Técnicas],
-    [IBGE], [Instituto Brasileiro de Geografia e Estatística],
-    [NBR], [Normas Brasileiras], 
-    [UTFPR], [Universidade Tecnológica Federal do Paraná],
+    	[DPD],  [Pré-Distorcedor Digital],
+      [FPGA], [Field-Programmable Gate Array (Matriz de Portas Programáveis em Campo)],
+      [PA], [Amplificador de Potência],
+      [RF], [Radio Frequency (Rádio Frequência)],
+      [PARF], [Amplificador de Potência de Rádio Frequência],
+      [HDL], [Hardware Description Language (Linguagem de Descrição de Hardware)],
+      [VHSIC], [Very High-Speed Integrated Circuit (Circuito Integrado de Velocidade Muito Elevada)],
+      [VHDL], [VHSIC Hardware Description Language],
+      [LUT], [Look-Up Table],
+      [SOP], [Sum of Products (Soma de Produtos)],
+      [LAB], [Logic Array Block],
+      [ALM], [Adaptive Logic Module],
+      [LE], [Logic Element],
+      [HEMT], [High Electron Mobility Transistor (Transistor de Efeito de Campo de Heterojunção)],
+      [VSA], [Vector Signal Analyzer (Analisador de Sinal Vetorial)],
+      [NMSE], [Normalized Mean Squared Error (Erro Médio Quadrado Normalizado)],
   ),
   symbols: (
     [Ca], [Cálcio],
@@ -52,7 +65,11 @@
 )
 
 #abstract[
-O resumo deve apresentar, de forma clara e objetiva, o conteúdo essencial do trabalho, abordando a justificativa, os objetivos, a metodologia empregada, os principais resultados e as conclusões. Deve ser escrito em um único parágrafo, com extensão entre 150 e 500 palavras, evitando o uso de citações, fórmulas, equações ou símbolos. As palavras-chave e keywords devem ser grafadas com inicial minúscula, exceto em casos de nomes próprios ou científicos.
+  
+A evolução dos sistemas de comunicação sem fio possibilitou o surgimento de diversas aplicações móveis e wireless, como desenvolvimento web e Internet das Coisas (IoT). Nesse contexto, a melhoria da eficiência energética é altamente desejável, tanto em dispositivos móveis, que buscam maior autonomia de bateria, quanto em estações rádio-base, que visam reduzir perdas associadas à dissipação de calor. Entretanto, o aumento da eficiência energética geralmente implica a redução da linearidade dos amplificadores de potência (PAs) utilizados nos transmissores de rádio. Essa limitação é particularmente crítica em sistemas modernos de comunicação, nos quais a largura de banda disponível é restrita e o uso de modulações complexas, que exploram variações simultâneas de amplitude e fase, é essencial para alcançar elevadas taxas de transmissão. Modulações sensíveis à amplitude tornam-se especialmente suscetíveis às não linearidades do PA, resultando em degradação do desempenho e aumento dos erros de transmissão.
+
+Uma solução amplamente empregada para conciliar eficiência energética e linearidade é a utilização da pré-distorção digital (Digital Predistortion – DPD) em cascata com o PA. A eficácia dessa técnica depende diretamente da disponibilidade de modelos matemáticos capazes de representar com precisão o comportamento não linear e com memória do amplificador. Neste trabalho, inicialmente investiga-se uma variação do modelo Memory Polynomial (MP), na qual a ordem polinomial passa a depender do atraso de memória, permitindo maior flexibilidade na modelagem e redução da complexidade computacional sem prejuízo significativo de desempenho. A partir dessa análise, avalia-se uma abordagem híbrida que combina polinômios e tabelas de consulta (Look-Up Tables – LUT), priorizando o uso de LUT nos termos associados às amostras atuais, que concentram maior complexidade, e mantendo a implementação polinomial para os termos de memória. Por fim, são comparadas as abordagens puramente polinomial, puramente baseada em LUT e a abordagem híbrida, considerando métricas de precisão e complexidade computacional.
+ 
 ]
 
 #abstract-foreign[
@@ -60,27 +77,27 @@ A versão em língua estrangeira deve seguir o mesmo formato do resumo original,
 ]
 
 // ↓↓↓ ELEMENTOS OPCIONAIS ↓↓↓ //
-#dedication[
-  Dedico este trabalho à minha família, pelos momentos de ausência.
-]
+//#dedication[
+//  Dedico este trabalho à minha família, pelos momentos de ausência.
+//]
 
-#acknowledgments[
-Reconheço que estas palavras não serão suficientes para mencionar todas as pessoas que contribuíram para esta etapa tão significativa da minha vida. Peço, portanto, desculpas àquelas que não estão citadas diretamente, mas que certamente fazem parte da minha lembrança e da minha gratidão.
+//#acknowledgments[
+//Reconheço que estas palavras não serão suficientes para mencionar todas as pessoas que contribuíram para esta etapa tão significativa da minha vida. Peço, portanto, desculpas àquelas que não estão citadas diretamente, mas que certamente fazem parte da minha lembrança e da minha gratidão.
 
-Expresso meus agradecimentos ao(à) Prof.(a) Dr.(a) [Nome Completo], meu(minha) orientador(a), pela orientação, paciência e conhecimento compartilhado ao longo deste percurso.
+//Expresso meus agradecimentos ao(à) Prof.(a) Dr.(a) [Nome Completo], meu(minha) orientador(a), pela orientação, paciência e conhecimento compartilhado ao longo deste percurso.
 
-Aos colegas de sala, pela convivência e troca de experiências.
+//Aos colegas de sala, pela convivência e troca de experiências.
 
-À Secretaria do Curso, pelo apoio e colaboração prestados.
+//À Secretaria do Curso, pelo apoio e colaboração prestados.
 
-Registro, ainda, meu profundo reconhecimento à minha família, cujo incentivo e compreensão foram fundamentais para que eu pudesse alcançar este objetivo.
+//Registro, ainda, meu profundo reconhecimento à minha família, cujo incentivo e compreensão foram fundamentais para que eu pudesse alcançar este objetivo.
 
 //Não devem ser mencionadas empresas ou instituições que não tenham sido citadas no corpo do trabalho.
-//Nos casos em que o estudo tenha recebido apoio financeiro da UTFPR ou de outras agências de fomento, como CAPES, CNPq ou Fundação Araucária, o último parágrafo dos Agradecimentos deve conter o nome da instituição financiadora e o número do respectivo auxílio. Esse deve ser o item final dessa seção.
+//Nos casos em que o estudo tenha recebido apoio financeiro da UFPR ou de outras agências de fomento, como CAPES, CNPq ou Fundação Araucária, o último parágrafo dos Agradecimentos deve conter o nome da instituição financiadora e o número do respectivo auxílio. Esse deve ser o item final dessa seção.
 
-]
+//]
+//#epigraph(attribution: [@candido2002formacao])[A biblioteca é um jardim onde as ideias florescem e os frutos são colhidos pela eternidade.]
 
-#epigraph(attribution: [@candido2002formacao])[A biblioteca é um jardim onde as ideias florescem e os frutos são colhidos pela eternidade.]
 // ↑↑↑ ELEMENTOS OPCIONAIS ↑↑↑ //
 
 = Introdução
@@ -97,6 +114,8 @@ Após o início de uma seção, recomenda-se incluir um texto introdutório ou, 
 
 == Seção secundária
 #lorem(20)
+
+@fleury2018
 
 === Seção terciária
 #lorem(20)
@@ -129,7 +148,7 @@ A seguir, vemos um modelo de formatação de fotografia:
 #figure(
   kind: "photograph",
   image("media/imagem2.png", width: 50%), 
-  caption: [Entrada da UTFPR Campus Ponta Grossa],
+  caption: [Entrada da UFPR Campus Ponta Grossa],
   source:[Autoria própria (2025)],
 )
 
@@ -158,8 +177,8 @@ A seguir, no @grafico, um modelo de formatação de gráfico:
     outer-label: (content: none), 
   )),
 
-caption: [Empréstimos feitos em janeiro de 2019 nas bibliotecas da UTFPR],
-source: [#cite(<utfpr2020>, form: "prose")],
+caption: [Empréstimos feitos em janeiro de 2019 nas bibliotecas da UFPR],
+source: [#cite(<UFPR2020>, form: "prose")],
 )<grafico>
 
 A seguir, ilustra-se um modelo de formatação de quadros (prevalecem informações textuais).

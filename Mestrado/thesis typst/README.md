@@ -1,4 +1,4 @@
-# UTFPR TCC (unofficial)
+# UFPR TCC (unofficial)
 
 * [English](#quick-start)
 * [Portuguese](#início-rápido)
@@ -8,17 +8,17 @@
 <h2 align="center">English</h2>
 
 <center>
-  UTFPR TCC template made by students for students
+  UFPR TCC template made by students for students
 </center>
 
 ### Important info
 
-The template content is in portuguese because the target audience is UTFPR students, a brazillian university.
+The template content is in portuguese because the target audience is UFPR students, a brazillian university.
 
 ## Quick start
 
 ```typst
-#import "@preview/utfpr-tcc-unofficial:0.1.0": * 
+#import "@preview/UFPR-tcc-unofficial:0.1.0": * 
 
 #show: template.with(  
   title: [the title],
@@ -44,7 +44,7 @@ The template content is in portuguese because the target audience is UTFPR stude
     [Coef.], [Coeficiente], 
     [IBGE], [Instituto Brasileiro de Geografia e Estatística],
     [NBR], [Normas Brasileiras], 
-    [UTFPR], [Universidade Tecnológica Federal do Paraná],
+    [UFPR], [Universidade Federal do Paraná],
   ),
   symbols: (
     [Ca], [Calcium],
@@ -59,7 +59,7 @@ The template content is in portuguese because the target audience is UTFPR stude
 
 ## Description 
 
-A Template for UTFPR TCC (Trabalho de Conclusão de Curso) 
+A Template for UFPR TCC (Trabalho de Conclusão de Curso) 
 made by students for students to facilitate TCC production in typst. 
 Be aware that this is an unofficial template, prone to errors. 
 It's an open source project designed for anyone that wants to contribute
@@ -86,13 +86,13 @@ This template contains additional functions for specific content that can or sho
 <h2 align="center">Portuguese</h2>
 
 <center>
-  Modelo UTFPR TCC criado por estudantes para estudantes
+  Modelo UFPR TCC criado por estudantes para estudantes
 </center>
 
 ## Início rápido
 
 ```typst
-#import "@preview/utfpr-tcc-unofficial:0.1.0": * 
+#import "@preview/UFPR-tcc-unofficial:0.1.0": * 
 
 #show: template.with(  
   title: [título],
@@ -118,7 +118,7 @@ This template contains additional functions for specific content that can or sho
     [Coef.], [Coeficiente], 
     [IBGE], [Instituto Brasileiro de Geografia e Estatística],
     [NBR], [Normas Brasileiras], 
-    [UTFPR], [Universidade Tecnológica Federal do Paraná],
+    [UFPR], [Universidade Federal do Paraná],
   ),
   symbols: (
     [Ca], [Cálcio],
@@ -133,7 +133,7 @@ This template contains additional functions for specific content that can or sho
 
 ## Descrição
 
-Um modelo para TCC (Trabalho de Conclusão de Curso) UTFPR
+Um modelo para TCC (Trabalho de Conclusão de Curso) UFPR
 criado por estudantes para estudantes, com o objetivo de facilitar a produção de TCCs no Typst.
 Este é um modelo não oficial, sujeito a erros.
 Trata-se de um projeto de código aberto, criado para que qualquer pessoa que 

@@ -1,0 +1,109 @@
+A revisão bibliográfica apresentada no capítulo anterior evidenciou que o desempenho de amplificadores de potência em radiofrequência (PAs) é fortemente influenciado por suas não linearidades e pelos efeitos de memória, especialmente quando esses dispositivos operam com sinais de banda larga e elevada variação de envoltória. Também foi discutido que técnicas de linearização, em particular a pré-distorção digital (DPD), dependem diretamente da disponibilidade de modelos matemáticos capazes de representar com precisão o comportamento do PA sob condições reais de operação. Nesse contexto, este capítulo apresenta os materiais e métodos adotados neste trabalho para a modelagem comportamental de amplificadores de potência.
+
+Os modelos comportamentais de amplificadores de potência são, em geral, construídos a partir das características de compressão AM--AM (modulação em amplitude para modulação em amplitude) e AM--PM (modulação em amplitude para modulação em fase), que descrevem, respectivamente, a variação do ganho e da fase do sinal amplificado em função da potência de entrada. A partir dessas características, o comportamento do amplificador pode ser aproximado por uma função polinomial complexa da envoltória do sinal de entrada, conforme discutido em \cite{Chavez2018,Schuartz2017}.
+
+As elevadas taxas de dados exigidas pelos sistemas modernos de comunicações sem fio demandam o uso de sinais de banda larga, frequentemente caracterizados por alta variação de envoltória, ou elevado \textit{Peak-to-Average Power Ratio} (PAPR), além do emprego de modulações digitais complexas, como QAM e OFDM \cite{Kenington2000}. Esses sinais, ao excitarem o amplificador de potência, tornam evidentes não apenas as não linearidades estáticas do dispositivo, mas também os chamados efeitos de memória. Tais efeitos decorrem, principalmente, dos tempos de carga e descarga de capacitores e indutores presentes nas redes de casamento de impedância e nos circuitos de polarização do PA \cite{Luiza2016}. Como consequência, a saída do amplificador passa a depender não somente da entrada instantânea, mas também de amostras anteriores do sinal, introduzindo distorções adicionais no sinal amplificado.
+
+Além dos efeitos de memória, as não linearidades estáticas associadas à compressão de ganho e à operação do transistor próximo à saturação impõem limitações severas ao desempenho global do sistema. Conforme discutido por \cite{Cripps2006}, a região de operação próxima à saturação é aquela em que o PA apresenta maior eficiência energética, porém também é onde as distorções não lineares se tornam mais pronunciadas. Esse comportamento, ilustrado pela curva de transferência típica de um PA apresentada na Figura~\ref{fig:saidaparf}, evidencia o compromisso fundamental entre eficiência e linearidade.
+
+Diante desse cenário, modelos comportamentais capazes de capturar simultaneamente as não linearidades e os efeitos de memória do amplificador, ao mesmo tempo em que permitam sua operação com elevada eficiência energética, tornam-se fundamentais para o projeto de estações rádio-base de alto desempenho \cite{John2016,Schuartz2017}.
+
+Diversas técnicas de modelagem comportamental têm sido propostas na literatura, com destaque para aquelas baseadas em funções polinomiais, devido ao seu bom compromisso entre capacidade de representação e complexidade computacional \cite{GonalvesdeLima2009}. Entre as estruturas mais utilizadas para a modelagem de amplificadores de potência com efeitos de memória moderados, destaca-se o modelo \textit{Memory Polynomial} (MP), que consiste em uma simplificação diagonal da série de Volterra, considerando apenas termos associados a um mesmo atraso temporal \cite{Schuartz2017}. Esse modelo é descrito matematicamente pela Equação~\ref{eq:mp}.
+
+Com base nesse contexto, este capítulo apresenta o modelo MP e descreve detalhadamente as estruturas propostas neste trabalho, com o objetivo de aprimorar o desempenho de modelagem em relação às abordagens convencionais. Além da definição das estruturas dos modelos, é dada especial atenção ao processo de identificação dos coeficientes do modelo, representados pelos parâmetros $h_{p,m}$. A forma como esses coeficientes são estimados influencia diretamente o tempo de processamento, a estabilidade numérica e a eficiência computacional do modelo final, aspectos críticos em aplicações de pré-distorção digital em tempo real.
+
+Por fim, o capítulo aborda aspectos práticos relacionados à implementação dos modelos propostos, incluindo substituição de multiplicações por tabelas de consulta (\textit{lookup tables} – LUTs), de modo a viabilizar a implementação em hardware operando com elevadas taxas de amostragem.
+
+\section{Modelo MP original}
+
+Conforme detalhado no Capítulo~\ref{chap:revi}, amplificadores de potência RF são dispositivos inerentemente não lineares e sujeitos a efeitos de memória, decorrentes tanto da natureza dos sinais de banda larga aplicados quanto das não linearidades impostas pelos circuitos internos do amplificador. Sistemas desse tipo podem ser representados matematicamente por meio da série de Volterra.
+
+Uma característica importante da série de Volterra, conforme destacado em \cite{GonalvesdeLima2009}, é sua linearidade em relação aos parâmetros, o que permite a estimação dos coeficientes do modelo por meio de técnicas de identificação linear, como o método dos mínimos quadrados. No entanto, o número de parâmetros da série de Volterra cresce rapidamente com o aumento da ordem do polinômio e com a quantidade de termos de memória considerados, resultando em modelos de elevada complexidade computacional.
+
+Para viabilizar o uso da série de Volterra em aplicações práticas, mesmo com polinômios de ordem elevada e múltiplos termos de memória, diversos modelos comportamentais propostos na literatura aplicam simplificações dessa representação matemática. Um exemplo é o modelo comportamental apresentado em \cite{Kim2001}, conhecido como modelo MP.
+
+O modelo MP pode ser interpretado como uma extensão do modelo polinomial estático, incorporando efeitos de memória por meio de uma forma reduzida da série de Volterra. Nessa abordagem, apenas produtos de amostras correspondentes ao mesmo instante de tempo são considerados. Matematicamente, o modelo MP é descrito pela equação~\ref{eq:mp}, na qual todos os polinômios que compõem o modelo possuem a mesma ordem \cite{Kim2001}.
+
+Entre as principais características do modelo MP, destaca-se o fato de que ele é baseado em multiplicações de sinais avaliados no mesmo instante de tempo, como $\tilde{x}(n)|\tilde{x}(n)|$ e $\tilde{x}(n-1)|\tilde{x}(n-1)|$. Além disso, como o modelo depende de informações passadas da fase da envoltória do sinal de entrada, ele é capaz de representar fenômenos associados às variações de fase da envoltória, incluindo as conversões PM--AM (\textit{phase modulation to amplitude modulation}) e PM--PM (\textit{phase modulation to phase modulation}). A Figura~\ref{fig:mp_padrao} apresenta o diagrama de blocos do modelo MP.
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: \cite{Luiza2016}}
+    \includegraphics[width=0.75\linewidth]{Figuras/mp_padrao.png}
+    \caption{Diagrama de blocos do modelo MP}
+    \label{fig:mp_padrao}
+\end{figure}
+
+\subsection{Polinômio com Memória com Truncamento Polinomial Dependente do Atraso}
+
+Conforme discutido na Seção~2.3.2, o modelo de Polinômio com Memória (MP) tradicional adota uma ordem polinomial máxima uniforme para todos os termos de memória. Embora essa abordagem simplifique a estrutura do modelo, ela pode resultar em um aumento desnecessário da complexidade computacional, uma vez que os efeitos não lineares associados a amostras mais antigas tendem a ser menos significativos do que aqueles relacionados à amostra atual.
+
+Com o objetivo de explorar essa característica, propõe-se neste trabalho uma variação do modelo MP na qual a ordem polinomial máxima passa a ser definida de forma independente para cada atraso de memória. Dessa forma, o modelo deixa de utilizar um único parâmetro de ordem polinomial $P$ e passa a empregar um conjunto de ordens $\{P_0, P_1, \dots, P_M\}$, em que $P_m$ representa a ordem polinomial máxima associada ao termo de atraso $m$.
+
+Matematicamente, o modelo proposto pode ser expresso como:
+
+\begin{equation}
+    y(n) = \sum_{m=0}^{M} \sum_{p=1}^{P_m} h_{p,m} \, x(n - m) \left| x(n - m) \right|^{p-1}
+    \label{eq:mp_truncado}
+\end{equation}
+
+em que $M$ corresponde à profundidade de memória do modelo, $P_m$ define a ordem polinomial máxima associada ao atraso $m$, e $h_{p,m}$ são os coeficientes complexos a serem estimados. Observa-se que o modelo MP tradicional constitui um caso particular da Equação~\eqref{eq:mp_truncado}, obtido quando se impõe $P_0 = P_1 = \dots = P_M = P$.
+
+A principal motivação dessa abordagem reside na possibilidade de reduzir o número total de coeficientes do modelo sem comprometer significativamente sua capacidade de representação. Em particular, espera-se que a escolha de ordens polinomiais decrescentes com o aumento do atraso, isto é, $P_0 > P_1 > \dots > P_M$, seja suficiente para capturar os efeitos não lineares dominantes do amplificador de potência, concentrados majoritariamente na amostra atual e nos atrasos mais próximos.
+
+Do ponto de vista de identificação, o modelo proposto preserva a linearidade nos parâmetros, permitindo a estimação dos coeficientes por meio de técnicas de mínimos quadrados convencionais, de forma análoga ao MP clássico. A diferença reside na construção da matriz de regressão, que passa a incorporar apenas os termos polinomiais correspondentes a cada ordem $P_m$, resultando em uma matriz de menor dimensão.
+
+Além da redução de complexidade computacional, essa estrutura oferece maior flexibilidade para a implementação em hardware. Em particular, a concentração de ordens polinomiais mais elevadas nos termos associados à amostra atual cria condições favoráveis para a adoção de arquiteturas híbridas, nas quais operações de maior complexidade podem ser substituídas por tabelas de consulta (LUTs), enquanto termos de menor ordem permanecem implementados de forma polinomial. Essa característica é explorada e avaliada nos capítulos seguintes por meio de simulações e análises comparativas de desempenho e complexidade.
+
+\section{Uso de tabelas de consulta no modelo MP}
+\label{sec:Uso de tabelas de consulta no modelo MP}
+A implementação prática de modelos comportamentais para amplificadores de potência em sistemas digitais de alta taxa de amostragem impõe restrições severas em termos de complexidade computacional, consumo de recursos e latência. Em particular, mesmo após a adoção do modelo \textit{Memory Polynomial} (MP), cuja complexidade é significativamente inferior à da série completa de Volterra, a implementação direta em hardware ainda demanda um número elevado de operações aritméticas, sobretudo multiplicações e cálculos de potências associados a ordens polinomiais elevadas.
+
+Conforme discutido na Seção~3.2, neste trabalho adota-se uma variação do modelo MP na qual a ordem polinomial máxima é definida de forma independente para cada atraso de memória. Essa abordagem permite concentrar as ordens polinomiais mais elevadas nos termos associados às amostras mais recentes, enquanto ordens menores são atribuídas aos termos de memória mais antigos. Como consequência, a complexidade computacional deixa de ser uniformemente distribuída entre todos os atrasos, passando a ser dominada pelos termos de menor atraso, em especial pelo termo correspondente à amostra atual.
+
+Nesse contexto, o uso de tabelas de consulta (\textit{Look-Up Tables} – LUTs) surge como uma estratégia complementar para reduzir a complexidade computacional associada especificamente aos termos de maior ordem polinomial, conforme discutido em \cite{Kwan2012}. As LUTs permitem substituir operações aritméticas complexas por simples operações de indexação e leitura de memória, reduzindo significativamente o custo computacional e viabilizando implementações em tempo real. Dessa forma, ao invés de empregar LUTs de forma indiscriminada em todos os termos do modelo, sua utilização pode ser direcionada aos componentes de maior complexidade, preservando a eficiência global da arquitetura.
+
+No contexto do modelo MP, a saída do amplificador pode ser expressa como uma soma ponderada de termos da forma
+\[
+\tilde{x}(n-m)\left|\tilde{x}(n-m)\right|^{p-1},
+\]
+em que $p$ representa a ordem do polinômio e $m$ o atraso associado ao termo de memória. Observa-se que a não linearidade do modelo está diretamente relacionada à envoltória do sinal de entrada, enquanto a informação de fase é preservada pelo fator complexo $\tilde{x}(n-m)$. Essa separação natural entre envoltória e fase torna o modelo particularmente adequado à utilização de LUTs, uma vez que os termos não lineares dependem apenas do módulo da envoltória do sinal.
+
+Dessa forma, é possível implementar os termos não lineares do modelo MP por meio de LUTs unidimensionais (1D), indexadas pelo valor quantizado da magnitude da envoltória $\left|\tilde{x}(n-m)\right|$. Para cada atraso de memória $m$, define-se uma função polinomial unidimensional $f^{\mathrm{pol}}_m(\cdot)$, que pode ser armazenada em uma LUT. No caso geral, a implementação completa do modelo MP requer $(M+1)$ funções polinomiais — ou, de forma equivalente, $(M+1)$ LUTs 1D — sendo que essa quantidade depende exclusivamente da profundidade de memória considerada, e não da ordem polinomial adotada.
+
+Entretanto, no contexto do modelo proposto neste trabalho, a utilização de LUTs é particularmente vantajosa para os termos associados aos menores atrasos, nos quais as ordens polinomiais são mais elevadas. Em especial, o termo correspondente à amostra atual tende a concentrar a maior complexidade do modelo, tornando-se um candidato natural à implementação via LUT, enquanto os termos de memória, associados a ordens polinomiais reduzidas, podem ser implementados de forma polinomial convencional com menor custo computacional.
+
+A Tabela~\ref{tab:tabela_lut} apresenta a representação da função polinomial unidimensional $f^{\mathrm{pol}}_m(|\tilde{x}(n-m)|)$ implementada por meio de LUTs, bem como a forma como os valores de saída consecutivos da tabela são utilizados na modelagem. Essa estrutura evidencia que o cálculo das não linearidades do modelo MP pode ser realizado sem a necessidade de operações explícitas de potenciação, substituindo-as por simples acessos à memória.
+
+\begin{table}[htbp!]
+\centering
+\caption*{Fonte: Adaptado de \cite{Luiza2016}}
+\begin{tabular}{c c}
+\hline
+\textbf{Entrada da LUT} & \textbf{Saída da LUT} \\
+\hline
+$|\tilde{x}(n-m)|_1$ & $f^{\mathrm{pol}}_m(|\tilde{x}(n-m)|_1)$ \\
+$|\tilde{x}(n-m)|_2$ & $f^{\mathrm{pol}}_m(|\tilde{x}(n-m)|_2)$ \\
+$\vdots$             & $\vdots$ \\
+$|\tilde{x}(n-m)|_K$ & $f^{\mathrm{pol}}_m(|\tilde{x}(n-m)|_K)$ \\
+\hline
+\end{tabular}
+\caption{Representação da função polinomial unidimensional do modelo MP por meio de LUTs}
+\label{tab:tabela_lut}
+\end{table}
+
+O valor obtido na saída da LUT é então multiplicado apenas pelo termo complexo $\tilde{x}(n-m)$, reduzindo substancialmente o número total de operações aritméticas, conforme também observado em \cite{Kwan2012}. A Figura~\ref{fig:diagramamplut} ilustra o diagrama de blocos da implementação do modelo MP com o uso de LUTs.
+
+\begin{figure}[htb!]
+    \centering
+    \caption*{Fonte: \cite{Luiza2016}}
+    \includegraphics[width=0.75\linewidth]{Figuras/MP_lut.png}
+    \caption{Implementação do modelo MP com LUTs}
+    \label{fig:diagramamplut}
+\end{figure}
+
+Outro aspecto relevante é que o uso de LUTs permite desacoplar parcialmente a complexidade computacional da ordem polinomial adotada. Uma vez construída a tabela, o aumento da ordem do polinômio não implica, necessariamente, em um aumento proporcional do número de operações durante a execução, mas apenas em um possível incremento no uso de memória. Esse compromisso entre consumo de memória e redução de operações aritméticas é particularmente favorável em plataformas modernas, como FPGAs e ASICs, nas quais recursos de memória são abundantes e operações de multiplicação são relativamente custosas.
+
+Além da redução de complexidade, as LUTs também podem contribuir para o aumento da precisão do modelo MP. Como os valores armazenados na tabela podem ser obtidos a partir de dados experimentais ou de cálculos realizados em alta precisão, erros numéricos associados à quantização e ao arredondamento durante a execução em tempo real são mitigados. Ademais, técnicas de interpolação entre entradas adjacentes da LUT podem ser empregadas para melhorar ainda mais a fidelidade do modelo, sem impacto significativo na complexidade computacional, conforme discutido em \cite{Kwan2012}.
+
+Portanto, o uso de tabelas de consulta no modelo MP configura uma estratégia eficiente e complementar para reduzir a complexidade computacional e viabilizar implementações em sistemas digitais de alta taxa de amostragem. Neste trabalho, as LUTs são exploradas de forma seletiva, em conjunto com o modelo MP com truncamento polinomial dependente do atraso, priorizando sua aplicação nos termos de maior ordem polinomial, o que resulta em uma arquitetura híbrida que equilibra precisão e eficiência de implementação.
