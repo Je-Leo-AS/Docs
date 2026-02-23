@@ -5,10 +5,10 @@
   lang: "pt",
 
   config-info(
-    title: [Modelagem Comportamental Híbrida de Amplificadores de Potência],
-    subtitle: [Usando Polinômios com Memória e Tabelas de Busca],
+    title: [Modelagem Comportamental de Amplificadores de Potência],
+    subtitle: [Usando Truncamento Polinomial Dependente do Atraso],
     short-title: [Modelagem Comportamental de PA],
-    authors: [Leonardo de Andrade Santos],
+    authors: [Leonardo de Andrade Santos, Eduardo Gonçalves de Lima],
     author: [Leonardo de Andrade Santos],
     date: str(datetime.today().year()),
     institution: ([Universidade Federal do Paraná]),
@@ -355,7 +355,8 @@
     gutter: 1.5em,
     [
       - $e(n) = y_"real" (n) - y_"model" (n)$
-      - y_real(n): saída medida do PA real
+      - $y_"real" (n)$: saída medida do PA real
+      - $y_"model" (n)$: saída calculada do modelo MP
       - N: número total de amostras
       - Quanto menor o NMSE (mais negativo em dB), melhor a precisão
       - Avaliação em conjunto de validação separado do treinamento (evita sobreajuste)
