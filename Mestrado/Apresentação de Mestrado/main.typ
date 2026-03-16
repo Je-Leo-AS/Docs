@@ -7,7 +7,7 @@
   config-info(
     title: [Modelagem Comportamental de Amplificadores de Potência],
     subtitle: [Usando Truncamento Polinomial Dependente do Atraso],
-    short-title: [Modelagem Comportamental de PA],
+    short-title: [Modelagem Comportamental de Amplificadores de Potência],
     authors: [Leonardo de Andrade Santos, Eduardo Gonçalves de Lima],
     author: [Leonardo de Andrade Santos],
     date: str(datetime.today().year()),
@@ -37,8 +37,8 @@
   - Essas modulações são altamente sensíveis às não-linearidades dos amplificadores de potência RF (*PA*)
   - PA é o principal consumidor de energia do transmissor
   - Máxima eficiência energética → operação próxima da saturação
-  - Consequência: forte distorção não-linear + efeitos de memóri
-  - Resultado: regrowth espectral, piora de EVM, ACLR e BER
+  - Consequência: forte distorção não-linear + efeitos de Memória
+  - Resultado: regrowth espectral, piora de EVM (Error Vector Magnitude), ACLR (Adjacent Channel Leakage Ratio) e BER (Bit Error Rate)
 
 
   *Solução consolidada*:  
@@ -61,7 +61,7 @@
   + Implementar o modelo Memory Polynomial clássico em Python
   + Desenvolver variação do MP com ordens polinomiais dependentes do atraso
   + Avaliar desempenho dos modelos via Normalized Mean Squared Error (NMSE)
-  + Analisar trade-off complexidade × precisão utilizando fronteira de Pareto
+  + Analisar trade-off complexidade x precisão utilizando fronteira de Pareto
   + Propor e comparar abordagem híbrida (polinômios nos ramos de memória + LUT no termo corrente)
 ]
 = Fundamentação Teórica
@@ -534,7 +534,6 @@
   - Análise arquitetural da substituição de operações por LUTs
   - Foco: redução de complexidade em alta taxa de amostragem
   - Abordagem seletiva: LUTs nos termos de maior ordem
-  - Resultados quantitativos (NMSE, recursos FPGA) → etapas futuras
   - Implementação prática ainda em andamento
 ]
 
@@ -564,15 +563,9 @@
 
   Entre as direções futuras, destacam-se:
 
-  • Avaliação mais abrangente do modelo híbrido utilizando diferentes sinais modulados e diferentes níveis de não linearidade do PA;
-
   • Análise do impacto da granularidade e da estratégia de interpolação das LUTs na precisão da modelagem (NMSE);
 
-  • Investigação de critérios sistemáticos para definição das ordens polinomiais dependentes do atraso;
-
-  • Expansão da análise multiobjetivo baseada na fronteira de Pareto, incorporando métricas adicionais relacionadas à complexidade computacional;
-
-  • Comparação detalhada entre as abordagens puramente polinomial, puramente LUT e híbrida sob diferentes cenários operacionais.
+  • Comparação detalhada entre as abordagens puramente polinomial e híbrida sob diferentes cenários operacionais.
 
   Essas etapas visam consolidar a proposta como uma alternativa computacionalmente eficiente para modelagem e pré-distorção digital de amplificadores de potência em sistemas modernos de comunicação sem fio.
 
