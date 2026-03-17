@@ -7,8 +7,7 @@
 
 == Objetivo
 
-O objetivo desta atividade foi avaliar a capacidade de *generalização* do
-modelo _Memory Polynomial_ (MP) com ordem polinomial dependente do atraso,
+O objetivo desta atividade foi avaliar a capacidade de *generalização* do modelo _Memory Polynomial_ (MP) com ordem polinomial dependente do atraso,
 testando-o em *dois conjuntos de dados distintos* de amplificadores de
 potência reais. Para isso, o _pipeline_ completo de identificação e
 avaliação desenvolvido nas atividades anteriores foi replicado de forma
@@ -212,26 +211,10 @@ A comparação entre os dois conjuntos revela os seguintes comportamentos:
 
 == Conclusão
 
-Esta atividade demonstrou que o modelo _Memory Polynomial_ com ordem
-polinomial dependente do atraso exibe *comportamento consistente e
-generalizável* entre diferentes tecnologias de amplificadores de potência.
-Os padrões estruturais identificados no Conjunto 1 (GaN HEMT) — relevância
-de $P_0$, eficiência dos modelos com ordens decrescentes e saturação de
-desempenho em baixa complexidade — foram integralmente reproduzidos no
-Conjunto 2 (LDMOS), ainda que com níveis absolutos de NMSE distintos.
+Esta atividade demonstrou que o modelo _Memory Polynomial_ com ordem polinomial dependente do atraso exibe *comportamento consistente e generalizável* entre diferentes tecnologias de amplificadores de potência. Os padrões estruturais identificados no Conjunto 1 (GaN HEMT) — relevância de $P_0$, eficiência dos modelos com ordens decrescentes e saturação de desempenho em baixa complexidade — foram integralmente reproduzidos no Conjunto 2 (LDMOS), ainda que com níveis absolutos de NMSE distintos.
 
-Esses resultados fortalecem a validade da abordagem proposta e indicam que
-as configurações ótimas identificadas pela análise de Pareto são robustas
-frente a variações no tipo de amplificador, tornando-as candidatas
-confiáveis para uso nas etapas subsequentes do trabalho — em particular
-na implementação via LUTs e na análise em aritmética de ponto fixo.
+Esses resultados fortalecem a validade da abordagem proposta e indicam que as configurações ótimas identificadas pela análise de Pareto são robustas frente a variações no tipo de amplificador, tornando-as candidatas confiáveis para uso nas etapas subsequentes do trabalho — em particular na implementação via LUTs e na análise em aritmética de ponto fixo.
 
 == Próxima Etapa
 
-Com a generalização do modelo validada em dois conjuntos de dados, a
-próxima etapa consiste no desenvolvimento da *fundamentação teórica* do
-modelo MP com ordem dependente do atraso, consolidando a formalização
-matemática da estrutura proposta, seguida da *implementação em VHDL*
-do modelo para síntese em hardware digital, tendo os resultados obtidos
-nesta atividade como referência de desempenho (_baseline_) para
-validação da implementação.
+Com a generalização do modelo validada em dois conjuntos de dados, a próxima etapa consiste no desenvolvimento da *fundamentação teórica* do modelo MP com ordem dependente do atraso, consolidando a formalização matemática da estrutura proposta, seguida da *implementação em VHDL* do modelo para síntese em hardware digital, tendo os resultados obtidos nesta atividade como referência de desempenho (_baseline_) para validação da implementação.
