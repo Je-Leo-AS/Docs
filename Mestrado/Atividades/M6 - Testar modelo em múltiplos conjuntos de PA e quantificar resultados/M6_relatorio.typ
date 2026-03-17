@@ -229,7 +229,9 @@ na implementação via LUTs e na análise em aritmética de ponto fixo.
 == Próxima Etapa
 
 Com a generalização do modelo validada em dois conjuntos de dados, a
-próxima etapa consiste em estender a análise para a implementação do
-modelo MP com tabelas de consulta (LUTs), avaliando o impacto da
-granularidade das tabelas e das estratégias de interpolação no NMSE,
-utilizando ambos os conjuntos como referência de desempenho.
+próxima etapa consiste no desenvolvimento da *fundamentação teórica* do
+modelo MP com ordem dependente do atraso, consolidando a formalização
+matemática da estrutura proposta, seguida da *implementação em VHDL*
+do modelo para síntese em hardware digital, tendo os resultados obtidos
+nesta atividade como referência de desempenho (_baseline_) para
+validação da implementação.
