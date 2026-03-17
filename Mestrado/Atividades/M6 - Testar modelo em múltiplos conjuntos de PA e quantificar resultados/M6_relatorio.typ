@@ -116,22 +116,22 @@ A tabela abaixo resume o desempenho dos 125 modelos em cada conjunto:
     [*Diferença (dB)*],
   ),
   [NMSE melhor modelo],
-  [−26,11 dB], [−37,53 dB], [11,42],
+  [-26,11 dB], [-37,53 dB], [11,42],
 
   [NMSE pior modelo],
-  [−21,41 dB], [−28,71 dB], [7,30],
+  [-21,41 dB], [-28,71 dB], [7,30],
 
   [NMSE médio],
-  [−25,21 dB], [−35,20 dB], [9,99],
+  [-25,21 dB], [-35,20 dB], [9,99],
 
   [Modelo P\=[1,1,1] (3 coef.)],
-  [−21,66 dB], [−28,71 dB], [7,05],
+  [-21,66 dB], [-28,71 dB], [7,05],
 
   [Modelo P\=[3,3,3] (9 coef.)],
-  [−25,95 dB], [−35,25 dB], [9,30],
+  [-25,95 dB], [-35,25 dB], [9,30],
 
   [Modelo P\=[5,5,5] (15 coef.)],
-  [−26,10 dB], [−37,51 dB], [11,41],
+  [-26,10 dB], [-37,51 dB], [11,41],
 )
 
 O Conjunto 2 (LDMOS) apresentou desempenho sistematicamente superior em
@@ -147,9 +147,9 @@ Em ambos os conjuntos, a ordem polinomial $P_0$ — associada ao instante
 atual ($m = 0$) — mostrou-se o fator de maior impacto no NMSE. O
 aumento de $P_0$ de 1 para 2 já produz ganhos expressivos nos dois casos:
 
-- *GaN:* de −21,66 dB ($P_0 = 1$) para −23,19 dB ($P_0 = 2$),
+- *GaN:* de -21,66 dB ($P_0 = 1$) para -23,19 dB ($P_0 = 2$),
   ganho de ≈ 1,5 dB
-- *LDMOS:* de −28,71 dB ($P_0 = 1$) para −33,03 dB ($P_0 = 2$),
+- *LDMOS:* de -28,71 dB ($P_0 = 1$) para -33,03 dB ($P_0 = 2$),
   ganho de ≈ 4,3 dB
 
 As ordens $P_1$ e $P_2$ têm impacto menor e decrescente, confirmando
@@ -172,12 +172,12 @@ A tabela abaixo apresenta exemplos representativos:
     [*NMSE LDMOS (dB)*],
     [*Diferença (dB)*],
   ),
-  [\[3, 2, 1\]], [6],  [−25,53], [−34,75], [9,22],
-  [\[3, 3, 2\]], [8],  [−25,60], [−35,24], [9,64],
-  [\[4, 3, 2\]], [9],  [−25,64], [−36,31], [10,67],
-  [\[5, 3, 2\]], [10], [−25,49], [−37,00], [11,51],
-  [\[5, 4, 3\]], [12], [−26,07], [−37,44], [11,37],
-  [\[5, 5, 5\]], [15], [−26,10], [−37,51], [11,41],
+  [\[3, 2, 1\]], [6],  [-25,53], [-34,75], [9,22],
+  [\[3, 3, 2\]], [8],  [-25,60], [-35,24], [9,64],
+  [\[4, 3, 2\]], [9],  [-25,64], [-36,31], [10,67],
+  [\[5, 3, 2\]], [10], [-25,49], [-37,00], [11,51],
+  [\[5, 4, 3\]], [12], [-26,07], [-37,44], [11,37],
+  [\[5, 5, 5\]], [15], [-26,10], [-37,51], [11,41],
 )
 
 Esse padrão reforça a hipótese de que a complexidade polinomial deve
