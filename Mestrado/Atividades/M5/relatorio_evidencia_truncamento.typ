@@ -68,7 +68,7 @@ Os experimentos foram conduzidos com os seguintes parâmetros:
 
 == Metodologia
 
-Um modelo MP completo foi treinado com $P_0 = P_1 = P_2 = 5$, atingindo NMSE de $-38{,}47$ dB. Os coeficientes estimados $h_(p,m)$ foram organizados em uma matriz de dimensão $(M+1) times P_"max"$ e avaliados segundo a energia de cada ramo:
+Um modelo MP completo foi treinado com $P_0 = P_1 = P_2 = 5$, atingindo NMSE de $-38,47$ dB. Os coeficientes estimados $h_(p,m)$ foram organizados em uma matriz de dimensão $(M+1) times P_"max"$ e avaliados segundo a energia de cada ramo:
 
 $ E_m = sum_(p=1)^(P_"max") |h_(p,m)|^2 $
 
@@ -89,7 +89,7 @@ A energia decai monotonicamente com o atraso ($E_0 > E_1 > E_2$), confirmando qu
 
 #figure(
   image("assets/ev1_magnitude_coeficientes.png"),
-  caption: [Magnitude dos coeficientes $|h_(p,m)|$ (esquerda) e energia $E_m$ por ramo de memória (direita). O decaimento de $E_0 = 20{,}58$ para $E_2 = 4{,}85$ evidencia que a não linearidade dominante está concentrada no instante atual.]
+  caption: [Magnitude dos coeficientes $|h_(p,m)|$ (esquerda) e energia $E_m$ por ramo de memória (direita). O decaimento de $E_0 = 20,58$ para $E_2 = 4,85$ evidencia que a não linearidade dominante está concentrada no instante atual.]
 )
 
 == Interpretação
@@ -104,15 +104,15 @@ Para isolar a contribuição de cada parâmetro, dois parâmetros foram fixados 
 
 == Resultados
 
-Os valores de NMSE obtidos, com ponto de partida comum em $-28{,}71$ dB (modelo com $P_0 = P_1 = P_2 = 1$), foram:
+Os valores de NMSE obtidos, com ponto de partida comum em $-28,71$ dB (modelo com $P_0 = P_1 = P_2 = 1$), foram:
 
 #table(
   columns: (auto, auto, auto, auto),
   align: (center, center, center, center),
   table.header([*Parâmetro variado*], [*NMSE em $P=1$*], [*NMSE em $P=5$*], [*Δ NMSE*]),
-  [$P_0$], [$-28{,}71$ dB], [$-35{,}36$ dB], [*6,66 dB*],
-  [$P_1$], [$-28{,}71$ dB], [$-32{,}14$ dB], [3,43 dB],
-  [$P_2$], [$-28{,}71$ dB], [$-30{,}20$ dB], [1,49 dB],
+  [$P_0$], [$-28,71$ dB], [$-35,36$ dB], [*6,66 dB*],
+  [$P_1$], [$-28,71$ dB], [$-32,14$ dB], [3,43 dB],
+  [$P_2$], [$-28,71$ dB], [$-30,20$ dB], [1,49 dB],
 )
 
 #figure(
@@ -138,13 +138,13 @@ O sinal de erro $e(n) = y_"real"(n) - y_"model"(n)$ foi obtido no conjunto de va
   columns: (auto, auto, auto, auto, auto),
   align: center,
   table.header([*Modelo*], [$P_0$], [$P_1$], [$P_2$], [*NMSE*]),
-  [Referência],        [1], [1], [1], [$-28{,}71$ dB],
+  [Referência],        [1], [1], [1], [$-28,71$ dB],
   [Var. $P_0$ baixa],  [3], [1], [1], [—],
-  [Var. $P_0$ alta],   [5], [1], [1], [$-35{,}36$ dB],
+  [Var. $P_0$ alta],   [5], [1], [1], [$-35,36$ dB],
   [Var. $P_1$ baixa],  [1], [3], [1], [—],
-  [Var. $P_1$ alta],   [1], [5], [1], [$-32{,}14$ dB],
+  [Var. $P_1$ alta],   [1], [5], [1], [$-32,14$ dB],
   [Var. $P_2$ baixa],  [1], [1], [3], [—],
-  [Var. $P_2$ alta],   [1], [1], [5], [$-30{,}20$ dB],
+  [Var. $P_2$ alta],   [1], [1], [5], [$-30,20$ dB],
 )
 
 == Resultados
@@ -169,7 +169,7 @@ Essa evidência é diretamente relevante para aplicações de pré-distorção d
 
 As três evidências são complementares e convergem para a mesma conclusão:
 
-*Evidência 1 — causa física:* a energia dos coeficientes decai de $E_0 = 20{,}58$ para $E_1 = 13{,}71$ e $E_2 = 4{,}85$. O PA atribui pesos progressivamente menores às amostras passadas, indicando que a resposta não linear ao impulso do sistema é de curta duração.
+*Evidência 1 — causa física:* a energia dos coeficientes decai de $E_0 = 20,58$ para $E_1 = 13,71$ e $E_2 = 4,85$. O PA atribui pesos progressivamente menores às amostras passadas, indicando que a resposta não linear ao impulso do sistema é de curta duração.
 
 *Evidência 2 — impacto no desempenho:* o retorno de aumentar $P_0$ (Δ = 6,66 dB) é 4,47× maior que o de $P_2$ (Δ = 1,49 dB). Alocar complexidade no ramo $m = 0$ é a estratégia ótima de modelagem.
 
@@ -181,8 +181,8 @@ Essa estrutura sustenta naturalmente a arquitetura híbrida MP + LUT: os termos 
 
 As três evidências experimentais apresentadas demonstram consistentemente que:
 
-+ A energia dos coeficientes decai com o atraso: $E_0 = 20{,}58 > E_1 = 13{,}71 > E_2 = 4{,}85$, confirmando memória não linear de curta duração;
-+ O ganho de NMSE ao aumentar $P_0$ (6,66 dB) é 4,47× maior que ao aumentar $P_2$ (1,49 dB), demonstrando que a complexidade deve ser concentrada no instante atual;
++ A energia dos coeficientes decai com o atraso: $E_0 = 20,58 > E_1 = 13,71 > E_2 = 4,85$, confirmando memória não linear de curta duração;
++ O ganho de NMSE ao aumentar $P_0$ (6,66 dB) é 4,47x maior que ao aumentar $P_2$ (1,49 dB), demonstrando que a complexidade deve ser concentrada no instante atual;
 + O espectro do erro residual confirma no domínio da frequência que $P_0$ é o parâmetro dominante para supressão do _regrowth_ espectral.
 
 Esses resultados validam experimentalmente a proposta de truncamento polinomial dependente do atraso com $P_0 >= P_1 >= P_2$ e fornecem suporte direto para a implementação de arquiteturas híbridas MP + LUT.
