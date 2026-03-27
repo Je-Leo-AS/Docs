@@ -329,9 +329,10 @@ Também atuei como monitor bolsista nas disciplinas de Eletrônica Digital, mini
 === Your thoughts on Canonical's mission. What is most appealing? What seems risky or unappealing?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-A missão da Canonical ressoa diretamente com meus valores pessoais. Sou um forte adepto do open source — foi inclusive um dos principais motivos que me levaram a migrar do Windows para o Linux. Acredito que o software livre é fundamental para criar uma alternativa real ao domínio das grandes empresas de tecnologia.
-O que mais me atrai na Canonical é o potencial do Ubuntu como alternativa viável ao desktop doméstico. Apesar do Windows liderar o mercado, acredito que ele está estagnado — e o Linux está evoluindo rapidamente para preencher esse espaço. Um exemplo claro é o mercado gamer: apesar de muitos jogos ainda serem exclusivos do Windows, ferramentas como Proton e Wine estão contornando essa barreira de forma cada vez mais eficiente, e sistemas operacionais voltados para jogos como SteamOS e Bazzite mostram que o Linux está se tornando uma alternativa real também para esse público. Por ser a distribuição mais popular e com maior aceitação no mercado, o Ubuntu está em uma posição única para liderar essa transição.
-Em termos de riscos, vejo a competição com grandes players como Microsoft e Red Hat como um desafio constante — especialmente no mercado enterprise, onde a migração para Linux ainda enfrenta resistência cultural e de ecossistema. Além disso, o fato de a vaga ser mais orientada para downstream — backporting, packaging e qualificação do kernel — do que para contribuição upstream pode ser visto como uma limitação para quem busca contribuir diretamente com o kernel Linux. No entanto, entendo que esse trabalho é igualmente essencial para garantir a qualidade e estabilidade do Ubuntu
+A missão da Canonical de tornar o software open source acessível, confiável e utilizável em larga escala está muito alinhada com a forma como eu enxergo tecnologia. Minha migração para o Linux não foi apenas por curiosidade técnica, mas também por acreditar no valor de sistemas abertos e colaborativos como base para inovação.
+O que mais me chama atenção na Canonical é a capacidade de transformar esses princípios em sistemas reais de produção. O Ubuntu não é apenas um sistema operacional para desktop, mas uma plataforma presente em cloud, sistemas embarcados e ambientes corporativos, o que demonstra um nível alto de maturidade e confiabilidade.
+Tenho interesse especial no trabalho necessário para garantir estabilidade e desempenho em um ecossistema tão diverso. A integração, validação e manutenção do kernel Linux para diferentes plataformas é um desafio técnico relevante e essencial para o sucesso dessa missão.
+Em termos de riscos, vejo o desafio constante de equilibrar evolução rápida com estabilidade de longo prazo, especialmente em um modelo mais focado em downstream. Ainda assim, acredito que essa capacidade de equilibrar esses fatores é uma das forças da empresa.
 // ────────────────────────────────────────────────────────────
 
 
@@ -340,10 +341,11 @@ Em termos de riscos, vejo a competição com grandes players como Microsoft e Re
 === Who are Canonical's key competitors, and how should Canonical set about winning?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Os principais competidores da Canonical variam dependendo do segmento de mercado. No desktop doméstico, o Windows é o líder absoluto e o principal concorrente — no entanto, acredito que o Windows está estagnado, abrindo espaço para o Ubuntu crescer. Uma estratégia interessante seria tornar a experiência do Ubuntu mais familiar para usuários Windows, aproximando a interface do que eles já conhecem — como fazem distribuições como o Zorin OS. Isso reduziria a barreira de adoção para usuários comuns.
-No mercado enterprise, o Red Hat é o principal concorrente, sendo historicamente mais popular nesse segmento. Para ganhar terreno, a Canonical precisa continuar investindo em suporte profissional, certificações e integrações com as principais plataformas de cloud — onde o Ubuntu já tem boa presença.
-Entre entusiastas de Linux, o Debian e o Fedora são referências fortes, mas o Ubuntu já é o líder de mercado nesse segmento, o que é uma vantagem significativa.
-De forma geral, acredito que a maior oportunidade da Canonical está no desktop doméstico — especialmente à medida que ferramentas como Proton e Wine quebram a barreira dos jogos exclusivos do Windows, e distribuições voltadas para jogos como SteamOS e Bazzite mostram que o Linux está se tornando uma alternativa viável também para o público gamer.
+A Canonical atua em diferentes segmentos, cada um com seus próprios desafios competitivos.
+No mercado de Linux corporativo, o principal concorrente é a Red Hat, que possui forte presença devido ao seu modelo de suporte e histórico no setor. A Canonical, por outro lado, se destaca pela agilidade, forte adoção por desenvolvedores e integração com plataformas de cloud.
+No contexto de cloud, o Ubuntu já possui uma presença consolidada, sendo frequentemente utilizado como sistema padrão em diversos provedores. Manter essa posição depende diretamente de desempenho, atualizações de segurança rápidas e compatibilidade com hardware.
+Em relação a sistemas operacionais de uso geral, a Microsoft ainda domina o desktop, mas vejo a Canonical focando mais em habilitar desenvolvedores e infraestrutura do que competir diretamente nesse segmento.
+Acredito que a Canonical deve continuar investindo em confiabilidade, velocidade na entrega de atualizações de segurança e qualidade na integração com hardware. A excelência na manutenção e integração do kernel é um diferencial estratégico importante.
 // ────────────────────────────────────────────────────────────
 
 ---
@@ -353,21 +355,25 @@ De forma geral, acredito que a maior oportunidade da Canonical está no desktop 
 === Why do you most want to work for Canonical?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-O que mais me atrai na Canonical é a oportunidade de trabalhar diretamente com o kernel Linux. Sou usuário de Linux por convicção — migrei do Windows para o Arch Linux por acreditar no open source — e poder contribuir profissionalmente para a estabilidade e evolução do kernel do Ubuntu, uma distribuição usada por milhões de pessoas, é algo que me motiva profundamente. Mesmo que o trabalho seja predominantemente downstream — backporting, packaging e qualificação — entendo que é exatamente esse trabalho que garante a qualidade e confiabilidade do Ubuntu para seus usuários. Além disso, o modelo de trabalho 100% remoto da Canonical se alinha perfeitamente com minha situação atual, morando na Austrália
+Quero trabalhar na Canonical porque a empresa atua exatamente na interseção entre engenharia de sistemas de baixo nível e impacto em larga escala.
+Ao longo da minha experiência com sistemas embarcados e aplicações sensíveis a desempenho, trabalhei frequentemente próximo ao hardware, lidando com limitações de memória, concorrência e comportamento em tempo real. Isso naturalmente despertou meu interesse por sistemas operacionais, especialmente o kernel Linux.
+O que me atrai na Canonical é a oportunidade de trabalhar com a integração, estabilidade e evolução do kernel em sistemas reais. Mesmo sendo uma função mais focada em downstream, vejo isso como um trabalho de engenharia altamente relevante, pois garante que sistemas complexos funcionem de forma confiável em diferentes ambientes.
+Além disso, vejo essa posição como uma evolução natural da minha trajetória, permitindo aprofundar meu conhecimento em sistemas operacionais enquanto aplico minha experiência prévia em sistemas embarcados.
 // ────────────────────────────────────────────────────────────
 
 === What would you most want to change about Canonical?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-O que eu mais mudaria na Canonical é a abordagem em relação ao formato Snap. Apesar de entender a motivação técnica por trás da sua criação — resolver a fragmentação do ecossistema Linux e facilitar a distribuição de software multiplataforma — o modelo centralizado da Snapstore vai diretamente contra os princípios de transparência e descentralização que fundamentam o open source. Ter um repositório fechado e controlado exclusivamente pela Canonical cria uma dependência que contradiz a própria filosofia que a empresa defende, o que naturalmente gera desconfiança na comunidade e questiona a credibilidade da empresa como defensora do software livre.
-Nesse sentido, substituiria o Snap pelo Flatpak — ou pelo menos adotaria uma abordagem similar, com um repositório aberto e descentralizado onde qualquer pessoa ou organização pudesse hospedar seus próprios pacotes. Isso manteria os benefícios técnicos de um formato universal de empacotamento sem sacrificar os valores que tornam o Linux e o open source tão importantes para a comunidade
+Um ponto que eu buscaria melhorar é a relação entre decisões técnicas e a percepção da comunidade.
+A Canonical ocupa uma posição única dentro do ecossistema open source, onde decisões técnicas podem ser interpretadas também sob uma ótica mais ampla, envolvendo princípios e expectativas da comunidade. Nesse contexto, transparência e comunicação clara são fundamentais para manter confiança e engajamento.
+Do ponto de vista técnico, acredito que sempre existe espaço para melhorar a experiência de desenvolvedores em relação a ferramentas de empacotamento, integração e distribuição de software. Tornar esses processos mais previsíveis e bem documentados pode fortalecer ainda mais a adoção do ecossistema.
 // ─────────────────────────────────────────────────
 
 === What gets you most excited about this role?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-O que mais me empolga nessa vaga é a oportunidade de contribuir ativamente para o ecossistema open source em um nível que ainda não explorei profissionalmente. Ao longo da minha carreira trabalhei próximo ao hardware firmware, microcontroladores, sistemas embarcados mas sempre com uma camada de abstração entre o meu trabalho e o sistema operacional. Essa vaga representa a chance de cruzar essa fronteira e aprender de forma profunda como o kernel Linux funciona internamente backporting, packaging, qualificação — trabalho que é invisível para a maioria dos usuários mas essencial para que o Ubuntu funcione de forma estável e confiável em milhões de dispositivos.
-
-Também me empolga muito o crescimento do RISC-V como uma arquitetura genuinamente open source e gratuita. Acredito que o RISC-V tem potencial para se tornar a arquitetura dominante na computação doméstica e embarcada no futuro, e poder contribuir para que o Ubuntu seja uma referência nessa arquitetura desde cedo é uma oportunidade única.
-Por fim, o que me motiva de forma mais profunda é poder contribuir para melhorar a experiência do usuário final do Linux e ajudar a tornar as distribuições Linux o sistema operacional mais popular do mundo. Acredito que esse é o caminho natural da computação — aberta, colaborativa e acessível a todos — e quero fazer parte dessa transformação.
+O que mais me motiva nessa vaga é a oportunidade de trabalhar em problemas que estão na fronteira entre hardware e software, em uma escala que impacta milhões de usuários.
+Na minha experiência anterior, trabalhei com sistemas embarcados onde desempenho, confiabilidade e restrições de recursos são fatores críticos. Vejo essa posição como uma oportunidade de aplicar essa mentalidade em um contexto mais amplo, contribuindo para a estabilidade e desempenho do kernel Linux em diferentes plataformas.
+Tenho especial interesse em desafios como análise de comportamento de sistemas complexos, interação entre drivers e hardware, e garantia de consistência entre diferentes ambientes.
+Além disso, vejo essa vaga como uma oportunidade de aprofundar meu conhecimento em desenvolvimento de baixo nível enquanto contribuo para um dos principais projetos open source do mundo.
 // ────────────────────────────────────────────────────────────
