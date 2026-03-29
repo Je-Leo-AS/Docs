@@ -7,11 +7,15 @@
             "label": "Typst Compile",
             "type": "shell",
             "command": "typst",
-            "args": ["compile", "${file}"],
+            "args": [
+                "compile",
+                "${file}"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": false
-            }
+            },
+            "problemMatcher": []
         }
     ]
 }

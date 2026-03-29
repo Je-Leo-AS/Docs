@@ -59,9 +59,10 @@
 === Please give a brief description of your technical background.
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Tenho formação em Engenharia Elétrica, com foco em sistemas de baixo nível desde a graduação, onde desenvolvi projetos envolvendo hardware, firmware e sistemas embarcados. Ao longo desse período, utilizei software para resolver problemas práticos, incluindo cálculos numéricos, lógica de controle e tomada de decisão em tempo real. Atualmente estou finalizando meu mestrado, no qual proponho uma variação do modelo Memory Polynomial clássico para pré-distorção digital de amplificadores de potência de RF, utilizando Python e VHDL. O foco trabalho é eficiência computacional com viabilidade de implementação em hardware.
-Profissionalmente atuei no desenvolvimento de firmware para dispositivos agrícolas, utilizando C/C++ com FreeRTOS em microcontroladores responsáveis pela coleta e processamento de dados via rede CAN, permitindo comunicação confiável entre diferentes equipamentos. Além disso desenvolvi micro-serviços em Python para análise de dados e renderização de mapas 2D.
-Utilizo Arch Linux como sistema operacional principal, o que aprofundou meu entendimento sobre o funcionamento interno de sistemas Linux incluindo gerenciamento de pacotes, configuração de ambiente troubleshooting e reforçou meu interesse em trabalhar diretamente com o kernel Linux. 
+Tenho formação em Engenharia Elétrica, com foco em sistemas de baixo nível, incluindo firmware, sistemas embarcados e integração hardware-software.
+Ao longo da minha trajetória, atuei tanto em contexto acadêmico quanto profissional no desenvolvimento de sistemas com restrições reais de desempenho, memória e tempo real. Profissionalmente, desenvolvi firmware em C/C++ utilizando FreeRTOS para dispositivos agrícolas, responsáveis pela coleta e processamento de dados via rede CAN, garantindo comunicação confiável entre múltiplos equipamentos. Nesse contexto, trabalhei diretamente com concorrência, gerenciamento de memória e sincronização entre tarefas.
+Também desenvolvi microsserviços em Python para análise de dados geoespaciais e renderização de mapas, além de utilizar a linguagem extensivamente em modelagem matemática durante meu mestrado. Atualmente, estou finalizando meu mestrado, no qual proponho uma variação do modelo Memory Polynomial para pré-distorção digital de amplificadores de RF, com foco em eficiência computacional e viabilidade de implementação em hardware, utilizando Python e VHDL.
+Utilizo Arch Linux como sistema operacional principal, o que me proporcionou uma compreensão prática do funcionamento interno de sistemas Linux, incluindo gerenciamento de pacotes, troubleshooting e configuração de ambientes. Essa experiência reforçou meu interesse em atuar diretamente com o kernel Linux e sistemas de baixo nível.
 // ────────────────────────────────────────────────────────────
 
 
@@ -70,7 +71,7 @@ Utilizo Arch Linux como sistema operacional principal, o que aprofundou meu ente
 === What has been your most senior role in a software engineering organisation?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Embora meu cargo formal mais sênior tenha sido de engenheiro software júnior, atuei com alto nível de autonomia sendo responsável por decisões técnicas e pela evolução de componentes criticos do sistema, como o modulo de renderização de mapas. Nesse contexto fui o principal responsável por analisar problemas de desempenho e propor soluções arquitarias e conduzir a implementação das melhorias, desde a prototipagem até a entrega em produção. Após a transição para modelo de trabalho remoto, passei a operar com ainda mais autonomia, organizando meu próprio fluxo de trabalho e garantindo entregas consistentes, sem necessidade de acompanhamento, oque reforçou minha capacidade de execução independente e responsabilidade sobre os resultados. Além da experiência profissional exerci liderança direta durante a graduação no Programa de Educação Tutorial (PET), onde liderei uma equipe de 5 pessoas por aproximadamente 3 anos em projetos distintos. Nessas iniciativas, fui responsável por organização do trabalho, definição de prioridades e coordenação técnica de entregas. Também atuei como monitor nas disciplinas de Eletrônica Digital e microeletrônica, conduzindo sessões regulares de apoio à alunos, o que desenvolvi minha capacidade em comunicação técnica e liderança em ambientes colaborativos.
+Embora meu cargo formal mais sênior tenha sido de engenheiro de software júnior, atuei com alto nível de autonomia e responsabilidade técnica sobre componentes críticos do sistema. Fui responsável por analisar problemas de desempenho, propor melhorias arquiteturais e conduzir a implementação completa das soluções, desde a prototipagem até a entrega em produção. Um exemplo relevante foi a evolução do módulo de renderização de mapas, onde liderei decisões técnicas que impactaram diretamente a escalabilidade e a experiência do usuário. Com a transição para o modelo remoto, passei a operar de forma ainda mais independente, organizando meu próprio fluxo de trabalho e garantindo entregas consistentes sem necessidade de acompanhamento próximo. Além da experiência profissional, exerci liderança direta no Programa de Educação Tutorial (PET), onde liderei equipes de até 5 pessoas por cerca de 3 anos, sendo responsável por organização do trabalho, definição de prioridades e coordenação técnica. Também atuei como monitor em disciplinas técnicas, o que fortaleceu minha comunicação e capacidade de liderança em ambientes colaborativos.
 // ────────────────────────────────────────────────────────────
 
 === What software products have you yourself led which shipped many releases to multiple customers?
@@ -93,7 +94,7 @@ Um dos projetos que mais me orgulho foi a reestruturação do sistema de renderi
 === Describe any direct involvement with the release of a public Linux distribution.
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Não tive direta no desenvolvimento ou release de uma distribuição Linux pública. No entanto, utilizo Arch Linux como sistema operacional principal, o que me proporcionou experiência pratica com instalação manual, configuração de sistemas, gerenciamento de pacotes com pacman e uso do ecosistema de AUR. Esse ambiente exige entendimento detalhado do funcionamento do sistema, resolução de problemas e controle sobre dependências e builds. Essa experiência foi fundamental para desenvolver meu interesse em trabalhar mais profundamente com o kernel Linux e com o ecosistema de distribuições.
+Não tive experiência direta no desenvolvimento ou release de uma distribuição Linux pública. No entanto, utilizo Arch Linux como sistema operacional principal, o que me proporcionou experiência pratica com instalação manual, configuração de sistemas, gerenciamento de pacotes com pacman e uso do ecossistema de AUR. Esse ambiente exige entendimento detalhado do funcionamento do sistema, resolução de problemas e controle sobre dependências e builds. Essa experiência foi fundamental para desenvolver meu interesse em trabalhar mais profundamente com o kernel Linux e com o ecossistema de distribuições.
 // ────────────────────────────────────────────────────────────
 
 == Documentation & Quality
@@ -101,19 +102,27 @@ Não tive direta no desenvolvimento ou release de uma distribuição Linux públ
 === Describe an experience with a good software documentation process.
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Uma experiência marcante foi a necessidade de dar manutenção em um módulo critico que não possuía qualquer tipo de documentação. Isso tornou o processo lento e propenso a erros, exigindo tempo significativo apenas para o entendimento do funcionamento do código. A partir dessa experiência, passei a valorizar muito mais uma abordagem de documentação em duas camadas: 
+Uma experiência que influenciou fortemente minha abordagem foi a necessidade de dar manutenção em um módulo critico que não possuía qualquer tipo de documentação. Isso tornou o processo lento e propenso a erros, exigindo tempo significativo apenas para o entendimento do funcionamento do código. A partir dessa experiência, passei a valorizar muito mais uma abordagem de documentação em duas camadas: 
 
 - Documentação externa, como guias  e descrições arquiteturais, que facilitam o onboarding e uso.
 
-- Documentação interna no código, que facilita manutenção e evolução.
+- Documentação interna no código, com descrição de lógicas e cálculos, que facilita manutenção e evolução.
 
-Em projetos posteriores, utilizei ferramentas como doxeygen para gerar documentação estruturada a partir do código, garantindo consistência entre implementação e documentação. acredito que uma boa documentação não apenas melhora a manutenção, mas também reduz dependência de indivíduos específicos dentro da equipe.
+Em projetos posteriores, utilizei ferramentas como doxeygen para gerar documentação estruturada a partir do código, garantindo consistência entre implementação e documentação. Acredito que boa documentação é um componente essencial da qualidade de software, pois reduz dependência de indivíduos específicos, facilita manutenção e permite evolução mais segura do sistema.
 // ────────────────────────────────────────────────────────────
 
 === Describe an experience with a good (or poor) software quality process.
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Na empresa onde atuei, existiam praticas básicas de qualidade, como uso de github actions para automação de deploy e desenvolvimento de testes unitários antes do envio de código no entanto, não havia um processo estruturado de codereview o que resultava em código sendo integrado a produção sem validação de outros engenheiros. Isso levou a situações onde módulos criticos eram pouco compreendidos pela equipe, dificultando manutenção e evolução. Minha abordagem seria estabelecer codereview obrigatório como parte do fluxo de desenvolvimento, não apenas para identificar erros mas também para disseminar conhecimento, melhorar a qualidade do código e reduzir riscos operacionais. Além disso, ampliaria o uso de CI/CD para executar teste automatizados a cada commit garantindo maior confiabilidade e feedback rápido durante o desenvolvimento.
+Na empresa onde atuei, existiam práticas básicas de qualidade, como uso de GitHub Actions para automação de deploy e desenvolvimento de testes unitários. No entanto, não havia um processo estruturado de code review, o que permitia que código fosse integrado à produção sem validação adequada.
+Isso resultava em baixa disseminação de conhecimento e aumento do risco operacional, especialmente em módulos críticos pouco compreendidos pela equipe.
+
+Minha abordagem para esse cenário seria estruturar o processo de qualidade baseada nos seguintes pilares:
+ Code review obrigatório, como mecanismo não apenas de validação, mas de compartilhamento de conhecimento e alinhamento técnico. 
+ Integração contínua robusta, com execução de testes automatizados a cada commit.
+ Definição clara de padrões de qualidade, incluindo guidelines de código e critérios de aceitação.
+
+
 // ────────────────────────────────────────────────────────────
 
 == Performance & Security
@@ -127,7 +136,10 @@ Sim, um exemplo significativo foi a reestruturação do sistema de renderizaçã
 === Have you ever had to identify and resolve a security exploit?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Não tive experiência direta com identificação e resolução de exploits de segurança em software. No contexto profissional, trabalhei com firmware em ambiente industrial onde a segurança era garantida principalmente pelo isolamento da rede CAN. No uso pessoal, mantenho um servidor doméstico acessado via VPN, o que me levou a aprender sobre práticas básicas de segurança de rede. Reconheço que segurança de software é uma área onde tenho muito a desenvolver, e é algo que pretendo aprofundar no contexto de kernel engineering.
+Não tive experiência direta com identificação e resolução de exploits de segurança em software. No contexto profissional, trabalhei com firmware em ambiente industrial, onde os dispositivos não eram expostos à internet e não lidavam com dados sensíveis.
+No uso pessoal, mantenho um servidor doméstico acessado via VPN, o que me levou a aprender e aplicar práticas básicas de segurança de rede.
+Além disso, já enfrentei uma situação em que comitei acidentalmente um arquivo .env com chaves de API sensíveis. Ao identificar o problema, revoguei e substituí as credenciais e removi as informações dos commits.
+Reconheço que segurança de software é uma área que ainda estou desenvolvendo e pretendo aprofundar, especialmente no contexto de kernel engineering.
 // ────────────────────────────────────────────────────────────
 
 == Programming Languages
@@ -150,7 +162,9 @@ Profissionalmente utilizei pandas e geopandas para análise de dados geoespaciai
 === Rust programming ability
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Considero meu nível em Rust como júnior. Ainda não tive oportunidade de utilizá-lo em contexto profissional ou acadêmico, mas estudei a linguagem por interesse próprio e me impressionei com o modelo de ownership e o sistema de tipos, que eliminam classes inteiras de bugs de memória comuns em C/C++. Durante meu período na empresa, havia planejado reimplementar em Rust o módulo de renderização de mapas que havia desenvolvido em C++, mas não tive oportunidade antes de sair. Minha experiência com C/C++ me dá uma base sólida para evoluir em Rust, especialmente no contexto de sistemas de baixo nível e kernel engineering.
+Tenho conhecimento introdutório em Rust, adquirido por estudo próprio, com foco em seu modelo de ownership e garantias de segurança de memória.
+Embora ainda não tenha utilizado Rust em contexto profissional, minha experiência sólida com C/C++ me permite compreender claramente os problemas que Rust se propõe a resolver, especialmente relacionados a segurança de memória e concorrência.
+Tenho interesse direto em evoluir nessa linguagem, especialmente em aplicações de baixo nível e sistemas.
 // ────────────────────────────────────────────────────────────
 
 === Git proficiency
@@ -166,13 +180,13 @@ Essa integração do Git em diferentes áreas do meu dia a dia reflete não apen
 === Kernel source code development, maintenance, or debugging
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Não tenho experiência direta com desenvolvimento ou modificação de código-fonte de kernel de sistema operacional. No entanto, trabalhei profissionalmente com FreeRTOS no desenvolvimento de firmware para dispositivos agrícolas, onde lidei com gerenciamento de memória, ponteiros, estruturas de dados e listas encadeadas no contexto de um sistema operacional de tempo real. Essa experiência me deu uma compreensão prática de como um RTOS gerencia recursos e escalonamento de tarefas, mesmo sem modificar o código interno do sistema.
+Não tive experiência direta modificando código-fonte do kernel Linux. No entanto, trabalhei profissionalmente com FreeRTOS no desenvolvimento de firmware para dispositivos agrícolas, onde lidei com gerenciamento de memória, ponteiros, estruturas de dados e listas encadeadas no contexto de um sistema operacional de tempo real. Essa experiência me deu uma compreensão prática de como um RTOS gerencia recursos e escalonamento de tarefas, mesmo sem modificar o código interno do sistema.
 // ────────────────────────────────────────────────────────────
 
 === Embedded system environments
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Trabalhei com diversos ambientes de sistemas embarcados ao longo da minha carreira. Durante a graduação utilizei plataformas como Arduino Uno, Nano e ESP8266 em projetos acadêmicos, incluindo uma tranca automática IoT com protocolo MQTT. Na competição SAE Brasil, utilizei o microcontrolador TM4C123GH6PM da Texas Instruments (Tiva C Series) para telemetria via RF e coleta de dados de performance do veículo, incluindo testes de dinamômetro, aceleração lateral em curvas e temperatura do motor.
+Trabalhei extensivamente com sistemas embarcados ao longo da minha trajetória. Durante a graduação utilizei plataformas como Arduino Uno, Nano e ESP8266 em projetos acadêmicos, incluindo uma tranca automática IoT com protocolo MQTT. Na competição SAE Brasil, utilizei o microcontrolador TM4C123GH6PM da Texas Instruments (Tiva C Series) para telemetria via RF e coleta de dados de performance do veículo, incluindo testes de dinamômetro, aceleração lateral em curvas e temperatura do motor.
 Profissionalmente trabalhei em um dispositivo embarcado desenvolvido e fabricado internamente, composto por três ESP32 que se comunicavam entre si via UART bridge na mesma placa. Dois desafios técnicos foram particularmente significativos:
 O primeiro foi a sincronização de dados entre os ESP32 em um unico dispositivo. O ESP0 gerava eventos que precisavam estar sempre atualizados no ESP2, que era responsável por se comunicar com o terminal virtual do trator via ISOBUS. Qualquer desincronização resultava em dados incorretos exibidos ao operador, o que exigiu um cuidado especial no design da comunicação entre os dispositivos.
 O segundo foi uma limitação severa de memória. O sistema precisava permitir que o operador selecionasse fabricante e modelo de máquinas agrícolas cuja a lista continha mais de 10.000 modelos. Carregar tudo em memória era inviável, e uma implementação com SQLite se mostrou impraticável devido à latência das consultas. A solução foi armazenar os dados em arquivos binários estruturados e implementar busca binária, carregando apenas um vetor de tamanho pré-estabelecido em memória, o que resolveu o problema de forma eficiente dentro das restrições do hardware.
@@ -242,8 +256,8 @@ De forma geral, minha experiência com machine learning está mais direcionada p
 === How have your prior experiences prepared you for a downstream kernel role (backporting, packaging, qualification)?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Minha experiência me preparou para esse tipo de função principalmente pela proximidade constante com sistemas de baixo nível, integração com hardware e necessidade de operar dentro de restrições reais de desempenho e recursos.
-Ao longo da minha trajetória, trabalhei extensivamente com firmware e sistemas embarcados utilizando C/C++ e FreeRTOS, onde precisei lidar diretamente com gerenciamento de memória, concorrência, sincronização entre tarefas e comunicação entre dispositivos. Esse tipo de ambiente exige uma abordagem cuidadosa e determinística, muito próxima dos desafios encontrados no desenvolvimento e manutenção de componentes do kernel Linux.
+Minha experiência me preparou bem para essa função pela proximidade constante com sistemas de baixo nível, integração direta com hardware e operações sob restrições reais de desempenho e recursos.
+Desenvolvi firmware em C/C++ com FreeRTOS, lidando diretamente com gerenciamento de memória, concorrência, sincronização entre tarefas e comunicação entre dispositivos. Esse tipo de ambiente exige uma abordagem determinística e cuidadosa, muito próxima dos desafios encontrados no desenvolvimento e manutenção de componentes do kernel Linux.
 Em particular, a experiência com sistemas embarcados me expôs a problemas clássicos de integração entre hardware e software, como comunicação via protocolos específicos, sincronização de dados entre múltiplos dispositivos e operação sob limitações severas de memória. Esses cenários são análogos ao trabalho de integração de drivers e suporte a dispositivos no kernel, onde a compreensão do comportamento do hardware e a confiabilidade do software são críticas.
 Além disso, minha atuação em análise e otimização de desempenho, como no caso da reestruturação do sistema de renderização de mapas, reforçou minha capacidade de identificar gargalos, propor soluções arquiteturais e implementar melhorias significativas em sistemas existentes. Esse tipo de trabalho é diretamente aplicável ao contexto de manutenção e evolução de código downstream, onde frequentemente é necessário adaptar soluções para diferentes ambientes e requisitos.
 Embora eu não tenha experiência direta com desenvolvimento upstream do kernel Linux ou com processos formais de backporting, tenho familiaridade com o ecossistema Linux através do uso intensivo de Arch Linux, além de experiência prática com ambientes reproduzíveis utilizando Docker e pipelines de CI/CD. Isso me dá uma base sólida para evoluir rapidamente em tarefas relacionadas a empacotamento, integração e qualificação de software.
@@ -260,21 +274,21 @@ De forma geral, acredito que minha combinação de experiência em sistemas emba
 === Competitive ranking in maths and hard sciences
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Durante o ensino médio, tive um bom desempenho em matemática e física, que eram minhas áreas de maior interesse. Sempre tive facilidade com lógica e resolução de problemas, especialmente em matemática, e em física me interessava bastante pelas partes mais aplicadas, como eletricidade e sistemas. Esse interesse acabou influenciando diretamente minha decisão de seguir Engenharia Elétrica.Nunca
+Durante o ensino médio, tive um bom desempenho em matemática e física, que eram minhas áreas de maior interesse. Sempre tive facilidade com lógica e resolução de problemas, especialmente em matemática, e em física me interessava bastante pelas partes mais aplicadas, como eletricidade e sistemas. Esse interesse acabou influenciando diretamente minha decisão de seguir Engenharia Elétrica.
 // ────────────────────────────────────────────────────────────
 
 === Competitive ranking in languages and the arts
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Em linguagens e artes, meu desempenho foi mais dentro da média. Português e artes não eram áreas de maior interesse, mas sempre mantive um nível consistente. O inglês na escola não era muito forte, então busquei desenvolver isso por conta própria, fazendo curso após as aulas. Esse esforço acabou sendo importante mais tarde, principalmente para leitura de documentação técnica e conteúdos na área de tecnologia.
+Em linguagens e artes, meu desempenho foi satisfatório, porem não eram áreas de maior interesse, mas sempre mantive um nível consistente. O inglês na escola não era muito forte, então busquei desenvolver isso por conta própria, fazendo curso após as aulas. Esse esforço acabou sendo importante mais tarde, principalmente para leitura de documentação técnica e conteúdos na área de tecnologia.
 // ────────────────────────────────────────────────────────────
 
 === What kind of high school student were you? Interests and hobbies?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-No ensino médio eu era um aluno mediano, estudava o suficiente para cumprir minhas obrigações e passar nas disciplinas, sem me destacar academicamente. Apesar disso, sempre tive consciência do meu dever com o aprendizado e com minha família, o que me mantinha responsável e comprometido com o mínimo necessário.
-Fora da escola era bastante ativo fisicamente, praticava futebol e academia com frequência, o que me ajudou a desenvolver disciplina e constância.
-Minha vontade real de aprender surgiu na faculdade, quando entrei em contato com tecnologia e engenharia. Foi ali que me realizei academicamente — descobri uma área que me motivava genuinamente, o que transformou completamente minha relação com o aprendizado e o esforço
+No ensino médio, eu estudava o suficiente para cumprir minhas obrigações e passar nas disciplinas. Apesar disso, sempre tive consciência do meu dever com o aprendizado e com a minha família, o que me mantinha responsável e comprometido.
+Fora da escola, eu era bastante ativo fisicamente. Praticava futebol e ia à academia com frequência, o que me ajudou a desenvolver disciplina e constância.
+A minha vontade real de aprender só surgiu mesmo na faculdade. Foi quando entrei em contato com tecnologia e engenharia que tudo mudou. Descobri uma área que me motivava de verdade, e isso transformou completamente minha relação com o estudo e com o esforço.
 // ────────────────────────────────────────────────────────────
 
 == University
@@ -302,7 +316,7 @@ Acredito que essa decisão reflete minha forma de encarar o aprendizado — pref
 === Exceptional achievements in high school and university
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-No ensino médio recebi o prêmio de aluno destaque, concedido a estudantes que demonstravam evolução acadêmica consistente ao longo dos anos — o que refletiu meu comprometimento em melhorar progressivamente.
+No ensino médio recebi o prêmio de aluno destaque, concedido a estudantes que demonstravam evolução acadêmica consistente ao longo dos anos o que refletiu meu comprometimento em melhorar progressivamente.
 Na universidade, minhas conquistas mais expressivas foram na competição SAE Brasil com a equipe de mini baja. Fui responsável pela parte elétrica do veículo e nossa equipe conquistou o troféu de melhor projeto elétrico na regional Sul em dois anos consecutivos— 1º lugar no primeiro ano e 2º lugar no segundo além de alcançar o 7º lugar no campeonato nacional, uma melhora expressiva que refletiu o trabalho e evolução da equipe.
 Também considero excepcional minha participação no PET durante a pandemia, onde coordenei a produção e logística de impressão de suportes para máscaras face shield doadas a hospitais uma entrega concreta com impacto humanitário real em um momento crítico.
 No BigPET, liderei o desenvolvimento de um classificador de fake news em Python com NLTK que atingiu 99% de acurácia nos dados de validação, sendo meu principal projeto de machine learning na graduação.
@@ -348,17 +362,17 @@ Em relação a sistemas operacionais de uso geral, a Microsoft ainda domina o de
 Acredito que a Canonical deve continuar investindo em confiabilidade, velocidade na entrega de atualizações de segurança e qualidade na integração com hardware. A excelência na manutenção e integração do kernel é um diferencial estratégico importante.
 // ────────────────────────────────────────────────────────────
 
----
 
 == Motivation
 
 === Why do you most want to work for Canonical?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Quero trabalhar na Canonical porque a empresa atua exatamente na interseção entre engenharia de sistemas de baixo nível e impacto em larga escala.
+Minha principal motivação é trabalhar diretamente com o kernel Linux e com a engenharia de sistemas em um nível mais próximo do hardware. Tenho forte interesse em contribuir no nível em que posso causar maior impacto atualmente, ao mesmo tempo em que continuo a me desenvolver para assumir responsabilidades mais avançadas ao longo do tempo.
 Ao longo da minha experiência com sistemas embarcados e aplicações sensíveis a desempenho, trabalhei frequentemente próximo ao hardware, lidando com limitações de memória, concorrência e comportamento em tempo real. Isso naturalmente despertou meu interesse por sistemas operacionais, especialmente o kernel Linux.
 O que me atrai na Canonical é a oportunidade de trabalhar com a integração, estabilidade e evolução do kernel em sistemas reais. Mesmo sendo uma função mais focada em downstream, vejo isso como um trabalho de engenharia altamente relevante, pois garante que sistemas complexos funcionem de forma confiável em diferentes ambientes.
 Além disso, vejo essa posição como uma evolução natural da minha trajetória, permitindo aprofundar meu conhecimento em sistemas operacionais enquanto aplico minha experiência prévia em sistemas embarcados.
+
 // ────────────────────────────────────────────────────────────
 
 === What would you most want to change about Canonical?
@@ -375,5 +389,5 @@ Do ponto de vista técnico, acredito que sempre existe espaço para melhorar a e
 O que mais me motiva nessa vaga é a oportunidade de trabalhar em problemas que estão na fronteira entre hardware e software, em uma escala que impacta milhões de usuários.
 Na minha experiência anterior, trabalhei com sistemas embarcados onde desempenho, confiabilidade e restrições de recursos são fatores críticos. Vejo essa posição como uma oportunidade de aplicar essa mentalidade em um contexto mais amplo, contribuindo para a estabilidade e desempenho do kernel Linux em diferentes plataformas.
 Tenho especial interesse em desafios como análise de comportamento de sistemas complexos, interação entre drivers e hardware, e garantia de consistência entre diferentes ambientes.
-Além disso, vejo essa vaga como uma oportunidade de aprofundar meu conhecimento em desenvolvimento de baixo nível enquanto contribuo para um dos principais projetos open source do mundo.
+Além disso, vejo essa vaga como uma oportunidade de aprofundar meu conhecimento em desenvolvimento de baixo nível enquanto contribuo para um dos principais projetos open source do mundo. 
 // ────────────────────────────────────────────────────────────
