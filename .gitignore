@@ -17,3 +17,4 @@
 *.lot
 *.xml
 .stfolder
+.aider*

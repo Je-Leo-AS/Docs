@@ -74,7 +74,9 @@ I use Arch Linux as my main operating system, which provided me with practical u
 === What has been your most senior role in a software engineering organization?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-Although my most senior official position was junior software engineer, I have worked with a high level of autonomy and technical responsibility over critical components of the system. I was responsible for analyzing performance issues, proposing architectural improvements and leading the complete implementation of solutions, from prototyping to production delivery. A relevant example was the evolution of a map rendering module, where I led technical decisions that directly impacted scalability and user experience. With the transition to remote work, I operated with even more independence, organizing my own workflow and ensuring consistent deliveries without close supervision. In addition to professional experience, I exercised direct leadership in the Tutorial Education Program (PET), where I led teams of up to 5 people for about 3 years, being responsible for work organization, priority definition and technical coordination. I also worked as a monitor in technical disciplines, which strengthened my communication and leadership skills in collaborative environments.
+Although my formal title was Junior Software Engineer, I worked with substantial technical ownership over critical parts of the system. My responsibilities included identifying bottlenecks, proposing architectural improvements, building prototypes, and delivering production solutions with direct impact on performance and usability. One example was the redesign of a map rendering pipeline, where I led the technical direction of the solution from validation to production implementation.
+
+Beyond my professional role, I also led small teams in academic and extension projects, coordinating priorities, organizing work, and supporting execution. These experiences gave me a strong foundation in autonomy, technical decision-making, and collaborative problem solving. At this stage of my career, I am looking for an opportunity to continue growing into broader engineering responsibility within a strong low-level systems environment.
 // ────────────────────────────────────────────────────────────
 
 === What software products have you yourself led which shipped many releases to multiple customers?
@@ -88,13 +90,15 @@ I identified the main bottlenecks and designed a new backend architecture based 
 
 I first developed a prototype in Python to validate the approach, and then implemented the production version in C++, focusing on performance and memory efficiency.
 
-As a result, rendering time was reduced from approximately 1 second to 2 milliseconds, significantly improving both scalability and user experience.
+As a result, rendering time was reduced by approximately 98%, from 1 second to 2 milliseconds, significantly improving both scalability and user experience.
 // ────────────────────────────────────────────────────────────
 
 === What is your proudest success as an engineering leader?
 
 // ── SUA RESPOSTA ──────────────────────────────────────────── 
-One of the project I am most proud of was the restructuring of the map rendering system, where I was able to transform a critical performance bottleneck into a highly efficient solution, with direct impact on user experience and product viability at scale. I also highlight my performance in the PET3D project during the pandemic, where I led the organization of the production of face shield mask support using 3D printing, coordinating the team and logistics to ensure continuous and efficient operation, resulting in the production of thousands of units destined to hospitals. This experience reinforced my leadership skills in high pressure situations with real impact.
+My proudest success in a leadership capacity was helping drive the restructuring of a critical map rendering system that had become a performance bottleneck. I identified the core limitations of the original approach, proposed a new architecture based on vector tiles, validated it with a prototype, and then helped bring the production implementation to completion in C++. The result was a major improvement in responsiveness and scalability, with rendering time reduced from about one second to two milliseconds.
+
+I am also proud of my leadership during the PET3D project in the pandemic, where I coordinated the workflow and logistics for continuous 3D printing of face shield supports donated to hospitals. That experience taught me a great deal about responsibility, organization under pressure, and leading work that had a direct real-world impact.
 // ────────────────────────────────────────────────────────────
 
 == Linux Distribution Experience
@@ -120,7 +124,7 @@ In later projects, I used tools like doxygen to generate structured documentatio
 === Describe an experience with a good (or poor) software quality process.
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-At the company where I worked, there were basic quality practices, such as the use of GitHub Actions for deployment automation and development of unit tests. However there was no structured code review process, which allowed code to be integrated into production without proper validation. This resulted in low knowledge sharing and increased operational risk, especially in critical modules that were not well understood by the team.
+At the company where I worked, there were basic quality practices, such as the use of GitHub Actions for deployment automation and development of unit tests. However, there was no structured code review process, which allowed code to be integrated into production without proper validation. This resulted in low knowledge sharing and increased operational risk, especially in critical modules that were not well understood by the team.
 
 My approach for this scenario would be to structure the quality process based on the following pillars:
 
@@ -150,13 +154,21 @@ I have not had direct experience with identifying and resolving security exploit
 === C programming ability
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
+<<<<<<< HEAD
 I consider my C/C++ level as intermediate/advanced. I used C extensively during my undergraduate studies in firmware and embedded systems projects, including an IoT automatic lock project with MQTT protocol and firmware development for the mini baja prototype in the SAE Brasil competition. Professionally, I developed firmware for agricultural devices using C/C++, where one of the most relevant experiences was implementing modules based on the AgIsoStack++ library, an open source C++ library based on the ISOBUS/ISO-11783 standard that allowed sending data and communicating with the virtual terminal of agricultural equipment, which required solid knowledge of data structures, pointers, linked lists and memory management. I was also responsible for the map rendering module, where I reimplemented in C++ a solution previously prototyped in Python, reducing rendering time from 1 second to 2 milliseconds.
+=======
+I consider my C/C++ level as intermediate/advanced. I used C extensively during my undergraduate studies in firmware and embedded systems projects, including an IoT automatic lock project with MQTT protocol and firmware development to be used on the prototype of an off-road vehicle (mini baja) for the SAE (Society of Automotive Engineers) Brazil competition, one of the largest student engineering competitions in Brazil. Professionally, I developed firmware for agricultural devices using C/C++, where one of the most relevant experiences was implementing modules based on the AgIsoStack++ library, an open source C++ library based on the ISOBUS/ISO-11783 standard that allowed sending data and communicating with the virtual terminal of agricultural equipment, which required solid knowledge of data structures, pointers, linked lists and memory management. I was also responsible for the map rendering module, where I reimplemented in C++ a solution previously prototyped in Python, reducing rendering time from 1 second to 2 milliseconds.
+>>>>>>> 79ccd0e (versão final)
 // ────────────────────────────────────────────────────────────
 
 === Python programming ability
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
+<<<<<<< HEAD
 I consider my Python skills as advanced, especially in the context of data analysis and rapid prototyping, and I am confident in my ability to apply Python effectively in a variety of contexts, including those that require integration with lower-level systems. I started using Python during my undergraduate studies for complex calculations as an alternative to MATLAB, Over time, I expanded my use of Python to more robust tasks.
+=======
+I consider my Python skills as advanced, especially in the context of data analysis and rapid prototyping, and I am confident in my ability to apply Python effectively in a variety of contexts, including those that require integration with lower-level systems. I started using Python during my undergraduate studies for complex calculations as an alternative to MATLAB. Over time, I expanded my use of Python to more robust tasks.
+>>>>>>> 79ccd0e (versão final)
 
 During my master's degree, Python became the main language for data analysis and mathematical modeling. I used numpy, scipy and matplotlib for simulation and validation of the digital predistortion model for RF power amplifiers.
 
@@ -198,7 +210,7 @@ I believe this combination of hands-on embedded experience and focused study pro
 === Embedded system environments
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-I worked extensively with embedded systems throughout my career. During my undergraduate studies, I used devices like Arduino Uno, Nano and ESP8266 in academic projects, including an IoT automatic lock with MQTT protocol. In the SAE Brasil competition, I used the TM4C123GH6PM microcontroller from Texas Instruments (Tiva C Series) for RF telemetry and performance data collection of the vehicle, including dynamometer tests, lateral acceleration in curves and engine temperature.
+I worked extensively with embedded systems throughout my career. During my undergraduate studies, I used devices like Arduino Uno, Nano and ESP8266 in academic projects, including an IoT automatic lock with MQTT protocol. In the SAE Brazil competition, I used the TM4C123GH6PM microcontroller from Texas Instruments (Tiva C Series) for RF telemetry and performance data collection of the vehicle, including dynamometer tests, lateral acceleration in curves and engine temperature.
 
 Professionally, I worked on an embedded device developed and manufactured internally, composed of three ESP32 that communicated with each other via UART bridge on the same board. Two technical challenges were particularly significant:
 
@@ -226,7 +238,7 @@ This experience with FreeRTOS and real-time systems in an embedded context provi
 === Packaging and container formats (Debian, Snap, etc.)
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-I do not have direct experience creating packages in Debian, Snap or similar formats. However, I have practical experience with Docker, creating and configuring Dockerfiles for development and production environments.
+While my experience with Debian, Snap, and similar package formats is not yet direct, I do have practical experience with Docker and with creating Dockerfiles for development and production environments.
 
 A concrete example arose when the project was running in production inside a container with predefined memory and space, but the errors did not reproduce when running directly on my machine. To investigate, I created a Dockerfile that replicated exactly the production environment and mapped the project within the container, which allowed me to debug the C++ code directly in the same environment where the errors occurred.
 
@@ -238,7 +250,7 @@ This experience showed me the value of reproducible and isolated environments fo
 === EFI, ACPI and/or DeviceTree experience
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-I do not have professional experience with EFI, ACPI or DeviceTree, but I am studying these technologies on my Arch Linux as part of my preparation for kernel engineering.
+My experience with EFI, ACPI, and DeviceTree is still at the study stage, but I have been building familiarity with them on Arch Linux as part of my preparation for kernel engineering.  
 // ────────────────────────────────────────────────────────────
 
 == Open Source & Automation
@@ -313,23 +325,19 @@ Overall, I believe that my combination of experience in embedded systems, focus 
 === Competitive ranking in maths and hard sciences
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-During high school, I performed well in mathematics and physics, which were my areas of greatest interest. I always had an aptitude for logic and problem-solving, especially in mathematics, and in physics I was particularly interested in the more applied parts, such as electricity and systems. This interest directly influenced my decision to pursue Electrical Engineering.
+During high school, I performed best in mathematics and physics. I was naturally drawn to logic, problem solving, and subjects that helped explain how real systems work. This interest later became one of the main reasons I chose Electrical Engineering.
 // ────────────────────────────────────────────────────────────
 
 === Competitive ranking in languages and the arts
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-In languages and arts, my performance was satisfactory, but they were not areas of major interest for me. However, I always maintained a consistent level. English at school was not very strong, so I sought to develop it on my own by taking courses after classes. This effort ended up being important later, especially for reading technical documentation and content in the technology area.
+My performance in languages and arts was solid, although these were not my strongest areas at the time. Because English teaching at school was limited, I studied it outside school through additional courses. That effort became very important later, especially for reading technical documentation and working with material in English.
 // ────────────────────────────────────────────────────────────
 
 === What kind of high school student were you? Interests and hobbies?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-In high school, I was a responsible and committed student, who studied enough to meet my obligations and pass the subjects. Despite this, I always had an awareness of my duty to learning and to my family, which kept me responsible and committed. 
-
-Outside of school, I was quite physically active. I played soccer and went to the gym regularly, which helped me develop discipline and consistency. 
-
-My real desire to learn only really emerged in college. It was when I came into contact with technology and engineering that everything changed. I discovered an area that truly motivated me, and that completely transformed my relationship with study and effort.
+I was a responsible and disciplined student. I took my studies seriously, even though my strongest academic motivation only became clearer later when I entered engineering. Outside school, I was physically active, especially with soccer and gym training, which helped me build consistency and discipline. Looking back, high school was a period where I developed responsibility and perseverance, while college was where I found the technical field that truly motivated me.
 // ────────────────────────────────────────────────────────────
 
 == University
@@ -337,7 +345,7 @@ My real desire to learn only really emerged in college. It was when I came into 
 === Which university and degree did you  chose? What others did you consider?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-I chose Electrical Engineering because I have always been curious to understand how hardware and electrical circuits work. I chose the Federal University of Paraná (UFPR) because it was the best university in my city, with a well-structured electrical engineering program, recognized in the job market, and a faculty with experience in areas of my interest such as embedded systems, signal processing and control. I took the entrance exam exclusively for UFPR, as it was my first and only option. I also considered Mechanical Engineering, which is a very interesting area, but I opted for Electrical Engineering because I identified more with the course at the time of choice.
+I chose Electrical Engineering because I have always been curious to understand how hardware and electrical circuits work. I chose the Federal University of Paraná (UFPR) because it was the best university in my city, with a well-structured electrical engineering program, recognized in the job market, and a faculty with experience in areas of my interest such as embedded systems, signal processing and control. The UFPR is the most sought after university in the State of Paraná and I passed their exclusive admission exam, as it was my first and only option. I also considered Mechanical Engineering, which is a very interesting area, but I opted for Electrical Engineering because I identified more with the course.
 
 // ────────────────────────────────────────────────────────────
 
@@ -350,11 +358,11 @@ Yes, to contextualize, the Electrical Engineering course is not very software-fo
 === Overall degree result and what it reflects about you
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-My overall result in graduation was a GPA of 0.8466, which I consider an honest reflection of my academic trajectory. During the pandemic we were approximately one year without classes, and when we returned we faced an extremely compressed schedule, six semesters of content condensed into two years.
+My overall academic result at the Federal University of Paraná was an IRA (academic performance index) of 0.8466/1.0, representing strong academic performance in the context of my program. During the pandemic we were approximately one year without classes, and when we returned we faced an extremely compressed schedule, six semesters of content condensed into two years.
 
 I opted consciously to take fewer courses per semester instead of keeping up with the accelerated pace, prioritizing the quality of learning over the speed of completion. This resulted in a later graduation, but it allowed me to better assimilate the content and dedicate the last year almost exclusively to my thesis, which was a project of high technical complexity.
 
-I believe this decision reflects my way of approaching learning. I prefer to do less and do it well rather than accumulate superficial approvals. The GPA of 0.8466 reflects this consistency and commitment throughout the course.
+I believe this decision reflects my way of approaching learning. I prefer to do less and do it well rather than accumulate superficial approvals. I believe my academic record reflects this consistency and commitment throughout the course.
 // ────────────────────────────────────────────────────────────
 
 === Exceptional achievements in high school and university
@@ -362,16 +370,16 @@ I believe this decision reflects my way of approaching learning. I prefer to do 
 // ── SUA RESPOSTA ────────────────────────────────────────────
 In high school, I received the award for outstanding student, granted to students who demonstrated consistent academic improvement over the year, which reflected my commitment to progressively improving.
 
-In university, my most significant achievements were in the SAE Brasil competition with the mini baja team. I was one of the responsible for the electrical part of the vehicle and our team won the trophy for best electrical project in the Southern regional for two consecutive years:
+In university, my most significant achievements were in the SAE Brazil competition with the mini baja team (off-road vehicle prototype). I was one of the people responsible for the electrical part of the vehicle and our team won the trophy for best electrical project in the Southern regional competition for two consecutive years:
 - 1st place in the first year;
 - 2nd place in the second year;
 - 7th place in the national championship
 
 A significant improvement that reflected the work and evolution of the team.
 
-I also consider my participation in PET during the pandemic exceptional, where I coordinated the production and logistics of printing face shield mask supports donated to hospitals. A concrete delivery with real humanitarian impact at a critical moment.
+Also worth highlighting my participation in the Tutorial Education Program (PET) during the pandemic, where I coordinated the production and logistics of printing face shield mask supports donated to hospitals. A concrete delivery with real humanitarian impact at a critical moment.
 
-In BigPET, I led the development of a fake news classifier in Python with NLTK that achieved 99% accuracy on validation data, being my main machine learning project in graduation.
+In BigPET (BigData academic project), I led the development of a fake news classifier in Python with NLTK that achieved 99% accuracy on validation data, being my main machine learning project in graduation.
 // ────────────────────────────────────────────────────────────
 
 === Leadership roles during education
@@ -417,9 +425,7 @@ In the corporate Linux market, the main competitor is Red Hat, which has a stron
 
 In the context of cloud, Ubuntu already has a consolidated presence, being frequently used as a standard system in various providers. Maintaining this position depends directly on performance, fast security updates and hardware compatibility.
 
-Regarding general-purpose operating systems, Microsoft still dominates the desktop, but I see Canonical focusing more on enabling developers and infrastructure than directly competing in that segment.
-
-I believe Canonical should continue investing in reliability, speed in delivering security updates and quality in hardware integration. Excellence in kernel maintenance and integration is an important strategic differentiator.
+In the broader operating system landscape, I think Canonical has been most successful not by trying to compete head-on in the desktop market, but by becoming a strong foundation for developers, cloud infrastructure, and embedded systems. I believe the path forward requires further consolidating on kernel excellence and security-led maintenance, ensuring that Ubuntu remains the most trusted, compliant, and integrated platform for the world's most critical workloads.
 // ────────────────────────────────────────────────────────────
 
 
@@ -428,13 +434,13 @@ I believe Canonical should continue investing in reliability, speed in deliverin
 === Why do you most want to work for Canonical?
 
 // ── SUA RESPOSTA ────────────────────────────────────────────
-My main motivation is to work directly with the Linux kernel and with systems engineering at a level closer to hardware. I have a strong interest in contributing at the level where I can have the greatest impact currently, while also continuing to develop myself to take on more advanced responsibilities over time.
+My main motivation is to work directly with the Linux kernel and with systems engineering at a level closer to hardware. I have a strong interest in contributing where I can have the greatest impact, while also continuing to develop myself to take on more advanced responsibilities over time.
 
 Throughout my experience with embedded systems and performance-sensitive applications, I have often worked close to hardware, dealing with memory limitations, concurrency and real-time behavior. This naturally sparked my interest in operating systems, especially the Linux kernel.
 
 What attracts me to Canonical is the opportunity to work with the integration, stability and evolution of the kernel in real systems. Even though it is a role more focused on downstream, I see this as a highly relevant engineering work, as it ensures that complex systems operate reliably in different environments.
 
-Beyond this, I see this position as a natural evolution of my trajectory, allowing me to deepen my knowledge in operating systems while applying my previous experience in embedded systems.
+Beyond the immediate technical fit, what attracts me most is the opportunity to grow within Canonical over time. I want to contribute first where my current strengths are most useful in embedded systems, low-level programming, performance-sensitive software and hardware interaction, while developing deeper expertise in Linux kernel engineering through real product work. Canonical is especially appealing to me because it combines open source, technical depth and large-scale impact in a way that makes that growth path both realistic and meaningful.
 // ────────────────────────────────────────────────────────────
 
 === What would you most want to change about Canonical?
@@ -453,4 +459,6 @@ I am particularly excited about the RISC-V ecosystem. As a genuinely open and ro
 Beyond the technical challenges, what motivates me most deeply is contributing to improving the Linux end-user experience and helping make Linux distributions the most popular operating systems in the world. I believe open source is the natural direction of computing collaborative, transparent and accessible to everyone and I want to be part of that transformation.
 
 This role represents the ideal combination of what I value: working close to hardware, contributing to open source at scale, and being part of a mission I genuinely believe in.
+
+I am also excited by the possibility of joining a company where I can grow long term, starting from strong contribution in adjacent low-level domains and progressively taking on deeper kernel and platform responsibilities as I develop
 // ────────────────────────────────────────────────────────────
