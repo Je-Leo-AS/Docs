@@ -1,11 +1,26 @@
 {
     "cSpell.words": [
+        "ACPI",
         "Agris",
         "Anielle",
-        "aproximandamente",
+        "Dockerfiles",
+        "geopandas",
+        "geospatial",
+        "ISOBUS",
         "Kaplan",
+        "matplotlib",
+        "MQTT",
+        "NLTK",
+        "numpy",
+        "pacman",
+        "PKGBUILDs",
+        "predistortion",
         "Raízen",
+        "scipy",
+        "Tiva",
         "typst",
-        "VHDL"
+        "UART",
+        "VHDL",
+        "worktrees"
     ]
 }
