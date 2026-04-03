@@ -4,10 +4,10 @@
 
 #show: template.with(
   title: [
-    Modelagem Comportamental Híbrida de Amplificadores de Potência Usando Polinômios com Memória e Tabelas de Busca
+    Modelagem Comportamental e Implementação em VHDL de Amplificadores de Potência Usando Polinômios com Memória
   ],
   title-foreign: [
-    Hybrid Behavioral Modeling of Power Amplifiers Using Memory Polynomials and Look-Up Tables
+    Behavioral Modeling and VHDL Implementation of Power Amplifiers Using Memory Polynomials
   ],
 
   lang: "pt",
@@ -28,8 +28,8 @@
     Orientador: Eduardo Gonçalves de Lima
   ],
 
-  keywords: ([DPD], [Polinômio de memória], [LUTs]),
-  keywords-foreign: ([DPD], [Memory polynomial], [LUTs]),
+  keywords: ([DPD], [Polinômio de memória], [VHDL]),
+  keywords-foreign: ([DPD], [Memory polynomial], [VHDL]),
 
   outline-figure: true,
   outline-table: true,
@@ -43,7 +43,6 @@
     [HDL],   [Hardware Description Language (Linguagem de Descrição de Hardware)],
     [VHSIC], [Very High-Speed Integrated Circuit (Circuito Integrado de Velocidade Muito Elevada)],
     [VHDL],  [VHSIC Hardware Description Language],
-    [LUT],   [Look-Up Table],
     [SOP],   [Sum of Products (Soma de Produtos)],
     [LAB],   [Logic Array Block],
     [ALM],   [Adaptive Logic Module],
@@ -77,12 +76,9 @@ técnica depende diretamente da disponibilidade de modelos matemáticos capazes 
 com precisão o comportamento não linear e com memória do amplificador. Neste trabalho,
 inicialmente investiga-se uma variação do modelo Memory Polynomial (MP), na qual a ordem
 polinomial passa a depender do atraso de memória, permitindo maior flexibilidade na modelagem e
-redução da complexidade computacional sem prejuízo significativo de desempenho. A partir dessa
-análise, avalia-se uma abordagem híbrida que combina polinômios e tabelas de consulta
-(Look-Up Tables --- LUT), priorizando o uso de LUT nos termos associados às amostras atuais, que
-concentram maior complexidade, e mantendo a implementação polinomial para os termos de
-memória. Por fim, são comparadas as abordagens puramente polinomial, puramente baseada em
-LUT e a abordagem híbrida, considerando métricas de precisão e complexidade computacional.
+redução da complexidade computacional sem prejuízo significativo de desempenho. Além da
+avaliação em software, o trabalho investiga a implementação desse modelo em VHDL, com
+validação funcional em ponto fixo e análise da complexidade estrutural obtida na síntese lógica.
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -106,12 +102,10 @@ A widely used solution to reconcile energy efficiency and linearity is the use o
 availability of mathematical models capable of accurately representing the nonlinear and memory
 behavior of the amplifier. This work investigates a variation of the Memory Polynomial (MP) model,
 in which the polynomial order depends on the memory delay, allowing greater modeling flexibility
-and reduced computational complexity without significant performance loss. Based on this analysis,
-a hybrid approach combining polynomials and Look-Up Tables (LUTs) is evaluated, prioritizing LUT
-use for terms associated with current samples, which concentrate greater complexity, while
-maintaining polynomial implementation for memory terms. Finally, purely polynomial, purely
-LUT-based, and hybrid approaches are compared using metrics of precision and computational
-complexity.
+and reduced computational complexity without significant performance loss. In addition to the
+software-based evaluation, the work investigates the VHDL implementation of this model,
+including fixed-point functional validation and an analysis of the structural complexity obtained
+after logic synthesis.
 ]
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -137,12 +131,11 @@ banda base, que visa compensar a distorção causada pelo PA @Cripps2006. O DPD 
 cascata ao PA e requer um modelo de alta precisão e baixa complexidade computacional para
 representar as características de transferência direta e inversa do amplificador.
 
-Existem diversas abordagens para modelar o PA. Neste projeto, adota-se uma modelagem híbrida,
-combinando polinômios e tabelas de consulta (LUT). Especificamente, para amostras atuais ---
-em que a ordem polinomial necessária é alta ---, prioriza-se o uso de LUT; para amostras passadas
---- com ordens polinomiais menores ---, mantém-se o emprego de polinômios. Será realizada uma
-comparação entre as abordagens puramente polinomial, puramente baseada em LUT e a abordagem
-híbrida, avaliando-se complexidade computacional e precisão de modelagem.
+Existem diversas abordagens para modelar o PA. Neste projeto, adota-se o modelo de polinômio
+com memória com ordem polinomial dependente do atraso, buscando concentrar a complexidade
+nos termos mais relevantes e reduzir operações associadas aos atrasos mais antigos. Além da
+validação em software, também é investigada a implementação direta da estrutura em VHDL, com
+ênfase na equivalência funcional em ponto fixo e na redução de recursos de hardware.
 
 == Objetivo Geral
 
@@ -293,46 +286,10 @@ mantendo sua capacidade de representação.
 
 Do ponto de vista de implementação em hardware, especialmente em sistemas que operam com
 altas taxas de amostragem, torna-se fundamental explorar arquiteturas eficientes que permitam a
-paralelização das operações aritméticas. Nesse contexto, avalia-se a substituição de operações de
-multiplicação por tabelas de consulta (_Look-Up Tables_ --- LUTs), visando reduzir a complexidade
-computacional e viabilizar a implementação prática do modelo em sistemas embarcados e
-plataformas digitais.
-
-== Uso de Look-Up Tables em Pré-Distorção Digital
-
-A implementação prática de técnicas de pré-distorção digital (DPD) em sistemas de comunicação
-sem fio de alta taxa impõe restrições significativas de complexidade computacional, especialmente
-quando se considera a operação em tempo real e com sinais de larga banda. Nesse contexto,
-estratégias que reduzam o custo computacional da linearização, sem comprometer de forma
-significativa o desempenho, têm sido amplamente investigadas na literatura. Dentre essas
-estratégias, destaca-se o uso de tabelas de consulta (LUTs) como alternativa eficiente para a
-implementação de pré-distorcedores digitais.
-
-As LUTs consistem em estruturas de memória que armazenam previamente valores calculados de
-uma determinada função, permitindo que operações matemáticas complexas sejam substituídas por
-simples acessos à memória. Em aplicações de DPD, as LUTs podem ser utilizadas para mapear
-diretamente a envoltória do sinal de entrada para valores de correção de amplitude e fase,
-implementando, de forma discreta, a função inversa do PARF @Kwan2012. Essa abordagem elimina
-a necessidade de operações aritméticas intensivas, como multiplicações e potências, reduzindo
-significativamente a latência e o consumo de recursos computacionais.
-
-O trabalho apresentado por @Kwan2012 demonstra a viabilidade da implementação de um
-pré-distorcedor digital baseado em LUTs em plataformas do tipo _Field Programmable Gate Array_
-(FPGA), utilizando sinais Long Term Evolution (LTE) com largura de banda de até 60 MHz. Uma das
-principais vantagens do uso de LUTs em DPD é a adequação natural desse tipo de estrutura a
-arquiteturas paralelas, como as encontradas em FPGAs. O acesso à memória pode ser realizado de
-forma altamente paralelizável e determinística, favorecendo a implementação em tempo real mesmo
-em cenários de elevada taxa de amostragem.
-
-Entretanto, o uso de LUTs também apresenta desafios, como a necessidade de um processo
-eficiente de preenchimento e atualização da tabela, bem como a escolha adequada do número de
-entradas para evitar quantização excessiva da função de pré-distorção. Técnicas de interpolação e
-estratégias de endereçamento podem ser empregadas para mitigar esses efeitos e melhorar a
-precisão do modelo sem aumento significativo da complexidade @Kwan2012.
-
-Diante desse panorama, o uso de LUTs surge como uma alternativa promissora para a
-implementação de pré-distorção digital em amplificadores de potência, especialmente em
-aplicações que demandam elevada largura de banda e operação em tempo real.
+paralelização das operações aritméticas. Nesse contexto, a implementação em VHDL do modelo MP
+com truncamento polinomial dependente do atraso permite avaliar de forma direta se a redução de
+complexidade observada em software se traduz em menor utilização de recursos em hardware
+digital, preservando a equivalência funcional do modelo.
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Material e Métodos
@@ -413,100 +370,86 @@ convencionais, de forma análoga ao MP clássico. A diferença reside na constru
 regressão, que passa a incorporar apenas os termos polinomiais correspondentes a cada ordem
 $P_m$, resultando em uma matriz de menor dimensão.
 
-Além da redução de complexidade computacional, essa estrutura oferece maior flexibilidade para a
-implementação em hardware. Em particular, a concentração de ordens polinomiais mais elevadas
-nos termos associados à amostra atual cria condições favoráveis para a adoção de arquiteturas
-híbridas, nas quais operações de maior complexidade podem ser substituídas por tabelas de
-consulta (LUTs), enquanto termos de menor ordem permanecem implementados de forma
-polinomial. Essa característica é explorada e avaliada nos capítulos seguintes por meio de
-simulações e análises comparativas de desempenho e complexidade.
+Além da redução de complexidade computacional, essa estrutura oferece vantagens diretas para a
+implementação em hardware. Como o número de termos polinomiais deixa de ser uniforme entre os
+atrasos, a descrição em VHDL pode ser reorganizada para eliminar explicitamente operações
+aritméticas desnecessárias, reduzindo o número de blocos funcionais do circuito sem alterar a
+formulação matemática do modelo.
 
-== Uso de tabelas de consulta no modelo MP <sec:lut>
+== Implementação em VHDL do modelo MP truncado
 
-A implementação prática de modelos comportamentais para amplificadores de potência em sistemas
-digitais de alta taxa de amostragem impõe restrições severas em termos de complexidade
-computacional, consumo de recursos e latência. Em particular, mesmo após a adoção do modelo
-_Memory Polynomial_ (MP), cuja complexidade é significativamente inferior à da série completa de
-Volterra, a implementação direta em hardware ainda demanda um número elevado de operações
-aritméticas, sobretudo multiplicações e cálculos de potências associados a ordens polinomiais
-elevadas.
+A validação em hardware foi realizada por meio da implementação em VHDL de duas arquiteturas:
+a versão original do modelo MP, com ordem polinomial uniforme em todos os atrasos, e a versão
+truncada com ordem dependente do atraso. Ambas foram descritas em ponto fixo e organizadas em
+uma estrutura baseada em soma de produtos complexos, preservando os ramos de memória e o
+cálculo explícito dos termos polinomiais.
 
-Conforme discutido na seção anterior, neste trabalho adota-se uma variação do modelo MP na qual
-a ordem polinomial máxima é definida de forma independente para cada atraso de memória. Essa
-abordagem permite concentrar as ordens polinomiais mais elevadas nos termos associados às
-amostras mais recentes, enquanto ordens menores são atribuídas aos termos de memória mais
-antigos. Como consequência, a complexidade computacional deixa de ser uniformemente distribuída
-entre todos os atrasos, passando a ser dominada pelos termos de menor atraso, em especial pelo
-termo correspondente à amostra atual.
+Na versão truncada, a redução da ordem polinomial nos atrasos mais antigos foi acompanhada por
+uma reorganização da arquitetura para remover diretamente as operações redundantes. Dessa
+forma, a comparação entre as duas implementações permite avaliar não apenas a equivalência
+funcional em relação ao modelo de referência em Python, mas também os ganhos efetivos de
+complexidade estrutural obtidos após a síntese lógica.
 
-Nesse contexto, o uso de tabelas de consulta (_Look-Up Tables_ --- LUTs) surge como uma
-estratégia complementar para reduzir a complexidade computacional associada especificamente
-aos termos de maior ordem polinomial, conforme discutido em @Kwan2012. As LUTs permitem
-substituir operações aritméticas complexas por simples operações de indexação e leitura de
-memória, reduzindo significativamente o custo computacional e viabilizando implementações em
-tempo real.
+Para a verificação funcional e estrutural, foram utilizadas ferramentas open source. A análise e a
+simulação do código VHDL foram conduzidas com GHDL, a síntese lógica foi realizada com Yosys e
+a inspeção dos sinais temporais foi feita com GTKWave. A comparação entre as saídas em ponto
+fixo obtidas em Python e em VHDL, bem como a análise das curvas AM-AM e AM-PM, foi empregada
+como critério de validação funcional das implementações.
 
-No contexto do modelo MP, a saída do amplificador pode ser expressa como uma soma ponderada
-de termos da forma
+== Evidências experimentais para o truncamento polinomial
 
-$ tilde(x)(n-m) |tilde(x)(n-m)|^(p-1) , $
+Com o objetivo de fundamentar experimentalmente a hipótese de que a não linearidade dominante
+do amplificador está concentrada no instante atual, foi realizada uma análise específica sobre o
+conjunto `data_LDMOS_formatted_4500p.mat`, contendo 4.500 amostras para extração e 4.500
+amostras para validação. Nessa etapa, foram consideradas profundidade de memória $M = 2$ e
+ordens polinomiais variando de 1 a 5, utilizando três análises complementares: magnitude dos
+coeficientes por ramo de memória, sensibilidade do NMSE a cada parâmetro $P_m$ e espectro do
+erro residual.
 
-em que $p$ representa a ordem do polinômio e $m$ o atraso associado ao termo de memória.
-Observa-se que a não linearidade do modelo está diretamente relacionada à envoltória do sinal de
-entrada, enquanto a informação de fase é preservada pelo fator complexo $tilde(x)(n-m)$. Essa
-separação natural entre envoltória e fase torna o modelo particularmente adequado à utilização de
-LUTs, uma vez que os termos não lineares dependem apenas do módulo da envoltória do sinal.
+Na análise dos coeficientes, foi treinado um modelo MP completo com $P_0 = P_1 = P_2 = 5$,
+obtendo-se NMSE de $-38,47$ dB. A energia dos ramos de memória foi então calculada por
 
-Dessa forma, é possível implementar os termos não lineares do modelo MP por meio de LUTs
-unidimensionais (1D), indexadas pelo valor quantizado da magnitude da envoltória
-$|tilde(x)(n-m)|$. Para cada atraso de memória $m$, define-se uma função polinomial
-unidimensional $f^sans("pol")_m (dot.c)$, que pode ser armazenada em uma LUT.
+$ E_m = sum_(p=1)^(P_"max") |h_(p,m)|^2, $
 
-#figure(
-  abnt-table(
-    columns: (1fr, 1fr),
-    table.header(
-      [*Entrada da LUT*],
-      [*Saída da LUT*],
-    ),
-    $|tilde(x)(n-m)|_1$, $f^sans("pol")_m (|tilde(x)(n-m)|_1)$,
-    $|tilde(x)(n-m)|_2$, $f^sans("pol")_m (|tilde(x)(n-m)|_2)$,
-    $dots.v$,            $dots.v$,
-    $|tilde(x)(n-m)|_K$, $f^sans("pol")_m (|tilde(x)(n-m)|_K)$,
-  ),
-  caption: [Representação da função polinomial unidimensional do modelo MP por meio de LUTs],
-  source: [Adaptado de #cite(<Luiza2016>, form: "prose")],
-) <tab:tabela_lut>
+permitindo quantificar a contribuição relativa de cada atraso à não linearidade total do sistema.
+Adicionalmente, para avaliar a sensibilidade do modelo a cada ordem polinomial, dois parâmetros
+foram mantidos fixos em 1 enquanto o terceiro variou entre 1 e 5, medindo-se o ganho de NMSE
+produzido pelo aumento de complexidade em cada ramo. Por fim, o sinal de erro residual foi
+analisado no domínio da frequência com janela de Blackman, FFT de 8192 pontos e média por
+blocos, permitindo verificar como a variação de $P_0$, $P_1$ e $P_2$ afeta o _regrowth_ espectral.
 
-O valor obtido na saída da LUT é então multiplicado apenas pelo termo complexo $tilde(x)(n-m)$,
-reduzindo substancialmente o número total de operações aritméticas, conforme também observado
-em @Kwan2012. A @fig:diagramamplut ilustra o diagrama de blocos da implementação do modelo
-MP com o uso de LUTs.
+== Avaliação em múltiplos conjuntos de dados
 
-#figure(
-  image("Figuras/MP_lut.png", width: 75%),
-  caption: [Implementação do modelo MP com LUTs],
-  source: [#cite(<Luiza2016>, form: "prose")],
-) <fig:diagramamplut>
+Para verificar a capacidade de generalização da metodologia, o _pipeline_ completo de identificação
+e avaliação dos modelos MP com ordem dependente do atraso foi aplicado a dois conjuntos de
+dados experimentais distintos: `in_out_SBRT2_direto.mat`, correspondente a um PA GaN HEMT, e
+`data_LDMOS_formatted_4500p.mat`, correspondente a um PA LDMOS. Em ambos os casos, foram
+avaliadas exaustivamente todas as 125 combinações possíveis de ordens $(P_0, P_1, P_2)$ com
+$P_m in {1, 2, 3, 4, 5}$ e profundidade de memória $M = 2$.
 
-Outro aspecto relevante é que o uso de LUTs permite desacoplar parcialmente a complexidade
-computacional da ordem polinomial adotada. Uma vez construída a tabela, o aumento da ordem do
-polinômio não implica, necessariamente, em um aumento proporcional do número de operações
-durante a execução, mas apenas em um possível incremento no uso de memória. Esse compromisso
-entre consumo de memória e redução de operações aritméticas é particularmente favorável em
-plataformas modernas, como FPGAs e ASICs, nas quais recursos de memória são abundantes e
-operações de multiplicação são relativamente custosas @Kwan2012.
+Os coeficientes complexos de cada modelo foram estimados em Python com
+`scipy.optimize.least_squares`, utilizando os conjuntos de extração, e o desempenho foi avaliado
+nos conjuntos de validação por meio do NMSE. Essa etapa permitiu comparar não apenas o nível
+absoluto de desempenho entre tecnologias distintas de amplificadores, mas também a estabilidade
+dos padrões estruturais observados anteriormente, como a predominância de $P_0$ e a eficiência
+dos modelos com distribuição decrescente de ordens.
 
-Além da redução de complexidade, as LUTs também podem contribuir para o aumento da precisão
-do modelo MP. Como os valores armazenados na tabela podem ser obtidos a partir de dados
-experimentais ou de cálculos realizados em alta precisão, erros numéricos associados à
-quantização e ao arredondamento durante a execução em tempo real são mitigados. Técnicas de
-interpolação entre entradas adjacentes da LUT podem ser empregadas para melhorar ainda mais a
-fidelidade do modelo, sem impacto significativo na complexidade computacional @Kwan2012.
+== Identificação do sistema DPD + PA
 
-Portanto, o uso de tabelas de consulta no modelo MP configura uma estratégia eficiente e
-complementar para reduzir a complexidade computacional e viabilizar implementações em sistemas
-digitais de alta taxa de amostragem.
+Além da modelagem direta do amplificador, foi avaliado um sistema completo de pré-distorção
+digital baseado no modelo MP. Nessa etapa, utilizou-se o conjunto
+`data_LDMOS_formatted_4500p.mat` para identificar inicialmente o modelo do PA com profundidade
+de memória $M = 2$ e ordem polinomial $P = 5$, totalizando 15 coeficientes complexos. Em
+seguida, foi adotada a arquitetura _Indirect Learning Architecture_ (ILA), na qual o DPD é treinado
+como o inverso do PA a partir do mapeamento entre a saída medida do amplificador e o sinal de
+entrada original.
+
+A cascata final considerada foi composta por $x(n) -> "DPD"(x(n)) -> "PA"("DPD"(x(n)))$. Para
+evitar extrapolação do modelo polinomial, foi aplicado um fator global de ganho na entrada do
+sistema. Foram avaliadas duas estratégias: uma baseada na razão entre amplitudes máximas de
+entrada e saída do PA, resultando em valor aproximado de 0,83, e outra com ganho fixo de 0,95,
+que apresentou melhor aproveitamento da faixa dinâmica e melhor qualidade de linearização nas
+curvas AM-AM e AM-PM.
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Resultados e Discussão
@@ -515,14 +458,9 @@ digitais de alta taxa de amostragem.
 Este capítulo apresenta os resultados obtidos a partir da validação inicial das estruturas de
 modelagem propostas na @sec:mp-original, com foco na caracterização do desempenho do modelo
 _Memory Polynomial_ (MP) clássico aplicado à modelagem comportamental de um amplificador de
-potência real. Adicionalmente, são discutidas as alterações conceituais introduzidas pela abordagem
-proposta neste trabalho, bem como as etapas subsequentes previstas para sua validação completa.
-
-Nesta versão preliminar da dissertação, os resultados concentram-se exclusivamente na modelagem
-do PA utilizando o modelo MP tradicional em aritmética de ponto flutuante. As análises relacionadas
-ao modelo MP com truncamento polinomial dependente do atraso, bem como às arquiteturas híbridas
-baseadas em tabelas de consulta (LUTs), ainda se encontram em fase de implementação e serão
-objeto de estudo aprofundado na versão final deste trabalho.
+potência real. Além da validação em ponto flutuante, são apresentados os resultados do modelo MP
+com truncamento polinomial dependente do atraso e sua implementação em VHDL, com ênfase na
+equivalência funcional em ponto fixo e na redução de complexidade estrutural obtida em síntese.
 
 A validação dos resultados apresentados é realizada por meio da análise do erro entre o sinal de
 saída medido do amplificador de potência (PA) real e o sinal de saída estimado pelo modelo
@@ -585,6 +523,88 @@ $-26,7$~dB, evidenciando uma boa capacidade de aproximação do comportamento do
 de potência real em regime de banda larga. Esse resultado confirma a adequação do modelo MP
 clássico como referência de desempenho e estabelece um ponto de comparação consistente para a
 avaliação das estruturas alternativas propostas neste trabalho.
+
+== Evidências experimentais para o truncamento polinomial dependente do atraso
+
+Com o objetivo de sustentar experimentalmente a hipótese de truncamento polinomial dependente
+do atraso, foi realizada uma análise específica sobre o conjunto LDMOS com 4.500 amostras de
+extração e 4.500 de validação. As evidências foram organizadas em três frentes complementares:
+análise da magnitude dos coeficientes por ramo de memória, sensibilidade do NMSE às ordens
+$P_0$, $P_1$ e $P_2$, e inspeção do espectro do erro residual.
+
+=== Evidência 1: magnitude dos coeficientes por ramo de memória
+
+Um modelo MP completo com $P_0 = P_1 = P_2 = 5$ foi treinado, atingindo NMSE de
+$-38,47$ dB. A energia de cada ramo foi obtida a partir da soma dos módulos quadráticos dos
+coeficientes associados a cada atraso.
+
+#table(
+  columns: (auto, auto, auto),
+  align: center,
+  table.header([*Atraso m*], [*Energia $E_m$*], [*Relativa a $m = 0$*]),
+  [$m = 0$], [20,5751], [100,0%],
+  [$m = 1$], [13,7146], [66,7%],
+  [$m = 2$], [4,8489], [23,6%],
+)
+
+#figure(
+  image("Figuras/ev1_magnitude_coeficientes.png", width: 85%),
+  caption: [Magnitude dos coeficientes $|h_(p,m)|$ e energia $E_m$ por ramo de memória. O decaimento de energia ao longo dos atrasos evidencia que a não linearidade dominante está concentrada no instante atual.],
+  source: [Autor],
+) <fig:ev1-magnitude-coeficientes>
+
+Os resultados mostram um decaimento monotônico da energia com o atraso, indicando que os ramos
+mais antigos contribuem progressivamente menos para o comportamento não linear do sistema.
+Esse resultado fornece evidência física direta para a adoção de ordens polinomiais decrescentes ao
+longo da memória.
+
+=== Evidência 2: sensibilidade do NMSE a $P_0$, $P_1$ e $P_2$
+
+Para isolar a contribuição de cada parâmetro, dois ramos foram mantidos com ordem 1 enquanto o
+terceiro variou entre 1 e 5. O ponto de partida comum foi o modelo $(1,1,1)$, com NMSE de
+$-28,71$ dB.
+
+#table(
+  columns: (auto, auto, auto, auto),
+  align: center,
+  table.header([*Parâmetro variado*], [*NMSE em $P=1$*], [*NMSE em $P=5$*], [*Δ NMSE*]),
+  [$P_0$], [$-28,71$ dB], [$-35,36$ dB], [*6,66 dB*],
+  [$P_1$], [$-28,71$ dB], [$-32,14$ dB], [3,43 dB],
+  [$P_2$], [$-28,71$ dB], [$-30,20$ dB], [1,49 dB],
+)
+
+#figure(
+  image("Figuras/ev2_sensibilidade_nmse.png", width: 85%),
+  caption: [Sensibilidade do NMSE a $P_0$, $P_1$ e $P_2$. O ganho associado a $P_0$ é significativamente superior aos obtidos para os atrasos mais antigos.],
+  source: [Autor],
+) <fig:ev2-sensibilidade-nmse>
+
+Observa-se que o ganho obtido ao aumentar $P_0$ é aproximadamente 1,94 vezes maior que o
+ganho associado a $P_1$ e 4,47 vezes maior que o associado a $P_2$. Isso demonstra
+quantitativamente que a complexidade polinomial deve ser concentrada no ramo correspondente ao
+instante atual, enquanto os atrasos mais antigos saturam rapidamente em ordens menores.
+
+=== Evidência 3: espectro do erro residual
+
+O erro residual foi analisado no domínio da frequência para diferentes configurações de modelo,
+utilizando PSD com janela de Blackman, FFT de 8192 pontos e média por blocos.
+
+#figure(
+  image("Figuras/ev3_espectro_erro.png", width: 85%),
+  caption: [PSD do erro residual para variações de $P_0$, $P_1$ e $P_2$. O aumento de $P_0$ produz a maior redução espectral, tanto na banda quanto nas adjacências.],
+  source: [Autor],
+) <fig:ev3-espectro-erro>
+
+#figure(
+  image("Figuras/ev_bonus_psd_completo.png", width: 85%),
+  caption: [PSD comparativa entre o sinal de entrada, a saída medida do PA e os erros de modelagem de diferentes configurações. A redução do espalhamento espectral é mais pronunciada quando se aumenta $P_0$.],
+  source: [Autor],
+) <fig:ev-bonus-psd-completo>
+
+As curvas confirmam, no domínio da frequência, o mesmo comportamento observado nas análises de
+coeficientes e NMSE: aumentar a ordem polinomial do instante atual reduz de forma mais efetiva o
+erro residual e o _regrowth_ espectral, enquanto aumentos em $P_1$ e $P_2$ produzem ganhos
+marginais.
 
 == Avaliação do Modelo MP com Ordem Dependente do Atraso
 
@@ -708,25 +728,156 @@ significativa e saturam com ordens polinomiais reduzidas.
   source: [Autor],
 ) <fig:fronteiradepareto>
 
-== Resultados da etapa de implementação das LUTs
+== Generalização em múltiplos conjuntos de dados experimentais
 
-Nesta etapa do trabalho, os resultados concentram-se na análise conceitual e estrutural da
-implementação do modelo _Memory Polynomial_ (MP) por meio de tabelas de consulta
-(_lookup tables_ --- LUTs), conforme discutido na @sec:lut e fundamentado em @Kwan2012. O
-objetivo principal desta fase foi avaliar a viabilidade arquitetural da substituição das operações
-aritméticas não lineares do modelo MP por operações de acesso à memória, visando à redução da
-complexidade computacional e à melhoria da eficiência de implementação em sistemas digitais.
+Para avaliar a robustez da metodologia proposta, o mesmo procedimento de identificação e
+avaliação foi aplicado a dois conjuntos de dados distintos: um PA GaN HEMT e um PA LDMOS.
+Em ambos os conjuntos, foram testadas as 125 combinações possíveis de ordens $(P_0, P_1, P_2)$
+com $M = 2$, mantendo o mesmo _pipeline_ de treinamento e validação.
 
-É importante ressaltar que, nesta versão preliminar da dissertação, a implementação prática das
-LUTs ainda não foi realizada. Assim, os resultados apresentados nesta seção limitam-se à definição
-da arquitetura proposta, à identificação dos blocos funcionais necessários e à análise qualitativa dos
-impactos esperados do uso de LUTs no desempenho e na complexidade do modelo.
+#table(
+  columns: (auto, auto, auto, auto),
+  align: center,
+  table.header(
+    [*Métrica*],
+    [*Conjunto 1 — GaN*],
+    [*Conjunto 2 — LDMOS*],
+    [*Diferença (dB)*],
+  ),
+  [NMSE melhor modelo], [-26,11 dB], [-37,53 dB], [11,42],
+  [NMSE pior modelo], [-21,41 dB], [-28,71 dB], [7,30],
+  [NMSE médio], [-25,21 dB], [-35,20 dB], [9,99],
+  [Modelo P\=[1,1,1] (3 coef.)], [-21,66 dB], [-28,71 dB], [7,05],
+  [Modelo P\=[3,3,3] (9 coef.)], [-25,95 dB], [-35,25 dB], [9,30],
+  [Modelo P\=[5,5,5] (15 coef.)], [-26,10 dB], [-37,51 dB], [11,41],
+)
 
-As análises quantitativas de desempenho, incluindo métricas como NMSE, consumo de recursos e
-comparação direta entre as implementações polinomial, híbrida e baseada exclusivamente em LUTs,
-serão conduzidas em etapas futuras do trabalho. Essas análises considerarão, adicionalmente, a
-aplicação das LUTs de forma seletiva nos termos de maior ordem polinomial, conforme a abordagem
-de truncamento polinomial dependente do atraso proposta na @sec:lut.
+Os resultados mostram que o conjunto LDMOS apresentou desempenho absoluto superior, com NMSE
+médio aproximadamente 10 dB mais negativo do que o conjunto GaN. Ainda assim, os padrões
+estruturais se mantiveram consistentes entre as duas tecnologias, indicando que a abordagem
+proposta é robusta frente a variações do dispositivo sob teste.
+
+#table(
+  columns: (auto, auto, auto, auto, auto),
+  align: center,
+  table.header(
+    [*Ordens $(P_0, P_1, P_2)$*],
+    [*Nº coef.*],
+    [*NMSE GaN (dB)*],
+    [*NMSE LDMOS (dB)*],
+    [*Diferença (dB)*],
+  ),
+  [\[3, 2, 1\]], [6], [-25,53], [-34,75], [9,22],
+  [\[3, 3, 2\]], [8], [-25,60], [-35,24], [9,64],
+  [\[4, 3, 2\]], [9], [-25,64], [-36,31], [10,67],
+  [\[5, 3, 2\]], [10], [-25,49], [-37,00], [11,51],
+  [\[5, 4, 3\]], [12], [-26,07], [-37,44], [11,37],
+  [\[5, 5, 5\]], [15], [-26,10], [-37,51], [11,41],
+)
+
+Em ambos os conjuntos, a ordem $P_0$ permaneceu como principal determinante de desempenho, e
+os modelos com distribuição decrescente $P_0 >= P_1 >= P_2$ concentraram as melhores soluções.
+Além disso, o ganho marginal obtido ao ultrapassar a faixa de 9 a 10 coeficientes mostrou-se
+reduzido nas duas tecnologias, indicando saturação de desempenho em baixas complexidades.
+
+== Implementação em VHDL do modelo MP com ordem dependente do atraso
+
+Após a avaliação em software, foi realizada a implementação em VHDL de duas versões do modelo:
+o MP original completo, com ordem uniforme em todos os atrasos, e o MP truncado, com redução
+da ordem polinomial nos atrasos mais antigos e reorganização estrutural para eliminar operações
+redundantes. O objetivo dessa etapa foi verificar se os ganhos de complexidade observados na
+modelagem também se manifestam em uma descrição orientada à síntese em hardware.
+
+=== Validação funcional em Python
+
+#figure(
+  image("Figuras/fig_python_amam_ampm.png", width: 75%),
+  caption: [Curvas AM-AM e AM-PM obtidas em Python, comparando os dados medidos com os modelos PA e DPD em ponto fixo.],
+  source: [Autor],
+) <fig:fig_python_amam_ampm>
+
+A @fig:fig_python_amam_ampm apresenta a comparação entre os dados medidos e os modelos
+implementados em Python. Observa-se que o modelo DPD é capaz de compensar a não linearidade
+do amplificador, aproximando a resposta do comportamento ideal e estabelecendo a referência para
+a validação funcional da implementação em VHDL.
+
+=== Validação da implementação em VHDL
+
+#figure(
+  image("Figuras/fig_vhdl_vs_python.png", width: 75%),
+  caption: [Curva AM-AM comparando o modelo em Python com o resultado da simulação da implementação em VHDL.],
+  source: [Autor],
+) <fig:fig_vhdl_vs_python>
+
+A @fig:fig_vhdl_vs_python apresenta a comparação entre o modelo DPD calculado em Python e o
+resultado obtido a partir da simulação da implementação em VHDL. Observa-se que os pontos
+associados à descrição em hardware se sobrepõem aos resultados do modelo em software,
+indicando equivalência funcional entre as duas implementações no cenário avaliado.
+
+=== Comparação de complexidade estrutural
+
+#figure(
+  table(
+    columns: 4,
+    align: center,
+    stroke: (x, y) => if y == 1 { (bottom: 1pt) },
+
+    [*Métrica*], [*MP Original*], [*MP Truncado*], [*Redução (%)*],
+
+    [Wires], [69 735], [41 022], [41,2],
+    [Wire bits], [72 087], [42 703], [40,8],
+    [Cells], [70 800], [41 497], [41,4],
+    [Flip-flops], [765], [484], [36,7],
+  ),
+  caption: [Comparação de complexidade entre o modelo MP original e o modelo truncado implementados em VHDL.],
+  source: [Autor],
+) <fig:complexidade-vhdl>
+
+Os resultados da @fig:complexidade-vhdl evidenciam uma redução consistente de aproximadamente
+40% nas principais métricas estruturais da síntese lógica. A diminuição simultânea no número de
+`wires`, `wire bits`, células e registradores mostra que a estratégia proposta simplifica
+efetivamente a arquitetura implementada em hardware, e não apenas a quantidade nominal de
+coeficientes do modelo.
+
+Essa análise confirma que a redução da ordem polinomial nos atrasos mais antigos, quando
+acompanhada de reorganização estrutural do circuito, produz ganhos reais de implementação. Dessa
+forma, os resultados em VHDL reforçam a viabilidade do modelo MP com ordem dependente do
+atraso para aplicações digitais com restrições de área e consumo.
+
+== Avaliação do sistema DPD + PA com arquitetura ILA
+
+Além da modelagem direta do amplificador, foi avaliada a aplicação do modelo MP em um sistema
+de pré-distorção digital baseado na arquitetura ILA. Nessa configuração, o DPD foi treinado como
+o inverso do PA a partir do conjunto LDMOS, e posteriormente aplicado em cascata com o modelo
+do amplificador, formando a estrutura completa DPD + PA.
+
+No ajuste do ganho global de entrada, duas estratégias foram comparadas. Um ganho baseado na
+relação entre as amplitudes máximas de entrada e saída do PA resultou em valor aproximado de
+0,83, produzindo um sinal estável porém com excursão dinâmica reduzida. Já o uso de ganho fixo
+igual a 0,95 proporcionou melhor aproveitamento da faixa dinâmica do modelo e melhor qualidade
+visual de linearização.
+
+#figure(
+  image("Figuras/AM-AM.png", width: 85%),
+  caption: [Características AM-AM do sistema DPD + PA. A cascata final apresenta resposta mais próxima de uma relação linear em comparação ao PA isolado.],
+  source: [Autor],
+) <fig:am-am-dpd-pa>
+
+#figure(
+  image("Figuras/AM-PM.png", width: 85%),
+  caption: [Características AM-PM do sistema DPD + PA. Observa-se redução da distorção de fase dependente da amplitude após a aplicação do DPD.],
+  source: [Autor],
+) <fig:am-pm-dpd-pa>
+
+As curvas AM-AM indicam que o modelo do PA reproduz adequadamente a compressão de ganho do
+amplificador real, enquanto o DPD compensa essa não linearidade e torna a resposta da cascata
+substancialmente mais linear. Nas curvas AM-PM, observa-se redução da dispersão de fase em
+função da amplitude, evidenciando compensação eficaz das distorções não lineares de fase.
+
+Esses resultados mostram que o modelo MP é adequado não apenas para a modelagem direta do PA,
+mas também para a identificação de um pré-distorcedor funcional por ILA. Além disso, reforçam
+que o ajuste de ganho é um elemento crítico para evitar extrapolação do modelo e preservar a
+estabilidade numérica do sistema DPD + PA.
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Conclusão
@@ -753,20 +904,42 @@ PA e estabeleceram uma referência de desempenho para análises posteriores.
 A partir dessa base, foi proposta uma extensão do modelo MP na qual a ordem polinomial máxima
 passa a ser definida de forma independente para cada atraso de memória, introduzindo maior
 flexibilidade na modelagem e abrindo a possibilidade de reduzir a complexidade do modelo sem
-comprometer significativamente sua capacidade de representação, cuja validação quantitativa será
-realizada em etapas futuras deste trabalho.
+comprometer significativamente sua capacidade de representação. A análise de desempenho dos
+modelos treinados em software mostrou que a complexidade deve ser concentrada
+prioritariamente no instante atual, enquanto atrasos mais antigos podem ser representados com
+ordens menores, preservando boa acurácia.
 
-Adicionalmente, foram analisadas estratégias para redução da complexidade computacional do
-modelo, com destaque para o uso de tabelas de consulta (LUTs), explorando a separação entre
-envoltória e fase inerente ao modelo MP, embora essa abordagem tenha sido tratada apenas em
-nível conceitual nesta etapa do estudo.
+As evidências experimentais adicionais baseadas na análise da magnitude dos coeficientes, na
+sensibilidade do NMSE e no espectro do erro residual confirmaram de forma consistente essa
+hipótese. Em particular, verificou-se que a energia dos coeficientes decai com o atraso, que o
+ganho de desempenho associado a $P_0$ é significativamente superior aos ganhos obtidos com
+$P_1$ e $P_2$, e que a redução do erro espectral é mais pronunciada quando a complexidade é
+alocada no instante atual.
+
+Os experimentos conduzidos em dois conjuntos de dados experimentais distintos, correspondentes
+a amplificadores GaN HEMT e LDMOS, mostraram que esses padrões estruturais se mantêm
+consistentes entre tecnologias diferentes. Embora os níveis absolutos de NMSE variem entre os
+dispositivos, a predominância de $P_0$, a eficiência dos modelos com ordens decrescentes e a
+saturação de desempenho em baixas complexidades foram preservadas, reforçando a capacidade de
+generalização da metodologia proposta.
+
+Adicionalmente, a implementação em VHDL das versões original e truncada do modelo confirmou a
+equivalência funcional entre o comportamento previsto em Python e a descrição em hardware em
+ponto fixo. Os resultados de síntese mostraram reduções próximas de 40% em métricas
+estruturais como número de `wires`, células e registradores, evidenciando que a simplificação do
+modelo produz ganhos concretos de implementação.
+
+Por fim, a aplicação do modelo MP em um sistema de pré-distorção digital baseado na arquitetura
+ILA demonstrou que a mesma estrutura é capaz de atuar tanto na modelagem do amplificador quanto
+na identificação de um pré-distorcedor funcional. As curvas AM-AM e AM-PM da cascata DPD + PA
+evidenciaram melhora clara de linearização, além de destacar a importância do ajuste de ganho
+para preservar estabilidade numérica e bom aproveitamento da faixa dinâmica.
 
 Dessa forma, o trabalho alcançou seu objetivo ao validar a modelagem comportamental do
-amplificador de potência em software e ao propor uma estrutura de modelagem mais flexível, além
-de delinear diretrizes claras para a utilização de LUTs como ferramenta para redução de
-complexidade, constituindo um passo inicial sólido para o desenvolvimento da versão final da
-dissertação e para estudos futuros na área de modelagem e linearização de amplificadores de
-potência.
+amplificador de potência em software, ao propor uma estrutura de modelagem mais flexível e ao
+demonstrar sua viabilidade em VHDL. Esses resultados constituem uma base sólida para o
+desenvolvimento da versão final da dissertação e para estudos futuros na área de modelagem e
+linearização de amplificadores de potência com foco em implementação digital eficiente.
 
 // ─────────────────────────────────────────────────────────────────────────────
 // REFERÊNCIAS  (usar o mesmo Referencias.bib copiado de Mestrado/Mestrado/)
