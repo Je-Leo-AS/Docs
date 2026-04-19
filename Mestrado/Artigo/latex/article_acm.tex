@@ -1,0 +1,149 @@
+\documentclass[sigconf]{acmart}
+
+\setcopyright{none}
+\copyrightyear{2026}
+\acmYear{2026}
+\acmDOI{}
+\acmISBN{}
+
+% TODO: replace conference metadata below with the real target event.
+\acmConference[CONFERENCE'26]{Conference Name}{Month DD--DD, 2026}{City, Country}
+\acmBooktitle{Conference Name (CONFERENCE'26), Month DD--DD, 2026, City, Country}
+\acmPrice{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil,english]{babel}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{url}
+
+\AtBeginDocument{\providecommand\BibTeX{{%
+  Bib\TeX}}}
+
+\begin{document}
+
+\title{Modelagem de Amplificadores de Pot\^encia com Polin\^omio de Mem\'oria de Ordem Dependente do Atraso}
+\subtitle{S\'intese dos resultados de modelagem comportamental, avalia\c{c}\~ao por NMSE e implementa\c{c}\~ao em VHDL}
+
+\author{Leonardo de Andrade Santos}
+\affiliation{%
+  \institution{Universidade Federal do Paran\'a}
+  \department{Programa de P\'os-Gradua\c{c}\~ao em Engenharia El\'etrica}
+  \city{Curitiba}
+  \state{PR}
+  \country{Brasil}
+}
+\email{leonard.andrade@ufpr.br}
+
+\author{Eduardo de Gon\c{c}alves de Lima}
+\affiliation{%
+  \institution{Universidade Federal do Paran\'a}
+  \department{Programa de P\'os-Gradua\c{c}\~ao em Engenharia El\'etrica}
+  \city{Curitiba}
+  \state{PR}
+  \country{Brasil}
+}
+\email{eduardo.goncalves@ufpr.br}
+
+\renewcommand{\shortauthors}{Santos and Lima}
+
+\begin{abstract}
+Este artigo apresenta uma s\'intese da investiga\c{c}\~ao sobre modelagem comportamental de amplificadores de pot\^encia de RF para aplica\c{c}\~oes em pr\'e-distor\c{c}\~ao digital. O trabalho parte do modelo \textit{Memory Polynomial} (MP) cl\'assico e prop\~oe uma varia\c{c}\~ao em que a ordem polinomial m\'axima depende do atraso de mem\'oria. A hip\'otese central \`e que a maior parcela da n\~ao linearidade do amplificador est\'a concentrada na amostra atual, enquanto atrasos mais antigos podem ser representados com ordens menores. A metodologia foi avaliada em software por identifica\c{c}\~ao via m\'inimos quadrados e valida\c{c}\~ao com a m\'etrica \textit{Normalized Mean Square Error} (NMSE), al\'em de uma implementa\c{c}\~ao em VHDL em ponto fixo para an\'alise de viabilidade em hardware. Os resultados mostram que a distribui\c{c}\~ao decrescente das ordens ao longo da mem\'oria preserva a acur\'acia do modelo e reduz sua complexidade estrutural, com ganhos tamb\'em observados ap\'os a s\'intese l\'ogica.
+\end{abstract}
+
+\keywords{Pr\'e-distor\c{c}\~ao digital, amplificador de potência, Memory Polynomial, NMSE, VHDL}
+
+\maketitle
+
+\section{Introdu\c{c}\~ao}
+Amplificadores de pot\^encia operando pr\'oximos da satura\c{c}\~ao apresentam forte n\~ao linearidade e efeitos de mem\'oria, o que compromete a qualidade espectral de sinais de banda larga. Em sistemas modernos de comunica\c{c}\~ao sem fio, esse comportamento \`e especialmente cr\'itico, pois a presen\c{c}a de espalhamento espectral e distor\c{c}\~ao da envolt\'oria afeta a efici\^encia da transmiss\~ao e a conviv\^encia com canais adjacentes. Nesse contexto, a pr\'e-distor\c{c}\~ao digital depende de modelos matem\'aticos capazes de representar o comportamento do amplificador com boa precis\~ao e baixa complexidade.
+
+Entre os modelos comportamentais dispon\'iveis, o \textit{Memory Polynomial} destaca-se pelo compromisso favor\'avel entre capacidade de modelagem e custo computacional~\cite{Kim2001,GonalvesdeLima2009,Cripps2006,Kenington2000,Kwan2012,Bonfim2016,John2016,Luiza2016,Chavez2018,Schuartz2017,Silva2013}. A formula\c{c}\~ao tradicional utiliza a mesma ordem polinomial para todos os ramos de mem\'oria, o que pode gerar opera\c{c}\~oes desnecess\'arias. Este trabalho investiga uma alternativa em que a ordem polinomial \`e definida individualmente para cada atraso, concentrando maior complexidade nos termos mais relevantes.
+
+\section{Premissa}
+A premissa central do trabalho \`e que a maior parcela da n\~ao linearidade do amplificador est\'a concentrada na amostra atual, enquanto atrasos mais antigos podem ser descritos com ordens polinomiais progressivamente menores~\cite{John2016,Schuartz2017}. A fronteira de Pareto resultante indica quais configura\c{c}\~oes oferecem o melhor \textit{trade-off} entre desempenho e complexidade, evitando solu\c{c}\~oes dominadas por alternativas menos eficientes.
+
+\begin{figure}[t]
+  \centering
+  \fbox{\parbox[c][3.2cm][c]{0.95\columnwidth}{\centering Inserir aqui a Figura 1\\Estrutura conceitual do modelo \textit{Memory Polynomial}.}}
+  \caption{Estrutura conceitual do modelo \textit{Memory Polynomial} com ramos de mem\'oria.}
+  \label{fig:mp-estrutura}
+\end{figure}
+
+\section{Metodologia}
+O modelo proposto \`e descrito por
+\begin{equation}
+  y(n) = \sum_{m=0}^{M} \sum_{p=1}^{P_m} h_{p,m} x(n-m) |x(n-m)|^{p-1},
+\end{equation}
+em que $P_m$ representa a ordem m\'axima associada ao atraso $m$. O MP cl\'assico \`e recuperado como caso particular quando todas as ordens s\~ao iguais. A principal vantagem dessa formula\c{c}\~ao \`e preservar a linearidade nos par\^ametros, permitindo a estima\c{c}\~ao dos coeficientes por m\'inimos quadrados, mas com uma matriz de regress\~ao potencialmente menor.
+
+Para a avalia\c{c}\~ao experimental, foram considerados modelos com profundidade de mem\'oria $M=2$ e combina\c{c}\~oes de ordens $(P_0, P_1, P_2)$ variando de 1 a 5. O desempenho foi medido por meio do NMSE,
+\begin{equation}
+  \mathrm{NMSE} = 10\log_{10}\left(\frac{\sum |e(n)|^2}{\sum |y_{\mathrm{real}}(n)|^2}\right),
+\end{equation}
+comparando a sa\'ida medida do amplificador com a sa\'ida estimada pelo modelo. Al\'em da avalia\c{c}\~ao em software, duas arquiteturas foram descritas em VHDL: a vers\~ao MP original e a vers\~ao truncada com ordem dependente do atraso.
+
+\section{Resultados}
+Os experimentos mostraram que a complexidade do modelo deve ser concentrada no instante atual. No conjunto LDMOS analisado, um modelo completo com $(P_0,P_1,P_2)=(5,5,5)$ atingiu NMSE de $-38{,}47$ dB, mas a an\'alise da energia dos coeficientes indicou decaimento monot\^onico ao longo dos atrasos. A sensibilidade do NMSE tamb\'em confirmou esse comportamento: ao variar cada ramo isoladamente entre 1 e 5, o ganho associado a $P_0$ foi de 6,66 dB, enquanto $P_1$ e $P_2$ produziram ganhos de 3,43 dB e 1,49 dB, respectivamente.
+
+\begin{table}[t]
+  \caption{Comparativo de desempenho para diferentes configura\c{c}\~oes de ordem.}
+  \label{tab:nmse}
+  \centering
+  \begin{tabular}{>{\centering\arraybackslash}p{1.6cm} c c c}
+    \toprule
+    \textbf{Config.} & \textbf{Coef.} & \textbf{NMSE GaN} & \textbf{NMSE LDMOS} \\
+    \midrule
+    $(1,1,1)$ & 3  & $-21{,}66$ dB & $-28{,}71$ dB \\
+    $(3,2,1)$ & 6  & $-25{,}53$ dB & $-34{,}75$ dB \\
+    $(4,3,2)$ & 9  & $-25{,}64$ dB & $-36{,}31$ dB \\
+    $(5,3,2)$ & 10 & $-25{,}49$ dB & $-37{,}00$ dB \\
+    $(5,5,5)$ & 15 & $-26{,}10$ dB & $-37{,}51$ dB \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+A Tabela~\ref{tab:nmse} evidencia que boa parte do ganho pode ser obtida com modelos intermedi\'arios, sem a necessidade de manter a ordem m\'axima em todos os atrasos. Configura\c{c}\~oes com ordens decrescentes preservam a tend\^encia observada e aproximam o desempenho do modelo completo.
+
+Na avalia\c{c}\~ao exaustiva de 125 combina\c{c}\~oes, modelos como $(3,2,1)$, $(4,3,2)$ e $(5,3,2)$ ofereceram o melhor compromisso entre n\'umero de coeficientes e desempenho. Em GaN e LDMOS, o par\^ametro $P_0$ foi o principal respons\'avel pela melhora do NMSE, enquanto atrasos mais antigos saturaram rapidamente em ordens menores.
+
+\section{Avalia\c{c}\~ao de Hardware e Pareto}
+A avalia\c{c}\~ao de s\'intese em VHDL comparou a arquitetura MP cl\'assica com a vers\~ao truncada com ordens dependentes do atraso. A vers\~ao $(5,3,2)$ reduz em cerca de 40\% os principais recursos de s\'intese, mantendo o NMSE pr\'oximo ao modelo completo.
+
+\begin{table}[t]
+  \caption{Compara\c{c}\~ao de recursos de hardware entre a arquitetura MP completa e as vers\~oes truncadas.}
+  \label{tab:hardware}
+  \centering
+  \begin{tabular}{p{2.2cm} c c c c}
+    \toprule
+    \textbf{Arquitetura} & \textbf{Coef.} & \textbf{Red.} & \textbf{C\'elulas} & \textbf{Regs.} \\
+    \midrule
+    MP completo $(5,5,5)$ & 15 & --- & 100\% & 100\% \\
+    MP truncado $(5,3,2)$ & 10 & 40\% & 60\% & 60\% \\
+    MP truncado $(4,3,2)$ & 9 & 40\% & 58\% & 58\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+A fronteira de Pareto entre complexidade de hardware e desempenho NMSE revela que $(4,3,2)$ e $(5,3,2)$ dominam o espa\c{c}o de solu\c{c}\~oes. Configura\c{c}\~oes com ordens maiores em atrasos menos relevantes exigem mais recursos sem ganhos proporcionais. Essa avalia\c{c}\~ao refor\c{c}a a premissa inicial e mostra que a redu\c{c}\~ao seletiva de ordem gera ganhos reais na implementa\c{c}\~ao digital.
+
+\begin{figure}[t]
+  \centering
+  \fbox{\parbox[c][3.0cm][c]{0.95\columnwidth}{\centering Inserir aqui a Figura 2\\Sensibilidade do NMSE \`as ordens $P_0$, $P_1$ e $P_2$.}}
+  \caption{Sensibilidade do NMSE \`as ordens $P_0$, $P_1$ e $P_2$, destacando a predomin\^ancia do instante atual.}
+  \label{fig:sensibilidade}
+\end{figure}
+
+Na implementa\c{c}\~ao em VHDL, a vers\~ao truncada manteve equival\^encia funcional com o modelo de refer\^encia em Python e apresentou redu\c{c}\~oes pr\'oximas de 40\% nas principais m\'etricas de s\'intese, incluindo \texttt{wires}, \texttt{wire bits}, c\'elulas e registradores. Esses resultados mostram que a redu\c{c}\~ao da ordem polinomial nos atrasos mais antigos n\~ao representa apenas economia algor\'itmica, mas tamb\'em simplifica\c{c}\~ao efetiva da arquitetura digital.
+
+\section{Conclus\~ao}
+O estudo confirma que o modelo MP com ordem polinomial dependente do atraso \`e uma alternativa eficiente para a modelagem comportamental de amplificadores de pot\^encia. A proposta preserva a precis\~ao do MP cl\'assico, reduz o n\'umero de termos necess\'arios e favorece implementa\c{c}\~oes digitais mais compactas. Como consequ\^encia, o trabalho oferece uma base promissora para aplica\c{c}\~oes de pr\'e-distor\c{c}\~ao digital com restri\c{c}\~oes de \`area e consumo, mantendo consist\^encia tanto na avalia\c{c}\~ao em software quanto na valida\c{c}\~ao em VHDL.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{Referencias}
+
+\end{document}
