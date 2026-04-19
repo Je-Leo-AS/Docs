@@ -203,6 +203,14 @@ Os experimentos mostraram que a complexidade do modelo deve ser concentrada no i
 
 Esse resultado é relevante porque mostra que o melhor desempenho absoluto não coincide necessariamente com a configuração mais eficiente. Embora a configuração completa ainda seja a referência de maior acurácia, a diferença entre ela e modelos truncados bem escolhidos torna-se relativamente pequena quando comparada à redução de complexidade obtida. Em outras palavras, parte expressiva da capacidade de modelagem já é capturada por um conjunto reduzido de termos, desde que a distribuição das ordens respeite a importância relativa de cada atraso.
 
+Além do NMSE no domínio do tempo, a análise espectral reforça essa interpretação. Quando se observa a densidade espectral de potência dos sinais envolvidos, nota-se que as configurações com melhor desempenho reduzem o erro de modelagem também nas regiões adjacentes à banda principal, o que é particularmente relevante para aplicações de pré-distorção digital. A evidência espectral mostra que o aumento de ordem em ramos mais importantes desloca o erro para níveis mais baixos, enquanto incrementos em atrasos menos relevantes produzem ganhos comparativamente modestos.
+
+#figure(
+  placement: top,
+  image("../Tese/template/Figuras/ev_bonus_psd_completo.png", width: 97%),
+  caption: [Comparação espectral entre o sinal de entrada, a saída medida do amplificador e os erros de modelagem para diferentes configurações de ordem.],
+)
+
 #figure(
   placement: top,
   image("../Tese/template/Figuras/ev2_sensibilidade_nmse.png", width: 97%),
