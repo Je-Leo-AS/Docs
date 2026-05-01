@@ -169,10 +169,10 @@ show outline.entry: it => {
 // Citations
 // ===============================================
 
-set cite(style: "associacao-brasileira-de-normas-tecnicas")
+set cite(style: "ieee")
 set bibliography(
   title: none, 
-  style: "associacao-brasileira-de-normas-tecnicas",
+  style: "ieee",
 )
 show bibliography: it => {
   align(heading(linguify("bibliography")),center)

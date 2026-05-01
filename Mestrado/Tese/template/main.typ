@@ -25,7 +25,7 @@
     Tecnologia, Universidade Federal do Paraná, como parte das exigências para obtenção do
     título de Mestre em Engenharia Elétrica.
 
-    Orientador: Eduardo Gonçalves de Lima
+    Orientadores: Eduardo Gonçalves de Lima, Sibilla Batista da Luz Franca
   ],
 
   keywords: ([DPD], [Polinômio de memória], [VHDL]),
@@ -945,7 +945,7 @@ linearização de amplificadores de potência com foco em implementação digita
 // REFERÊNCIAS  (usar o mesmo Referencias.bib copiado de Mestrado/Mestrado/)
 // ─────────────────────────────────────────────────────────────────────────────
 
-#bibliography("Referencias.bib")
+#bibliography("Referencias.bib", style: "ieee")
 
 // ─────────────────────────────────────────────────────────────────────────────
 // APÊNDICES
