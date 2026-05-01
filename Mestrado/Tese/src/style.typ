@@ -33,10 +33,23 @@ show heading : it =>{
     size:12pt,
     weight: if it.level < 3 {700} else {0}
   )
-  if it.level == 1 {pagebreak();upper(it)}
-  else if it.level == 4 {underline(it)}
-  else if it.level == 5 {emph(it)}
-  else {it}
+  if it.level == 1 {
+    pagebreak()
+    upper(it)
+    v(1.5em)
+  }
+  else if it.level == 4 {
+    underline(it)
+    v(1em)
+  }
+  else if it.level == 5 {
+    emph(it)
+    v(1em)
+  }
+  else {
+    it
+    v(1em)
+  }
 }
 
 // ===============================================
