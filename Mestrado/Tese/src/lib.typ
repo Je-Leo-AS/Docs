@@ -338,22 +338,21 @@ context if annexes-state.final() != () {
   note: none,
   ..figure-arguments
 ) = _default_figure(
-  block(body + {
+  block({
     set par(spacing: 0.5em, leading: 0.5em)
+    if source!=none{
+      strong(linguify("source") + ": ") + source
+      linebreak()
+    } else {
+      panic("Every figure needs a source. Try using `source: [your source (year)]` in the parameters")
+    }
+    body
     pad(y:-0.25em)[]
     if note!=none{ 
       _default_figure.caption(
         linguify("note") + ": " + note, 
         position: bottom
       )
-    }
-    if source!=none{
-      _default_figure.caption(
-        linguify("source") + ": " + source, 
-        position: bottom
-      )
-    } else {
-      panic("Every figure needs a source. Try using `source: [your source (year)]` in the parameters")
     }
   }),
   ..figure-arguments

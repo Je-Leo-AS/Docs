@@ -140,7 +140,7 @@ validação em software, também é investigada a implementação direta da estr
 == Objetivo Geral
 
 Investigar, em software Python, estruturas alternativas do modelo _Memory Polynomial_ (MP) para
-a modelagem matemática de amplificadores de potência (PA), com ênfase em abordagens que
+a modelagem matemática de PAs, com ênfase em abordagens que
 utilizam ordens polinomiais dependentes do atraso, avaliando o compromisso entre complexidade
 computacional e precisão do modelo.
 

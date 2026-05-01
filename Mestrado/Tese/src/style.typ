@@ -55,7 +55,7 @@ show heading : it =>{
 // ===============================================
 // Figures
 // ===============================================
-set figure.caption(position: top,separator: " - ")
+set figure.caption(position: bottom,separator: " - ")
 show figure: set text(size: 10pt)
 show figure: set par(spacing: 0.5em, leading: 0.5em)
 show figure.caption: set text(size: 10pt, weight: 700)
