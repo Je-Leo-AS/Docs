@@ -39,14 +39,17 @@ show heading : it =>{
     v(1.5em)
   }
   else if it.level == 4 {
+    v(1em)
     underline(it)
     v(1em)
   }
   else if it.level == 5 {
+    v(1em)
     emph(it)
     v(1em)
   }
   else {
+    v(1em)
     it
     v(1em)
   }

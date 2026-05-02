@@ -114,7 +114,7 @@ after logic synthesis.
 
 A evolução dos sistemas de comunicação móveis, impulsionada pela crescente demanda por
 comunicações mais rápidas e eficientes, tem levado à implementação de uma variedade de
-serviços, incluindo aplicações multimídia, desenvolvimento web e aplicações IoT @John2016. No
+serviços, incluindo aplicações multimídia, desenvolvimento web e aplicações IoT @Yu2024. No
 entanto, essa evolução também trouxe desafios significativos, como a necessidade de melhorar a
 eficiência energética, tanto para dispositivos móveis, visando aumentar a autonomia da bateria,
 quanto para estações de rádio base, visando reduzir o consumo de energia devido às perdas de
@@ -125,7 +125,7 @@ interferências na comunicação entre usuários vizinhos @Cripps2006.
 
 Essa complexa tarefa recai sobre o projetista do amplificador de potência de radiofrequência (PA),
 que enfrenta o desafio de desenvolver um hardware eficiente em termos energéticos e linear ao
-mesmo tempo, uma vez que esses dois objetivos podem entrar em conflito @Chavez2018. Uma
+mesmo tempo, uma vez que esses dois objetivos podem entrar em conflito @Cripps2006. Uma
 solução para contornar esse desafio é a implementação de um pré-distorcedor digital (DPD) em
 banda base, que visa compensar a distorção causada pelo PA @Cripps2006. O DPD é conectado em
 cascata ao PA e requer um modelo de alta precisão e baixa complexidade computacional para
@@ -213,7 +213,7 @@ resultando no surgimento de componentes espectrais fora da banda original do sin
 #figure(
   image("Figuras/comportamento passa banda.png", width: 100%),
   caption: [Exemplo de distorção no espectro de Frequência do PARF],
-  source: [#cite(<Luiza2016>, form: "prose")],
+  source: [#cite(<Pedro2005>, form: "prose")],
 ) <fig:comportamentopassabanda>
 
 Esse espalhamento espectral é particularmente indesejável em sistemas de comunicação sem fio,
@@ -239,7 +239,7 @@ envoltória do sinal, comprometendo sua integridade e degradando a qualidade da 
 
 A série de Volterra constitui uma extensão da série de Taylor para a representação de sistemas
 não lineares dinâmicos com memória, sendo amplamente utilizada na modelagem de amplificadores
-de potência @GonalvesdeLima2009. Por meio dessa abordagem, a saída do sistema é expressa
+de potência @Pedro2005. Por meio dessa abordagem, a saída do sistema é expressa
 como uma combinação de integrais múltiplas envolvendo o sinal de entrada e núcleos que
 caracterizam o comportamento do sistema em diferentes ordens de não linearidade.
 
@@ -259,7 +259,7 @@ considerados.
 
 O modelo de polinômio com memória (_Memory Polynomial_ --- MP) surge como uma simplificação
 da série de Volterra, obtida pela consideração apenas dos termos diagonais, isto é, daqueles que
-compartilham o mesmo atraso temporal @Schuartz2017. Essa simplificação reduz
+compartilham o mesmo atraso temporal @Kim2001. Essa simplificação reduz
 significativamente a complexidade do modelo, ao mesmo tempo em que preserva a capacidade de
 representar não linearidades e efeitos de memória de forma satisfatória para uma ampla classe de
 amplificadores de potência.
@@ -302,7 +302,7 @@ não lineares e sujeitos a efeitos de memória, decorrentes tanto da natureza do
 larga aplicados quanto das não linearidades impostas pelos circuitos internos do amplificador.
 Sistemas desse tipo podem ser representados matematicamente por meio da série de Volterra.
 
-Uma característica importante da série de Volterra, conforme destacado em @GonalvesdeLima2009,
+Uma característica importante da série de Volterra, conforme destacado em @Pedro2005,
 é sua linearidade em relação aos parâmetros, o que permite a estimação dos coeficientes do modelo
 por meio de técnicas de identificação linear, como o método dos mínimos quadrados. No entanto, o
 número de parâmetros da série de Volterra cresce rapidamente com o aumento da ordem do
@@ -331,7 +331,7 @@ diagrama de blocos do modelo MP.
 #figure(
   image("Figuras/mp_padrao.png", width: 75%),
   caption: [Diagrama de blocos do modelo MP],
-  source: [#cite(<Luiza2016>, form: "prose")],
+  source: [#cite(<Kim2001>, form: "prose")],
 ) <fig:mp_padrao>
 
 === Polinômio com Memória com Truncamento Polinomial Dependente do Atraso
@@ -468,7 +468,7 @@ comportamental. Quanto menor o valor desse erro, maior é a precisão do modelo 
 
 Para a análise do desempenho dos modelos implementados, realiza-se a avaliação do sinal de erro
 por meio do _Normalized Mean Square Error_ (NMSE) --- Erro Quadrático Médio Normalizado
-@Bonfim2016. Matematicamente, o NMSE é definido por:
+@Muha1999. Matematicamente, o NMSE é definido por:
 
 $ "NMSE" = 10 log_(10) lr(( frac(
   sum_(n=1)^(N) |e(n)|^2,
@@ -485,8 +485,7 @@ realizadas em um amplificador de potência classe AB, do tipo HEMT, fabricado co
 O amplificador foi excitado por um sinal portador com frequência central de 900~MHz, modulado por
 um sinal de envoltória WCDMA conforme o padrão 3GPP, com largura de banda aproximada de
 3,84~MHz. Os sinais de entrada e saída do amplificador foram adquiridos utilizando um analisador
-vetorial de sinais (VSA) da Rohde & Schwarz, com taxa de amostragem de 61,44~MHz, conforme
-disponibilizado em @Bonfim2016.
+vetorial de sinais (VSA) da Rohde & Schwarz, com taxa de amostragem de 61,44~MHz.
 
 == Modelagem do PA com MP original
 
