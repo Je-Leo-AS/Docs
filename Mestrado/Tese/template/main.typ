@@ -1003,3 +1003,8 @@ linearização de amplificadores de potência com foco em implementação digita
   include "assets/apendice_resultados_mp.typ",
   [Resultados completos dos modelos MP]
 )
+
+#appendix(
+  include "assets/apendice_codigo_fonte.typ",
+  [Código-fonte do trabalho]
+)
