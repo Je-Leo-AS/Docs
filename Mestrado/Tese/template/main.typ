@@ -667,7 +667,7 @@ indicando que a distribuição da ordem polinomial entre os atrasos exerce papel
 acurácia do modelo.
 
 #figure(
-  image("Figuras/desempenho125modelos.png", width: 50%),
+  image("Figuras/desempenho125modelos.png", width: 75%),
   caption: [Desempenho dos 125 modelos MP com ordem dependente do atraso],
   source: [Autor],
 ) <fig:desempenho125modelos>
@@ -680,19 +680,19 @@ memória sobre o desempenho do modelo. As @fig:influenciap0, @fig:influenciap1 e
 atrasos $m=0$, $m=1$ e $m=2$, respectivamente, considerando todos os modelos avaliados.
 
 #figure(
-  image("Figuras/influenciap0.png", width: 50%),
+  image("Figuras/influenciap0.png", width: 75%),
   caption: [Influência da ordem polinomial no instante atual ($P_0$)],
   source: [Autor],
 ) <fig:influenciap0>
 
 #figure(
-  image("Figuras/influenciap1.png", width: 50%),
+  image("Figuras/influenciap1.png", width: 75%),
   caption: [Influência da ordem polinomial no atraso $m=1$ ($P_1$)],
   source: [Autor],
 ) <fig:influenciap1>
 
 #figure(
-  image("Figuras/influenciap2.png", width: 50%),
+  image("Figuras/influenciap2.png", width: 75%),
   caption: [Influência da ordem polinomial no atraso $m=2$ ($P_2$)],
   source: [Autor],
 ) <fig:influenciap2>
@@ -709,19 +709,19 @@ $P_0$, $P_1$ e $P_2$. Esses gráficos permitem visualizar como a alocação da c
 os diferentes atrasos afeta o desempenho global do modelo.
 
 #figure(
-  image("Figuras/nmsecomplexp0.png", width: 50%),
+  image("Figuras/nmsecomplexp0.png", width: 75%),
   caption: [NMSE em função da complexidade, destacando a ordem $P_0$],
   source: [Autor],
 ) <fig:nmsecomplexp0>
 
 #figure(
-  image("Figuras/nmsecomplexp1.png", width: 50%),
+  image("Figuras/nmsecomplexp1.png", width: 75%),
   caption: [NMSE em função da complexidade, destacando a ordem $P_1$],
   source: [Autor],
 ) <fig:nmsecomplexp1>
 
 #figure(
-  image("Figuras/nmsecomplexp2.png", width: 50%),
+  image("Figuras/nmsecomplexp2.png", width: 75%),
   caption: [NMSE em função da complexidade, destacando a ordem $P_2$],
   source: [Autor],
 ) <fig:nmsecomplexp2>
@@ -737,7 +737,7 @@ a esse conjunto, reforçando a hipótese de que a complexidade do modelo deve se
 alocada no instante atual, com redução progressiva da ordem polinomial para atrasos mais antigos.
 
 #figure(
-  image("Figuras/modelosdecrecenteatraso.png", width: 50%),
+  image("Figuras/modelosdecrecenteatraso.png", width: 75%),
   caption: [Modelos com ordens polinomiais decrescentes ao longo dos atrasos],
   source: [Autor],
 ) <fig:modelosdecrecenteatraso>
@@ -762,7 +762,7 @@ associada ao instante atual, enquanto os efeitos de memória contribuem de forma
 significativa e saturam com ordens polinomiais reduzidas.
 
 #figure(
-  image("Figuras/fronteiradepareto.png", width: 50%),
+  image("Figuras/fronteiradepareto.png", width: 75%),
   caption: [Fronteira de Pareto para os modelos MP com ordem dependente do atraso],
   source: [Autor],
 ) <fig:fronteiradepareto>
@@ -906,13 +906,13 @@ igual a 0,95 proporcionou melhor aproveitamento da faixa dinâmica do modelo e m
 visual de linearização.
 
 #figure(
-  image("Figuras/AM-AM.png", width: 85%),
+  image("Figuras/AM-AM.png", width: 75%),
   caption: [Características AM-AM do sistema DPD + PA. A cascata final apresenta resposta mais próxima de uma relação linear em comparação ao PA isolado.],
   source: [Autor],
 ) <fig:am-am-dpd-pa>
 
 #figure(
-  image("Figuras/AM-PM.png", width: 85%),
+  image("Figuras/AM-PM.png", width: 75%),
   caption: [Características AM-PM do sistema DPD + PA. Observa-se redução da distorção de fase dependente da amplitude após a aplicação do DPD.],
   source: [Autor],
 ) <fig:am-pm-dpd-pa>
