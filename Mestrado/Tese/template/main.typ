@@ -194,7 +194,9 @@ polinomiais com memória e as redes neurais artificiais. Embora as redes neurais
 elevada capacidade de aproximação, sua implementação pode acarretar maior complexidade
 computacional. Neste trabalho, opta-se por modelos baseados em simplificações da série de
 Volterra, priorizando estruturas polinomiais devido ao seu compromisso favorável entre capacidade
-de modelagem e custo computacional.
+de modelagem e custo computacional, como observado em extensões do polinômio com memória
+generalizado @Morgan2006 e em formulações polinomiais aplicadas a cenários de identificação
+não linear mais amplos @Li2021.
 
 == Amplificadores de Potência em RF
 
@@ -275,6 +277,30 @@ coeficientes por meio de técnicas de otimização convencionais. Além disso, e
 boa eficácia na representação de amplificadores de potência com efeitos de memória moderados,
 sendo amplamente empregado em aplicações de pré-distorção digital.
 
+Para o modelo MP original adotado como referência neste trabalho, considera-se ordem polinomial
+$P = 5$ e profundidade de memória $M = 2$, resultando em 15 coeficientes complexos. Nessa
+configuração, a @eq:mp pode ser organizada em três blocos de memória:
+
+$ y(n) =
+  bold(h)_0^T bold(phi)_0(n)
+  + bold(h)_1^T bold(phi)_1(n - 1)
+  + bold(h)_2^T bold(phi)_2(n - 2) $ <eq:mp-original-p5-m2>
+
+em que cada bloco contém cinco coeficientes e cinco termos polinomiais:
+
+$ bold(h)_m^T = mat(h_(1,m), h_(2,m), h_(3,m), h_(4,m), h_(5,m)) $ <eq:coeficientes-bloco-mp>
+
+$ bold(phi)_m(n - m) = mat(
+  x(n - m);
+  x(n - m)|x(n - m)|;
+  x(n - m)|x(n - m)|^2;
+  x(n - m)|x(n - m)|^3;
+  x(n - m)|x(n - m)|^4
+) $ <eq:termos-bloco-mp>
+
+Assim, para $m in {0, 1, 2}$, a estrutura total do MP original é composta por três vetores
+de coeficientes, cada um com cinco elementos, totalizando 15 coeficientes.
+
 Observa-se que, na formulação tradicional do modelo MP, a ordem polinomial máxima $P$ é adotada
 de forma uniforme para todos os termos de memória, independentemente do atraso considerado.
 Essa restrição, embora simplifique a estrutura do modelo, não é imposta pela formulação original da
@@ -289,7 +315,10 @@ altas taxas de amostragem, torna-se fundamental explorar arquiteturas eficientes
 paralelização das operações aritméticas. Nesse contexto, a implementação em VHDL do modelo MP
 com truncamento polinomial dependente do atraso permite avaliar de forma direta se a redução de
 complexidade observada em software se traduz em menor utilização de recursos em hardware
-digital, preservando a equivalência funcional do modelo.
+digital, preservando a equivalência funcional do modelo. Trabalhos voltados à implementação de
+pré-distorcedores em FPGA @Kwan2012 e à análise de compromissos de hardware em séries de
+Volterra podadas @Talemwa2025 reforçam a importância de tratar desempenho de modelagem e
+custo estrutural de forma conjunta.
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Material e Métodos
@@ -318,7 +347,8 @@ O modelo MP pode ser interpretado como uma extensão do modelo polinomial estát
 incorporando efeitos de memória por meio de uma forma reduzida da série de Volterra. Nessa
 abordagem, apenas produtos de amostras correspondentes ao mesmo instante de tempo são
 considerados. Matematicamente, o modelo MP é descrito pela @eq:mp, na qual todos os polinômios
-que compõem o modelo possuem a mesma ordem @Kim2001.
+que compõem o modelo possuem a mesma ordem @Kim2001. A configuração original utilizada
+como referência experimental neste trabalho é dada pela @eq:mp-original-p5-m2.
 
 Entre as principais características do modelo MP, destaca-se o fato de que ele é baseado em
 multiplicações de sinais avaliados no mesmo instante de tempo, como $tilde(x)(n)|tilde(x)(n)|$ e
@@ -537,14 +567,19 @@ Um modelo MP completo com $P_0 = P_1 = P_2 = 5$ foi treinado, atingindo NMSE de
 $-38,47$ dB. A energia de cada ramo foi obtida a partir da soma dos módulos quadráticos dos
 coeficientes associados a cada atraso.
 
-#table(
-  columns: (auto, auto, auto),
-  align: center,
-  table.header([*Atraso m*], [*Energia $E_m$*], [*Relativa a $m = 0$*]),
-  [$m = 0$], [20,5751], [100,0%],
-  [$m = 1$], [13,7146], [66,7%],
-  [$m = 2$], [4,8489], [23,6%],
-)
+#figure(
+  kind: table,
+  caption: [Energia dos coeficientes por ramo de memória para o modelo MP completo.],
+  source: [Autor],
+  table(
+    columns: (auto, auto, auto),
+    align: center,
+    table.header([*Atraso m*], [*Energia $E_m$*], [*Relativa a $m = 0$*]),
+    [$m = 0$], [20,5751], [100,0%],
+    [$m = 1$], [13,7146], [66,7%],
+    [$m = 2$], [4,8489], [23,6%],
+  ),
+) <tab:energia-ramos-memoria>
 
 #figure(
   image("Figuras/ev1_magnitude_coeficientes.png", width: 85%),
@@ -552,10 +587,10 @@ coeficientes associados a cada atraso.
   source: [Autor],
 ) <fig:ev1-magnitude-coeficientes>
 
-Os resultados mostram um decaimento monotônico da energia com o atraso, indicando que os ramos
-mais antigos contribuem progressivamente menos para o comportamento não linear do sistema.
-Esse resultado fornece evidência física direta para a adoção de ordens polinomiais decrescentes ao
-longo da memória.
+A @tab:energia-ramos-memoria mostra um decaimento monotônico da energia com o atraso,
+indicando que os ramos mais antigos contribuem progressivamente menos para o comportamento
+não linear do sistema. Esse resultado fornece evidência física direta para a adoção de ordens
+polinomiais decrescentes ao longo da memória.
 
 === Evidência 2: sensibilidade do NMSE a $P_0$, $P_1$ e $P_2$
 
@@ -563,14 +598,19 @@ Para isolar a contribuição de cada parâmetro, dois ramos foram mantidos com o
 terceiro variou entre 1 e 5. O ponto de partida comum foi o modelo $(1,1,1)$, com NMSE de
 $-28,71$ dB.
 
-#table(
-  columns: (auto, auto, auto, auto),
-  align: center,
-  table.header([*Parâmetro variado*], [*NMSE em $P=1$*], [*NMSE em $P=5$*], [*Δ NMSE*]),
-  [$P_0$], [$-28,71$ dB], [$-35,36$ dB], [*6,66 dB*],
-  [$P_1$], [$-28,71$ dB], [$-32,14$ dB], [3,43 dB],
-  [$P_2$], [$-28,71$ dB], [$-30,20$ dB], [1,49 dB],
-)
+#figure(
+  kind: table,
+  caption: [Sensibilidade do NMSE à variação individual das ordens polinomiais.],
+  source: [Autor],
+  table(
+    columns: (auto, auto, auto, auto),
+    align: center,
+    table.header([*Parâmetro variado*], [*NMSE em $P=1$*], [*NMSE em $P=5$*], [*Δ NMSE*]),
+    [$P_0$], [$-28,71$ dB], [$-35,36$ dB], [*6,66 dB*],
+    [$P_1$], [$-28,71$ dB], [$-32,14$ dB], [3,43 dB],
+    [$P_2$], [$-28,71$ dB], [$-30,20$ dB], [1,49 dB],
+  ),
+) <tab:sensibilidade-nmse-ordens>
 
 #figure(
   image("Figuras/ev2_sensibilidade_nmse.png", width: 85%),
@@ -734,50 +774,59 @@ avaliação foi aplicado a dois conjuntos de dados distintos: um PA GaN HEMT e u
 Em ambos os conjuntos, foram testadas as 125 combinações possíveis de ordens $(P_0, P_1, P_2)$
 com $M = 2$, mantendo o mesmo _pipeline_ de treinamento e validação.
 
-#table(
-  columns: (auto, auto, auto, auto),
-  align: center,
-  table.header(
-    [*Métrica*],
-    [*Conjunto 1 — GaN*],
-    [*Conjunto 2 — LDMOS*],
-    [*Diferença (dB)*],
+#figure(
+  kind: table,
+  caption: [Comparação estatística do desempenho dos modelos MP nos conjuntos GaN e LDMOS.],
+  source: [Autor],
+  table(
+    columns: (auto, auto, auto),
+    align: center,
+    table.header(
+      [*Métrica*],
+      [*Conjunto 1 — GaN*],
+      [*Conjunto 2 — LDMOS*],
+    ),
+    [NMSE melhor modelo], [-26,11 dB], [-37,53 dB],
+    [NMSE pior modelo], [-21,41 dB], [-28,71 dB],
+    [NMSE médio], [-25,21 dB], [-35,20 dB],
+    [Modelo P\=[1,1,1] (3 coef.)], [-21,66 dB], [-28,71 dB],
+    [Modelo P\=[3,3,3] (9 coef.)], [-25,95 dB], [-35,25 dB],
+    [Modelo P\=[5,5,5] (15 coef.)], [-26,10 dB], [-37,51 dB],
   ),
-  [NMSE melhor modelo], [-26,11 dB], [-37,53 dB], [11,42],
-  [NMSE pior modelo], [-21,41 dB], [-28,71 dB], [7,30],
-  [NMSE médio], [-25,21 dB], [-35,20 dB], [9,99],
-  [Modelo P\=[1,1,1] (3 coef.)], [-21,66 dB], [-28,71 dB], [7,05],
-  [Modelo P\=[3,3,3] (9 coef.)], [-25,95 dB], [-35,25 dB], [9,30],
-  [Modelo P\=[5,5,5] (15 coef.)], [-26,10 dB], [-37,51 dB], [11,41],
-)
+) <tab:generalizacao-estatisticas>
 
-Os resultados mostram que o conjunto LDMOS apresentou desempenho absoluto superior, com NMSE
-médio aproximadamente 10 dB mais negativo do que o conjunto GaN. Ainda assim, os padrões
-estruturais se mantiveram consistentes entre as duas tecnologias, indicando que a abordagem
-proposta é robusta frente a variações do dispositivo sob teste.
+A @tab:generalizacao-estatisticas mostra que o conjunto LDMOS apresentou desempenho absoluto
+superior, com NMSE médio aproximadamente 10 dB mais negativo do que o conjunto GaN. Ainda
+assim, os padrões estruturais se mantiveram consistentes entre as duas tecnologias, indicando que
+a abordagem proposta é robusta frente a variações do dispositivo sob teste.
 
-#table(
-  columns: (auto, auto, auto, auto, auto),
-  align: center,
-  table.header(
-    [*Ordens $(P_0, P_1, P_2)$*],
-    [*Nº coef.*],
-    [*NMSE GaN (dB)*],
-    [*NMSE LDMOS (dB)*],
-    [*Diferença (dB)*],
+#figure(
+  kind: table,
+  caption: [Desempenho de configurações representativas de ordens polinomiais nos conjuntos GaN e LDMOS.],
+  source: [Autor],
+  table(
+    columns: (auto, auto, auto, auto),
+    align: center,
+    table.header(
+      [*Ordens $(P_0, P_1, P_2)$*],
+      [*Nº coef.*],
+      [*NMSE GaN (dB)*],
+      [*NMSE LDMOS (dB)*],
+    ),
+    [\[3, 2, 1\]], [6], [-25,53], [-34,75],
+    [\[3, 3, 2\]], [8], [-25,60], [-35,24],
+    [\[4, 3, 2\]], [9], [-25,64], [-36,31],
+    [\[5, 3, 2\]], [10], [-25,49], [-37,00],
+    [\[5, 4, 3\]], [12], [-26,07], [-37,44],
+    [\[5, 5, 5\]], [15], [-26,10], [-37,51],
   ),
-  [\[3, 2, 1\]], [6], [-25,53], [-34,75], [9,22],
-  [\[3, 3, 2\]], [8], [-25,60], [-35,24], [9,64],
-  [\[4, 3, 2\]], [9], [-25,64], [-36,31], [10,67],
-  [\[5, 3, 2\]], [10], [-25,49], [-37,00], [11,51],
-  [\[5, 4, 3\]], [12], [-26,07], [-37,44], [11,37],
-  [\[5, 5, 5\]], [15], [-26,10], [-37,51], [11,41],
-)
+) <tab:generalizacao-configuracoes>
 
-Em ambos os conjuntos, a ordem $P_0$ permaneceu como principal determinante de desempenho, e
-os modelos com distribuição decrescente $P_0 >= P_1 >= P_2$ concentraram as melhores soluções.
-Além disso, o ganho marginal obtido ao ultrapassar a faixa de 9 a 10 coeficientes mostrou-se
-reduzido nas duas tecnologias, indicando saturação de desempenho em baixas complexidades.
+Como detalhado na @tab:generalizacao-configuracoes, em ambos os conjuntos a ordem $P_0$
+permaneceu como principal determinante de desempenho, e os modelos com distribuição
+decrescente $P_0 >= P_1 >= P_2$ concentraram as melhores soluções. Além disso, o ganho
+marginal obtido ao ultrapassar a faixa de 9 a 10 coeficientes mostrou-se reduzido nas duas
+tecnologias, indicando saturação de desempenho em baixas complexidades.
 
 == Implementação em VHDL do modelo MP com ordem dependente do atraso
 

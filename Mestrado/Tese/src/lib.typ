@@ -337,8 +337,9 @@ context if annexes-state.final() != () {
   source: none,
   note: none,
   ..figure-arguments
-) = _default_figure(
-  block({
+) = {
+  _default_figure(
+  block(breakable: false, {
     set par(spacing: 0.5em, leading: 0.5em)
     if source!=none{
       strong(linguify("source") + ": ") + source
@@ -346,8 +347,9 @@ context if annexes-state.final() != () {
     } else {
       panic("Every figure needs a source. Try using `source: [your source (year)]` in the parameters")
     }
+    v(1.0em)
     body
-    pad(y:-0.25em)[]
+    v(1.0em)
     if note!=none{ 
       _default_figure.caption(
         linguify("note") + ": " + note, 
@@ -357,6 +359,7 @@ context if annexes-state.final() != () {
   }),
   ..figure-arguments
 )
+}
 
 #let _default_table = table
 #let abnt-table(..table-args) =  _default_table(inset: 0em, gutter: 0em, stroke: none, fill:none, context{
@@ -388,6 +391,8 @@ context if annexes-state.final() != () {
         (conclusão)<_table-conclusion-header>
       ]<_multi-page-table-header>])))
     ),
+    inset: 3pt,
+    fill: (_, y) => if y == 0 { rgb("#d9d9d9") } else if calc.rem(y, 2) == 0 { rgb("#f2f2f2") } else { white },
     ..table-args,
   )
 })

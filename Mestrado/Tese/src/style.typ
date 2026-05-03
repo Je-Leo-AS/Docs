@@ -61,6 +61,10 @@ show heading : it =>{
 set figure.caption(position: bottom,separator: " - ")
 show figure: set text(size: 10pt)
 show figure: set par(spacing: 0.5em, leading: 0.5em)
+show figure: it => {
+  it
+  v(1.0em)
+}
 show figure.caption: set text(size: 10pt, weight: 700)
 
 
@@ -74,7 +78,7 @@ show figure.where(kind: "frame"): set figure(supplement: linguify("frame"))
 
 show figure.where(kind:"frame") : it => {
   set table(stroke: 0.5pt)
-  set block(breakable: true)
+  set block(breakable: false)
   it  
 }
 
@@ -85,8 +89,10 @@ show figure.where(kind:"frame") : it => {
 show figure.where(kind:table) : it => {
   set table(stroke: 0.5pt)
   set table.header(repeat: true)
-  set block(breakable: true)
+  set block(breakable: false)
   set table(
+    inset: 3pt,
+    fill: (_, y) => if y == 0 { rgb("#d9d9d9") } else if calc.rem(y, 2) == 0 { rgb("#f2f2f2") } else { white },
     stroke: (_, y) => (
        top: if y < 1 { 0.5pt } else { 0pt },
        bottom: 0.5pt,
