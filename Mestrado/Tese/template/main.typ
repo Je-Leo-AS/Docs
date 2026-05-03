@@ -248,7 +248,7 @@ caracterizam o comportamento do sistema em diferentes ordens de não linearidade
 Matematicamente, a saída $y(t)$ de um sistema descrito pela série de Volterra pode ser expressa
 como:
 
-$ y(t) = h_0 + sum_(n=1)^(infinity) integral_(-infinity)^(infinity) "cdots" integral_(-infinity)^(infinity) h_n (tau_1, dots.c, tau_n) product_(i=1)^(n) x(t - tau_i) , d tau_i $ <eq:Volterra>
+$ y(t) = h_0 + sum_(n=1)^(infinity) integral_(-infinity)^(infinity) dots.c integral_(-infinity)^(infinity) h_n (tau_1, dots.c, tau_n) product_(i=1)^(n) x(t - tau_i) , d tau_i $ <eq:Volterra>
 
 em que $h_n (tau_1, dots.c, tau_n)$ representa o núcleo de Volterra de ordem $n$, responsável por
 descrever os efeitos não lineares e de memória do sistema. Embora a série de Volterra forneça uma
