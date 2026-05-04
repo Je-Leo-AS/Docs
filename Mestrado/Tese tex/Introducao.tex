@@ -1,0 +1,22 @@
+A evolução dos sistemas de comunicação móveis, impulsionada pela crescente demanda por comunicações mais rápidas e eficientes, tem levado à implementação de uma variedade de serviços, incluindo aplicações multimídia, desenvolvimento web e aplicações IoT \cite{John2016}. No entanto, essa evolução também trouxe desafios significativos, como a necessidade de melhorar a eficiência energética, tanto para dispositivos móveis, visando aumentar a autonomia da bateria, quanto para estações de rádio base, visando reduzir o consumo de energia devido às perdas de calor. Para atender a essas demandas, estratégias de modulação que alteram tanto a fase quanto a amplitude de ondas portadoras em radiofrequência se tornaram essenciais \cite{Kenington2000}. Além disso, a modulação na amplitude requer linearidade na transmissão para evitar erros e interferências na comunicação entre usuários vizinhos \cite{Cripps2006}. Essa complexa tarefa recai sobre o projetista do amplificador de potência de radiofrequência (PA), que enfrenta o desafio de desenvolver um hardware eficiente em termos energéticos e linear ao mesmo tempo, uma vez que esses dois objetivos podem entrar em conflito \cite{Chavez2018}. Uma solução para contornar esse desafio é a implementação de um pré-distorcedor digital (DPD) em banda base, que visa compensar a distorção causada pelo PA \cite{Cripps2006}. O DPD é conectado em cascata ao PA e requer um modelo de alta precisão e baixa complexidade computacional para representar as características de transferência direta e inversa do amplificador.
+
+Existem diversas abordagens para modelar o PA. Neste projeto, adota-se uma modelagem híbrida, combinando polinômios e tabelas de consulta (LUT). Especificamente, para amostras atuais — em que a ordem polinomial necessária é alta —, prioriza-se o uso de LUT; para amostras passadas — com ordens polinomiais menores —, mantém-se o emprego de polinômios. Será realizada uma comparação entre as abordagens puramente polinomial, puramente baseada em LUT e a abordagem híbrida, avaliando-se complexidade computacional e precisão de modelagem.
+
+Neste contexto, este projeto foi planejado com os objetivos detalhados a seguir.
+
+\section{Objetivo Geral}
+Investigar, em software Python, estruturas alternativas do modelo \textit{Memory Polynomial} (MP) para a modelagem matemática de amplificadores de potência (PA), com ênfase em abordagens que utilizam ordens polinomiais dependentes do atraso, avaliando o compromisso entre complexidade computacional e precisão do modelo.
+
+\section{Objetivos Específicos}
+Para alcançar o objetivo geral, este trabalho foi desenvolvido com base nos seguintes objetivos específicos:
+\begin{enumerate}
+    \item Implementar, em software Python, o modelo \textit{Memory Polynomial} tradicional para a modelagem comportamental de amplificadores de potência;
+    
+    \item Desenvolver e implementar uma variação do modelo MP com ordens polinomiais dependentes do atraso, permitindo truncamentos polinomiais distintos para cada ramo de memória;
+    
+    \item Avaliar o desempenho dos modelos propostos por meio de métricas de erro, com ênfase no \textit{Normalized Mean Square Error} (NMSE);
+    
+    \item Analisar a relação entre a complexidade estrutural dos modelos, expressa pelo número de coeficientes, e a precisão obtida, por meio de uma abordagem de otimização multiobjetivo baseada na fronteira de Pareto;
+    
+    \item Identificar configurações de modelos MP que apresentem melhor compromisso entre desempenho e complexidade, visando futuras implementações eficientes.
+\end{enumerate}

@@ -1,0 +1,144 @@
+Este capítulo apresenta os resultados obtidos a partir da validação inicial das estruturas de modelagem propostas na Seção~3.2, com foco na caracterização do desempenho do modelo \textit{Memory Polynomial} (MP) clássico aplicado à modelagem comportamental de um amplificador de potência real. Adicionalmente, são discutidas as alterações conceituais introduzidas pela abordagem proposta neste trabalho, bem como as etapas subsequentes previstas para sua validação completa.
+
+Nesta versão preliminar da dissertação, os resultados concentram-se exclusivamente na modelagem do PA utilizando o modelo MP tradicional em aritmética de ponto flutuante. As análises relacionadas ao modelo MP com truncamento polinomial dependente do atraso, bem como às arquiteturas híbridas baseadas em tabelas de consulta (LUTs), ainda se encontram em fase de implementação e serão objeto de estudo aprofundado na versão final deste trabalho.
+
+A validação dos resultados apresentados é realizada por meio da análise do erro entre o sinal de saída medido do amplificador de potência (PA) real e o sinal de saída estimado pelo modelo comportamental. Quanto menor o valor desse erro, maior é a precisão do modelo considerado.
+
+Para a análise do desempenho dos modelos implementados, realiza-se a avaliação do sinal de erro por meio do \textit{Normalized Mean Square Error} (NMSE) — Erro Quadrático Médio Normalizado \cite{Bonfim2016}. Matematicamente, o NMSE é definido por
+\begin{equation}
+\mathrm{NMSE} = 10 \log_{10} \left(
+\frac{\sum_{n=1}^{N} |e(n)|^2}
+{\sum_{n=1}^{N} |y_{\mathrm{real}}(n)|^2}
+\right),
+\label{eq:nmse}
+\end{equation}
+em que $y_{\mathrm{real}}(n)$ representa a amostra do sinal de saída do PA real no instante $n$, $e(n)$ corresponde ao erro entre o sinal de saída real e o sinal de saída estimado pelo modelo, definido como $e(n) = y_{\mathrm{real}}(n) - y_{\mathrm{model}}(n)$, e $N$ é o número total de amostras consideradas na análise.
+
+Os dados utilizados na validação dos modelos são provenientes de medições experimentais realizadas em um amplificador de potência classe AB, do tipo HEMT, fabricado com tecnologia GaN. O amplificador foi excitado por um sinal portador com frequência central de 900~MHz, modulado por um sinal de envoltória WCDMA conforme o padrão 3GPP, com largura de banda aproximada de 3{,}84~MHz. Os sinais de entrada e saída do amplificador foram adquiridos utilizando um analisador vetorial de sinais (VSA) da Rohde \& Schwarz, com taxa de amostragem de 61{,}44~MHz, conforme disponibilizado em \cite{Bonfim2016}.
+
+\section{Modelagem do PA com MP original}
+
+Nesta seção são apresentados os resultados da modelagem comportamental do amplificador de potência (PA) utilizando o modelo \textit{Memory Polynomial} (MP) original, conforme descrito no Capítulo~\ref{chap:mati}. Esta etapa tem como principal objetivo estabelecer uma referência de desempenho (\textit{baseline}) que servirá de comparação para as abordagens alternativas propostas neste trabalho, em especial o modelo MP com truncamento polinomial dependente do atraso.
+
+A implementação do modelo foi realizada em ambiente Python, empregando aritmética em vírgula flutuante, com o intuito de avaliar o desempenho do MP em um cenário de alta precisão numérica, sem restrições impostas por quantização ou limitações de hardware. Essa escolha permite isolar os efeitos da estrutura do modelo, garantindo que eventuais limitações observadas estejam associadas predominantemente à capacidade de representação do modelo MP, e não a aspectos relacionados à implementação ou à aritmética utilizada.
+
+A Figura~\ref{fig:modelopafloat} apresenta o diagrama representativo do modelo do PA implementado em vírgula flutuante. Nessa etapa, o foco foi validar a capacidade do modelo MP clássico em representar o comportamento não linear e com memória do PA a partir de dados reais de entrada e saída, conforme descrito no capítulo anterior.
+
+\begin{figure}[htpb!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/modelopafloat.png}
+    \caption{Modelo do PA com MP Original}
+    \label{fig:modelopafloat}
+\end{figure}
+
+A identificação dos coeficientes do modelo foi realizada por meio de um procedimento de otimização numérica, utilizando métodos de mínimos quadrados aplicados à formulação do erro entre o sinal de saída real do PA e o sinal estimado pelo modelo. Após o processo de identificação, o desempenho do modelo foi avaliado em um conjunto de dados distinto daquele utilizado na etapa de estimação dos coeficientes, de forma a evitar sobreajuste.
+
+Para a configuração considerada, o modelo MP original alcançou um valor de \textit{Normalized Mean Square Error} (NMSE) igual a $-26{,}7$~dB, evidenciando uma boa capacidade de aproximação do comportamento do amplificador de potência real em regime de banda larga. Esse resultado confirma a adequação do modelo MP clássico como referência de desempenho e estabelece um ponto de comparação consistente para a avaliação das estruturas alternativas propostas neste trabalho.
+
+\section{Avaliação do Modelo MP com Ordem Dependente do Atraso}
+
+Nesta seção é apresentada a avaliação do modelo \textit{Memory Polynomial} (MP) com ordem polinomial dependente do atraso. Diferentemente do modelo MP tradicional, no qual todos os ramos de memória utilizam uma mesma ordem polinomial máxima, a abordagem analisada permite que cada atraso possua um truncamento polinomial próprio. Tal estratégia visa investigar a influência individual da ordem polinomial associada a cada atraso no desempenho global do modelo.
+
+Para essa análise, foi considerada uma profundidade de memória $M = 2$, sendo avaliadas todas as combinações possíveis de ordens polinomiais $(P_0, P_1, P_2)$ variando de 1 a 5. Esse procedimento resultou em um total de 125 modelos distintos, todos treinados em ponto flutuante. Para cada modelo, foram registrados o valor do \textit{Normalized Mean Square Error} (NMSE) e a quantidade total de coeficientes utilizada.
+
+A Figura~\ref{fig:desempenho 125 modelos} apresenta o desempenho dos 125 modelos avaliados, cujos resultados completos estão disponíveis na Tabela~\ref{tab:resultados_completos_mp}, apresentada no Apêndice~\ref{ap:resultados_mp}, relacionando o NMSE com o número total de coeficientes. De maneira geral, observa-se que o aumento da quantidade de coeficientes tende a melhorar a precisão do modelo. Entretanto, nota-se que esse fator, isoladamente, não é determinante para a obtenção de melhores resultados. Modelos com complexidade semelhante podem apresentar desempenhos significativamente distintos, indicando que a distribuição da ordem polinomial entre os atrasos exerce papel fundamental na acurácia do modelo.
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/desempenho125modelos.png}
+    \caption{Desempenho dos 125 modelos MP com ordem dependente do atraso}
+    \label{fig:desempenho 125 modelos}
+\end{figure}
+
+\subsection{Influência da ordem polinomial nos respectivos atrasos}
+
+Nesta etapa, é analisada a influência individual da ordem polinomial associada a cada atraso de memória sobre o desempenho do modelo. As Figuras~\ref{fig:influenciap0}, \ref{fig:influenciap1} e \ref{fig:influenciap2} apresentam a relação entre o NMSE e a ordem polinomial correspondente aos atrasos $m=0$, $m=1$ e $m=2$, respectivamente, considerando todos os modelos avaliados.
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/influenciap0.png}
+    \caption{Influência da ordem polinomial no instante atual ($P_0$)}
+    \label{fig:influenciap0}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/influenciap1.png}
+    \caption{Influência da ordem polinomial no atraso $m=1$ ($P_1$)}
+    \label{fig:influenciap1}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/influenciap2.png}
+    \caption{Influência da ordem polinomial no atraso $m=2$ ($P_2$)}
+    \label{fig:influenciap2}
+\end{figure}
+
+Observa-se que o aumento da ordem polinomial associada ao instante atual ($P_0$) resulta em uma redução significativa do NMSE, evidenciando que a não linearidade dominante do amplificador está fortemente concentrada no instante atual. Em contrapartida, os atrasos mais antigos apresentam menor sensibilidade ao aumento da ordem polinomial, sendo que, para $P_2$, o impacto no desempenho é bastante limitado.
+
+As Figuras~\ref{fig:nmsecomplexp0}, \ref{fig:nmsecomplexp1} e \ref{fig:nmsecomplexp2} apresentam a relação entre o NMSE e a complexidade do modelo, destacando separadamente a influência das ordens polinomiais $P_0$, $P_1$ e $P_2$. Esses gráficos permitem visualizar como a alocação da complexidade entre os diferentes atrasos afeta o desempenho global do modelo.
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/nmsecomplexp0.png}
+    \caption{NMSE em função da complexidade, destacando a ordem $P_0$}
+    \label{fig:nmsecomplexp0}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/nmsecomplexp1.png}
+    \caption{NMSE em função da complexidade, destacando a ordem $P_1$}
+    \label{fig:nmsecomplexp1}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/nmsecomplexp2.png}
+    \caption{NMSE em função da complexidade, destacando a ordem $P_2$}
+    \label{fig:nmsecomplexp2}
+\end{figure}
+
+A partir dessa análise, conclui-se que a ordem polinomial associada ao instante atual ($P_0$) é o principal fator responsável pelo ganho de precisão do modelo. A alocação de ordens polinomiais elevadas em atrasos mais antigos não resulta em ganhos proporcionais de desempenho, o que indica uma contribuição marginal desses termos para a modelagem das não linearidades do sistema.
+
+Por fim, a Figura~\ref{fig:modelosdecrecenteatraso} apresenta os modelos que respeitam a relação $P_0 \geq P_1 \geq P_2$. Observa-se que grande parte dos modelos com melhor desempenho pertence a esse conjunto, reforçando a hipótese de que a complexidade do modelo deve ser prioritariamente alocada no instante atual, com redução progressiva da ordem polinomial para atrasos mais antigos.
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/modelosdecrecenteatraso.png}
+    \caption{Modelos com ordens polinomiais decrescentes ao longo dos atrasos}
+    \label{fig:modelosdecrecenteatraso}
+\end{figure}
+
+Esses resultados demonstram que modelos com menor quantidade total de coeficientes podem apresentar desempenho superior quando a complexidade é adequadamente distribuída entre os atrasos. Tal comportamento evidencia que não apenas a quantidade de coeficientes, mas principalmente a forma como estes são organizados estruturalmente no modelo MP, é determinante para a acurácia obtida.
+
+A análise da fronteira de Pareto, apresentada na Figura~\ref{fig:fronteiradepareto}, evidencia de forma clara o compromisso existente entre a complexidade estrutural do modelo e o desempenho obtido. Os modelos pertencentes à fronteira representam soluções eficientes, uma vez que não é possível melhorar o NMSE sem um aumento correspondente no número de coeficientes, ou reduzir a complexidade sem perda de desempenho.
+
+Observa-se que os modelos localizados na fronteira de Pareto apresentam, em sua maioria, distribuições de ordem polinomial concentradas no instante atual, com redução progressiva das ordens associadas aos atrasos mais antigos. Tal comportamento reforça os resultados apresentados anteriormente, indicando que a não linearidade dominante do sistema está majoritariamente associada ao instante atual, enquanto os efeitos de memória contribuem de forma menos significativa e saturam com ordens polinomiais reduzidas.
+
+\begin{figure}[htbp!]
+    \centering
+    \caption*{Fonte: Autor}
+    \includegraphics[width=0.5\linewidth]{Figuras/fronteiradepareto.png}
+    \caption{Fronteira de Pareto para os modelos MP com ordem dependente do atraso}
+    \label{fig:fronteiradepareto}
+\end{figure}
+
+
+\section{Resultados da etapa de implementação das LUTs}
+
+Nesta etapa do trabalho, os resultados concentram-se na análise conceitual e estrutural da implementação do modelo \textit{Memory Polynomial} (MP) por meio de tabelas de consulta (\textit{lookup tables} – LUTs), conforme discutido na Seção~3.3 e fundamentado em \cite{Kwan2012}. O objetivo principal desta fase foi avaliar a viabilidade arquitetural da substituição das operações aritméticas não lineares do modelo MP por operações de acesso à memória, visando à redução da complexidade computacional e à melhoria da eficiência de implementação em sistemas digitais.
+
+É importante ressaltar que, nesta versão preliminar da dissertação, a implementação prática das LUTs ainda não foi realizada. Assim, os resultados apresentados nesta seção limitam-se à definição da arquitetura proposta, à identificação dos blocos funcionais necessários e à análise qualitativa dos impactos esperados do uso de LUTs no desempenho e na complexidade do modelo.
+
+As análises quantitativas de desempenho, incluindo métricas como NMSE, consumo de recursos e comparação direta entre as implementações polinomial, híbrida e baseada exclusivamente em LUTs, serão conduzidas em etapas futuras do trabalho. Essas análises considerarão, adicionalmente, a aplicação das LUTs de forma seletiva nos termos de maior ordem polinomial, conforme a abordagem de truncamento polinomial dependente do atraso proposta na Seção~\ref{sec:Uso de tabelas de consulta no modelo MP}.
