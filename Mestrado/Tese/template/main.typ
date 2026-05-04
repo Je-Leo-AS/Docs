@@ -169,6 +169,218 @@ específicos:
 = Revisão de Literatura
 // ═════════════════════════════════════════════════════════════════════════════
 
+A evolução dos sistemas de comunicações sem fio tem impulsionado o desenvolvimento de
+diversas aplicações móveis. Nesse contexto, a eficiência energética emerge como uma
+característica essencial, beneficiando tanto a autonomia de baterias em dispositivos móveis quanto
+a redução de perdas em estações rádio-base, nas quais parte significativa da energia consumida é
+dissipada na forma de calor.
+
+Um sistema de comunicação pode ser dividido em três subsistemas principais: transmissor,
+receptor e meio de propagação @Schuartz2017. Este trabalho concentra-se exclusivamente no
+subsistema transmissor, ilustrado na @fig:sistemadetrasmissao, que inclui os componentes
+responsáveis pela geração, conversão, filtragem e amplificação do sinal antes da irradiação pela
+antena. Dentre esses blocos, o amplificador de potência de radiofrequência (PARF) destaca-se
+como um dos elementos de maior consumo energético, pois converte energia em corrente contínua
+(CC), fornecida pela fonte de alimentação, em energia de radiofrequência (RF) entregue à antena.
+Assim, a eficiência global do transmissor depende diretamente do desempenho do PARF.
+
+#figure(
+  image("Figuras/sistematrasmissorpng.png", width: 55%),
+  caption: [Sistema de transmissão simplificado],
+  source: [#cite(<Schuartz2017>, form: "prose")],
+) <fig:sistemadetrasmissao>
+
+== Sistema Transmissor
+
+== Amplificadores de Potência em RF
+
+O componente central do PARF é o transistor, responsável pela amplificação da potência do sinal de
+entrada proveniente de estágios anteriores da cadeia de transmissão. Nesse processo, energia CC
+das fontes de alimentação é convertida em energia CA/RF. Para maximizar a potência entregue à
+carga, o PARF deve apresentar alta eficiência, definida como a relação entre a potência de saída
+$P_("out")$ e a potência consumida da fonte CC $P_("cc")$:
+
+$ eta = (P_("out") / P_("cc")) times 100% $ <eq:rendimento>
+
+Devido a imperfeições nos componentes e às condições reais de operação, a eficiência ideal de
+100% nunca é alcançada. Além do transistor, o circuito do PARF inclui redes de casamento de
+impedância de entrada e saída, responsáveis por otimizar a transferência de potência, e um circuito
+de polarização CC, que estabelece as condições adequadas de operação do dispositivo ativo. Esses
+elementos, compostos por componentes como capacitores e indutores, também introduzem efeitos
+dinâmicos no amplificador, usualmente chamados de efeitos de memória. A @fig:circuitoparf
+apresenta um circuito simplificado de PARF.
+
+#figure(
+  image("Figuras/circuito parf.png", width: 55%),
+  caption: [Circuito simplificado de um PARF],
+  source: [#cite(<Luiza2016>, form: "prose")],
+) <fig:circuitoparf>
+
+Tipicamente, a eficiência do PA aumenta com a potência de saída, atingindo valores mais elevados
+quando o dispositivo opera próximo à saturação. A potência que não é convertida em sinal útil é
+dissipada como calor, elevando custos de projeto, reduzindo a confiabilidade e exigindo estruturas
+de dissipação térmica. Assim, maximizar a eficiência do PARF é um objetivo central no projeto de
+redes de telecomunicações.
+
+Outra característica fundamental é a linearidade, normalmente avaliada pela curva de transferência,
+que relaciona a potência de saída à potência de entrada, em dBm, como exemplificado na
+@fig:saidaparf. Nessa curva, observa-se uma região aproximadamente linear para baixas potências
+de entrada, seguida de uma região de compressão de ganho. O ponto de compressão de 1 dB
+indica a potência para a qual o ganho do amplificador se reduz em 1 dB em relação ao regime de
+pequeno sinal. Próximo à saturação, o ganho diminui progressivamente, aumentando a distorção do
+sinal transmitido.
+
+#figure(
+  image("Figuras/curvasaidaparf.png", width: 55%),
+  caption: [Curva de transferência de um PARF],
+  source: [#cite(<Chavez2018>, form: "prose")],
+) <fig:saidaparf>
+
+A largura de banda disponível para sistemas de comunicação sem fio é um recurso naturalmente
+limitado, o que torna essencial sua utilização de maneira eficiente. À medida que cresce a demanda
+por maiores taxas de transmissão de dados, surge a necessidade de empregar técnicas de
+modulação capazes de transmitir mais informação dentro da mesma faixa espectral. Nesse
+contexto, as maiores taxas de transmissão são alcançadas por esquemas de modulação que
+exploram simultaneamente variações de fase e de amplitude da onda portadora em radiofrequência
+@Kenington2000.
+
+Entretanto, o uso de modulações que envolvem variações de amplitude impõe requisitos mais
+rigorosos sobre a linearidade dos sistemas de transmissão. A falta de linearidade pode resultar em
+distorções do sinal transmitido, ocasionando erros de comunicação e interferências indesejadas em
+canais adjacentes @Kenington2000. Dessa forma, garantir um comportamento linear ao longo da
+cadeia de transmissão torna-se um aspecto crítico para a qualidade e a confiabilidade do sistema de
+comunicação.
+
+Nesse cenário, o projeto do PARF assume papel central, uma vez que esse componente fornece a
+potência necessária ao sinal modulado antes de sua transmissão pela antena. O principal desafio do
+projetista consiste em conciliar requisitos conflitantes: alta eficiência energética e boa linearidade.
+Amplificadores de potência tendem a apresentar maior eficiência quando operam próximos à região
+de saturação; contudo, nessa região de operação, o dispositivo passa a apresentar comportamento
+fortemente não linear @Cripps2006. Assim, embora a operação próxima à saturação seja desejável
+do ponto de vista energético, ela compromete a linearidade do amplificador e constitui um dos
+principais desafios no projeto de sistemas modernos de comunicação sem fio.
+
+=== Comportamento Passa Banda do PA
+
+Nos sistemas modernos de telecomunicações, a transmissão de dados é realizada por meio de
+sinais em radiofrequência, cujas frequências centrais situam-se tipicamente na ordem dos GHz.
+Esses sinais são modulados por uma envoltória complexa, responsável por carregar a informação,
+cuja largura de banda encontra-se usualmente na faixa dos MHz. Como a largura de banda do sinal
+modulado é significativamente menor do que a frequência da portadora, tais sinais são
+classificados como sinais passa banda @Luiza2016.
+
+Uma forma conveniente de analisar sinais passa banda consiste em representá-los por meio de sua
+forma equivalente em banda-base. Essa representação separa a portadora de alta frequência da
+envoltória complexa, permitindo uma análise mais intuitiva dos efeitos introduzidos pelo sistema de
+transmissão, especialmente no que se refere às variações de amplitude e fase. Essa abordagem é
+amplamente utilizada na modelagem comportamental de amplificadores de potência, pois facilita a
+identificação e a caracterização das distorções causadas pelas não linearidades do circuito do PA.
+
+O amplificador de potência em radiofrequência desempenha papel fundamental na cadeia de
+transmissão, sendo responsável por fornecer potência suficiente ao sinal antes de sua irradiação
+pela antena. Entretanto, os dispositivos ativos que compõem o PA apresentam comportamento
+inerentemente não linear, especialmente quando operam próximos à região de saturação. Como
+consequência, essas não linearidades afetam diretamente sinais passa banda, que possuem
+múltiplas componentes espectrais concentradas em torno da frequência central.
+
+A @fig:comportamentopassabanda ilustra o comportamento típico de um PA passa banda,
+evidenciando os sinais de entrada e saída tanto no domínio do tempo quanto no domínio da
+frequência. Observa-se que, enquanto o espectro do sinal de entrada está confinado à banda
+desejada, o sinal de saída apresenta um espalhamento espectral. Esse fenômeno ocorre devido à
+geração de produtos de intermodulação provocados pelas não linearidades do amplificador,
+resultando no surgimento de componentes espectrais fora da banda original do sinal.
+
+#figure(
+  image("Figuras/comportamento passa banda.png", width: 100%),
+  caption: [Exemplo de distorção no espectro de Frequência do PARF],
+  source: [#cite(<Pedro2005>, form: "prose")],
+) <fig:comportamentopassabanda>
+
+Esse espalhamento espectral é particularmente indesejável em sistemas de comunicação sem fio,
+pois pode causar interferência em canais adjacentes, degradando o desempenho de usuários
+vizinhos e violando requisitos regulatórios de emissão espectral. Além disso, a presença de
+distorções no sinal transmitido compromete a qualidade da comunicação e reduz a eficiência
+espectral do sistema. Dessa forma, a compreensão do comportamento passa banda do PA é
+essencial para o desenvolvimento de técnicas de linearização, como a pré-distorção digital, que
+visam mitigar os efeitos das não linearidades e preservar a integridade do sinal transmitido
+@Luiza2016.
+
+== Linearização de Amplificadores de Potência
+
+Conforme discutido na seção anterior, as não linearidades inerentes aos PARFs causam distorções
+significativas em sinais passa banda, resultando em espalhamento espectral e interferência em
+canais adjacentes. Esse efeito torna-se especialmente crítico nos sistemas modernos de
+comunicação sem fio, nos quais a largura de banda disponível é limitada e há uma demanda
+crescente por maiores taxas de transmissão de dados. Para atender a esses requisitos, são
+amplamente empregadas modulações digitais complexas que variam simultaneamente a amplitude
+e a fase do sinal, como QAM e OFDM @Kenington2000.
+
+Entretanto, tais esquemas de modulação impõem elevados requisitos de linearidade ao sistema de
+transmissão, uma vez que qualquer não linearidade introduzida pelo PARF afeta diretamente a
+envoltória do sinal, comprometendo sua integridade e degradando a qualidade da comunicação. Por
+outro lado, a operação do amplificador em regiões estritamente lineares geralmente ocorre longe da
+saturação, o que implica baixa eficiência energética. Esse comportamento evidencia o compromisso
+fundamental entre eficiência e linearidade nos PARFs @Cripps2006. A baixa eficiência resulta em
+maior dissipação térmica, reduzindo a autonomia de dispositivos móveis alimentados por bateria e
+elevando os custos operacionais em estações rádio-base.
+
+Diante desse cenário, diversas técnicas de linearização têm sido desenvolvidas com o objetivo de
+mitigar os efeitos das não linearidades do PARF, permitindo sua operação em regiões mais
+eficientes sem comprometer a qualidade do sinal transmitido. Dentre essas técnicas, a
+pré-distorção digital (_Digital Predistortion_ --- DPD) destaca-se pelo compromisso favorável entre
+desempenho e custo de implementação @Kenington2000. A técnica de DPD consiste em aplicar, em
+banda-base, uma distorção controlada ao sinal de entrada, de forma que sua característica de
+transferência seja aproximadamente inversa à do PARF.
+
+Quando o sinal pré-distorcido é aplicado ao amplificador, as não linearidades do PARF compensam
+a distorção introduzida pelo DPD, resultando em um comportamento global aproximadamente
+linear do sistema em cascata. Esse conceito é ilustrado na @fig:cascatadpd, que apresenta o
+esquema de um pré-distorcedor digital operando em conjunto com o PARF para o qual foi
+projetado. Para que essa compensação seja eficaz, torna-se necessário que o DPD seja capaz de
+representar com precisão não apenas o comportamento não linear estático do amplificador, mas
+também seus efeitos de memória.
+
+#figure(
+  image("Figuras/DPDcascata.png", width: 55%),
+  caption: [Esquema de pré-distorcedor digital em cascata com PARF],
+  source: [#cite(<Chavez2018>, form: "prose")],
+) <fig:cascatadpd>
+
+Nesse contexto, a modelagem comportamental constitui uma etapa fundamental no desenvolvimento
+de técnicas de pré-distorção digital. O diagrama de blocos apresentado na @fig:diagramamodelagem
+exemplifica essa abordagem, na qual um modelo matemático é submetido ao mesmo sinal de
+entrada aplicado ao amplificador de potência, representado por $x(t)$. A saída simulada do
+modelo, $y_("sim")(t)$, é então comparada com a saída real do PARF, $y_("real")(t)$.
+
+Os coeficientes do modelo são ajustados a partir do erro entre $y_("real")(t)$ e $y_("sim")(t)$, por
+meio de algoritmos de otimização cujo objetivo é minimizar esse erro. Quando o erro mínimo é
+alcançado, o modelo é considerado otimizado e capaz de reproduzir adequadamente o
+comportamento do amplificador de potência. Nessa condição, o modelo pode ser empregado na
+implementação do pré-distorcedor digital, possibilitando a linearização do PARF e a mitigação do
+espalhamento espectral @Luiza2016.
+
+#figure(
+  image("Figuras/diagrama simulação.png", width: 55%),
+  caption: [Diagrama de modelagem comportamental],
+  source: [#cite(<Luiza2016>, form: "prose")],
+) <fig:diagramamodelagem>
+
+== Modelos Comportamentais
+
+Conforme discutido na seção anterior, a técnica de DPD depende diretamente da capacidade de
+representar com precisão o comportamento não linear do PARF. Para que a linearização seja
+eficaz, o pré-distorcedor deve reproduzir, de forma inversa, as características do amplificador,
+compensando tanto as não linearidades estáticas quanto os efeitos dinâmicos associados à memória
+do dispositivo. Dessa forma, torna-se indispensável o uso de modelos matemáticos capazes de
+descrever adequadamente o comportamento do PA sob diferentes condições de operação.
+
+Nos sistemas modernos de comunicação sem fio, a limitação de largura de banda disponível leva à
+adoção de esquemas de modulação com elevada variação de envoltória, caracterizados por altos
+valores de _Peak-to-Average Power Ratio_ (PAPR). Esses sinais impõem requisitos rigorosos ao
+PARF, que deve operar de forma eficiente do ponto de vista energético sem comprometer a
+linearidade. Para atender a essas exigências, as técnicas de linearização demandam modelos
+computacionais precisos do comportamento do amplificador @John2016.
+
 De maneira geral, as abordagens de modelagem de amplificadores de potência podem ser
 classificadas em duas categorias principais: modelagem física e modelagem comportamental. A
 modelagem física baseia-se no conhecimento detalhado da topologia do circuito, dos dispositivos
@@ -198,50 +410,11 @@ de modelagem e custo computacional, como observado em extensões do polinômio c
 generalizado @Morgan2006 e em formulações polinomiais aplicadas a cenários de identificação
 não linear mais amplos @Li2021.
 
-== Amplificadores de Potência em RF
-
-Os dispositivos ativos que compõem o PA apresentam comportamento inerentemente não linear,
-especialmente quando operam próximos à região de saturação. Como consequência, essas não
-linearidades afetam diretamente sinais passa banda, que possuem múltiplas componentes
-espectrais concentradas em torno da frequência central.
-
-A @fig:comportamentopassabanda ilustra o comportamento típico de um PA passa banda,
-evidenciando os sinais de entrada e saída tanto no domínio do tempo quanto no domínio da
-frequência. Observa-se que, enquanto o espectro do sinal de entrada está confinado à banda
-desejada, o sinal de saída apresenta um espalhamento espectral. Esse fenômeno ocorre devido à
-geração de produtos de intermodulação provocados pelas não linearidades do amplificador,
-resultando no surgimento de componentes espectrais fora da banda original do sinal.
-
-#figure(
-  image("Figuras/comportamento passa banda.png", width: 100%),
-  caption: [Exemplo de distorção no espectro de Frequência do PARF],
-  source: [#cite(<Pedro2005>, form: "prose")],
-) <fig:comportamentopassabanda>
-
-Esse espalhamento espectral é particularmente indesejável em sistemas de comunicação sem fio,
-pois pode causar interferência em canais adjacentes, degradando o desempenho de usuários
-vizinhos e violando requisitos regulatórios de emissão espectral.
-
-== Linearização de Amplificadores de Potência
-
-As não linearidades inerentes aos PARFs causam distorções significativas em sinais passa banda,
-resultando em espalhamento espectral e interferência em canais adjacentes. Esse efeito torna-se
-especialmente crítico nos sistemas modernos de comunicação sem fio, nos quais a largura de banda
-disponível é limitada e há uma demanda crescente por maiores taxas de transmissão de dados.
-Para atender a esses requisitos, são amplamente empregadas modulações digitais complexas que
-variam simultaneamente a amplitude e a fase do sinal, como QAM e OFDM @Kenington2000.
-
-Entretanto, tais esquemas de modulação impõem elevados requisitos de linearidade ao sistema de
-transmissão, uma vez que qualquer não linearidade introduzida pelo PARF afeta diretamente a
-envoltória do sinal, comprometendo sua integridade e degradando a qualidade da comunicação.
-
-== Modelos Comportamentais
-
 === Séries de Volterra
 
 A série de Volterra constitui uma extensão da série de Taylor para a representação de sistemas
 não lineares dinâmicos com memória, sendo amplamente utilizada na modelagem de amplificadores
-de potência @Pedro2005. Por meio dessa abordagem, a saída do sistema é expressa
+de potência @GonalvesdeLima2009. Por meio dessa abordagem, a saída do sistema é expressa
 como uma combinação de integrais múltiplas envolvendo o sinal de entrada e núcleos que
 caracterizam o comportamento do sistema em diferentes ordens de não linearidade.
 
@@ -315,10 +488,9 @@ altas taxas de amostragem, torna-se fundamental explorar arquiteturas eficientes
 paralelização das operações aritméticas. Nesse contexto, a implementação em VHDL do modelo MP
 com truncamento polinomial dependente do atraso permite avaliar de forma direta se a redução de
 complexidade observada em software se traduz em menor utilização de recursos em hardware
-digital, preservando a equivalência funcional do modelo. Trabalhos voltados à implementação de
-pré-distorcedores em FPGA @Kwan2012 e à análise de compromissos de hardware em séries de
-Volterra podadas @Talemwa2025 reforçam a importância de tratar desempenho de modelagem e
-custo estrutural de forma conjunta.
+digital, preservando a equivalência funcional do modelo. Trabalhos voltados à análise de
+compromissos de hardware em séries de Volterra podadas @Talemwa2025 reforçam a importância
+de tratar desempenho de modelagem e custo estrutural de forma conjunta.
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Material e Métodos
