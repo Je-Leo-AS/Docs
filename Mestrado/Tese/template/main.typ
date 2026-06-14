@@ -79,6 +79,9 @@ polinomial passa a depender do atraso de memória, permitindo maior flexibilidad
 redução da complexidade computacional sem prejuízo significativo de desempenho. Além da
 avaliação em software, o trabalho investiga a implementação desse modelo em VHDL, com
 validação funcional em ponto fixo e análise da complexidade estrutural obtida na síntese lógica.
+Os resultados indicam NMSE de $-26,7$~dB para o MP clássico no conjunto GaN HEMT,
+$-37,51$~dB para o MP completo no conjunto LDMOS e reduções próximas de 40% em métricas
+estruturais da implementação VHDL truncada, incluindo `wires`, células e registradores.
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -393,6 +396,14 @@ necessidade de informações detalhadas sobre a estrutura interna do circuito. E
 torna os modelos comportamentais particularmente atrativos para aplicações de simulação e
 linearização, devido à sua menor complexidade computacional.
 
+Aplicações recentes reforçam essa relevância prática em cenários de elevada largura de banda e
+restrições de implementação. Estruturas abertas para modelagem de PA e aprendizagem de DPD
+têm sido propostas para padronizar a comparação entre modelos e acelerar a validação com sinais
+OFDM de centenas de MHz @Wu2024OpenDPD. Além disso, abordagens de DPD com precisão mista
+e parâmetros quantizados mostram que a redução de complexidade e de consumo computacional
+continua sendo uma exigência central para a aplicação de modelos comportamentais em
+transmissores modernos @Wu2024MPDPD.
+
 No contexto da pré-distorção digital, a modelagem comportamental é amplamente preferida, uma
 vez que o objetivo principal é reproduzir o comportamento inverso observável do PARF. Além das
 não linearidades estáticas, os efeitos de memória --- isto é, a dependência da saída atual em
@@ -520,7 +531,7 @@ incorporando efeitos de memória por meio de uma forma reduzida da série de Vol
 abordagem, apenas produtos de amostras correspondentes ao mesmo instante de tempo são
 considerados. Matematicamente, o modelo MP é descrito pela @eq:mp, na qual todos os polinômios
 que compõem o modelo possuem a mesma ordem @Kim2001. A configuração original utilizada
-como referência experimental neste trabalho é dada pela @eq:mp-original-p5-m2.
+como referência empírica neste trabalho é dada pela @eq:mp-original-p5-m2.
 
 Entre as principais características do modelo MP, destaca-se o fato de que ele é baseado em
 multiplicações de sinais avaliados no mesmo instante de tempo, como $tilde(x)(n)|tilde(x)(n)|$ e
@@ -578,7 +589,22 @@ atrasos, a descrição em VHDL pode ser reorganizada para eliminar explicitament
 aritméticas desnecessárias, reduzindo o número de blocos funcionais do circuito sem alterar a
 formulação matemática do modelo.
 
-== Implementação em VHDL do modelo MP truncado
+== Metodologia de validação da proposta
+
+A validação da proposta foi organizada de forma integrada, contemplando a implementação em software, a implementação em hardware e a aplicação do modelo tanto à modelagem direta quanto à linearização do PA. Em software, os coeficientes dos modelos MP foram estimados em Python a
+partir de dados medidos de entrada e saída de amplificadores de potência, utilizando mínimos quadrados não lineares e avaliação por NMSE em conjuntos independentes de validação. Em
+hardware, as estruturas foram descritas em VHDL com aritmética de ponto fixo, permitindo comparar a equivalência funcional em relação ao modelo em Python e os recursos estruturais necessários
+após a síntese lógica.
+
+Foram considerados dois conjuntos de dados empíricos. O primeiro corresponde a medições de um
+amplificador de potência classe AB, do tipo GaN HEMT, excitado por uma portadora de 900~MHz
+modulada por um sinal WCDMA 3GPP com largura de banda aproximada de 3,84~MHz e amostrado
+a 61,44~MHz. O segundo corresponde a medições de um amplificador LDMOS, organizadas em
+4.500 amostras complexas para extração dos coeficientes e 4.500 amostras complexas para
+validação. Em ambos os casos, os dados disponíveis são pares complexos de entrada e saída do
+PA, adequados para identificação, validação e comparação entre estruturas de modelo.
+
+=== Implementação em VHDL do modelo MP truncado
 
 A validação em hardware foi realizada por meio da implementação em VHDL de duas arquiteturas:
 a versão original do modelo MP, com ordem polinomial uniforme em todos os atrasos, e a versão
@@ -598,13 +624,13 @@ a inspeção dos sinais temporais foi feita com GTKWave. A comparação entre as
 fixo obtidas em Python e em VHDL, bem como a análise das curvas AM-AM e AM-PM, foi empregada
 como critério de validação funcional das implementações.
 
-== Evidências experimentais para o truncamento polinomial
+=== Evidências empíricas para o truncamento polinomial
 
-Com o objetivo de fundamentar experimentalmente a hipótese de que a não linearidade dominante
-do amplificador está concentrada no instante atual, foi realizada uma análise específica sobre o
-conjunto `data_LDMOS_formatted_4500p.mat`, contendo 4.500 amostras para extração e 4.500
-amostras para validação. Nessa etapa, foram consideradas profundidade de memória $M = 2$ e
-ordens polinomiais variando de 1 a 5, utilizando três análises complementares: magnitude dos
+Com o objetivo de fundamentar empiricamente a hipótese de que a não linearidade dominante do
+amplificador está concentrada no instante atual, foi realizada uma análise específica sobre os dados
+medidos do PA LDMOS, organizados em 4.500 amostras para extração e 4.500 amostras para
+validação. Nessa etapa, foram consideradas profundidade de memória $M = 2$ e ordens
+polinomiais variando de 1 a 5, utilizando três análises complementares: magnitude dos
 coeficientes por ramo de memória, sensibilidade do NMSE a cada parâmetro $P_m$ e espectro do
 erro residual.
 
@@ -620,12 +646,12 @@ produzido pelo aumento de complexidade em cada ramo. Por fim, o sinal de erro re
 analisado no domínio da frequência com janela de Blackman, FFT de 8192 pontos e média por
 blocos, permitindo verificar como a variação de $P_0$, $P_1$ e $P_2$ afeta o _regrowth_ espectral.
 
-== Avaliação em múltiplos conjuntos de dados
+=== Avaliação em múltiplos conjuntos de dados
 
 Para verificar a capacidade de generalização da metodologia, o _pipeline_ completo de identificação
 e avaliação dos modelos MP com ordem dependente do atraso foi aplicado a dois conjuntos de
-dados experimentais distintos: `in_out_SBRT2_direto.mat`, correspondente a um PA GaN HEMT, e
-`data_LDMOS_formatted_4500p.mat`, correspondente a um PA LDMOS. Em ambos os casos, foram
+dados empíricos distintos: medições de um PA GaN HEMT excitado por sinal WCDMA e medições
+de um PA LDMOS separadas em partições de extração e validação. Em ambos os casos, foram
 avaliadas exaustivamente todas as 125 combinações possíveis de ordens $(P_0, P_1, P_2)$ com
 $P_m in {1, 2, 3, 4, 5}$ e profundidade de memória $M = 2$.
 
@@ -636,12 +662,12 @@ absoluto de desempenho entre tecnologias distintas de amplificadores, mas també
 dos padrões estruturais observados anteriormente, como a predominância de $P_0$ e a eficiência
 dos modelos com distribuição decrescente de ordens.
 
-== Identificação do sistema DPD + PA
+=== Identificação do sistema DPD + PA
 
 Além da modelagem direta do amplificador, foi avaliado um sistema completo de pré-distorção
-digital baseado no modelo MP. Nessa etapa, utilizou-se o conjunto
-`data_LDMOS_formatted_4500p.mat` para identificar inicialmente o modelo do PA com profundidade
-de memória $M = 2$ e ordem polinomial $P = 5$, totalizando 15 coeficientes complexos. Em
+digital baseado no modelo MP. Nessa etapa, utilizou-se o conjunto de medições do PA LDMOS para
+identificar inicialmente o modelo do PA com profundidade de memória $M = 2$ e ordem polinomial
+$P = 5$, totalizando 15 coeficientes complexos. Em
 seguida, foi adotada a arquitetura _Indirect Learning Architecture_ (ILA), na qual o DPD é treinado
 como o inverso do PA a partir do mapeamento entre a saída medida do amplificador e o sinal de
 entrada original.
@@ -682,7 +708,7 @@ corresponde ao erro entre o sinal de saída real e o sinal de saída estimado pe
 como $e(n) = y_"real" (n) - y_"model" (n)$, e $N$ é o número total de amostras consideradas
 na análise.
 
-Os dados utilizados na validação dos modelos são provenientes de medições experimentais
+Os dados utilizados na validação dos modelos são provenientes de medições empíricas
 realizadas em um amplificador de potência classe AB, do tipo HEMT, fabricado com tecnologia GaN.
 O amplificador foi excitado por um sinal portador com frequência central de 900~MHz, modulado por
 um sinal de envoltória WCDMA conforme o padrão 3GPP, com largura de banda aproximada de
@@ -725,11 +751,11 @@ de potência real em regime de banda larga. Esse resultado confirma a adequaçã
 clássico como referência de desempenho e estabelece um ponto de comparação consistente para a
 avaliação das estruturas alternativas propostas neste trabalho.
 
-== Evidências experimentais para o truncamento polinomial dependente do atraso
+== Evidências empíricas para o truncamento polinomial dependente do atraso
 
-Com o objetivo de sustentar experimentalmente a hipótese de truncamento polinomial dependente
-do atraso, foi realizada uma análise específica sobre o conjunto LDMOS com 4.500 amostras de
-extração e 4.500 de validação. As evidências foram organizadas em três frentes complementares:
+Com o objetivo de sustentar empiricamente a hipótese de truncamento polinomial dependente do
+atraso, foi realizada uma análise específica sobre as medições do PA LDMOS, com 4.500 amostras
+de extração e 4.500 de validação. As evidências foram organizadas em três frentes complementares:
 análise da magnitude dos coeficientes por ramo de memória, sensibilidade do NMSE às ordens
 $P_0$, $P_1$ e $P_2$, e inspeção do espectro do erro residual.
 
@@ -801,10 +827,15 @@ O erro residual foi analisado no domínio da frequência para diferentes configu
 utilizando PSD com janela de Blackman, FFT de 8192 pontos e média por blocos.
 
 #figure(
-  image("Figuras/ev3_espectro_erro.png", width: 85%),
-  caption: [PSD do erro residual para variações de $P_0$, $P_1$ e $P_2$. O aumento de $P_0$ produz a maior redução espectral, tanto na banda quanto nas adjacências.],
+  image("Figuras/ev3_espectro_erro.png", width: 100%),
+  caption: [PSD do erro residual para variações de $P_0$, $P_1$ e $P_2$.],
   source: [Autor],
 ) <fig:ev3-espectro-erro>
+
+Na @fig:ev3-espectro-erro, os três painéis mostram, respectivamente, a variação de $P_0$ com
+$P_1 = P_2 = 1$, a variação de $P_1$ com $P_0 = P_2 = 1$ e a variação de $P_2$ com
+$P_0 = P_1 = 1$. Em todos os casos, a curva cinza representa a saída medida do PA e as curvas
+coloridas representam o erro residual para diferentes ordens polinomiais.
 
 #figure(
   image("Figuras/ev_bonus_psd_completo.png", width: 85%),
@@ -939,7 +970,7 @@ significativa e saturam com ordens polinomiais reduzidas.
   source: [Autor],
 ) <fig:fronteiradepareto>
 
-== Generalização em múltiplos conjuntos de dados experimentais
+== Generalização em múltiplos conjuntos de dados empíricos
 
 Para avaliar a robustez da metodologia proposta, o mesmo procedimento de identificação e
 avaliação foi aplicado a dois conjuntos de dados distintos: um PA GaN HEMT e um PA LDMOS.
@@ -1129,15 +1160,15 @@ modelos treinados em software mostrou que a complexidade deve ser concentrada
 prioritariamente no instante atual, enquanto atrasos mais antigos podem ser representados com
 ordens menores, preservando boa acurácia.
 
-As evidências experimentais adicionais baseadas na análise da magnitude dos coeficientes, na
+As evidências empíricas adicionais baseadas na análise da magnitude dos coeficientes, na
 sensibilidade do NMSE e no espectro do erro residual confirmaram de forma consistente essa
 hipótese. Em particular, verificou-se que a energia dos coeficientes decai com o atraso, que o
 ganho de desempenho associado a $P_0$ é significativamente superior aos ganhos obtidos com
 $P_1$ e $P_2$, e que a redução do erro espectral é mais pronunciada quando a complexidade é
 alocada no instante atual.
 
-Os experimentos conduzidos em dois conjuntos de dados experimentais distintos, correspondentes
-a amplificadores GaN HEMT e LDMOS, mostraram que esses padrões estruturais se mantêm
+As avaliações conduzidas em dois conjuntos de dados empíricos distintos, correspondentes a
+amplificadores GaN HEMT e LDMOS, mostraram que esses padrões estruturais se mantêm
 consistentes entre tecnologias diferentes. Embora os níveis absolutos de NMSE variem entre os
 dispositivos, a predominância de $P_0$, a eficiência dos modelos com ordens decrescentes e a
 saturação de desempenho em baixas complexidades foram preservadas, reforçando a capacidade de
