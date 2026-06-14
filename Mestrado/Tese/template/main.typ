@@ -20,10 +20,7 @@
   institution: "template/assets/logo-ufpr.png",
 
   description: [
-    Dissertação apresentada ao Programa de Pós-Graduação em Engenharia Elétrica, Área de
-    Concentração em Telecomunicações, Departamento de Engenharia Elétrica, Setor de
-    Tecnologia, Universidade Federal do Paraná, como parte das exigências para obtenção do
-    título de Mestre em Engenharia Elétrica.
+    Dissertação apresentada ao Programa de Pós-Graduação em Engenharia Elétrica, Área de Concentração em Telecomunicações, Departamento de Engenharia Elétrica, Setor de Tecnologia, Universidade Federal do Paraná, como parte das exigências para obtenção do título de Mestre em Engenharia Elétrica.
 
     Orientadores: Eduardo Gonçalves de Lima, Sibilla Batista da Luz Franca
   ],
@@ -58,30 +55,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 #abstract[
-A evolução dos sistemas de comunicação sem fio possibilitou o surgimento de diversas aplicações
-móveis e wireless, como desenvolvimento web e Internet das Coisas (IoT). Nesse contexto, a
-melhoria da eficiência energética é altamente desejável, tanto em dispositivos móveis, que buscam
-maior autonomia de bateria, quanto em estações rádio-base, que visam reduzir perdas associadas
-à dissipação de calor. Entretanto, o aumento da eficiência energética geralmente implica a redução
-da linearidade dos amplificadores de potência (PAs) utilizados nos transmissores de rádio. Essa
-limitação é particularmente crítica em sistemas modernos de comunicação, nos quais a largura de
-banda disponível é restrita e o uso de modulações complexas, que exploram variações simultâneas
-de amplitude e fase, é essencial para alcançar elevadas taxas de transmissão. Modulações sensíveis
-à amplitude tornam-se especialmente suscetíveis às não linearidades do PA, resultando em
-degradação do desempenho e aumento dos erros de transmissão.
+A evolução dos sistemas de comunicação sem fio possibilitou o surgimento de diversas aplicações móveis e wireless, como desenvolvimento web e Internet das Coisas (IoT). Nesse contexto, a melhoria da eficiência energética é altamente desejável, tanto em dispositivos móveis, que buscam maior autonomia de bateria, quanto em estações rádio-base, que visam reduzir perdas associadas à dissipação de calor. Entretanto, o aumento da eficiência energética geralmente implica a redução da linearidade dos amplificadores de potência (PAs) utilizados nos transmissores de rádio. Essa limitação é particularmente crítica em sistemas modernos de comunicação, nos quais a largura de banda disponível é restrita e o uso de modulações complexas, que exploram variações simultâneas de amplitude e fase, é essencial para alcançar elevadas taxas de transmissão. Modulações sensíveis à amplitude tornam-se especialmente suscetíveis às não linearidades do PA, resultando em degradação do desempenho e aumento dos erros de transmissão.
 
-Uma solução amplamente empregada para conciliar eficiência energética e linearidade é a utilização
-da pré-distorção digital (Digital Predistortion --- DPD) em cascata com o PA. A eficácia dessa
-técnica depende diretamente da disponibilidade de modelos matemáticos capazes de representar
-com precisão o comportamento não linear e com memória do amplificador. Neste trabalho,
-inicialmente investiga-se uma variação do modelo Memory Polynomial (MP), na qual a ordem
-polinomial passa a depender do atraso de memória, permitindo maior flexibilidade na modelagem e
-redução da complexidade computacional sem prejuízo significativo de desempenho. Além da
-avaliação em software, o trabalho investiga a implementação desse modelo em VHDL, com
-validação funcional em ponto fixo e análise da complexidade estrutural obtida na síntese lógica.
-Os resultados indicam NMSE de $-26,7$~dB para o MP clássico no conjunto GaN HEMT,
-$-37,51$~dB para o MP completo no conjunto LDMOS e reduções próximas de 40% em métricas
-estruturais da implementação VHDL truncada, incluindo `wires`, células e registradores.
+Uma solução amplamente empregada para conciliar eficiência energética e linearidade é a utilização da pré-distorção digital (Digital Predistortion --- DPD) em cascata com o PA. A eficácia dessa técnica depende diretamente da disponibilidade de modelos matemáticos capazes de representar com precisão o comportamento não linear e com memória do amplificador. Neste trabalho, inicialmente investiga-se uma variação do modelo Memory Polynomial (MP), na qual a ordem polinomial passa a depender do atraso de memória, permitindo maior flexibilidade na modelagem e redução da complexidade computacional sem prejuízo significativo de desempenho. Além da avaliação em software, o trabalho investiga a implementação desse modelo em VHDL, com validação funcional em ponto fixo e análise da complexidade estrutural obtida na síntese lógica. Os resultados indicam NMSE de $-26,7$~dB para o MP clássico no conjunto GaN HEMT, $-37,51$~dB para o MP completo no conjunto LDMOS e reduções próximas de 40% em métricas estruturais da implementação VHDL truncada, incluindo `wires`, células e registradores.
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -89,103 +65,46 @@ estruturais da implementação VHDL truncada, incluindo `wires`, células e regi
 // ─────────────────────────────────────────────────────────────────────────────
 
 #abstract-foreign[
-The evolution of wireless communication systems has enabled the emergence of various mobile and
-wireless applications, such as web development and the Internet of Things (IoT). In this context,
-improving energy efficiency is highly desirable, both for mobile devices seeking greater battery life
-and for radio base stations aiming to reduce losses associated with heat dissipation. However,
-increasing energy efficiency generally implies reducing the linearity of power amplifiers (PAs) used
-in radio transmitters. This limitation is particularly critical in modern communication systems, where
-the available bandwidth is restricted and the use of complex modulations, exploiting simultaneous
-amplitude and phase variations, is essential to achieve high transmission rates. Amplitude-sensitive
-modulations are especially susceptible to PA nonlinearities, resulting in performance degradation
-and increased transmission errors.
+The evolution of wireless communication systems has enabled the emergence of various mobile and wireless applications, such as web development and the Internet of Things (IoT). In this context, improving energy efficiency is highly desirable, both for mobile devices seeking greater battery life and for radio base stations aiming to reduce losses associated with heat dissipation. However, increasing energy efficiency generally implies reducing the linearity of power amplifiers (PAs) used in radio transmitters. This limitation is particularly critical in modern communication systems, where the available bandwidth is restricted and the use of complex modulations, exploiting simultaneous amplitude and phase variations, is essential to achieve high transmission rates. Amplitude-sensitive modulations are especially susceptible to PA nonlinearities, resulting in performance degradation and increased transmission errors.
 
-A widely used solution to reconcile energy efficiency and linearity is the use of digital predistortion
-(DPD) in cascade with the PA. The effectiveness of this technique depends directly on the
-availability of mathematical models capable of accurately representing the nonlinear and memory
-behavior of the amplifier. This work investigates a variation of the Memory Polynomial (MP) model,
-in which the polynomial order depends on the memory delay, allowing greater modeling flexibility
-and reduced computational complexity without significant performance loss. In addition to the
-software-based evaluation, the work investigates the VHDL implementation of this model,
-including fixed-point functional validation and an analysis of the structural complexity obtained
-after logic synthesis.
+A widely used solution to reconcile energy efficiency and linearity is the use of digital predistortion (DPD) in cascade with the PA. The effectiveness of this technique depends directly on the availability of mathematical models capable of accurately representing the nonlinear and memory behavior of the amplifier. This work investigates a variation of the Memory Polynomial (MP) model, in which the polynomial order depends on the memory delay, allowing greater modeling flexibility and reduced computational complexity without significant performance loss. In addition to the software-based evaluation, the work investigates the VHDL implementation of this model, including fixed-point functional validation and an analysis of the structural complexity obtained after logic synthesis.
 ]
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Introdução
 // ═════════════════════════════════════════════════════════════════════════════
 
-A evolução dos sistemas de comunicação móveis, impulsionada pela crescente demanda por
-comunicações mais rápidas e eficientes, tem levado à implementação de uma variedade de
-serviços, incluindo aplicações multimídia, desenvolvimento web e aplicações IoT @Yu2024. No
-entanto, essa evolução também trouxe desafios significativos, como a necessidade de melhorar a
-eficiência energética, tanto para dispositivos móveis, visando aumentar a autonomia da bateria,
-quanto para estações de rádio base, visando reduzir o consumo de energia devido às perdas de
-calor. Para atender a essas demandas, estratégias de modulação que alteram tanto a fase quanto a
-amplitude de ondas portadoras em radiofrequência se tornaram essenciais @Kenington2000. Além
-disso, a modulação na amplitude requer linearidade na transmissão para evitar erros e
-interferências na comunicação entre usuários vizinhos @Cripps2006.
+A evolução dos sistemas de comunicação móveis, impulsionada pela crescente demanda por comunicações mais rápidas e eficientes, tem levado à implementação de uma variedade de serviços, incluindo aplicações multimídia, desenvolvimento web e aplicações IoT @Yu2024. No entanto, essa evolução também trouxe desafios significativos, como a necessidade de melhorar a eficiência energética, tanto para dispositivos móveis, visando aumentar a autonomia da bateria, quanto para estações de rádio base, visando reduzir o consumo de energia devido às perdas de calor. Para atender a essas demandas, estratégias de modulação que alteram tanto a fase quanto a amplitude de ondas portadoras em radiofrequência se tornaram essenciais @Kenington2000. Além disso, a modulação na amplitude requer linearidade na transmissão para evitar erros e interferências na comunicação entre usuários vizinhos @Cripps2006.
 
-Essa complexa tarefa recai sobre o projetista do amplificador de potência de radiofrequência (PA),
-que enfrenta o desafio de desenvolver um hardware eficiente em termos energéticos e linear ao
-mesmo tempo, uma vez que esses dois objetivos podem entrar em conflito @Cripps2006. Uma
-solução para contornar esse desafio é a implementação de um pré-distorcedor digital (DPD) em
-banda base, que visa compensar a distorção causada pelo PA @Cripps2006. O DPD é conectado em
-cascata ao PA e requer um modelo de alta precisão e baixa complexidade computacional para
-representar as características de transferência direta e inversa do amplificador.
+Essa complexa tarefa recai sobre o projetista do amplificador de potência de radiofrequência (PA), que enfrenta o desafio de desenvolver um hardware eficiente em termos energéticos e linear ao mesmo tempo, uma vez que esses dois objetivos podem entrar em conflito @Cripps2006. Uma solução para contornar esse desafio é a implementação de um pré-distorcedor digital (DPD) em banda base, que visa compensar a distorção causada pelo PA @Cripps2006. O DPD é conectado em cascata ao PA e requer um modelo de alta precisão e baixa complexidade computacional para representar as características de transferência direta e inversa do amplificador.
 
-Existem diversas abordagens para modelar o PA. Neste projeto, adota-se o modelo de polinômio
-com memória com ordem polinomial dependente do atraso, buscando concentrar a complexidade
-nos termos mais relevantes e reduzir operações associadas aos atrasos mais antigos. Além da
-validação em software, também é investigada a implementação direta da estrutura em VHDL, com
-ênfase na equivalência funcional em ponto fixo e na redução de recursos de hardware.
+Existem diversas abordagens para modelar o PA. Neste projeto, adota-se o modelo de polinômio com memória com ordem polinomial dependente do atraso, buscando concentrar a complexidade nos termos mais relevantes e reduzir operações associadas aos atrasos mais antigos. Além da validação em software, também é investigada a implementação direta da estrutura em VHDL, com ênfase na equivalência funcional em ponto fixo e na redução de recursos de hardware.
 
 == Objetivo Geral
 
-Investigar, em software Python, estruturas alternativas do modelo _Memory Polynomial_ (MP) para
-a modelagem matemática de PAs, com ênfase em abordagens que
-utilizam ordens polinomiais dependentes do atraso, avaliando o compromisso entre complexidade
-computacional e precisão do modelo.
+Investigar, em software Python, estruturas alternativas do modelo _Memory Polynomial_ (MP) para a modelagem matemática de PAs, com ênfase em abordagens que utilizam ordens polinomiais dependentes do atraso, avaliando o compromisso entre complexidade computacional e precisão do modelo.
 
 == Objetivos Específicos
 
-Para alcançar o objetivo geral, este trabalho foi desenvolvido com base nos seguintes objetivos
-específicos:
+Para alcançar o objetivo geral, este trabalho foi desenvolvido com base nos seguintes objetivos específicos:
 
-+ Implementar, em software Python, o modelo _Memory Polynomial_ tradicional para a modelagem
-  comportamental de amplificadores de potência;
++ Implementar, em software Python, o modelo _Memory Polynomial_ tradicional para a modelagem comportamental de amplificadores de potência;
 
-+ Desenvolver e implementar uma variação do modelo MP com ordens polinomiais dependentes do
-  atraso, permitindo truncamentos polinomiais distintos para cada ramo de memória;
++ Desenvolver e implementar uma variação do modelo MP com ordens polinomiais dependentes do atraso, permitindo truncamentos polinomiais distintos para cada ramo de memória;
 
-+ Avaliar o desempenho dos modelos propostos por meio de métricas de erro, com ênfase no
-  _Normalized Mean Square Error_ (NMSE);
++ Avaliar o desempenho dos modelos propostos por meio de métricas de erro, com ênfase no _Normalized Mean Square Error_ (NMSE);
 
-+ Analisar a relação entre a complexidade estrutural dos modelos, expressa pelo número de
-  coeficientes, e a precisão obtida, por meio de uma abordagem de otimização multiobjetivo
-  baseada na fronteira de Pareto;
++ Analisar a relação entre a complexidade estrutural dos modelos, expressa pelo número de coeficientes, e a precisão obtida, por meio de uma abordagem de otimização multiobjetivo baseada na fronteira de Pareto;
 
-+ Identificar configurações de modelos MP que apresentem melhor compromisso entre desempenho
-  e complexidade, visando futuras implementações eficientes.
++ Identificar configurações de modelos MP que apresentem melhor compromisso entre desempenho e complexidade, visando futuras implementações eficientes.
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Revisão de Literatura
 // ═════════════════════════════════════════════════════════════════════════════
 
-A evolução dos sistemas de comunicações sem fio tem impulsionado o desenvolvimento de
-diversas aplicações móveis. Nesse contexto, a eficiência energética emerge como uma
-característica essencial, beneficiando tanto a autonomia de baterias em dispositivos móveis quanto
-a redução de perdas em estações rádio-base, nas quais parte significativa da energia consumida é
-dissipada na forma de calor.
+A evolução dos sistemas de comunicações sem fio tem impulsionado o desenvolvimento de diversas aplicações móveis. Nesse contexto, a eficiência energética emerge como uma característica essencial, beneficiando tanto a autonomia de baterias em dispositivos móveis quanto a redução de perdas em estações rádio-base, nas quais parte significativa da energia consumida é dissipada na forma de calor.
 
-Um sistema de comunicação pode ser dividido em três subsistemas principais: transmissor,
-receptor e meio de propagação @Schuartz2017. Este trabalho concentra-se exclusivamente no
-subsistema transmissor, ilustrado na @fig:sistemadetrasmissao, que inclui os componentes
-responsáveis pela geração, conversão, filtragem e amplificação do sinal antes da irradiação pela
-antena. Dentre esses blocos, o amplificador de potência de radiofrequência (PARF) destaca-se
-como um dos elementos de maior consumo energético, pois converte energia em corrente contínua
-(CC), fornecida pela fonte de alimentação, em energia de radiofrequência (RF) entregue à antena.
-Assim, a eficiência global do transmissor depende diretamente do desempenho do PARF.
+Um sistema de comunicação pode ser dividido em três subsistemas principais: transmissor, receptor e meio de propagação @Schuartz2017. Este trabalho concentra-se exclusivamente no subsistema transmissor, ilustrado na @fig:sistemadetrasmissao, que inclui os componentes responsáveis pela geração, conversão, filtragem e amplificação do sinal antes da irradiação pela antena. Dentre esses blocos, o amplificador de potência de radiofrequência (PARF) destaca-se como um dos elementos de maior consumo energético, pois converte energia em corrente contínua (CC), fornecida pela fonte de alimentação, em energia de radiofrequência (RF) entregue à antena. Assim, a eficiência global do transmissor depende diretamente do desempenho do PARF.
 
 #figure(
   image("Figuras/sistematrasmissorpng.png", width: 55%),
@@ -197,21 +116,11 @@ Assim, a eficiência global do transmissor depende diretamente do desempenho do 
 
 == Amplificadores de Potência em RF
 
-O componente central do PARF é o transistor, responsável pela amplificação da potência do sinal de
-entrada proveniente de estágios anteriores da cadeia de transmissão. Nesse processo, energia CC
-das fontes de alimentação é convertida em energia CA/RF. Para maximizar a potência entregue à
-carga, o PARF deve apresentar alta eficiência, definida como a relação entre a potência de saída
-$P_("out")$ e a potência consumida da fonte CC $P_("cc")$:
+O componente central do PARF é o transistor, responsável pela amplificação da potência do sinal de entrada proveniente de estágios anteriores da cadeia de transmissão. Nesse processo, energia CC das fontes de alimentação é convertida em energia CA/RF. Para maximizar a potência entregue à carga, o PARF deve apresentar alta eficiência, definida como a relação entre a potência de saída $P_("out")$ e a potência consumida da fonte CC $P_("cc")$:
 
 $ eta = (P_("out") / P_("cc")) times 100% $ <eq:rendimento>
 
-Devido a imperfeições nos componentes e às condições reais de operação, a eficiência ideal de
-100% nunca é alcançada. Além do transistor, o circuito do PARF inclui redes de casamento de
-impedância de entrada e saída, responsáveis por otimizar a transferência de potência, e um circuito
-de polarização CC, que estabelece as condições adequadas de operação do dispositivo ativo. Esses
-elementos, compostos por componentes como capacitores e indutores, também introduzem efeitos
-dinâmicos no amplificador, usualmente chamados de efeitos de memória. A @fig:circuitoparf
-apresenta um circuito simplificado de PARF.
+Devido a imperfeições nos componentes e às condições reais de operação, a eficiência ideal de 100% nunca é alcançada. Além do transistor, o circuito do PARF inclui redes de casamento de impedância de entrada e saída, responsáveis por otimizar a transferência de potência, e um circuito de polarização CC, que estabelece as condições adequadas de operação do dispositivo ativo. Esses elementos, compostos por componentes como capacitores e indutores, também introduzem efeitos dinâmicos no amplificador, usualmente chamados de efeitos de memória. A @fig:circuitoparf apresenta um circuito simplificado de PARF.
 
 #figure(
   image("Figuras/circuito parf.png", width: 55%),
@@ -219,19 +128,9 @@ apresenta um circuito simplificado de PARF.
   source: [#cite(<Luiza2016>, form: "prose")],
 ) <fig:circuitoparf>
 
-Tipicamente, a eficiência do PA aumenta com a potência de saída, atingindo valores mais elevados
-quando o dispositivo opera próximo à saturação. A potência que não é convertida em sinal útil é
-dissipada como calor, elevando custos de projeto, reduzindo a confiabilidade e exigindo estruturas
-de dissipação térmica. Assim, maximizar a eficiência do PARF é um objetivo central no projeto de
-redes de telecomunicações.
+Tipicamente, a eficiência do PA aumenta com a potência de saída, atingindo valores mais elevados quando o dispositivo opera próximo à saturação. A potência que não é convertida em sinal útil é dissipada como calor, elevando custos de projeto, reduzindo a confiabilidade e exigindo estruturas de dissipação térmica. Assim, maximizar a eficiência do PARF é um objetivo central no projeto de redes de telecomunicações.
 
-Outra característica fundamental é a linearidade, normalmente avaliada pela curva de transferência,
-que relaciona a potência de saída à potência de entrada, em dBm, como exemplificado na
-@fig:saidaparf. Nessa curva, observa-se uma região aproximadamente linear para baixas potências
-de entrada, seguida de uma região de compressão de ganho. O ponto de compressão de 1 dB
-indica a potência para a qual o ganho do amplificador se reduz em 1 dB em relação ao regime de
-pequeno sinal. Próximo à saturação, o ganho diminui progressivamente, aumentando a distorção do
-sinal transmitido.
+Outra característica fundamental é a linearidade, normalmente avaliada pela curva de transferência, que relaciona a potência de saída à potência de entrada, em dBm, como exemplificado na @fig:saidaparf. Nessa curva, observa-se uma região aproximadamente linear para baixas potências de entrada, seguida de uma região de compressão de ganho. O ponto de compressão de 1 dB indica a potência para a qual o ganho do amplificador se reduz em 1 dB em relação ao regime de pequeno sinal. Próximo à saturação, o ganho diminui progressivamente, aumentando a distorção do sinal transmitido.
 
 #figure(
   image("Figuras/curvasaidaparf.png", width: 55%),
@@ -239,59 +138,21 @@ sinal transmitido.
   source: [#cite(<Chavez2018>, form: "prose")],
 ) <fig:saidaparf>
 
-A largura de banda disponível para sistemas de comunicação sem fio é um recurso naturalmente
-limitado, o que torna essencial sua utilização de maneira eficiente. À medida que cresce a demanda
-por maiores taxas de transmissão de dados, surge a necessidade de empregar técnicas de
-modulação capazes de transmitir mais informação dentro da mesma faixa espectral. Nesse
-contexto, as maiores taxas de transmissão são alcançadas por esquemas de modulação que
-exploram simultaneamente variações de fase e de amplitude da onda portadora em radiofrequência
-@Kenington2000.
+A largura de banda disponível para sistemas de comunicação sem fio é um recurso naturalmente limitado, o que torna essencial sua utilização de maneira eficiente. À medida que cresce a demanda por maiores taxas de transmissão de dados, surge a necessidade de empregar técnicas de modulação capazes de transmitir mais informação dentro da mesma faixa espectral. Nesse contexto, as maiores taxas de transmissão são alcançadas por esquemas de modulação que exploram simultaneamente variações de fase e de amplitude da onda portadora em radiofrequência @Kenington2000.
 
-Entretanto, o uso de modulações que envolvem variações de amplitude impõe requisitos mais
-rigorosos sobre a linearidade dos sistemas de transmissão. A falta de linearidade pode resultar em
-distorções do sinal transmitido, ocasionando erros de comunicação e interferências indesejadas em
-canais adjacentes @Kenington2000. Dessa forma, garantir um comportamento linear ao longo da
-cadeia de transmissão torna-se um aspecto crítico para a qualidade e a confiabilidade do sistema de
-comunicação.
+Entretanto, o uso de modulações que envolvem variações de amplitude impõe requisitos mais rigorosos sobre a linearidade dos sistemas de transmissão. A falta de linearidade pode resultar em distorções do sinal transmitido, ocasionando erros de comunicação e interferências indesejadas em canais adjacentes @Kenington2000. Dessa forma, garantir um comportamento linear ao longo da cadeia de transmissão torna-se um aspecto crítico para a qualidade e a confiabilidade do sistema de comunicação.
 
-Nesse cenário, o projeto do PARF assume papel central, uma vez que esse componente fornece a
-potência necessária ao sinal modulado antes de sua transmissão pela antena. O principal desafio do
-projetista consiste em conciliar requisitos conflitantes: alta eficiência energética e boa linearidade.
-Amplificadores de potência tendem a apresentar maior eficiência quando operam próximos à região
-de saturação; contudo, nessa região de operação, o dispositivo passa a apresentar comportamento
-fortemente não linear @Cripps2006. Assim, embora a operação próxima à saturação seja desejável
-do ponto de vista energético, ela compromete a linearidade do amplificador e constitui um dos
-principais desafios no projeto de sistemas modernos de comunicação sem fio.
+Nesse cenário, o projeto do PARF assume papel central, uma vez que esse componente fornece a potência necessária ao sinal modulado antes de sua transmissão pela antena. O principal desafio do projetista consiste em conciliar requisitos conflitantes: alta eficiência energética e boa linearidade. Amplificadores de potência tendem a apresentar maior eficiência quando operam próximos à região de saturação; contudo, nessa região de operação, o dispositivo passa a apresentar comportamento fortemente não linear @Cripps2006. Assim, embora a operação próxima à saturação seja desejável do ponto de vista energético, ela compromete a linearidade do amplificador e constitui um dos principais desafios no projeto de sistemas modernos de comunicação sem fio.
 
 === Comportamento Passa Banda do PA
 
-Nos sistemas modernos de telecomunicações, a transmissão de dados é realizada por meio de
-sinais em radiofrequência, cujas frequências centrais situam-se tipicamente na ordem dos GHz.
-Esses sinais são modulados por uma envoltória complexa, responsável por carregar a informação,
-cuja largura de banda encontra-se usualmente na faixa dos MHz. Como a largura de banda do sinal
-modulado é significativamente menor do que a frequência da portadora, tais sinais são
-classificados como sinais passa banda @Luiza2016.
+Nos sistemas modernos de telecomunicações, a transmissão de dados é realizada por meio de sinais em radiofrequência, cujas frequências centrais situam-se tipicamente na ordem dos GHz. Esses sinais são modulados por uma envoltória complexa, responsável por carregar a informação, cuja largura de banda encontra-se usualmente na faixa dos MHz. Como a largura de banda do sinal modulado é significativamente menor do que a frequência da portadora, tais sinais são classificados como sinais passa banda @Luiza2016.
 
-Uma forma conveniente de analisar sinais passa banda consiste em representá-los por meio de sua
-forma equivalente em banda-base. Essa representação separa a portadora de alta frequência da
-envoltória complexa, permitindo uma análise mais intuitiva dos efeitos introduzidos pelo sistema de
-transmissão, especialmente no que se refere às variações de amplitude e fase. Essa abordagem é
-amplamente utilizada na modelagem comportamental de amplificadores de potência, pois facilita a
-identificação e a caracterização das distorções causadas pelas não linearidades do circuito do PA.
+Uma forma conveniente de analisar sinais passa banda consiste em representá-los por meio de sua forma equivalente em banda-base. Essa representação separa a portadora de alta frequência da envoltória complexa, permitindo uma análise mais intuitiva dos efeitos introduzidos pelo sistema de transmissão, especialmente no que se refere às variações de amplitude e fase. Essa abordagem é amplamente utilizada na modelagem comportamental de amplificadores de potência, pois facilita a identificação e a caracterização das distorções causadas pelas não linearidades do circuito do PA.
 
-O amplificador de potência em radiofrequência desempenha papel fundamental na cadeia de
-transmissão, sendo responsável por fornecer potência suficiente ao sinal antes de sua irradiação
-pela antena. Entretanto, os dispositivos ativos que compõem o PA apresentam comportamento
-inerentemente não linear, especialmente quando operam próximos à região de saturação. Como
-consequência, essas não linearidades afetam diretamente sinais passa banda, que possuem
-múltiplas componentes espectrais concentradas em torno da frequência central.
+O amplificador de potência em radiofrequência desempenha papel fundamental na cadeia de transmissão, sendo responsável por fornecer potência suficiente ao sinal antes de sua irradiação pela antena. Entretanto, os dispositivos ativos que compõem o PA apresentam comportamento inerentemente não linear, especialmente quando operam próximos à região de saturação. Como consequência, essas não linearidades afetam diretamente sinais passa banda, que possuem múltiplas componentes espectrais concentradas em torno da frequência central.
 
-A @fig:comportamentopassabanda ilustra o comportamento típico de um PA passa banda,
-evidenciando os sinais de entrada e saída tanto no domínio do tempo quanto no domínio da
-frequência. Observa-se que, enquanto o espectro do sinal de entrada está confinado à banda
-desejada, o sinal de saída apresenta um espalhamento espectral. Esse fenômeno ocorre devido à
-geração de produtos de intermodulação provocados pelas não linearidades do amplificador,
-resultando no surgimento de componentes espectrais fora da banda original do sinal.
+A @fig:comportamentopassabanda ilustra o comportamento típico de um PA passa banda, evidenciando os sinais de entrada e saída tanto no domínio do tempo quanto no domínio da frequência. Observa-se que, enquanto o espectro do sinal de entrada está confinado à banda desejada, o sinal de saída apresenta um espalhamento espectral. Esse fenômeno ocorre devido à geração de produtos de intermodulação provocados pelas não linearidades do amplificador, resultando no surgimento de componentes espectrais fora da banda original do sinal.
 
 #figure(
   image("Figuras/comportamento passa banda.png", width: 100%),
@@ -299,49 +160,17 @@ resultando no surgimento de componentes espectrais fora da banda original do sin
   source: [#cite(<Pedro2005>, form: "prose")],
 ) <fig:comportamentopassabanda>
 
-Esse espalhamento espectral é particularmente indesejável em sistemas de comunicação sem fio,
-pois pode causar interferência em canais adjacentes, degradando o desempenho de usuários
-vizinhos e violando requisitos regulatórios de emissão espectral. Além disso, a presença de
-distorções no sinal transmitido compromete a qualidade da comunicação e reduz a eficiência
-espectral do sistema. Dessa forma, a compreensão do comportamento passa banda do PA é
-essencial para o desenvolvimento de técnicas de linearização, como a pré-distorção digital, que
-visam mitigar os efeitos das não linearidades e preservar a integridade do sinal transmitido
-@Luiza2016.
+Esse espalhamento espectral é particularmente indesejável em sistemas de comunicação sem fio, pois pode causar interferência em canais adjacentes, degradando o desempenho de usuários vizinhos e violando requisitos regulatórios de emissão espectral. Além disso, a presença de distorções no sinal transmitido compromete a qualidade da comunicação e reduz a eficiência espectral do sistema. Dessa forma, a compreensão do comportamento passa banda do PA é essencial para o desenvolvimento de técnicas de linearização, como a pré-distorção digital, que visam mitigar os efeitos das não linearidades e preservar a integridade do sinal transmitido @Luiza2016.
 
 == Linearização de Amplificadores de Potência
 
-Conforme discutido na seção anterior, as não linearidades inerentes aos PARFs causam distorções
-significativas em sinais passa banda, resultando em espalhamento espectral e interferência em
-canais adjacentes. Esse efeito torna-se especialmente crítico nos sistemas modernos de
-comunicação sem fio, nos quais a largura de banda disponível é limitada e há uma demanda
-crescente por maiores taxas de transmissão de dados. Para atender a esses requisitos, são
-amplamente empregadas modulações digitais complexas que variam simultaneamente a amplitude
-e a fase do sinal, como QAM e OFDM @Kenington2000.
+Conforme discutido na seção anterior, as não linearidades inerentes aos PARFs causam distorções significativas em sinais passa banda, resultando em espalhamento espectral e interferência em canais adjacentes. Esse efeito torna-se especialmente crítico nos sistemas modernos de comunicação sem fio, nos quais a largura de banda disponível é limitada e há uma demanda crescente por maiores taxas de transmissão de dados. Para atender a esses requisitos, são amplamente empregadas modulações digitais complexas que variam simultaneamente a amplitude e a fase do sinal, como QAM e OFDM @Kenington2000.
 
-Entretanto, tais esquemas de modulação impõem elevados requisitos de linearidade ao sistema de
-transmissão, uma vez que qualquer não linearidade introduzida pelo PARF afeta diretamente a
-envoltória do sinal, comprometendo sua integridade e degradando a qualidade da comunicação. Por
-outro lado, a operação do amplificador em regiões estritamente lineares geralmente ocorre longe da
-saturação, o que implica baixa eficiência energética. Esse comportamento evidencia o compromisso
-fundamental entre eficiência e linearidade nos PARFs @Cripps2006. A baixa eficiência resulta em
-maior dissipação térmica, reduzindo a autonomia de dispositivos móveis alimentados por bateria e
-elevando os custos operacionais em estações rádio-base.
+Entretanto, tais esquemas de modulação impõem elevados requisitos de linearidade ao sistema de transmissão, uma vez que qualquer não linearidade introduzida pelo PARF afeta diretamente a envoltória do sinal, comprometendo sua integridade e degradando a qualidade da comunicação. Por outro lado, a operação do amplificador em regiões estritamente lineares geralmente ocorre longe da saturação, o que implica baixa eficiência energética. Esse comportamento evidencia o compromisso fundamental entre eficiência e linearidade nos PARFs @Cripps2006. A baixa eficiência resulta em maior dissipação térmica, reduzindo a autonomia de dispositivos móveis alimentados por bateria e elevando os custos operacionais em estações rádio-base.
 
-Diante desse cenário, diversas técnicas de linearização têm sido desenvolvidas com o objetivo de
-mitigar os efeitos das não linearidades do PARF, permitindo sua operação em regiões mais
-eficientes sem comprometer a qualidade do sinal transmitido. Dentre essas técnicas, a
-pré-distorção digital (_Digital Predistortion_ --- DPD) destaca-se pelo compromisso favorável entre
-desempenho e custo de implementação @Kenington2000. A técnica de DPD consiste em aplicar, em
-banda-base, uma distorção controlada ao sinal de entrada, de forma que sua característica de
-transferência seja aproximadamente inversa à do PARF.
+Diante desse cenário, diversas técnicas de linearização têm sido desenvolvidas com o objetivo de mitigar os efeitos das não linearidades do PARF, permitindo sua operação em regiões mais eficientes sem comprometer a qualidade do sinal transmitido. Dentre essas técnicas, a pré-distorção digital (_Digital Predistortion_ --- DPD) destaca-se pelo compromisso favorável entre desempenho e custo de implementação @Kenington2000. A técnica de DPD consiste em aplicar, em banda-base, uma distorção controlada ao sinal de entrada, de forma que sua característica de transferência seja aproximadamente inversa à do PARF.
 
-Quando o sinal pré-distorcido é aplicado ao amplificador, as não linearidades do PARF compensam
-a distorção introduzida pelo DPD, resultando em um comportamento global aproximadamente
-linear do sistema em cascata. Esse conceito é ilustrado na @fig:cascatadpd, que apresenta o
-esquema de um pré-distorcedor digital operando em conjunto com o PARF para o qual foi
-projetado. Para que essa compensação seja eficaz, torna-se necessário que o DPD seja capaz de
-representar com precisão não apenas o comportamento não linear estático do amplificador, mas
-também seus efeitos de memória.
+Quando o sinal pré-distorcido é aplicado ao amplificador, as não linearidades do PARF compensam a distorção introduzida pelo DPD, resultando em um comportamento global aproximadamente linear do sistema em cascata. Esse conceito é ilustrado na @fig:cascatadpd, que apresenta o esquema de um pré-distorcedor digital operando em conjunto com o PARF para o qual foi projetado. Para que essa compensação seja eficaz, torna-se necessário que o DPD seja capaz de representar com precisão não apenas o comportamento não linear estático do amplificador, mas também seus efeitos de memória.
 
 #figure(
   image("Figuras/DPDcascata.png", width: 55%),
@@ -349,18 +178,9 @@ também seus efeitos de memória.
   source: [#cite(<Chavez2018>, form: "prose")],
 ) <fig:cascatadpd>
 
-Nesse contexto, a modelagem comportamental constitui uma etapa fundamental no desenvolvimento
-de técnicas de pré-distorção digital. O diagrama de blocos apresentado na @fig:diagramamodelagem
-exemplifica essa abordagem, na qual um modelo matemático é submetido ao mesmo sinal de
-entrada aplicado ao amplificador de potência, representado por $x(t)$. A saída simulada do
-modelo, $y_("sim")(t)$, é então comparada com a saída real do PARF, $y_("real")(t)$.
+Nesse contexto, a modelagem comportamental constitui uma etapa fundamental no desenvolvimento de técnicas de pré-distorção digital. O diagrama de blocos apresentado na @fig:diagramamodelagem exemplifica essa abordagem, na qual um modelo matemático é submetido ao mesmo sinal de entrada aplicado ao amplificador de potência, representado por $x(t)$. A saída simulada do modelo, $y_("sim")(t)$, é então comparada com a saída real do PARF, $y_("real")(t)$.
 
-Os coeficientes do modelo são ajustados a partir do erro entre $y_("real")(t)$ e $y_("sim")(t)$, por
-meio de algoritmos de otimização cujo objetivo é minimizar esse erro. Quando o erro mínimo é
-alcançado, o modelo é considerado otimizado e capaz de reproduzir adequadamente o
-comportamento do amplificador de potência. Nessa condição, o modelo pode ser empregado na
-implementação do pré-distorcedor digital, possibilitando a linearização do PARF e a mitigação do
-espalhamento espectral @Luiza2016.
+Os coeficientes do modelo são ajustados a partir do erro entre $y_("real")(t)$ e $y_("sim")(t)$, por meio de algoritmos de otimização cujo objetivo é minimizar esse erro. Quando o erro mínimo é alcançado, o modelo é considerado otimizado e capaz de reproduzir adequadamente o comportamento do amplificador de potência. Nessa condição, o modelo pode ser empregado na implementação do pré-distorcedor digital, possibilitando a linearização do PARF e a mitigação do espalhamento espectral @Luiza2016.
 
 #figure(
   image("Figuras/diagrama simulação.png", width: 55%),
@@ -370,105 +190,42 @@ espalhamento espectral @Luiza2016.
 
 == Modelos Comportamentais
 
-Conforme discutido na seção anterior, a técnica de DPD depende diretamente da capacidade de
-representar com precisão o comportamento não linear do PARF. Para que a linearização seja
-eficaz, o pré-distorcedor deve reproduzir, de forma inversa, as características do amplificador,
-compensando tanto as não linearidades estáticas quanto os efeitos dinâmicos associados à memória
-do dispositivo. Dessa forma, torna-se indispensável o uso de modelos matemáticos capazes de
-descrever adequadamente o comportamento do PA sob diferentes condições de operação.
+Conforme discutido na seção anterior, a técnica de DPD depende diretamente da capacidade de representar com precisão o comportamento não linear do PARF. Para que a linearização seja eficaz, o pré-distorcedor deve reproduzir, de forma inversa, as características do amplificador, compensando tanto as não linearidades estáticas quanto os efeitos dinâmicos associados à memória do dispositivo. Dessa forma, torna-se indispensável o uso de modelos matemáticos capazes de descrever adequadamente o comportamento do PA sob diferentes condições de operação.
 
-Nos sistemas modernos de comunicação sem fio, a limitação de largura de banda disponível leva à
-adoção de esquemas de modulação com elevada variação de envoltória, caracterizados por altos
-valores de _Peak-to-Average Power Ratio_ (PAPR). Esses sinais impõem requisitos rigorosos ao
-PARF, que deve operar de forma eficiente do ponto de vista energético sem comprometer a
-linearidade. Para atender a essas exigências, as técnicas de linearização demandam modelos
-computacionais precisos do comportamento do amplificador @John2016.
+Nos sistemas modernos de comunicação sem fio, a limitação de largura de banda disponível leva à adoção de esquemas de modulação com elevada variação de envoltória, caracterizados por altos valores de _Peak-to-Average Power Ratio_ (PAPR). Esses sinais impõem requisitos rigorosos ao PARF, que deve operar de forma eficiente do ponto de vista energético sem comprometer a linearidade. Para atender a essas exigências, as técnicas de linearização demandam modelos computacionais precisos do comportamento do amplificador @John2016.
 
-De maneira geral, as abordagens de modelagem de amplificadores de potência podem ser
-classificadas em duas categorias principais: modelagem física e modelagem comportamental. A
-modelagem física baseia-se no conhecimento detalhado da topologia do circuito, dos dispositivos
-semicondutores e dos componentes passivos que constituem o amplificador. Embora essa
-abordagem possa oferecer elevada precisão, sua aplicação é limitada pela alta complexidade
-computacional e pela dificuldade de obtenção de todos os parâmetros físicos necessários. Em
-contrapartida, a modelagem comportamental, também conhecida como empírica, fundamenta-se
-exclusivamente na observação da relação entre os sinais de entrada e saída do sistema, sem a
-necessidade de informações detalhadas sobre a estrutura interna do circuito. Essa característica
-torna os modelos comportamentais particularmente atrativos para aplicações de simulação e
-linearização, devido à sua menor complexidade computacional.
+De maneira geral, as abordagens de modelagem de amplificadores de potência podem ser classificadas em duas categorias principais: modelagem física e modelagem comportamental. A modelagem física baseia-se no conhecimento detalhado da topologia do circuito, dos dispositivos semicondutores e dos componentes passivos que constituem o amplificador. Embora essa abordagem possa oferecer elevada precisão, sua aplicação é limitada pela alta complexidade computacional e pela dificuldade de obtenção de todos os parâmetros físicos necessários. Em contrapartida, a modelagem comportamental, também conhecida como empírica, fundamenta-se exclusivamente na observação da relação entre os sinais de entrada e saída do sistema, sem a necessidade de informações detalhadas sobre a estrutura interna do circuito. Essa característica torna os modelos comportamentais particularmente atrativos para aplicações de simulação e linearização, devido à sua menor complexidade computacional.
 
-Aplicações recentes reforçam essa relevância prática em cenários de elevada largura de banda e
-restrições de implementação. Estruturas abertas para modelagem de PA e aprendizagem de DPD
-têm sido propostas para padronizar a comparação entre modelos e acelerar a validação com sinais
-OFDM de centenas de MHz @Wu2024OpenDPD. Além disso, abordagens de DPD com precisão mista
-e parâmetros quantizados mostram que a redução de complexidade e de consumo computacional
-continua sendo uma exigência central para a aplicação de modelos comportamentais em
-transmissores modernos @Wu2024MPDPD.
+Aplicações recentes reforçam essa relevância prática em cenários de elevada largura de banda e restrições de implementação. Estruturas abertas para modelagem de PA e aprendizagem de DPD têm sido propostas para padronizar a comparação entre modelos e acelerar a validação com sinais OFDM de centenas de MHz @Wu2024OpenDPD. Além disso, abordagens de DPD com precisão mista e parâmetros quantizados mostram que a redução de complexidade e de consumo computacional continua sendo uma exigência central para a aplicação de modelos comportamentais em transmissores modernos @Wu2024MPDPD.
 
-No contexto da pré-distorção digital, a modelagem comportamental é amplamente preferida, uma
-vez que o objetivo principal é reproduzir o comportamento inverso observável do PARF. Além das
-não linearidades estáticas, os efeitos de memória --- isto é, a dependência da saída atual em
-relação a amostras passadas do sinal de entrada --- desempenham um papel relevante no
-comportamento do amplificador. Dessa forma, os sistemas podem ser classificados como sem
-memória ou com memória, sendo esta última categoria a mais representativa para amplificadores
-operando com sinais de larga banda.
+No contexto da pré-distorção digital, a modelagem comportamental é amplamente preferida, uma vez que o objetivo principal é reproduzir o comportamento inverso observável do PARF. Além das não linearidades estáticas, os efeitos de memória --- isto é, a dependência da saída atual em relação a amostras passadas do sinal de entrada --- desempenham um papel relevante no comportamento do amplificador. Dessa forma, os sistemas podem ser classificados como sem memória ou com memória, sendo esta última categoria a mais representativa para amplificadores operando com sinais de larga banda.
 
-Dentre os diversos modelos comportamentais propostos na literatura, destacam-se os modelos
-polinomiais com memória e as redes neurais artificiais. Embora as redes neurais apresentem
-elevada capacidade de aproximação, sua implementação pode acarretar maior complexidade
-computacional. Neste trabalho, opta-se por modelos baseados em simplificações da série de
-Volterra, priorizando estruturas polinomiais devido ao seu compromisso favorável entre capacidade
-de modelagem e custo computacional, como observado em extensões do polinômio com memória
-generalizado @Morgan2006 e em formulações polinomiais aplicadas a cenários de identificação
-não linear mais amplos @Li2021.
+Dentre os diversos modelos comportamentais propostos na literatura, destacam-se os modelos polinomiais com memória e as redes neurais artificiais. Embora as redes neurais apresentem elevada capacidade de aproximação, sua implementação pode acarretar maior complexidade computacional. Neste trabalho, opta-se por modelos baseados em simplificações da série de Volterra, priorizando estruturas polinomiais devido ao seu compromisso favorável entre capacidade de modelagem e custo computacional, como observado em extensões do polinômio com memória generalizado @Morgan2006 e em formulações polinomiais aplicadas a cenários de identificação não linear mais amplos @Li2021.
 
 === Séries de Volterra
 
-A série de Volterra constitui uma extensão da série de Taylor para a representação de sistemas
-não lineares dinâmicos com memória, sendo amplamente utilizada na modelagem de amplificadores
-de potência @GonalvesdeLima2009. Por meio dessa abordagem, a saída do sistema é expressa
-como uma combinação de integrais múltiplas envolvendo o sinal de entrada e núcleos que
-caracterizam o comportamento do sistema em diferentes ordens de não linearidade.
+A série de Volterra constitui uma extensão da série de Taylor para a representação de sistemas não lineares dinâmicos com memória, sendo amplamente utilizada na modelagem de amplificadores de potência @GonalvesdeLima2009. Por meio dessa abordagem, a saída do sistema é expressa como uma combinação de integrais múltiplas envolvendo o sinal de entrada e núcleos que caracterizam o comportamento do sistema em diferentes ordens de não linearidade.
 
-Matematicamente, a saída $y(t)$ de um sistema descrito pela série de Volterra pode ser expressa
-como:
+Matematicamente, a saída $y(t)$ de um sistema descrito pela série de Volterra pode ser expressa como:
 
 $ y(t) = h_0 + sum_(n=1)^(infinity) integral_(-infinity)^(infinity) dots.c integral_(-infinity)^(infinity) h_n (tau_1, dots.c, tau_n) product_(i=1)^(n) x(t - tau_i) , d tau_i $ <eq:Volterra>
 
-em que $h_n (tau_1, dots.c, tau_n)$ representa o núcleo de Volterra de ordem $n$, responsável por
-descrever os efeitos não lineares e de memória do sistema. Embora a série de Volterra forneça uma
-descrição bastante geral e precisa do comportamento de sistemas não lineares com memória, sua
-aplicação prática é limitada pela elevada complexidade computacional. Por esse motivo, na maioria
-das aplicações, a série é truncada para ordens finitas, restringindo o número de termos
-considerados.
+em que $h_n (tau_1, dots.c, tau_n)$ representa o núcleo de Volterra de ordem $n$, responsável por descrever os efeitos não lineares e de memória do sistema. Embora a série de Volterra forneça uma descrição bastante geral e precisa do comportamento de sistemas não lineares com memória, sua aplicação prática é limitada pela elevada complexidade computacional. Por esse motivo, na maioria das aplicações, a série é truncada para ordens finitas, restringindo o número de termos considerados.
 
 === Polinômio com Memória
 
-O modelo de polinômio com memória (_Memory Polynomial_ --- MP) surge como uma simplificação
-da série de Volterra, obtida pela consideração apenas dos termos diagonais, isto é, daqueles que
-compartilham o mesmo atraso temporal @Kim2001. Essa simplificação reduz
-significativamente a complexidade do modelo, ao mesmo tempo em que preserva a capacidade de
-representar não linearidades e efeitos de memória de forma satisfatória para uma ampla classe de
-amplificadores de potência.
+O modelo de polinômio com memória (_Memory Polynomial_ --- MP) surge como uma simplificação da série de Volterra, obtida pela consideração apenas dos termos diagonais, isto é, daqueles que compartilham o mesmo atraso temporal @Kim2001. Essa simplificação reduz significativamente a complexidade do modelo, ao mesmo tempo em que preserva a capacidade de representar não linearidades e efeitos de memória de forma satisfatória para uma ampla classe de amplificadores de potência.
 
 O modelo MP pode ser descrito matematicamente por:
 
 $ y(n) = sum_(p=1)^(P) sum_(m=0)^(M) h_(p,m) , x(n - m) |x(n - m)|^(p-1) $ <eq:mp>
 
-em que $P$ representa a ordem de não linearidade do modelo, $M$ corresponde à profundidade de
-memória considerada, e $h_(p,m)$ são os coeficientes do modelo. Uma das principais vantagens do
-modelo de polinômio com memória é sua linearidade nos parâmetros, o que facilita a estimação dos
-coeficientes por meio de técnicas de otimização convencionais. Além disso, esse modelo apresenta
-boa eficácia na representação de amplificadores de potência com efeitos de memória moderados,
-sendo amplamente empregado em aplicações de pré-distorção digital.
+em que $P$ representa a ordem de não linearidade do modelo, $M$ corresponde à profundidade de memória considerada, e $h_(p,m)$ são os coeficientes do modelo. Uma das principais vantagens do modelo de polinômio com memória é sua linearidade nos parâmetros, o que facilita a estimação dos coeficientes por meio de técnicas de otimização convencionais. Além disso, esse modelo apresenta boa eficácia na representação de amplificadores de potência com efeitos de memória moderados, sendo amplamente empregado em aplicações de pré-distorção digital.
 
-Para o modelo MP original adotado como referência neste trabalho, considera-se ordem polinomial
-$P = 5$ e profundidade de memória $M = 2$, resultando em 15 coeficientes complexos. Nessa
-configuração, a @eq:mp pode ser organizada em três blocos de memória:
+Para o modelo MP original adotado como referência neste trabalho, considera-se ordem polinomial $P = 5$ e profundidade de memória $M = 2$, resultando em 15 coeficientes complexos. Nessa configuração, a @eq:mp pode ser organizada em três blocos de memória:
 
 $ y(n) =
-  bold(h)_0^T bold(phi)_0(n)
-  + bold(h)_1^T bold(phi)_1(n - 1)
-  + bold(h)_2^T bold(phi)_2(n - 2) $ <eq:mp-original-p5-m2>
+  bold(h)_0^T bold(phi)_0(n) + bold(h)_1^T bold(phi)_1(n - 1) + bold(h)_2^T bold(phi)_2(n - 2) $ <eq:mp-original-p5-m2>
 
 em que cada bloco contém cinco coeficientes e cinco termos polinomiais:
 
@@ -482,26 +239,11 @@ $ bold(phi)_m(n - m) = mat(
   x(n - m)|x(n - m)|^4
 ) $ <eq:termos-bloco-mp>
 
-Assim, para $m in {0, 1, 2}$, a estrutura total do MP original é composta por três vetores
-de coeficientes, cada um com cinco elementos, totalizando 15 coeficientes.
+Assim, para $m in {0, 1, 2}$, a estrutura total do MP original é composta por três vetores de coeficientes, cada um com cinco elementos, totalizando 15 coeficientes.
 
-Observa-se que, na formulação tradicional do modelo MP, a ordem polinomial máxima $P$ é adotada
-de forma uniforme para todos os termos de memória, independentemente do atraso considerado.
-Essa restrição, embora simplifique a estrutura do modelo, não é imposta pela formulação original da
-série de Volterra e pode resultar em um aumento desnecessário da complexidade computacional,
-especialmente para termos associados a atrasos mais elevados, cujos efeitos não lineares tendem
-a ser menos pronunciados. Dessa forma, a adoção de ordens polinomiais diferenciadas em função
-do atraso de memória surge como uma alternativa potencial para reduzir a complexidade do modelo,
-mantendo sua capacidade de representação.
+Observa-se que, na formulação tradicional do modelo MP, a ordem polinomial máxima $P$ é adotada de forma uniforme para todos os termos de memória, independentemente do atraso considerado. Essa restrição, embora simplifique a estrutura do modelo, não é imposta pela formulação original da série de Volterra e pode resultar em um aumento desnecessário da complexidade computacional, especialmente para termos associados a atrasos mais elevados, cujos efeitos não lineares tendem a ser menos pronunciados. Dessa forma, a adoção de ordens polinomiais diferenciadas em função do atraso de memória surge como uma alternativa potencial para reduzir a complexidade do modelo, mantendo sua capacidade de representação.
 
-Do ponto de vista de implementação em hardware, especialmente em sistemas que operam com
-altas taxas de amostragem, torna-se fundamental explorar arquiteturas eficientes que permitam a
-paralelização das operações aritméticas. Nesse contexto, a implementação em VHDL do modelo MP
-com truncamento polinomial dependente do atraso permite avaliar de forma direta se a redução de
-complexidade observada em software se traduz em menor utilização de recursos em hardware
-digital, preservando a equivalência funcional do modelo. Trabalhos voltados à análise de
-compromissos de hardware em séries de Volterra podadas @Talemwa2025 reforçam a importância
-de tratar desempenho de modelagem e custo estrutural de forma conjunta.
+Do ponto de vista de implementação em hardware, especialmente em sistemas que operam com altas taxas de amostragem, torna-se fundamental explorar arquiteturas eficientes que permitam a paralelização das operações aritméticas. Nesse contexto, a implementação em VHDL do modelo MP com truncamento polinomial dependente do atraso permite avaliar de forma direta se a redução de complexidade observada em software se traduz em menor utilização de recursos em hardware digital, preservando a equivalência funcional do modelo. Trabalhos voltados à análise de compromissos de hardware em séries de Volterra podadas @Talemwa2025 reforçam a importância de tratar desempenho de modelagem e custo estrutural de forma conjunta.
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Material e Métodos
@@ -509,37 +251,15 @@ de tratar desempenho de modelagem e custo estrutural de forma conjunta.
 
 == Modelo MP original <sec:mp-original>
 
-Conforme detalhado no Capítulo~2, amplificadores de potência RF são dispositivos inerentemente
-não lineares e sujeitos a efeitos de memória, decorrentes tanto da natureza dos sinais de banda
-larga aplicados quanto das não linearidades impostas pelos circuitos internos do amplificador.
-Sistemas desse tipo podem ser representados matematicamente por meio da série de Volterra.
+Conforme detalhado no Capítulo~2, amplificadores de potência RF são dispositivos inerentemente não lineares e sujeitos a efeitos de memória, decorrentes tanto da natureza dos sinais de banda larga aplicados quanto das não linearidades impostas pelos circuitos internos do amplificador. Sistemas desse tipo podem ser representados matematicamente por meio da série de Volterra.
 
-Uma característica importante da série de Volterra, conforme destacado em @Pedro2005,
-é sua linearidade em relação aos parâmetros, o que permite a estimação dos coeficientes do modelo
-por meio de técnicas de identificação linear, como o método dos mínimos quadrados. No entanto, o
-número de parâmetros da série de Volterra cresce rapidamente com o aumento da ordem do
-polinômio e com a quantidade de termos de memória considerados, resultando em modelos de
-elevada complexidade computacional.
+Uma característica importante da série de Volterra, conforme destacado em @Pedro2005, é sua linearidade em relação aos parâmetros, o que permite a estimação dos coeficientes do modelo por meio de técnicas de identificação linear, como o método dos mínimos quadrados. No entanto, o número de parâmetros da série de Volterra cresce rapidamente com o aumento da ordem do polinômio e com a quantidade de termos de memória considerados, resultando em modelos de elevada complexidade computacional.
 
-Para viabilizar o uso da série de Volterra em aplicações práticas, mesmo com polinômios de ordem
-elevada e múltiplos termos de memória, diversos modelos comportamentais propostos na literatura
-aplicam simplificações dessa representação matemática. Um exemplo é o modelo comportamental
-apresentado em @Kim2001, conhecido como modelo MP.
+Para viabilizar o uso da série de Volterra em aplicações práticas, mesmo com polinômios de ordem elevada e múltiplos termos de memória, diversos modelos comportamentais propostos na literatura aplicam simplificações dessa representação matemática. Um exemplo é o modelo comportamental apresentado em @Kim2001, conhecido como modelo MP.
 
-O modelo MP pode ser interpretado como uma extensão do modelo polinomial estático,
-incorporando efeitos de memória por meio de uma forma reduzida da série de Volterra. Nessa
-abordagem, apenas produtos de amostras correspondentes ao mesmo instante de tempo são
-considerados. Matematicamente, o modelo MP é descrito pela @eq:mp, na qual todos os polinômios
-que compõem o modelo possuem a mesma ordem @Kim2001. A configuração original utilizada
-como referência empírica neste trabalho é dada pela @eq:mp-original-p5-m2.
+O modelo MP pode ser interpretado como uma extensão do modelo polinomial estático, incorporando efeitos de memória por meio de uma forma reduzida da série de Volterra. Nessa abordagem, apenas produtos de amostras correspondentes ao mesmo instante de tempo são considerados. Matematicamente, o modelo MP é descrito pela @eq:mp, na qual todos os polinômios que compõem o modelo possuem a mesma ordem @Kim2001. A configuração original utilizada como referência empírica neste trabalho é dada pela @eq:mp-original-p5-m2.
 
-Entre as principais características do modelo MP, destaca-se o fato de que ele é baseado em
-multiplicações de sinais avaliados no mesmo instante de tempo, como $tilde(x)(n)|tilde(x)(n)|$ e
-$tilde(x)(n-1)|tilde(x)(n-1)|$. Além disso, como o modelo depende de informações passadas da
-fase da envoltória do sinal de entrada, ele é capaz de representar fenômenos associados às
-variações de fase da envoltória, incluindo as conversões PM--AM (_phase modulation to amplitude
-modulation_) e PM--PM (_phase modulation to phase modulation_). A @fig:mp_padrao apresenta o
-diagrama de blocos do modelo MP.
+Entre as principais características do modelo MP, destaca-se o fato de que ele é baseado em multiplicações de sinais avaliados no mesmo instante de tempo, como $tilde(x)(n)|tilde(x)(n)|$ e $tilde(x)(n-1)|tilde(x)(n-1)|$. Além disso, como o modelo depende de informações passadas da fase da envoltória do sinal de entrada, ele é capaz de representar fenômenos associados às variações de fase da envoltória, incluindo as conversões PM--AM (_phase modulation to amplitude modulation_) e PM--PM (_phase modulation to phase modulation_). A @fig:mp_padrao apresenta o diagrama de blocos do modelo MP.
 
 #figure(
   image("Figuras/mp_padrao.png", width: 75%),
@@ -549,189 +269,84 @@ diagrama de blocos do modelo MP.
 
 === Polinômio com Memória com Truncamento Polinomial Dependente do Atraso
 
-Conforme discutido na Seção~2.3.2, o modelo de Polinômio com Memória (MP) tradicional adota
-uma ordem polinomial máxima uniforme para todos os termos de memória. Embora essa abordagem
-simplifique a estrutura do modelo, ela pode resultar em um aumento desnecessário da complexidade
-computacional, uma vez que os efeitos não lineares associados a amostras mais antigas tendem a
-ser menos significativos do que aqueles relacionados à amostra atual.
+Conforme discutido na Seção~2.3.2, o modelo de Polinômio com Memória (MP) tradicional adota uma ordem polinomial máxima uniforme para todos os termos de memória. Embora essa abordagem simplifique a estrutura do modelo, ela pode resultar em um aumento desnecessário da complexidade computacional, uma vez que os efeitos não lineares associados a amostras mais antigas tendem a ser menos significativos do que aqueles relacionados à amostra atual.
 
-Com o objetivo de explorar essa característica, propõe-se neste trabalho uma variação do modelo
-MP na qual a ordem polinomial máxima passa a ser definida de forma independente para cada
-atraso de memória. Dessa forma, o modelo deixa de utilizar um único parâmetro de ordem
-polinomial $P$ e passa a empregar um conjunto de ordens $\{P_0, P_1, dots.c, P_M\}$, em que
-$P_m$ representa a ordem polinomial máxima associada ao termo de atraso $m$.
+Com o objetivo de explorar essa característica, propõe-se neste trabalho uma variação do modelo MP na qual a ordem polinomial máxima passa a ser definida de forma independente para cada atraso de memória. Dessa forma, o modelo deixa de utilizar um único parâmetro de ordem polinomial $P$ e passa a empregar um conjunto de ordens $\{P_0, P_1, dots.c, P_M\}$, em que $P_m$ representa a ordem polinomial máxima associada ao termo de atraso $m$.
 
 Matematicamente, o modelo proposto pode ser expresso como:
 
 $ y(n) = sum_(m=0)^(M) sum_(p=1)^(P_m) h_(p,m) , x(n - m) |x(n - m)|^(p-1) $ <eq:mp_truncado>
 
-em que $M$ corresponde à profundidade de memória do modelo, $P_m$ define a ordem polinomial
-máxima associada ao atraso $m$, e $h_(p,m)$ são os coeficientes complexos a serem estimados.
-Observa-se que o modelo MP tradicional constitui um caso particular da @eq:mp_truncado, obtido
-quando se impõe $P_0 = P_1 = dots.c = P_M = P$.
+em que $M$ corresponde à profundidade de memória do modelo, $P_m$ define a ordem polinomial máxima associada ao atraso $m$, e $h_(p,m)$ são os coeficientes complexos a serem estimados. Observa-se que o modelo MP tradicional constitui um caso particular da @eq:mp_truncado, obtido quando se impõe $P_0 = P_1 = dots.c = P_M = P$.
 
-A principal motivação dessa abordagem reside na possibilidade de reduzir o número total de
-coeficientes do modelo sem comprometer significativamente sua capacidade de representação. Em
-particular, espera-se que a escolha de ordens polinomiais decrescentes com o aumento do atraso,
-isto é, $P_0 > P_1 > dots.c > P_M$, seja suficiente para capturar os efeitos não lineares dominantes
-do amplificador de potência, concentrados majoritariamente na amostra atual e nos atrasos mais
-próximos.
+A principal motivação dessa abordagem reside na possibilidade de reduzir o número total de coeficientes do modelo sem comprometer significativamente sua capacidade de representação. Em particular, espera-se que a escolha de ordens polinomiais decrescentes com o aumento do atraso, isto é, $P_0 > P_1 > dots.c > P_M$, seja suficiente para capturar os efeitos não lineares dominantes do amplificador de potência, concentrados majoritariamente na amostra atual e nos atrasos mais próximos.
 
-Do ponto de vista de identificação, o modelo proposto preserva a linearidade nos parâmetros,
-permitindo a estimação dos coeficientes por meio de técnicas de mínimos quadrados
-convencionais, de forma análoga ao MP clássico. A diferença reside na construção da matriz de
-regressão, que passa a incorporar apenas os termos polinomiais correspondentes a cada ordem
-$P_m$, resultando em uma matriz de menor dimensão.
+Do ponto de vista de identificação, o modelo proposto preserva a linearidade nos parâmetros, permitindo a estimação dos coeficientes por meio de técnicas de mínimos quadrados convencionais, de forma análoga ao MP clássico. A diferença reside na construção da matriz de regressão, que passa a incorporar apenas os termos polinomiais correspondentes a cada ordem $P_m$, resultando em uma matriz de menor dimensão.
 
-Além da redução de complexidade computacional, essa estrutura oferece vantagens diretas para a
-implementação em hardware. Como o número de termos polinomiais deixa de ser uniforme entre os
-atrasos, a descrição em VHDL pode ser reorganizada para eliminar explicitamente operações
-aritméticas desnecessárias, reduzindo o número de blocos funcionais do circuito sem alterar a
-formulação matemática do modelo.
+Além da redução de complexidade computacional, essa estrutura oferece vantagens diretas para a implementação em hardware. Como o número de termos polinomiais deixa de ser uniforme entre os atrasos, a descrição em VHDL pode ser reorganizada para eliminar explicitamente operações aritméticas desnecessárias, reduzindo o número de blocos funcionais do circuito sem alterar a formulação matemática do modelo.
 
 == Metodologia de validação da proposta
 
-A validação da proposta foi organizada de forma integrada, contemplando a implementação em software, a implementação em hardware e a aplicação do modelo tanto à modelagem direta quanto à linearização do PA. Em software, os coeficientes dos modelos MP foram estimados em Python a
-partir de dados medidos de entrada e saída de amplificadores de potência, utilizando mínimos quadrados não lineares e avaliação por NMSE em conjuntos independentes de validação. Em
-hardware, as estruturas foram descritas em VHDL com aritmética de ponto fixo, permitindo comparar a equivalência funcional em relação ao modelo em Python e os recursos estruturais necessários
-após a síntese lógica.
+A validação da proposta foi organizada de forma integrada, contemplando a implementação em software, a implementação em hardware e a aplicação do modelo tanto à modelagem direta quanto à linearização do PA. Em software, os coeficientes dos modelos MP foram estimados em Python a partir de dados medidos de entrada e saída de amplificadores de potência, utilizando mínimos quadrados não lineares e avaliação por NMSE em conjuntos independentes de validação. Em hardware, as estruturas foram descritas em VHDL com aritmética de ponto fixo, permitindo comparar a equivalência funcional em relação ao modelo em Python e os recursos estruturais necessários após a síntese lógica.
 
-Foram considerados dois conjuntos de dados empíricos. O primeiro corresponde a medições de um
-amplificador de potência classe AB, do tipo GaN HEMT, excitado por uma portadora de 900~MHz
-modulada por um sinal WCDMA 3GPP com largura de banda aproximada de 3,84~MHz e amostrado
-a 61,44~MHz. O segundo corresponde a medições de um amplificador LDMOS, organizadas em
-4.500 amostras complexas para extração dos coeficientes e 4.500 amostras complexas para
-validação. Em ambos os casos, os dados disponíveis são pares complexos de entrada e saída do
-PA, adequados para identificação, validação e comparação entre estruturas de modelo.
+Foram considerados dois conjuntos de dados empíricos. O primeiro corresponde a medições de um amplificador de potência classe AB, do tipo GaN HEMT, excitado por uma portadora de 900~MHz modulada por um sinal WCDMA 3GPP com largura de banda aproximada de 3,84~MHz e amostrado a 61,44~MHz. O segundo corresponde a medições de um amplificador LDMOS, organizadas em 4.500 amostras complexas para extração dos coeficientes e 4.500 amostras complexas para validação. Em ambos os casos, os dados disponíveis são pares complexos de entrada e saída do PA, adequados para identificação, validação e comparação entre estruturas de modelo.
 
 === Implementação em VHDL do modelo MP truncado
 
-A validação em hardware foi realizada por meio da implementação em VHDL de duas arquiteturas:
-a versão original do modelo MP, com ordem polinomial uniforme em todos os atrasos, e a versão
-truncada com ordem dependente do atraso. Ambas foram descritas em ponto fixo e organizadas em
-uma estrutura baseada em soma de produtos complexos, preservando os ramos de memória e o
-cálculo explícito dos termos polinomiais.
+A validação em hardware foi realizada por meio da implementação em VHDL de duas arquiteturas: a versão original do modelo MP, com ordem polinomial uniforme em todos os atrasos, e a versão truncada com ordem dependente do atraso. Ambas foram descritas em ponto fixo e organizadas em uma estrutura baseada em soma de produtos complexos, preservando os ramos de memória e o cálculo explícito dos termos polinomiais.
 
-Na versão truncada, a redução da ordem polinomial nos atrasos mais antigos foi acompanhada por
-uma reorganização da arquitetura para remover diretamente as operações redundantes. Dessa
-forma, a comparação entre as duas implementações permite avaliar não apenas a equivalência
-funcional em relação ao modelo de referência em Python, mas também os ganhos efetivos de
-complexidade estrutural obtidos após a síntese lógica.
+Na versão truncada, a redução da ordem polinomial nos atrasos mais antigos foi acompanhada por uma reorganização da arquitetura para remover diretamente as operações redundantes. Dessa forma, a comparação entre as duas implementações permite avaliar não apenas a equivalência funcional em relação ao modelo de referência em Python, mas também os ganhos efetivos de complexidade estrutural obtidos após a síntese lógica.
 
-Para a verificação funcional e estrutural, foram utilizadas ferramentas open source. A análise e a
-simulação do código VHDL foram conduzidas com GHDL, a síntese lógica foi realizada com Yosys e
-a inspeção dos sinais temporais foi feita com GTKWave. A comparação entre as saídas em ponto
-fixo obtidas em Python e em VHDL, bem como a análise das curvas AM-AM e AM-PM, foi empregada
-como critério de validação funcional das implementações.
+Para a verificação funcional e estrutural, foram utilizadas ferramentas open source. A análise e a simulação do código VHDL foram conduzidas com GHDL, a síntese lógica foi realizada com Yosys e a inspeção dos sinais temporais foi feita com GTKWave. A comparação entre as saídas em ponto fixo obtidas em Python e em VHDL, bem como a análise das curvas AM-AM e AM-PM, foi empregada como critério de validação funcional das implementações.
 
 === Evidências empíricas para o truncamento polinomial
 
-Com o objetivo de fundamentar empiricamente a hipótese de que a não linearidade dominante do
-amplificador está concentrada no instante atual, foi realizada uma análise específica sobre os dados
-medidos do PA LDMOS, organizados em 4.500 amostras para extração e 4.500 amostras para
-validação. Nessa etapa, foram consideradas profundidade de memória $M = 2$ e ordens
-polinomiais variando de 1 a 5, utilizando três análises complementares: magnitude dos
-coeficientes por ramo de memória, sensibilidade do NMSE a cada parâmetro $P_m$ e espectro do
-erro residual.
+Com o objetivo de fundamentar empiricamente a hipótese de que a não linearidade dominante do amplificador está concentrada no instante atual, foi realizada uma análise específica sobre os dados medidos do PA LDMOS, organizados em 4.500 amostras para extração e 4.500 amostras para validação. Nessa etapa, foram consideradas profundidade de memória $M = 2$ e ordens polinomiais variando de 1 a 5, utilizando três análises complementares: magnitude dos coeficientes por ramo de memória, sensibilidade do NMSE a cada parâmetro $P_m$ e espectro do erro residual.
 
-Na análise dos coeficientes, foi treinado um modelo MP completo com $P_0 = P_1 = P_2 = 5$,
-obtendo-se NMSE de $-38,47$ dB. A energia dos ramos de memória foi então calculada por
+Na análise dos coeficientes, foi treinado um modelo MP completo com $P_0 = P_1 = P_2 = 5$, obtendo-se NMSE de $-38,47$ dB. A energia dos ramos de memória foi então calculada por
 
 $ E_m = sum_(p=1)^(P_"max") |h_(p,m)|^2, $
 
-permitindo quantificar a contribuição relativa de cada atraso à não linearidade total do sistema.
-Adicionalmente, para avaliar a sensibilidade do modelo a cada ordem polinomial, dois parâmetros
-foram mantidos fixos em 1 enquanto o terceiro variou entre 1 e 5, medindo-se o ganho de NMSE
-produzido pelo aumento de complexidade em cada ramo. Por fim, o sinal de erro residual foi
-analisado no domínio da frequência com janela de Blackman, FFT de 8192 pontos e média por
-blocos, permitindo verificar como a variação de $P_0$, $P_1$ e $P_2$ afeta o _regrowth_ espectral.
+permitindo quantificar a contribuição relativa de cada atraso à não linearidade total do sistema. Adicionalmente, para avaliar a sensibilidade do modelo a cada ordem polinomial, dois parâmetros foram mantidos fixos em 1 enquanto o terceiro variou entre 1 e 5, medindo-se o ganho de NMSE produzido pelo aumento de complexidade em cada ramo. Por fim, o sinal de erro residual foi analisado no domínio da frequência com janela de Blackman, FFT de 8192 pontos e média por blocos, permitindo verificar como a variação de $P_0$, $P_1$ e $P_2$ afeta o _regrowth_ espectral.
 
 === Avaliação em múltiplos conjuntos de dados
 
-Para verificar a capacidade de generalização da metodologia, o _pipeline_ completo de identificação
-e avaliação dos modelos MP com ordem dependente do atraso foi aplicado a dois conjuntos de
-dados empíricos distintos: medições de um PA GaN HEMT excitado por sinal WCDMA e medições
-de um PA LDMOS separadas em partições de extração e validação. Em ambos os casos, foram
-avaliadas exaustivamente todas as 125 combinações possíveis de ordens $(P_0, P_1, P_2)$ com
-$P_m in {1, 2, 3, 4, 5}$ e profundidade de memória $M = 2$.
+Para verificar a capacidade de generalização da metodologia, o _pipeline_ completo de identificação e avaliação dos modelos MP com ordem dependente do atraso foi aplicado a dois conjuntos de dados empíricos distintos: medições de um PA GaN HEMT excitado por sinal WCDMA e medições de um PA LDMOS separadas em partições de extração e validação. Em ambos os casos, foram avaliadas exaustivamente todas as 125 combinações possíveis de ordens $(P_0, P_1, P_2)$ com $P_m in {1, 2, 3, 4, 5}$ e profundidade de memória $M = 2$.
 
-Os coeficientes complexos de cada modelo foram estimados em Python com
-`scipy.optimize.least_squares`, utilizando os conjuntos de extração, e o desempenho foi avaliado
-nos conjuntos de validação por meio do NMSE. Essa etapa permitiu comparar não apenas o nível
-absoluto de desempenho entre tecnologias distintas de amplificadores, mas também a estabilidade
-dos padrões estruturais observados anteriormente, como a predominância de $P_0$ e a eficiência
-dos modelos com distribuição decrescente de ordens.
+Os coeficientes complexos de cada modelo foram estimados em Python com `scipy.optimize.least_squares`, utilizando os conjuntos de extração, e o desempenho foi avaliado nos conjuntos de validação por meio do NMSE. Essa etapa permitiu comparar não apenas o nível absoluto de desempenho entre tecnologias distintas de amplificadores, mas também a estabilidade dos padrões estruturais observados anteriormente, como a predominância de $P_0$ e a eficiência dos modelos com distribuição decrescente de ordens.
 
 === Identificação do sistema DPD + PA
 
-Além da modelagem direta do amplificador, foi avaliado um sistema completo de pré-distorção
-digital baseado no modelo MP. Nessa etapa, utilizou-se o conjunto de medições do PA LDMOS para
-identificar inicialmente o modelo do PA com profundidade de memória $M = 2$ e ordem polinomial
-$P = 5$, totalizando 15 coeficientes complexos. Em
-seguida, foi adotada a arquitetura _Indirect Learning Architecture_ (ILA), na qual o DPD é treinado
-como o inverso do PA a partir do mapeamento entre a saída medida do amplificador e o sinal de
-entrada original.
+Além da modelagem direta do amplificador, foi avaliado um sistema completo de pré-distorção digital baseado no modelo MP. Nessa etapa, utilizou-se o conjunto de medições do PA LDMOS para identificar inicialmente o modelo do PA com profundidade de memória $M = 2$ e ordem polinomial $P = 5$, totalizando 15 coeficientes complexos. Em seguida, foi adotada a arquitetura _Indirect Learning Architecture_ (ILA), na qual o DPD é treinado como o inverso do PA a partir do mapeamento entre a saída medida do amplificador e o sinal de entrada original.
 
-A cascata final considerada foi composta por $x(n) -> "DPD"(x(n)) -> "PA"("DPD"(x(n)))$. Para
-evitar extrapolação do modelo polinomial, foi aplicado um fator global de ganho na entrada do
-sistema. Foram avaliadas duas estratégias: uma baseada na razão entre amplitudes máximas de
-entrada e saída do PA, resultando em valor aproximado de 0,83, e outra com ganho fixo de 0,95,
-que apresentou melhor aproveitamento da faixa dinâmica e melhor qualidade de linearização nas
-curvas AM-AM e AM-PM.
+A cascata final considerada foi composta por $x(n) -> "DPD"(x(n)) -> "PA"("DPD"(x(n)))$. Para evitar extrapolação do modelo polinomial, foi aplicado um fator global de ganho na entrada do sistema. Foram avaliadas duas estratégias: uma baseada na razão entre amplitudes máximas de entrada e saída do PA, resultando em valor aproximado de 0,83, e outra com ganho fixo de 0,95, que apresentou melhor aproveitamento da faixa dinâmica e melhor qualidade de linearização nas curvas AM-AM e AM-PM.
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Resultados e Discussão
 // ═════════════════════════════════════════════════════════════════════════════
 
-Este capítulo apresenta os resultados obtidos a partir da validação inicial das estruturas de
-modelagem propostas na @sec:mp-original, com foco na caracterização do desempenho do modelo
-_Memory Polynomial_ (MP) clássico aplicado à modelagem comportamental de um amplificador de
-potência real. Além da validação em ponto flutuante, são apresentados os resultados do modelo MP
-com truncamento polinomial dependente do atraso e sua implementação em VHDL, com ênfase na
-equivalência funcional em ponto fixo e na redução de complexidade estrutural obtida em síntese.
+Este capítulo apresenta os resultados obtidos a partir da validação inicial das estruturas de modelagem propostas na @sec:mp-original, com foco na caracterização do desempenho do modelo _Memory Polynomial_ (MP) clássico aplicado à modelagem comportamental de um amplificador de potência real. Além da validação em ponto flutuante, são apresentados os resultados do modelo MP com truncamento polinomial dependente do atraso e sua implementação em VHDL, com ênfase na equivalência funcional em ponto fixo e na redução de complexidade estrutural obtida em síntese.
 
-A validação dos resultados apresentados é realizada por meio da análise do erro entre o sinal de
-saída medido do amplificador de potência (PA) real e o sinal de saída estimado pelo modelo
-comportamental. Quanto menor o valor desse erro, maior é a precisão do modelo considerado.
+A validação dos resultados apresentados é realizada por meio da análise do erro entre o sinal de saída medido do amplificador de potência (PA) real e o sinal de saída estimado pelo modelo comportamental. Quanto menor o valor desse erro, maior é a precisão do modelo considerado.
 
-Para a análise do desempenho dos modelos implementados, realiza-se a avaliação do sinal de erro
-por meio do _Normalized Mean Square Error_ (NMSE) --- Erro Quadrático Médio Normalizado
-@Muha1999. Matematicamente, o NMSE é definido por:
+Para a análise do desempenho dos modelos implementados, realiza-se a avaliação do sinal de erro por meio do _Normalized Mean Square Error_ (NMSE) --- Erro Quadrático Médio Normalizado @Muha1999. Matematicamente, o NMSE é definido por:
 
 $ "NMSE" = 10 log_(10) lr(( frac(
   sum_(n=1)^(N) |e(n)|^2,
   sum_(n=1)^(N) |y_"real" (n)|^2
 ) )) $ <eq:nmse>
 
-em que $y_"real" (n)$ representa a amostra do sinal de saída do PA real no instante $n$, $e(n)$
-corresponde ao erro entre o sinal de saída real e o sinal de saída estimado pelo modelo, definido
-como $e(n) = y_"real" (n) - y_"model" (n)$, e $N$ é o número total de amostras consideradas
-na análise.
+em que $y_"real" (n)$ representa a amostra do sinal de saída do PA real no instante $n$, $e(n)$ corresponde ao erro entre o sinal de saída real e o sinal de saída estimado pelo modelo, definido como $e(n) = y_"real" (n) - y_"model" (n)$, e $N$ é o número total de amostras consideradas na análise.
 
-Os dados utilizados na validação dos modelos são provenientes de medições empíricas
-realizadas em um amplificador de potência classe AB, do tipo HEMT, fabricado com tecnologia GaN.
-O amplificador foi excitado por um sinal portador com frequência central de 900~MHz, modulado por
-um sinal de envoltória WCDMA conforme o padrão 3GPP, com largura de banda aproximada de
-3,84~MHz. Os sinais de entrada e saída do amplificador foram adquiridos utilizando um analisador
-vetorial de sinais (VSA) da Rohde & Schwarz, com taxa de amostragem de 61,44~MHz.
+Os dados utilizados na validação dos modelos são provenientes de medições empíricas realizadas em um amplificador de potência classe AB, do tipo HEMT, fabricado com tecnologia GaN. O amplificador foi excitado por um sinal portador com frequência central de 900~MHz, modulado por um sinal de envoltória WCDMA conforme o padrão 3GPP, com largura de banda aproximada de 3,84~MHz. Os sinais de entrada e saída do amplificador foram adquiridos utilizando um analisador vetorial de sinais (VSA) da Rohde & Schwarz, com taxa de amostragem de 61,44~MHz.
 
 == Modelagem do PA com MP original
 
-Nesta seção são apresentados os resultados da modelagem comportamental do amplificador de
-potência (PA) utilizando o modelo _Memory Polynomial_ (MP) original, conforme descrito no
-Capítulo~3. Esta etapa tem como principal objetivo estabelecer uma referência de desempenho
-(_baseline_) que servirá de comparação para as abordagens alternativas propostas neste trabalho,
-em especial o modelo MP com truncamento polinomial dependente do atraso.
+Nesta seção são apresentados os resultados da modelagem comportamental do amplificador de potência (PA) utilizando o modelo _Memory Polynomial_ (MP) original, conforme descrito no Capítulo~3. Esta etapa tem como principal objetivo estabelecer uma referência de desempenho (_baseline_) que servirá de comparação para as abordagens alternativas propostas neste trabalho, em especial o modelo MP com truncamento polinomial dependente do atraso.
 
-A implementação do modelo foi realizada em ambiente Python, empregando aritmética em vírgula
-flutuante, com o intuito de avaliar o desempenho do MP em um cenário de alta precisão numérica,
-sem restrições impostas por quantização ou limitações de hardware. Essa escolha permite isolar os
-efeitos da estrutura do modelo, garantindo que eventuais limitações observadas estejam associadas
-predominantemente à capacidade de representação do modelo MP, e não a aspectos relacionados
-à implementação ou à aritmética utilizada.
+A implementação do modelo foi realizada em ambiente Python, empregando aritmética em vírgula flutuante, com o intuito de avaliar o desempenho do MP em um cenário de alta precisão numérica, sem restrições impostas por quantização ou limitações de hardware. Essa escolha permite isolar os efeitos da estrutura do modelo, garantindo que eventuais limitações observadas estejam associadas predominantemente à capacidade de representação do modelo MP, e não a aspectos relacionados à implementação ou à aritmética utilizada.
 
-A @fig:modelopafloat apresenta o diagrama representativo do modelo do PA implementado em
-vírgula flutuante.
+A @fig:modelopafloat apresenta o diagrama representativo do modelo do PA implementado em vírgula flutuante.
 
 #figure(
   image("Figuras/modelopafloat.png", width: 50%),
@@ -739,31 +354,17 @@ vírgula flutuante.
   source: [Autor],
 ) <fig:modelopafloat>
 
-A identificação dos coeficientes do modelo foi realizada por meio de um procedimento de
-otimização numérica, utilizando métodos de mínimos quadrados aplicados à formulação do erro
-entre o sinal de saída real do PA e o sinal estimado pelo modelo. Após o processo de identificação,
-o desempenho do modelo foi avaliado em um conjunto de dados distinto daquele utilizado na etapa
-de estimação dos coeficientes, de forma a evitar sobreajuste.
+A identificação dos coeficientes do modelo foi realizada por meio de um procedimento de otimização numérica, utilizando métodos de mínimos quadrados aplicados à formulação do erro entre o sinal de saída real do PA e o sinal estimado pelo modelo. Após o processo de identificação, o desempenho do modelo foi avaliado em um conjunto de dados distinto daquele utilizado na etapa de estimação dos coeficientes, de forma a evitar sobreajuste.
 
-Para a configuração considerada, o modelo MP original alcançou um valor de NMSE igual a
-$-26,7$~dB, evidenciando uma boa capacidade de aproximação do comportamento do amplificador
-de potência real em regime de banda larga. Esse resultado confirma a adequação do modelo MP
-clássico como referência de desempenho e estabelece um ponto de comparação consistente para a
-avaliação das estruturas alternativas propostas neste trabalho.
+Para a configuração considerada, o modelo MP original alcançou um valor de NMSE igual a $-26,7$~dB, evidenciando uma boa capacidade de aproximação do comportamento do amplificador de potência real em regime de banda larga. Esse resultado confirma a adequação do modelo MP clássico como referência de desempenho e estabelece um ponto de comparação consistente para a avaliação das estruturas alternativas propostas neste trabalho.
 
 == Evidências empíricas para o truncamento polinomial dependente do atraso
 
-Com o objetivo de sustentar empiricamente a hipótese de truncamento polinomial dependente do
-atraso, foi realizada uma análise específica sobre as medições do PA LDMOS, com 4.500 amostras
-de extração e 4.500 de validação. As evidências foram organizadas em três frentes complementares:
-análise da magnitude dos coeficientes por ramo de memória, sensibilidade do NMSE às ordens
-$P_0$, $P_1$ e $P_2$, e inspeção do espectro do erro residual.
+Com o objetivo de sustentar empiricamente a hipótese de truncamento polinomial dependente do atraso, foi realizada uma análise específica sobre as medições do PA LDMOS, com 4.500 amostras de extração e 4.500 de validação. As evidências foram organizadas em três frentes complementares: análise da magnitude dos coeficientes por ramo de memória, sensibilidade do NMSE às ordens $P_0$, $P_1$ e $P_2$, e inspeção do espectro do erro residual.
 
 === Evidência 1: magnitude dos coeficientes por ramo de memória
 
-Um modelo MP completo com $P_0 = P_1 = P_2 = 5$ foi treinado, atingindo NMSE de
-$-38,47$ dB. A energia de cada ramo foi obtida a partir da soma dos módulos quadráticos dos
-coeficientes associados a cada atraso.
+Um modelo MP completo com $P_0 = P_1 = P_2 = 5$ foi treinado, atingindo NMSE de $-38,47$ dB. A energia de cada ramo foi obtida a partir da soma dos módulos quadráticos dos coeficientes associados a cada atraso.
 
 #figure(
   kind: table,
@@ -785,16 +386,11 @@ coeficientes associados a cada atraso.
   source: [Autor],
 ) <fig:ev1-magnitude-coeficientes>
 
-A @tab:energia-ramos-memoria mostra um decaimento monotônico da energia com o atraso,
-indicando que os ramos mais antigos contribuem progressivamente menos para o comportamento
-não linear do sistema. Esse resultado fornece evidência física direta para a adoção de ordens
-polinomiais decrescentes ao longo da memória.
+A @tab:energia-ramos-memoria mostra um decaimento monotônico da energia com o atraso, indicando que os ramos mais antigos contribuem progressivamente menos para o comportamento não linear do sistema. Esse resultado fornece evidência física direta para a adoção de ordens polinomiais decrescentes ao longo da memória.
 
 === Evidência 2: sensibilidade do NMSE a $P_0$, $P_1$ e $P_2$
 
-Para isolar a contribuição de cada parâmetro, dois ramos foram mantidos com ordem 1 enquanto o
-terceiro variou entre 1 e 5. O ponto de partida comum foi o modelo $(1,1,1)$, com NMSE de
-$-28,71$ dB.
+Para isolar a contribuição de cada parâmetro, dois ramos foram mantidos com ordem 1 enquanto o terceiro variou entre 1 e 5. O ponto de partida comum foi o modelo $(1,1,1)$, com NMSE de $-28,71$ dB.
 
 #figure(
   kind: table,
@@ -816,15 +412,11 @@ $-28,71$ dB.
   source: [Autor],
 ) <fig:ev2-sensibilidade-nmse>
 
-Observa-se que o ganho obtido ao aumentar $P_0$ é aproximadamente 1,94 vezes maior que o
-ganho associado a $P_1$ e 4,47 vezes maior que o associado a $P_2$. Isso demonstra
-quantitativamente que a complexidade polinomial deve ser concentrada no ramo correspondente ao
-instante atual, enquanto os atrasos mais antigos saturam rapidamente em ordens menores.
+Observa-se que o ganho obtido ao aumentar $P_0$ é aproximadamente 1,94 vezes maior que o ganho associado a $P_1$ e 4,47 vezes maior que o associado a $P_2$. Isso demonstra quantitativamente que a complexidade polinomial deve ser concentrada no ramo correspondente ao instante atual, enquanto os atrasos mais antigos saturam rapidamente em ordens menores.
 
 === Evidência 3: espectro do erro residual
 
-O erro residual foi analisado no domínio da frequência para diferentes configurações de modelo,
-utilizando PSD com janela de Blackman, FFT de 8192 pontos e média por blocos.
+O erro residual foi analisado no domínio da frequência para diferentes configurações de modelo, utilizando PSD com janela de Blackman, FFT de 8192 pontos e média por blocos.
 
 #figure(
   image("Figuras/ev3_espectro_erro.png", width: 100%),
@@ -832,10 +424,7 @@ utilizando PSD com janela de Blackman, FFT de 8192 pontos e média por blocos.
   source: [Autor],
 ) <fig:ev3-espectro-erro>
 
-Na @fig:ev3-espectro-erro, os três painéis mostram, respectivamente, a variação de $P_0$ com
-$P_1 = P_2 = 1$, a variação de $P_1$ com $P_0 = P_2 = 1$ e a variação de $P_2$ com
-$P_0 = P_1 = 1$. Em todos os casos, a curva cinza representa a saída medida do PA e as curvas
-coloridas representam o erro residual para diferentes ordens polinomiais.
+Na @fig:ev3-espectro-erro, os três painéis mostram, respectivamente, a variação de $P_0$ com $P_1 = P_2 = 1$, a variação de $P_1$ com $P_0 = P_2 = 1$ e a variação de $P_2$ com $P_0 = P_1 = 1$. Em todos os casos, a curva cinza representa a saída medida do PA e as curvas coloridas representam o erro residual para diferentes ordens polinomiais.
 
 #figure(
   image("Figuras/ev_bonus_psd_completo.png", width: 85%),
@@ -843,31 +432,15 @@ coloridas representam o erro residual para diferentes ordens polinomiais.
   source: [Autor],
 ) <fig:ev-bonus-psd-completo>
 
-As curvas confirmam, no domínio da frequência, o mesmo comportamento observado nas análises de
-coeficientes e NMSE: aumentar a ordem polinomial do instante atual reduz de forma mais efetiva o
-erro residual e o _regrowth_ espectral, enquanto aumentos em $P_1$ e $P_2$ produzem ganhos
-marginais.
+As curvas confirmam, no domínio da frequência, o mesmo comportamento observado nas análises de coeficientes e NMSE: aumentar a ordem polinomial do instante atual reduz de forma mais efetiva o erro residual e o _regrowth_ espectral, enquanto aumentos em $P_1$ e $P_2$ produzem ganhos marginais.
 
 == Avaliação do Modelo MP com Ordem Dependente do Atraso
 
-Nesta seção é apresentada a avaliação do modelo _Memory Polynomial_ (MP) com ordem polinomial
-dependente do atraso. Diferentemente do modelo MP tradicional, no qual todos os ramos de
-memória utilizam uma mesma ordem polinomial máxima, a abordagem analisada permite que cada
-atraso possua um truncamento polinomial próprio. Tal estratégia visa investigar a influência
-individual da ordem polinomial associada a cada atraso no desempenho global do modelo.
+Nesta seção é apresentada a avaliação do modelo _Memory Polynomial_ (MP) com ordem polinomial dependente do atraso. Diferentemente do modelo MP tradicional, no qual todos os ramos de memória utilizam uma mesma ordem polinomial máxima, a abordagem analisada permite que cada atraso possua um truncamento polinomial próprio. Tal estratégia visa investigar a influência individual da ordem polinomial associada a cada atraso no desempenho global do modelo.
 
-Para essa análise, foi considerada uma profundidade de memória $M = 2$, sendo avaliadas todas
-as combinações possíveis de ordens polinomiais $(P_0, P_1, P_2)$ variando de 1 a 5. Esse
-procedimento resultou em um total de 125 modelos distintos, todos treinados em ponto flutuante.
-Para cada modelo, foram registrados o valor do NMSE e a quantidade total de coeficientes utilizada.
+Para essa análise, foi considerada uma profundidade de memória $M = 2$, sendo avaliadas todas as combinações possíveis de ordens polinomiais $(P_0, P_1, P_2)$ variando de 1 a 5. Esse procedimento resultou em um total de 125 modelos distintos, todos treinados em ponto flutuante. Para cada modelo, foram registrados o valor do NMSE e a quantidade total de coeficientes utilizada.
 
-A @fig:desempenho125modelos apresenta o desempenho dos 125 modelos avaliados,
-relacionando o NMSE com o número total de coeficientes. De maneira geral, observa-se que o
-aumento da quantidade de coeficientes tende a melhorar a precisão do modelo. Entretanto, nota-se
-que esse fator, isoladamente, não é determinante para a obtenção de melhores resultados. Modelos
-com complexidade semelhante podem apresentar desempenhos significativamente distintos,
-indicando que a distribuição da ordem polinomial entre os atrasos exerce papel fundamental na
-acurácia do modelo.
+A @fig:desempenho125modelos apresenta o desempenho dos 125 modelos avaliados, relacionando o NMSE com o número total de coeficientes. De maneira geral, observa-se que o aumento da quantidade de coeficientes tende a melhorar a precisão do modelo. Entretanto, nota-se que esse fator, isoladamente, não é determinante para a obtenção de melhores resultados. Modelos com complexidade semelhante podem apresentar desempenhos significativamente distintos, indicando que a distribuição da ordem polinomial entre os atrasos exerce papel fundamental na acurácia do modelo.
 
 #figure(
   image("Figuras/desempenho125modelos.png", width: 75%),
@@ -877,10 +450,7 @@ acurácia do modelo.
 
 === Influência da ordem polinomial nos respectivos atrasos
 
-Nesta etapa, é analisada a influência individual da ordem polinomial associada a cada atraso de
-memória sobre o desempenho do modelo. As @fig:influenciap0, @fig:influenciap1 e
-@fig:influenciap2 apresentam a relação entre o NMSE e a ordem polinomial correspondente aos
-atrasos $m=0$, $m=1$ e $m=2$, respectivamente, considerando todos os modelos avaliados.
+Nesta etapa, é analisada a influência individual da ordem polinomial associada a cada atraso de memória sobre o desempenho do modelo. As @fig:influenciap0, @fig:influenciap1 e @fig:influenciap2 apresentam a relação entre o NMSE e a ordem polinomial correspondente aos atrasos $m=0$, $m=1$ e $m=2$, respectivamente, considerando todos os modelos avaliados.
 
 #figure(
   image("Figuras/influenciap0.png", width: 75%),
@@ -900,16 +470,9 @@ atrasos $m=0$, $m=1$ e $m=2$, respectivamente, considerando todos os modelos ava
   source: [Autor],
 ) <fig:influenciap2>
 
-Observa-se que o aumento da ordem polinomial associada ao instante atual ($P_0$) resulta em uma
-redução significativa do NMSE, evidenciando que a não linearidade dominante do amplificador está
-fortemente concentrada no instante atual. Em contrapartida, os atrasos mais antigos apresentam
-menor sensibilidade ao aumento da ordem polinomial, sendo que, para $P_2$, o impacto no
-desempenho é bastante limitado.
+Observa-se que o aumento da ordem polinomial associada ao instante atual ($P_0$) resulta em uma redução significativa do NMSE, evidenciando que a não linearidade dominante do amplificador está fortemente concentrada no instante atual. Em contrapartida, os atrasos mais antigos apresentam menor sensibilidade ao aumento da ordem polinomial, sendo que, para $P_2$, o impacto no desempenho é bastante limitado.
 
-As @fig:nmsecomplexp0, @fig:nmsecomplexp1 e @fig:nmsecomplexp2 apresentam a relação entre o
-NMSE e a complexidade do modelo, destacando separadamente a influência das ordens polinomiais
-$P_0$, $P_1$ e $P_2$. Esses gráficos permitem visualizar como a alocação da complexidade entre
-os diferentes atrasos afeta o desempenho global do modelo.
+As @fig:nmsecomplexp0, @fig:nmsecomplexp1 e @fig:nmsecomplexp2 apresentam a relação entre o NMSE e a complexidade do modelo, destacando separadamente a influência das ordens polinomiais $P_0$, $P_1$ e $P_2$. Esses gráficos permitem visualizar como a alocação da complexidade entre os diferentes atrasos afeta o desempenho global do modelo.
 
 #figure(
   image("Figuras/nmsecomplexp0.png", width: 75%),
@@ -929,15 +492,9 @@ os diferentes atrasos afeta o desempenho global do modelo.
   source: [Autor],
 ) <fig:nmsecomplexp2>
 
-A partir dessa análise, conclui-se que a ordem polinomial associada ao instante atual ($P_0$) é o
-principal fator responsável pelo ganho de precisão do modelo. A alocação de ordens polinomiais
-elevadas em atrasos mais antigos não resulta em ganhos proporcionais de desempenho, o que
-indica uma contribuição marginal desses termos para a modelagem das não linearidades do sistema.
+A partir dessa análise, conclui-se que a ordem polinomial associada ao instante atual ($P_0$) é o principal fator responsável pelo ganho de precisão do modelo. A alocação de ordens polinomiais elevadas em atrasos mais antigos não resulta em ganhos proporcionais de desempenho, o que indica uma contribuição marginal desses termos para a modelagem das não linearidades do sistema.
 
-Por fim, a @fig:modelosdecrecenteatraso apresenta os modelos que respeitam a relação
-$P_0 >= P_1 >= P_2$. Observa-se que grande parte dos modelos com melhor desempenho pertence
-a esse conjunto, reforçando a hipótese de que a complexidade do modelo deve ser prioritariamente
-alocada no instante atual, com redução progressiva da ordem polinomial para atrasos mais antigos.
+Por fim, a @fig:modelosdecrecenteatraso apresenta os modelos que respeitam a relação $P_0 >= P_1 >= P_2$. Observa-se que grande parte dos modelos com melhor desempenho pertence a esse conjunto, reforçando a hipótese de que a complexidade do modelo deve ser prioritariamente alocada no instante atual, com redução progressiva da ordem polinomial para atrasos mais antigos.
 
 #figure(
   image("Figuras/modelosdecrecenteatraso.png", width: 75%),
@@ -945,24 +502,11 @@ alocada no instante atual, com redução progressiva da ordem polinomial para at
   source: [Autor],
 ) <fig:modelosdecrecenteatraso>
 
-Esses resultados demonstram que modelos com menor quantidade total de coeficientes podem
-apresentar desempenho superior quando a complexidade é adequadamente distribuída entre os
-atrasos. Tal comportamento evidencia que não apenas a quantidade de coeficientes, mas
-principalmente a forma como estes são organizados estruturalmente no modelo MP, é determinante
-para a acurácia obtida.
+Esses resultados demonstram que modelos com menor quantidade total de coeficientes podem apresentar desempenho superior quando a complexidade é adequadamente distribuída entre os atrasos. Tal comportamento evidencia que não apenas a quantidade de coeficientes, mas principalmente a forma como estes são organizados estruturalmente no modelo MP, é determinante para a acurácia obtida.
 
-A análise da fronteira de Pareto, apresentada na @fig:fronteiradepareto, evidencia de forma clara o
-compromisso existente entre a complexidade estrutural do modelo e o desempenho obtido. Os
-modelos pertencentes à fronteira representam soluções eficientes, uma vez que não é possível
-melhorar o NMSE sem um aumento correspondente no número de coeficientes, ou reduzir a
-complexidade sem perda de desempenho.
+A análise da fronteira de Pareto, apresentada na @fig:fronteiradepareto, evidencia de forma clara o compromisso existente entre a complexidade estrutural do modelo e o desempenho obtido. Os modelos pertencentes à fronteira representam soluções eficientes, uma vez que não é possível melhorar o NMSE sem um aumento correspondente no número de coeficientes, ou reduzir a complexidade sem perda de desempenho.
 
-Observa-se que os modelos localizados na fronteira de Pareto apresentam, em sua maioria,
-distribuições de ordem polinomial concentradas no instante atual, com redução progressiva das
-ordens associadas aos atrasos mais antigos. Tal comportamento reforça os resultados apresentados
-anteriormente, indicando que a não linearidade dominante do sistema está majoritariamente
-associada ao instante atual, enquanto os efeitos de memória contribuem de forma menos
-significativa e saturam com ordens polinomiais reduzidas.
+Observa-se que os modelos localizados na fronteira de Pareto apresentam, em sua maioria, distribuições de ordem polinomial concentradas no instante atual, com redução progressiva das ordens associadas aos atrasos mais antigos. Tal comportamento reforça os resultados apresentados anteriormente, indicando que a não linearidade dominante do sistema está majoritariamente associada ao instante atual, enquanto os efeitos de memória contribuem de forma menos significativa e saturam com ordens polinomiais reduzidas.
 
 #figure(
   image("Figuras/fronteiradepareto.png", width: 75%),
@@ -972,10 +516,7 @@ significativa e saturam com ordens polinomiais reduzidas.
 
 == Generalização em múltiplos conjuntos de dados empíricos
 
-Para avaliar a robustez da metodologia proposta, o mesmo procedimento de identificação e
-avaliação foi aplicado a dois conjuntos de dados distintos: um PA GaN HEMT e um PA LDMOS.
-Em ambos os conjuntos, foram testadas as 125 combinações possíveis de ordens $(P_0, P_1, P_2)$
-com $M = 2$, mantendo o mesmo _pipeline_ de treinamento e validação.
+Para avaliar a robustez da metodologia proposta, o mesmo procedimento de identificação e avaliação foi aplicado a dois conjuntos de dados distintos: um PA GaN HEMT e um PA LDMOS. Em ambos os conjuntos, foram testadas as 125 combinações possíveis de ordens $(P_0, P_1, P_2)$ com $M = 2$, mantendo o mesmo _pipeline_ de treinamento e validação.
 
 #figure(
   kind: table,
@@ -998,10 +539,7 @@ com $M = 2$, mantendo o mesmo _pipeline_ de treinamento e validação.
   ),
 ) <tab:generalizacao-estatisticas>
 
-A @tab:generalizacao-estatisticas mostra que o conjunto LDMOS apresentou desempenho absoluto
-superior, com NMSE médio aproximadamente 10 dB mais negativo do que o conjunto GaN. Ainda
-assim, os padrões estruturais se mantiveram consistentes entre as duas tecnologias, indicando que
-a abordagem proposta é robusta frente a variações do dispositivo sob teste.
+A @tab:generalizacao-estatisticas mostra que o conjunto LDMOS apresentou desempenho absoluto superior, com NMSE médio aproximadamente 10 dB mais negativo do que o conjunto GaN. Ainda assim, os padrões estruturais se mantiveram consistentes entre as duas tecnologias, indicando que a abordagem proposta é robusta frente a variações do dispositivo sob teste.
 
 #figure(
   kind: table,
@@ -1025,19 +563,11 @@ a abordagem proposta é robusta frente a variações do dispositivo sob teste.
   ),
 ) <tab:generalizacao-configuracoes>
 
-Como detalhado na @tab:generalizacao-configuracoes, em ambos os conjuntos a ordem $P_0$
-permaneceu como principal determinante de desempenho, e os modelos com distribuição
-decrescente $P_0 >= P_1 >= P_2$ concentraram as melhores soluções. Além disso, o ganho
-marginal obtido ao ultrapassar a faixa de 9 a 10 coeficientes mostrou-se reduzido nas duas
-tecnologias, indicando saturação de desempenho em baixas complexidades.
+Como detalhado na @tab:generalizacao-configuracoes, em ambos os conjuntos a ordem $P_0$ permaneceu como principal determinante de desempenho, e os modelos com distribuição decrescente $P_0 >= P_1 >= P_2$ concentraram as melhores soluções. Além disso, o ganho marginal obtido ao ultrapassar a faixa de 9 a 10 coeficientes mostrou-se reduzido nas duas tecnologias, indicando saturação de desempenho em baixas complexidades.
 
 == Implementação em VHDL do modelo MP com ordem dependente do atraso
 
-Após a avaliação em software, foi realizada a implementação em VHDL de duas versões do modelo:
-o MP original completo, com ordem uniforme em todos os atrasos, e o MP truncado, com redução
-da ordem polinomial nos atrasos mais antigos e reorganização estrutural para eliminar operações
-redundantes. O objetivo dessa etapa foi verificar se os ganhos de complexidade observados na
-modelagem também se manifestam em uma descrição orientada à síntese em hardware.
+Após a avaliação em software, foi realizada a implementação em VHDL de duas versões do modelo: o MP original completo, com ordem uniforme em todos os atrasos, e o MP truncado, com redução da ordem polinomial nos atrasos mais antigos e reorganização estrutural para eliminar operações redundantes. O objetivo dessa etapa foi verificar se os ganhos de complexidade observados na modelagem também se manifestam em uma descrição orientada à síntese em hardware.
 
 === Validação funcional em Python
 
@@ -1047,10 +577,7 @@ modelagem também se manifestam em uma descrição orientada à síntese em hard
   source: [Autor],
 ) <fig:fig_python_amam_ampm>
 
-A @fig:fig_python_amam_ampm apresenta a comparação entre os dados medidos e os modelos
-implementados em Python. Observa-se que o modelo DPD é capaz de compensar a não linearidade
-do amplificador, aproximando a resposta do comportamento ideal e estabelecendo a referência para
-a validação funcional da implementação em VHDL.
+A @fig:fig_python_amam_ampm apresenta a comparação entre os dados medidos e os modelos implementados em Python. Observa-se que o modelo DPD é capaz de compensar a não linearidade do amplificador, aproximando a resposta do comportamento ideal e estabelecendo a referência para a validação funcional da implementação em VHDL.
 
 === Validação da implementação em VHDL
 
@@ -1060,10 +587,7 @@ a validação funcional da implementação em VHDL.
   source: [Autor],
 ) <fig:fig_vhdl_vs_python>
 
-A @fig:fig_vhdl_vs_python apresenta a comparação entre o modelo DPD calculado em Python e o
-resultado obtido a partir da simulação da implementação em VHDL. Observa-se que os pontos
-associados à descrição em hardware se sobrepõem aos resultados do modelo em software,
-indicando equivalência funcional entre as duas implementações no cenário avaliado.
+A @fig:fig_vhdl_vs_python apresenta a comparação entre o modelo DPD calculado em Python e o resultado obtido a partir da simulação da implementação em VHDL. Observa-se que os pontos associados à descrição em hardware se sobrepõem aos resultados do modelo em software, indicando equivalência funcional entre as duas implementações no cenário avaliado.
 
 === Comparação de complexidade estrutural
 
@@ -1084,29 +608,15 @@ indicando equivalência funcional entre as duas implementações no cenário ava
   source: [Autor],
 ) <fig:complexidade-vhdl>
 
-Os resultados da @fig:complexidade-vhdl evidenciam uma redução consistente de aproximadamente
-40% nas principais métricas estruturais da síntese lógica. A diminuição simultânea no número de
-`wires`, `wire bits`, células e registradores mostra que a estratégia proposta simplifica
-efetivamente a arquitetura implementada em hardware, e não apenas a quantidade nominal de
-coeficientes do modelo.
+Os resultados da @fig:complexidade-vhdl evidenciam uma redução consistente de aproximadamente 40% nas principais métricas estruturais da síntese lógica. A diminuição simultânea no número de `wires`, `wire bits`, células e registradores mostra que a estratégia proposta simplifica efetivamente a arquitetura implementada em hardware, e não apenas a quantidade nominal de coeficientes do modelo.
 
-Essa análise confirma que a redução da ordem polinomial nos atrasos mais antigos, quando
-acompanhada de reorganização estrutural do circuito, produz ganhos reais de implementação. Dessa
-forma, os resultados em VHDL reforçam a viabilidade do modelo MP com ordem dependente do
-atraso para aplicações digitais com restrições de área e consumo.
+Essa análise confirma que a redução da ordem polinomial nos atrasos mais antigos, quando acompanhada de reorganização estrutural do circuito, produz ganhos reais de implementação. Dessa forma, os resultados em VHDL reforçam a viabilidade do modelo MP com ordem dependente do atraso para aplicações digitais com restrições de área e consumo.
 
 == Avaliação do sistema DPD + PA com arquitetura ILA
 
-Além da modelagem direta do amplificador, foi avaliada a aplicação do modelo MP em um sistema
-de pré-distorção digital baseado na arquitetura ILA. Nessa configuração, o DPD foi treinado como
-o inverso do PA a partir do conjunto LDMOS, e posteriormente aplicado em cascata com o modelo
-do amplificador, formando a estrutura completa DPD + PA.
+Além da modelagem direta do amplificador, foi avaliada a aplicação do modelo MP em um sistema de pré-distorção digital baseado na arquitetura ILA. Nessa configuração, o DPD foi treinado como o inverso do PA a partir do conjunto LDMOS, e posteriormente aplicado em cascata com o modelo do amplificador, formando a estrutura completa DPD + PA.
 
-No ajuste do ganho global de entrada, duas estratégias foram comparadas. Um ganho baseado na
-relação entre as amplitudes máximas de entrada e saída do PA resultou em valor aproximado de
-0,83, produzindo um sinal estável porém com excursão dinâmica reduzida. Já o uso de ganho fixo
-igual a 0,95 proporcionou melhor aproveitamento da faixa dinâmica do modelo e melhor qualidade
-visual de linearização.
+No ajuste do ganho global de entrada, duas estratégias foram comparadas. Um ganho baseado na relação entre as amplitudes máximas de entrada e saída do PA resultou em valor aproximado de 0,83, produzindo um sinal estável porém com excursão dinâmica reduzida. Já o uso de ganho fixo igual a 0,95 proporcionou melhor aproveitamento da faixa dinâmica do modelo e melhor qualidade visual de linearização.
 
 #figure(
   image("Figuras/AM-AM.png", width: 75%),
@@ -1120,77 +630,31 @@ visual de linearização.
   source: [Autor],
 ) <fig:am-pm-dpd-pa>
 
-As curvas AM-AM indicam que o modelo do PA reproduz adequadamente a compressão de ganho do
-amplificador real, enquanto o DPD compensa essa não linearidade e torna a resposta da cascata
-substancialmente mais linear. Nas curvas AM-PM, observa-se redução da dispersão de fase em
-função da amplitude, evidenciando compensação eficaz das distorções não lineares de fase.
+As curvas AM-AM indicam que o modelo do PA reproduz adequadamente a compressão de ganho do amplificador real, enquanto o DPD compensa essa não linearidade e torna a resposta da cascata substancialmente mais linear. Nas curvas AM-PM, observa-se redução da dispersão de fase em função da amplitude, evidenciando compensação eficaz das distorções não lineares de fase.
 
-Esses resultados mostram que o modelo MP é adequado não apenas para a modelagem direta do PA,
-mas também para a identificação de um pré-distorcedor funcional por ILA. Além disso, reforçam
-que o ajuste de ganho é um elemento crítico para evitar extrapolação do modelo e preservar a
-estabilidade numérica do sistema DPD + PA.
+Esses resultados mostram que o modelo MP é adequado não apenas para a modelagem direta do PA, mas também para a identificação de um pré-distorcedor funcional por ILA. Além disso, reforçam que o ajuste de ganho é um elemento crítico para evitar extrapolação do modelo e preservar a estabilidade numérica do sistema DPD + PA.
 
 // ═════════════════════════════════════════════════════════════════════════════
 = Conclusão
 // ═════════════════════════════════════════════════════════════════════════════
 
-A crescente demanda por eficiência espectral e energética nos sistemas de comunicação sem fio
-torna essencial o uso de técnicas capazes de mitigar os efeitos das não linearidades introduzidas
-por amplificadores de potência, sendo a modelagem comportamental desses dispositivos uma etapa
-fundamental nesse contexto.
+A crescente demanda por eficiência espectral e energética nos sistemas de comunicação sem fio torna essencial o uso de técnicas capazes de mitigar os efeitos das não linearidades introduzidas por amplificadores de potência, sendo a modelagem comportamental desses dispositivos uma etapa fundamental nesse contexto.
 
-Este trabalho teve como objetivo estudar e validar a modelagem de um amplificador de potência
-por meio do modelo de Polinômio de Memória (MP), estabelecendo uma base consistente para
-aplicações futuras em técnicas de pré-distorção digital. Inicialmente, foi realizado um estudo teórico
-sobre os princípios do DPD e sobre a formulação matemática do modelo MP, evidenciando suas
-vantagens em termos de complexidade e capacidade de representação das não linearidades com
-efeitos de memória.
+Este trabalho teve como objetivo estudar e validar a modelagem de um amplificador de potência por meio do modelo de Polinômio de Memória (MP), estabelecendo uma base consistente para aplicações futuras em técnicas de pré-distorção digital. Inicialmente, foi realizado um estudo teórico sobre os princípios do DPD e sobre a formulação matemática do modelo MP, evidenciando suas vantagens em termos de complexidade e capacidade de representação das não linearidades com efeitos de memória.
 
-Em seguida, a modelagem do amplificador foi desenvolvida em ambiente de software utilizando
-aritmética em vírgula flutuante, com extração dos coeficientes por meio de métodos de otimização
-numérica e validação baseada na métrica do Erro Quadrático Médio Normalizado (NMSE), cujos
-resultados demonstraram a eficácia do modelo MP clássico na caracterização do comportamento do
-PA e estabeleceram uma referência de desempenho para análises posteriores.
+Em seguida, a modelagem do amplificador foi desenvolvida em ambiente de software utilizando aritmética em vírgula flutuante, com extração dos coeficientes por meio de métodos de otimização numérica e validação baseada na métrica do Erro Quadrático Médio Normalizado (NMSE), cujos resultados demonstraram a eficácia do modelo MP clássico na caracterização do comportamento do PA e estabeleceram uma referência de desempenho para análises posteriores.
 
-A partir dessa base, foi proposta uma extensão do modelo MP na qual a ordem polinomial máxima
-passa a ser definida de forma independente para cada atraso de memória, introduzindo maior
-flexibilidade na modelagem e abrindo a possibilidade de reduzir a complexidade do modelo sem
-comprometer significativamente sua capacidade de representação. A análise de desempenho dos
-modelos treinados em software mostrou que a complexidade deve ser concentrada
-prioritariamente no instante atual, enquanto atrasos mais antigos podem ser representados com
-ordens menores, preservando boa acurácia.
+A partir dessa base, foi proposta uma extensão do modelo MP na qual a ordem polinomial máxima passa a ser definida de forma independente para cada atraso de memória, introduzindo maior flexibilidade na modelagem e abrindo a possibilidade de reduzir a complexidade do modelo sem comprometer significativamente sua capacidade de representação. A análise de desempenho dos modelos treinados em software mostrou que a complexidade deve ser concentrada prioritariamente no instante atual, enquanto atrasos mais antigos podem ser representados com ordens menores, preservando boa acurácia.
 
-As evidências empíricas adicionais baseadas na análise da magnitude dos coeficientes, na
-sensibilidade do NMSE e no espectro do erro residual confirmaram de forma consistente essa
-hipótese. Em particular, verificou-se que a energia dos coeficientes decai com o atraso, que o
-ganho de desempenho associado a $P_0$ é significativamente superior aos ganhos obtidos com
-$P_1$ e $P_2$, e que a redução do erro espectral é mais pronunciada quando a complexidade é
-alocada no instante atual.
+As evidências empíricas adicionais baseadas na análise da magnitude dos coeficientes, na sensibilidade do NMSE e no espectro do erro residual confirmaram de forma consistente essa hipótese. Em particular, verificou-se que a energia dos coeficientes decai com o atraso, que o ganho de desempenho associado a $P_0$ é significativamente superior aos ganhos obtidos com $P_1$ e $P_2$, e que a redução do erro espectral é mais pronunciada quando a complexidade é alocada no instante atual.
 
-As avaliações conduzidas em dois conjuntos de dados empíricos distintos, correspondentes a
-amplificadores GaN HEMT e LDMOS, mostraram que esses padrões estruturais se mantêm
-consistentes entre tecnologias diferentes. Embora os níveis absolutos de NMSE variem entre os
-dispositivos, a predominância de $P_0$, a eficiência dos modelos com ordens decrescentes e a
-saturação de desempenho em baixas complexidades foram preservadas, reforçando a capacidade de
-generalização da metodologia proposta.
+As avaliações conduzidas em dois conjuntos de dados empíricos distintos, correspondentes a amplificadores GaN HEMT e LDMOS, mostraram que esses padrões estruturais se mantêm consistentes entre tecnologias diferentes. Embora os níveis absolutos de NMSE variem entre os dispositivos, a predominância de $P_0$, a eficiência dos modelos com ordens decrescentes e a saturação de desempenho em baixas complexidades foram preservadas, reforçando a capacidade de generalização da metodologia proposta.
 
-Adicionalmente, a implementação em VHDL das versões original e truncada do modelo confirmou a
-equivalência funcional entre o comportamento previsto em Python e a descrição em hardware em
-ponto fixo. Os resultados de síntese mostraram reduções próximas de 40% em métricas
-estruturais como número de `wires`, células e registradores, evidenciando que a simplificação do
-modelo produz ganhos concretos de implementação.
+Adicionalmente, a implementação em VHDL das versões original e truncada do modelo confirmou a equivalência funcional entre o comportamento previsto em Python e a descrição em hardware em ponto fixo. Os resultados de síntese mostraram reduções próximas de 40% em métricas estruturais como número de `wires`, células e registradores, evidenciando que a simplificação do modelo produz ganhos concretos de implementação.
 
-Por fim, a aplicação do modelo MP em um sistema de pré-distorção digital baseado na arquitetura
-ILA demonstrou que a mesma estrutura é capaz de atuar tanto na modelagem do amplificador quanto
-na identificação de um pré-distorcedor funcional. As curvas AM-AM e AM-PM da cascata DPD + PA
-evidenciaram melhora clara de linearização, além de destacar a importância do ajuste de ganho
-para preservar estabilidade numérica e bom aproveitamento da faixa dinâmica.
+Por fim, a aplicação do modelo MP em um sistema de pré-distorção digital baseado na arquitetura ILA demonstrou que a mesma estrutura é capaz de atuar tanto na modelagem do amplificador quanto na identificação de um pré-distorcedor funcional. As curvas AM-AM e AM-PM da cascata DPD + PA evidenciaram melhora clara de linearização, além de destacar a importância do ajuste de ganho para preservar estabilidade numérica e bom aproveitamento da faixa dinâmica.
 
-Dessa forma, o trabalho alcançou seu objetivo ao validar a modelagem comportamental do
-amplificador de potência em software, ao propor uma estrutura de modelagem mais flexível e ao
-demonstrar sua viabilidade em VHDL. Esses resultados constituem uma base sólida para o
-desenvolvimento da versão final da dissertação e para estudos futuros na área de modelagem e
-linearização de amplificadores de potência com foco em implementação digital eficiente.
+Dessa forma, o trabalho alcançou seu objetivo ao validar a modelagem comportamental do amplificador de potência em software, ao propor uma estrutura de modelagem mais flexível e ao demonstrar sua viabilidade em VHDL. Esses resultados constituem uma base sólida para o desenvolvimento da versão final da dissertação e para estudos futuros na área de modelagem e linearização de amplificadores de potência com foco em implementação digital eficiente.
 
 // ─────────────────────────────────────────────────────────────────────────────
 // REFERÊNCIAS  (usar o mesmo Referencias.bib copiado de Mestrado/Mestrado/)
