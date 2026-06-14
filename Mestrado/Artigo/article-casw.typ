@@ -4,14 +4,18 @@
 )
 
 #set text(font: "Libertinus Serif", size: 9pt, lang: "en")
-#set par(justify: true, leading: 0.56em)
+#set par(justify: true, leading: 0.52em)
 #set heading(numbering: "1")
 #set figure.caption(position: bottom)
 #set math.equation(numbering: "(1)")
 
 #set ref(supplement: it => {
   if it.func() == figure {
-    "Fig. "
+    if it.kind == table {
+      "Table "
+    } else {
+      "Fig. "
+    }
   } else if it.func() == table {
     "Table "
   } else {
@@ -182,9 +186,9 @@ PA operating near saturation exhibit pronounced nonlinearity and memory effects,
 
 Reference #cite(<Kim2001>) early showed that memory modeling is essential for pre-distortion of broadband signals. Later, #cite(<Pedro2005>) consolidated this line by discussing behavioral approaches for power-amplifier modeling from a comparative perspective. In a broader design perspective, #cite(<Cripps2006>) and #cite(<Kenington2000>) discuss how trade-offs between linearity, efficiency, and complexity condition the choice of mathematical model and implementation architecture.
 
-Within this context, polynomial models derived from the memory-polynomial family have become particularly attractive for combining good representation capacity with relatively simple estimation #cite(<Morgan2006>). In practical applications, #cite(<Kwan2012>) shows the importance of viable models for FPGA implementation, while #cite(<Morgan2006>), #cite(<Talemwa2025>), and #cite(<Li2021>) explore polynomial and Volterra-inspired extensions to improve the behavioral description of power amplifiers.
+Within this context, polynomial models derived from the memory-polynomial family have become particularly attractive for combining good representation capacity with relatively simple estimation #cite(<Morgan2006>). In practical applications, #cite(<Kwan2012>) shows the importance of viable models for FPGA implementation, while #cite(<Morgan2006>), #cite(<Talemwa2025>), and #cite(<Li2021>) explore polynomial and Volterra-inspired extensions to improve the behavioral description of power amplifiers. Generalized memory polynomial (GMP) and pruned Volterra models increase flexibility by adding cross-memory and selected higher-order kernels, but this usually expands the search space and the implementation burden.
 
-Despite these advances, the traditional MP formulation adopts the same polynomial order for all memory branches, which may impose unnecessary operations when the contribution of older delays is already small. This work therefore investigates an alternative formulation in which the maximum order is defined individually for each delay, concentrating greater complexity only on the most relevant terms.
+Despite these advances, the traditional MP formulation adopts the same polynomial order for all memory branches, which may impose unnecessary operations when the contribution of older delays is already small. Different from GMP or pruned Volterra approaches, the proposal does not add new interaction kernels; it keeps the MP structure linear in the coefficients and changes only the maximum order allowed in each delay. This work therefore investigates an alternative formulation in which the maximum order is defined individually for each delay, concentrating greater complexity only on the most relevant terms.
 
 In addition to algorithmic interest, this issue is particularly important when the model needs to be transported to digital platforms with constraints on area, operating frequency, and power consumption. In such scenarios, the number of coefficients, the depth of the multiplication chain, and the volume of registers cease to be secondary details and directly influence the viability of the solution. Thus, a slightly simpler model may be preferable to another marginally more accurate when the loss in NMSE is small and the gain in implementation cost is expressive.
 
@@ -198,9 +202,9 @@ $ y(n) = sum_(m=0)^(M) sum_(p=1)^(P_m) h_(p,m) x(n - m) |x(n - m)|^(p - 1) $
 
 where $P_m$ represents the maximum order associated with delay $m$. The classic MP is recovered as a particular case when all orders are equal. The main advantage of this formulation is to preserve linearity in the parameters, allowing coefficient estimation by least squares with a potentially smaller regression matrix than the conventional model.
 
-The central premise is that the most intense nonlinearity is in the current sample, so older delays can use lower orders. This hypothesis aligns with reported modeling results and complexity reduction strategies. Under this, the search for efficient configurations considers structural cost, using the Pareto frontier to identify better performance-complexity trade-offs.
+The central premise is that the most intense nonlinear conversion is in the current sample, while delayed samples mainly represent residual thermal, bias, trapping, and matching-network dynamics. Since these mechanisms tend to leave a decaying temporal signature, older delays can often use lower polynomial orders without losing the dominant AM/AM and AM/PM behavior. Under this hypothesis, the search for efficient configurations considers structural cost, using the Pareto frontier to identify better performance-complexity trade-offs.
 
-This premise fits the physical interpretation of PAs with short memory, where thermal and electrical mechanisms leave a temporal signature that becomes less intense with delay. Employing identical orders in all delays overparameterizes the problem.
+This interpretation is especially suitable for PAs with short memory: the memory terms remain necessary, but their nonlinear order does not need to be uniform. Employing identical orders in all delays may therefore overparameterize branches whose physical contribution has already weakened.
 
 From identification, specific orders per delay reduce uninformative terms, containing collinearity and clarifying coefficient interpretation. Instead of expanding indiscriminately, the proposal organizes complexity by expected relevance.
 
@@ -226,7 +230,7 @@ The experiments showed that model complexity should be concentrated in the curre
 
 #figure(
   placement: bottom,
-  image("./ev2_sensibilidade_nmse.png", width: 90%),
+  image("./ev2_sensibilidade_nmse.png", width: 95%),
   caption: [NMSE sensitivity to orders $P_0$, $P_1$, and $P_2$ for the modeled LDMOS PA, highlighting the predominance of the current instant.],
 ) <fig:sensibilidade>
 
@@ -236,7 +240,7 @@ In addition to NMSE in the time domain, spectral analysis reinforces this interp
 
 #figure(
   placement: bottom,
-  image("./ev_bonus_psd_completo.png", width: 90%),
+  image("./ev_bonus_psd_completo.png", width: 95%),
   caption: [Spectral comparison between the input signal, the measured output, and the modeling errors for different order configurations of the modeled LDMOS PA.],
 ) <fig:psd>
 
@@ -245,17 +249,21 @@ In addition to NMSE in the time domain, spectral analysis reinforces this interp
   placement: bottom,
 
   caption: [Modeling performance for different order configurations and numbers of coefficients.],
-  table(
-    columns: (1.25fr, 0.8fr, 1fr, 1fr),
-    align: center,
-    inset: 4pt,
-    table.header([*Configuration*], [*Coefficients*], [*NMSE GaN*], [*NMSE LDMOS*]),
-    [$(1,1,1)$], [3], [$-21,66$ dB], [$-28,71$ dB],
-    [$(3,2,1)$], [6], [$-25,53$ dB], [$-34,75$ dB],
-    [$(4,3,2)$], [9], [$-25,64$ dB], [$-36,31$ dB],
-    [$(5,3,2)$], [10], [$-25,49$ dB], [$-37,00$ dB],
-    [$(5,5,5)$], [15], [$-26,10$ dB], [$-37,51$ dB],
-  ),
+  {
+    set text(size: 8.2pt)
+    table(
+      columns: (1.25fr, 0.8fr, 1fr, 1fr),
+      align: center,
+      inset: 3.2pt,
+      stroke: 0.35pt,
+      table.header([*Configuration*], [*Coefficients*], [*NMSE GaN*], [*NMSE LDMOS*]),
+      [$(1,1,1)$], [3], [$-21,66$ dB], [$-28,71$ dB],
+      [$(3,2,1)$], [6], [$-25,53$ dB], [$-34,75$ dB],
+      [$(4,3,2)$], [9], [$-25,64$ dB], [$-36,31$ dB],
+      [$(5,3,2)$], [10], [$-25,49$ dB], [$-37,00$ dB],
+      [$(5,5,5)$], [15], [$-26,10$ dB], [$-37,51$ dB],
+    )
+  },
 ) <tab:desempenho>
 
 @tab:desempenho shows that a large part of the gain can be obtained with intermediate models, without the need to keep the maximum order at all delays. Configurations with decreasing orders preserve the observed trend and approach the performance of the complete model with a smaller number of coefficients.
@@ -264,7 +272,7 @@ In the exhaustive evaluation of 125 combinations, models such as $(3,2,1)$, $(4,
 
 Another important aspect of the analysis is that the ranking of the best solutions does not depend only on the device under consideration, since the global trend remains consistent across the evaluated datasets. This strengthens the interpretation that the delay-dependent order hypothesis is not a one-off adjustment to a specific experiment, but rather a structural regularity of the modeling problem. Even when the absolute NMSE values vary across technologies, the relevance hierarchy among the memory branches remains similar.
 
-From a design perspective, this stability is particularly useful. If the optimal configuration changed abruptly across different datasets, the proposal would have limited value as a model synthesis guideline. However, the recurrence of solutions with decreasing orders indicates a robust practical directive: starting with a higher order at zero delay and progressively reducing complexity in subsequent delays tends to produce competitive solutions already in the first design iterations.
+From a design perspective, this stability is particularly useful. The recurrence of solutions with decreasing orders indicates a practical directive: starting with a higher order at zero delay and progressively reducing complexity in subsequent delays tends to produce competitive solutions already in the first design iterations.
 
 = Hardware Evaluation and Pareto Frontier
 
@@ -277,44 +285,54 @@ From an architectural viewpoint, this reduction should not be interpreted only a
 #figure(
   kind: table,
   caption: [Comparison of hardware resources between the complete MP architecture and truncated versions.],
-  table(
-    columns: (1.75fr, 0.7fr, 1fr, 0.9fr, 1fr),
-    align: center,
-    inset: 4pt,
-    table.header([*Architecture*], [*Coef.*], [*Reduction*], [*Cells*], [*Registers*]),
-    [MP complete $(5,5,5)$], [15], [--], [100%], [100%],
-    [MP truncated $(5,3,2)$], [10], [40%], [60%], [60%],
-    [MP truncated $(4,3,2)$], [9], [40%], [58%], [58%],
-  ),
+  {
+    set text(size: 8.2pt)
+    table(
+      columns: (1.75fr, 0.7fr, 1fr, 0.9fr, 1fr),
+      align: center,
+      inset: 3.2pt,
+      stroke: 0.35pt,
+      table.header([*Architecture*], [*Coef.*], [*Reduction*], [*Cells*], [*Registers*]),
+      [MP complete $(5,5,5)$], [15], [--], [100%], [100%],
+      [MP truncated $(5,3,2)$], [10], [40%], [60%], [60%],
+      [MP truncated $(4,3,2)$], [9], [40%], [58%], [58%],
+    )
+  },
 ) <tab:hardware>
 
 The Pareto frontier between hardware complexity and NMSE performance reveals that $(4,3,2)$ and $(5,3,2)$ dominate the solution space, as seen in @fig:pareto. Configurations with higher orders in less relevant delays require more resources without proportional gains. Thus, selective polynomial order reduction preserves the useful model performance while favoring more compact architectures.
 
-The Pareto frontier represents the set of non-dominated solutions in the multi-objective optimization space, where no point can be improved in one criterion without worsening in the other. In this work's context, it highlights that configurations with orders decreasing along memory delays offer the best balance between modeling accuracy and structural efficiency, avoiding unnecessary overparameterizations.
+The Pareto frontier represents the non-dominated solutions, where one criterion cannot be improved without worsening the other. Here, it highlights that decreasing orders along memory delays offer the best balance between modeling accuracy and structural efficiency.
 
 #figure(
   placement: top,
-  image("fronteiradepareto.png", width: 90%),
+  image("fronteiradepareto.png", width: 100%),
   caption: [Pareto frontier illustrating the trade-off between model complexity (number of coefficients) and modeling performance (NMSE) for different polynomial order configurations.],
 ) <fig:pareto>
 
-In the VHDL implementation, the truncated version maintained functional equivalence with the Python reference model and presented reductions close to 40% in main synthesis metrics, including wires, wire bits, cells, and registers. These results show that reducing polynomial order in older delays does not represent only algorithmic savings, but also concrete digital architecture simplification.
-
-This result has direct practical implications for embedded systems and transmitters with resource constraints. In many cases, a small NMSE loss is acceptable as long as the model continues to satisfy the system's linearization requirements and allows a more compact and energy-efficient implementation. The Pareto frontier helps precisely formalize this decision, replacing intuitive choices with a quantitative comparison criterion between performance and cost.
+In the VHDL implementation, the truncated version maintained functional equivalence with the Python reference and reduced wires, wire bits, cells, and registers by about 40%. For resource-constrained transmitters, the Pareto frontier formalizes when a small NMSE loss is acceptable in exchange for a more compact implementation.
 
 = Discussion
 
-The results allow interpreting the proposal from modeling and implementation perspectives. The delay-dependent order model reorganizes complexity coherently with observed relevance. By reducing low-contribution terms, it transforms conceptual gain into measurable hardware savings.
+The results allow interpreting the proposal from modeling and implementation perspectives. Compared with the complete MP, the delay-dependent order model accepts a small NMSE penalty in exchange for fewer coefficients, fewer nonlinear products, and a simpler data path. Compared with GMP and pruned Volterra alternatives, its main advantage is not maximum flexibility, but a conservative reduction rule that preserves the MP estimation structure and is easier to map to fixed-point hardware.
 
-The work does not claim all amplifiers should use the same profile. The results suggest a guideline: polynomial order need not be uniform, and assuming uniformity may mask efficient solutions. As memory depth grows, this becomes more valuable to avoid indiscriminate expansion.
+The hardware results make this trade-off explicit. The $(5,5,5)$ model gives the best reference accuracy, whereas $(5,3,2)$ and $(4,3,2)$ remain close in NMSE with about 40% fewer synthesis resources in the evaluated architecture. Thus, the best design point depends on whether the system is limited by modeling error, available area, register pressure, or timing margin.
 
-The joint analysis reinforces model choice as an engineering compromise, interpreting fitting quality alongside constraints. The proposed model internalizes this in the behavioral structure design.
+The work does not claim all amplifiers should use the same profile. It suggests that polynomial order need not be uniform, especially as memory depth grows and uniform high-order expansion rapidly increases coefficient count and hardware complexity.
+
+= Limitations and Future Work
+
+The present evaluation is limited to the available WCDMA-based datasets, memory depth $M = 2$, NMSE-oriented validation, and behavioral VHDL synthesis without place-and-route on a specific FPGA. Future work should evaluate LTE and 5G NR waveforms, larger memory depths, ACPR and EVM metrics, and end-to-end validation in FPGA hardware, including timing, resource sharing, and fixed-point sensitivity.
 
 = Conclusion
 
 The study confirms that the MP model with delay-dependent polynomial order is an efficient alternative for behavioral modeling of power amplifiers. The proposal preserves the accuracy of the classic MP, reduces the number of necessary terms, and favors more compact digital implementations. Sensitivity results showed that the greatest contribution to NMSE improvement is concentrated in the branch associated with the current instant, while older delays can be represented with lower orders without proportional performance loss.
 
 From the implementation viewpoint, the VHDL analysis demonstrated that this complexity reorganization is not only a mathematical simplification, but a concrete architectural advantage. Configurations such as $(4,3,2)$ and $(5,3,2)$ stood out for combining good modeling performance with expressive synthesis resource reduction, making them particularly attractive for practical digital pre-distortion applications. As a consequence, the work offers a promising basis for applications with area and consumption constraints, maintaining consistency both in software evaluation and hardware validation.
+
+= Acknowledgments
+
+The authors would like to thank CNPq and CAPES for the financial support.
 
 = References
 
