@@ -25,7 +25,7 @@
 
 #let conference-short = "WCAS'26"
 #let conference-long = "WCAS'26, August 24-28, 2026, São Paulo, SP, Brazil"
-#let running-authors = "Anonymous Authors"
+#let running-authors = "Santos et al."
 #let isbn = "Internal document"
 #let doi = ""
 #let title = "Power Amplifier Modeling Using Memory Polynomials with Delay-dependent Polynomial Orders"
@@ -33,36 +33,36 @@
 
 #let authors = (
   (
-    name: "Author 1",
+    name: "Leonardo A. Santos",
     note: "",
-    dept: "Anonymous Department",
-    inst: "Anonymous Institution",
-    city: "Anonymous City, Country",
-    email: "author1@example.com",
+    dept: "Departamento de Engenharia Elétrica",
+    inst: "Universidade Federal do Paraná",
+    city: "Curitiba, Brazil",
+    email: "leonard.andrade@ufpr.br",
   ),
   (
-    name: "Author 2",
+    name: "Loane M. Z. Sequinel",
     note: "",
-    dept: "Anonymous Department",
-    inst: "Anonymous Institution",
-    city: "Anonymous City, Country",
-    email: "author2@example.com",
+    dept: "Departamento de Engenharia Elétrica",
+    inst: "Universidade Federal do Paraná",
+    city: "Curitiba, Brazil",
+    email: "loanesequinel@ufpr.br",
   ),
   (
-    name: "Author 3",
+    name: "Sibilla B. L. França",
     note: "",
-    dept: "Anonymous Department",
-    inst: "Anonymous Institution",
-    city: "Anonymous City, Country",
-    email: "author3@example.com",
+    dept: "Departamento de Engenharia Elétrica",
+    inst: "Universidade Federal do Paraná",
+    city: "Curitiba, Brazil",
+    email: "sibilla@ufpr.br",
   ),
   (
-    name: "Author 4",
+    name: "Eduardo G. Lima",
     note: "",
-    dept: "Anonymous Department",
-    inst: "Anonymous Institution",
-    city: "Anonymous City, Country",
-    email: "author4@example.com",
+    dept: "Departamento de Engenharia Elétrica",
+    inst: "Universidade Federal do Paraná",
+    city: "Curitiba, Brazil",
+    email: "eduardo.lima@ufpr.br",
   ),
 )
 
@@ -77,16 +77,16 @@
 #let author-block(author) = [
   #align(center)[
     #text(size: 10.5pt, weight: "bold")[#author.name#author.note] \
-    #text(size: 9.4pt)[#author.dept] \
-    #text(size: 9.4pt)[#author.inst] \
-    #text(size: 9.4pt)[#author.city] \
-    #text(size: 9.4pt)[#link("mailto:" + author.email)[#author.email]]
+    #text(size: 7.2pt)[#author.dept] \
+    #text(size: 7.2pt)[#author.inst] \
+    #text(size: 7.2pt)[#author.city] \
+    #text(size: 7.2pt)[#link("mailto:" + author.email)[#author.email]]
   ]
 ]
 
 #let acm-reference-format = [
   #text(weight: "bold")[ACM Reference Format:]
-  Anonymous Authors. 2026.
+  Leonardo A. Santos, Loane M. Z. Sequinel, Sibilla B. L. França, and Eduardo G. Lima. 2026.
   #title. WCAS, 5 pages.
 ]
 
