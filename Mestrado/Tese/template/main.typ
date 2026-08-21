@@ -220,7 +220,7 @@ O modelo MP pode ser descrito matematicamente por:
 
 $ y(n) = sum_(p=1)^(P) sum_(m=0)^(M) h_(p,m) , x(n - m) |x(n - m)|^(p-1) $ <eq:mp>
 
-em que $P$ representa a ordem de não linearidade do modelo, $M$ corresponde à profundidade de memória considerada, e $h_(p,m)$ são os coeficientes do modelo. Uma das principais vantagens do modelo de polinômio com memória é sua linearidade nos parâmetros, o que facilita a estimação dos coeficientes por meio de técnicas de otimização convencionais. Além disso, esse modelo apresenta boa eficácia na representação de amplificadores de potência com efeitos de memória moderados, sendo amplamente empregado em aplicações de pré-distorção digital.
+em que $P$ representa a ordem de não linearidade do modelo, $M$ corresponde à profundidade de memória considerada, e $h_(p,m)$ são os coeficientes do modelo. Uma das principais vantagens do modelo de polinômio com memória é sua linearidade nos parâmetros, o que facilita a estimativa dos coeficientes por meio de técnicas de otimização convencionais. Além disso, esse modelo apresenta boa eficácia na representação de amplificadores de potência com efeitos de memória moderados, sendo amplamente empregado em aplicações de pré-distorção digital.
 
 Para o modelo MP original adotado como referência neste trabalho, considera-se ordem polinomial $P = 5$ e profundidade de memória $M = 2$, resultando em 15 coeficientes complexos. Nessa configuração, a @eq:mp pode ser organizada em três blocos de memória:
 

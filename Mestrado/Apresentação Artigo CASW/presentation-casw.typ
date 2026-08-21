@@ -35,6 +35,50 @@
 
 #title-slide()
 
+#slide(title: "The Evolution of Wireless Systems")[
+  #set text(size: 0.88em)
+  #grid(
+    columns: (1.1fr, 0.9fr),
+    gutter: 1.5em,
+    [
+      *Each generation demands more from the transmitter*
+
+      #v(0.7em)
+      - Higher data rates and spectral efficiency
+      - Wider signal bandwidths
+      - Complex modulation schemes with high peak-to-average power ratio (PAPR)
+      - Lower energy consumption and more efficient use of hardware resources
+
+      #v(0.8em)
+      #accent-box[
+        The power amplifier must handle increasingly demanding signals while preserving efficiency and signal quality.
+      ]
+    ],
+    [
+      #align(center + horizon)[
+        #block(fill: rgb(245, 245, 245), inset: 1.0em, radius: 0.5em, width: 100%)[
+          #set text(size: 0.9em)
+          #align(center)[
+            *Evolution of wireless systems* \
+            #v(0.7em)
+            $arrow.b$ \
+            #v(0.7em)
+            *Higher data rates + wider bandwidths* \
+            #v(0.7em)
+            $arrow.b$ \
+            #v(0.7em)
+            *High-PAPR signals + efficiency demands* \
+            #v(0.7em)
+            $arrow.b$ \
+            #v(0.7em)
+            *Greater stress on the PA*
+          ]
+        ]
+      ]
+    ],
+  )
+]
+
 #slide(title: "Why PA Modeling Matters")[
   #set text(size: 0.88em)
   #grid(
@@ -80,8 +124,9 @@
     [
       *Classic Memory Polynomial*
 
-      #block(fill: rgb(245, 245, 245), inset: 0.9em, radius: 0.4em)[
-        $y(n) = sum_(m=0)^M sum_(p=1)^P h_(p,m) x(n-m) abs(x(n-m))^(p-1)$
+      #block(fill: rgb(245, 245, 245), inset: 0.7em, radius: 0.4em, width: 100%)[
+        #set text(size: 0.72em)
+        #align(center)[$y(n) = sum_(m=0)^M sum_(p=1)^P h_(p,m) x(n-m) abs(x(n-m))^(p-1)$]
       ]
 
       - Same maximum order $P$ at every delay
@@ -108,8 +153,9 @@
     columns: (1.05fr, 0.95fr),
     gutter: 1.4em,
     [
-      #block(fill: rgb(245, 245, 245), inset: 1em, radius: 0.4em)[
-        $y(n) = sum_(m=0)^M sum_(p=1)^(P_m) h_(p,m) x(n-m) abs(x(n-m))^(p-1)$
+      #block(fill: rgb(245, 245, 245), inset: 0.7em, radius: 0.4em, width: 100%)[
+        #set text(size: 0.72em)
+        #align(center)[$y(n) = sum_(m=0)^M sum_(p=1)^(P_m) h_(p,m) x(n-m) abs(x(n-m))^(p-1)$]
       ]
 
       - Each delay $m$ receives its own maximum order $P_m$
