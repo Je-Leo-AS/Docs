@@ -5,13 +5,12 @@
   lang: "en",
 
   config-info(
-    title: [Power Amplifier Modeling Using Memory Polynomials],
-    subtitle: [Delay-dependent polynomial orders for accurate and compact implementations],
+    title: [Power Amplifier Modeling Using Memory Polynomials with Delay-dependent Polynomial Orders],
     short-title: [Delay-dependent Memory Polynomials],
     authors: [Leonardo A. Santos, Loane M. Z. Sequinel, Sibilla B. L. França, and Eduardo G. Lima],
     author: [Santos et al.],
     date: [WCAS 2026],
-    institution: [Universidade Federal do Parana],
+    institution: [],
     banner: image("ufpr.png"),
   ),
 

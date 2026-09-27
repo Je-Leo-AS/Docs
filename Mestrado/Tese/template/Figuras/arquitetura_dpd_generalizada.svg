@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="860" viewBox="0 0 1600 860">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#243447"/>
+    </marker>
+    <style>
+      .title { font: 700 27px sans-serif; fill: #17212b; }
+      .label { font: 600 19px sans-serif; fill: #17212b; text-anchor: middle; }
+      .compact { font: 600 17px sans-serif; fill: #17212b; text-anchor: middle; }
+      .small { font: 16px sans-serif; fill: #334155; text-anchor: middle; }
+      .math { font: italic 18px serif; fill: #17212b; text-anchor: middle; }
+      .box { fill: #f8fafc; stroke: #243447; stroke-width: 2; rx: 5; }
+      .memory { fill: #eaf2f8; stroke: #276678; stroke-width: 2; rx: 5; }
+      .basis { fill: #eef6ee; stroke: #427a47; stroke-width: 2; rx: 5; }
+      .coeff { fill: #fff7df; stroke: #99731b; stroke-width: 2; rx: 5; }
+      .sum { fill: #f5edf7; stroke: #76517d; stroke-width: 2; rx: 5; }
+      .line { fill: none; stroke: #243447; stroke-width: 2.2; marker-end: url(#arrow); }
+      .bus { fill: none; stroke: #243447; stroke-width: 3; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #64748b; stroke-width: 1.8; stroke-dasharray: 8 7; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="860" fill="white"/>
+  <text x="800" y="43" class="title" text-anchor="middle">Arquitetura generalizada do DPD por polinômio com memória</text>
+
+  <!-- Main signal flow -->
+  <rect x="20" y="305" width="175" height="92" class="box"/>
+  <text x="107" y="340" class="label">Entrada complexa</text>
+  <text x="107" y="369" class="math">x[n] = I[n] + jQ[n]</text>
+
+  <rect x="230" y="278" width="205" height="146" class="memory"/>
+  <text x="332" y="312" class="label">Banco de atrasos</text>
+  <text x="332" y="346" class="math">z⁰, z⁻¹, ..., z⁻⁽ᴹ⁻¹⁾</text>
+  <text x="332" y="380" class="small">M amostras complexas</text>
+  <text x="332" y="404" class="math">x[n-m]</text>
+
+  <path d="M195 351 H230" class="bus"/>
+
+  <!-- Configurable branches -->
+  <rect x="495" y="84" width="440" height="160" class="basis"/>
+  <text x="715" y="116" class="label">Ramo m = 0</text>
+  <text x="715" y="145" class="math">r₀[n] = |x[n]|²</text>
+  <text x="715" y="177" class="math">φ₀,ₚ[n] = x[n] r₀[n]ᵖ</text>
+  <text x="715" y="209" class="small">p = 0, 1, ..., P₀ - 1</text>
+
+  <rect x="495" y="278" width="440" height="146" class="basis"/>
+  <text x="715" y="310" class="label">Ramo genérico m</text>
+  <text x="715" y="340" class="math">rₘ[n] = |x[n-m]|²</text>
+  <text x="715" y="371" class="math">φₘ,ₚ[n] = x[n-m] rₘ[n]ᵖ</text>
+  <text x="715" y="402" class="small">p = 0, 1, ..., Pₘ - 1</text>
+
+  <rect x="495" y="472" width="440" height="160" class="basis"/>
+  <text x="715" y="504" class="label">Ramo m = M - 1</text>
+  <text x="715" y="533" class="math">rₘ₋₁[n] = |x[n-M+1]|²</text>
+  <text x="715" y="565" class="math">φₘ₋₁,ₚ[n] = x[n-M+1] rₘ₋₁[n]ᵖ</text>
+  <text x="715" y="597" class="small">p = 0, 1, ..., Pₘ₋₁ - 1</text>
+
+  <path d="M435 319 H465 V164 H495" class="line"/>
+  <path d="M435 351 H495" class="line"/>
+  <path d="M435 383 H465 V552 H495" class="line"/>
+  <text x="472" y="266" class="small">⋮</text>
+  <text x="472" y="454" class="small">⋮</text>
+
+  <!-- Coefficient multiplication -->
+  <rect x="995" y="84" width="260" height="160" class="coeff"/>
+  <text x="1125" y="119" class="label">Coeficientes do ramo 0</text>
+  <text x="1125" y="153" class="math">c₀,ₚ · φ₀,ₚ[n]</text>
+  <text x="1125" y="188" class="small">P₀ produtos complexos</text>
+  <text x="1125" y="216" class="small">e registradores de alinhamento</text>
+
+  <rect x="995" y="278" width="260" height="146" class="coeff"/>
+  <text x="1125" y="313" class="label">Coeficientes do ramo m</text>
+  <text x="1125" y="347" class="math">cₘ,ₚ · φₘ,ₚ[n]</text>
+  <text x="1125" y="382" class="small">Pₘ produtos complexos</text>
+  <text x="1125" y="408" class="small">e alinhamento temporal</text>
+
+  <rect x="995" y="472" width="260" height="160" class="coeff"/>
+  <text x="1125" y="507" class="label">Coeficientes do ramo M - 1</text>
+  <text x="1125" y="541" class="math">cₘ₋₁,ₚ · φₘ₋₁,ₚ[n]</text>
+  <text x="1125" y="576" class="small">Pₘ₋₁ produtos complexos</text>
+  <text x="1125" y="604" class="small">e registradores de alinhamento</text>
+
+  <path d="M935 164 H995" class="bus"/>
+  <path d="M935 351 H995" class="bus"/>
+  <path d="M935 552 H995" class="bus"/>
+
+  <!-- Reduction and output -->
+  <rect x="1315" y="267" width="145" height="168" class="sum"/>
+  <text x="1387" y="305" class="compact">Árvore de soma</text>
+  <text x="1387" y="339" class="small">complexa e</text>
+  <text x="1387" y="365" class="small">balanceada</text>
+  <text x="1387" y="399" class="math">Nₜ = Σ Pₘ</text>
+
+  <rect x="1490" y="305" width="90" height="92" class="box"/>
+  <text x="1535" y="340" class="label">Saída</text>
+  <text x="1535" y="371" class="math">y[n]</text>
+
+  <path d="M1255 164 H1284 V315 H1315" class="line"/>
+  <path d="M1255 351 H1315" class="line"/>
+  <path d="M1255 552 H1284 V387 H1315" class="line"/>
+  <path d="M1460 351 H1490" class="bus"/>
+  <text x="1281" y="257" class="small">⋮</text>
+  <text x="1281" y="466" class="small">⋮</text>
+
+  <!-- Detailed recurrence inset -->
+  <rect x="230" y="690" width="1030" height="128" class="dash" rx="4"/>
+  <text x="745" y="718" class="label">Geração recursiva das bases em cada ramo m</text>
+  <rect x="270" y="740" width="150" height="54" class="box"/>
+  <text x="345" y="773" class="math">φₘ,₀ = x[n-m]</text>
+  <rect x="485" y="740" width="165" height="54" class="box"/>
+  <text x="567" y="773" class="math">φₘ,₁ = φₘ,₀ rₘ</text>
+  <rect x="715" y="740" width="165" height="54" class="box"/>
+  <text x="797" y="773" class="math">φₘ,₂ = φₘ,₁ rₘ</text>
+  <text x="930" y="773" class="label">⋯</text>
+  <rect x="980" y="740" width="235" height="54" class="box"/>
+  <text x="1097" y="773" class="math">φₘ,ₚ = φₘ,ₚ₋₁ rₘ</text>
+  <path d="M420 767 H485" class="line"/>
+  <path d="M650 767 H715" class="line"/>
+  <path d="M880 767 H910" class="line"/>
+  <path d="M950 767 H980" class="line"/>
+
+  <text x="800" y="848" class="small">Vetor de configuração: P = [P₀, P₁, ..., Pₘ₋₁]  •  Número total de termos: Nₜ = Σₘ₌₀ᴹ⁻¹ Pₘ</text>
+</svg>

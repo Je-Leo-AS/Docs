@@ -40,11 +40,13 @@
 \end{frame}
 
 \begin{frame}{Objetivos}
-	Objetivo deste trabalho construir e validar um código em linguagem de descrição de hardware capaz de processar, em tempo real, as características de transferência inversa de um amplificador, reproduzindo suas não linearidades.
+	\textbf{Objetivo geral:} Desenvolver e validar, em FPGA, um pré-distorcedor digital descrito em VHDL e baseado no modelo de polinômio com memória, capaz de compensar as não linearidades de um amplificador de potência.
 	\begin{itemize}
-		\item Realizar a modelagem de um PA e do DPD com o modelo de polinômio de memória.
-		\item Implementar a descrição de hardware em linguagem VHDL.
-		\item Validar o sistema em FPGA.
+		\item Modelar o PA e obter o modelo do DPD a partir dos dados de entrada e saída do amplificador.
+		\item Avaliar o modelo e definir uma representação em ponto fixo adequada à implementação digital.
+		\item Desenvolver a arquitetura do DPD em VHDL, incluindo o tratamento das amostras de memória e o cálculo dos termos polinomiais.
+		\item Validar a implementação por simulação e comparar sua saída com a referência em software.
+		\item Implementar o circuito em FPGA e avaliar seus recursos e frequência de operação.
 	\end{itemize}
 \end{frame}
 
@@ -273,8 +275,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Desenvolvimento do VHDL}
 \begin{frame}{Desenvolvimento do VHDL}
-	
-		\includegraphics[scale=0.2]{diagrama_process.png}
+	\begin{minipage}{0.48\textwidth}
+		\begin{itemize}
+			\item A descrição em VHDL organiza o cálculo em estágios síncronos.
+			\item Registradores armazenam as amostras atuais e anteriores, formando a memória do modelo.
+			\item Os termos polinomiais são calculados, multiplicados pelos coeficientes do DPD e acumulados para gerar a saída.
+			\item A saída inicial é parcial enquanto o circuito preenche o histórico de amostras.
+		\end{itemize}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{diagrama_process.png}
+	\end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Resultado simulação FPGA}
