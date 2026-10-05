@@ -4,10 +4,10 @@
 
 #show: template.with(
   title: [
-    Modelagem Comportamental e Implementação em VHDL de Amplificadores de Potência Usando Polinômios com Memória
+    Modelagem Comportamental de Amplificadores de Potência Usando Polinômios com Memória e Ordens Dependentes do Atraso
   ],
   title-foreign: [
-    Behavioral Modeling and VHDL Implementation of Power Amplifiers Using Memory Polynomials
+    Behavioral Modeling of Power Amplifiers Using Memory Polynomials with Delay-Dependent Orders
   ],
 
   lang: "pt",

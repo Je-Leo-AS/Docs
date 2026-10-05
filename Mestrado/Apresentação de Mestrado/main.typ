@@ -6,7 +6,7 @@
 
   config-info(
     title: [Modelagem Comportamental de Amplificadores de Potência],
-    subtitle: [Usando Truncamento Polinomial Dependente do Atraso],
+    subtitle: [Usando Polinômios com Memória e Ordens Dependentes do Atraso],
     short-title: [Modelagem Comportamental de Amplificadores de Potência],
     authors: [Leonardo de Andrade Santos, Eduardo Gonçalves de Lima],
     author: [Leonardo de Andrade Santos],
