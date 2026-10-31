@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="370" viewBox="0 0 1000 370">
+<rect width="100%" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8Z" fill="#202c38"/></marker></defs>
+<text x="45" y="80" font-family="DejaVu Sans, sans-serif" font-size="25" text-anchor="middle" fill="#202c38" font-weight="normal">x(t)</text>
+<path d="M45 105 H280" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="165" cy="105" r="4" fill="#202c38"/>
+<path d="M165 105 V275 H280" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="280" y="65" width="220" height="80" rx="5" fill="#eef3f7" stroke="#202c38" stroke-width="2.4"/>
+<text x="390.0" y="113.0" font-family="DejaVu Sans, sans-serif" font-size="25" text-anchor="middle" fill="#202c38" font-weight="normal">PA real</text>
+<rect x="280" y="235" width="220" height="80" rx="5" fill="#eef3f7" stroke="#202c38" stroke-width="2.4"/>
+<text x="390.0" y="283.0" font-family="DejaVu Sans, sans-serif" font-size="25" text-anchor="middle" fill="#202c38" font-weight="normal">Modelo do PA</text>
+<path d="M500 105 H750 V166" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M500 275 H750 V214" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="610" y="88" font-family="DejaVu Sans, sans-serif" font-size="24" text-anchor="middle" fill="#202c38" font-weight="normal">y<tspan baseline-shift="sub" font-size="70%">real</tspan>(t)</text>
+<text x="610" y="258" font-family="DejaVu Sans, sans-serif" font-size="24" text-anchor="middle" fill="#202c38" font-weight="normal">y<tspan baseline-shift="sub" font-size="70%">sim</tspan>(t)</text>
+<circle cx="750" cy="190" r="23" fill="white" stroke="#202c38" stroke-width="2.4"/>
+<text x="750" y="198" font-family="DejaVu Sans, sans-serif" font-size="27" text-anchor="middle" fill="#202c38" font-weight="normal">Σ</text>
+<text x="726" y="155" font-family="DejaVu Sans, sans-serif" font-size="24" text-anchor="middle" fill="#202c38" font-weight="normal">+</text>
+<text x="726" y="239" font-family="DejaVu Sans, sans-serif" font-size="24" text-anchor="middle" fill="#202c38" font-weight="normal">−</text>
+<path d="M774 190 H950" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="866" y="172" font-family="DejaVu Sans, sans-serif" font-size="25" text-anchor="middle" fill="#202c38" font-weight="normal">e(t)</text>
+<text x="500" y="355" font-family="DejaVu Sans, sans-serif" font-size="24" text-anchor="middle" fill="#202c38" font-weight="normal">e(t) = y<tspan baseline-shift="sub" font-size="70%">real</tspan>(t) − y<tspan baseline-shift="sub" font-size="70%">sim</tspan>(t)</text>
+</svg>

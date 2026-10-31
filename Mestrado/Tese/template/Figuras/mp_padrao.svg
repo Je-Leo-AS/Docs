@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="690" viewBox="0 0 1100 690">
+<rect width="100%" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8Z" fill="#202c38"/></marker></defs>
+<text x="45" y="48" font-family="DejaVu Sans, sans-serif" font-size="26" text-anchor="start" fill="#202c38" font-weight="normal">x(n)</text>
+<path d="M45 75 H135" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="135" cy="75" r="4" fill="#202c38"/>
+<path d="M135 75 H802" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="300" y="59" font-family="DejaVu Sans, sans-serif" font-size="23" text-anchor="middle" fill="#202c38" font-weight="normal">x(n)</text>
+<circle cx="245" cy="75" r="4" fill="#202c38"/>
+<path d="M245 75 V157 H340" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="340" y="122" width="350" height="70" rx="5" fill="#eef3f7" stroke="#202c38" stroke-width="2.4"/>
+<text x="515.0" y="165.0" font-family="DejaVu Sans, sans-serif" font-size="25" text-anchor="middle" fill="#202c38" font-weight="normal">g<tspan baseline-shift="sub" font-size="70%">0</tspan>(|x(n)|)</text>
+<path d="M690 157 H825 V99" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="825" cy="75" r="23" fill="white" stroke="#202c38" stroke-width="2.4"/>
+<text x="825" y="83" font-family="DejaVu Sans, sans-serif" font-size="27" text-anchor="middle" fill="#202c38" font-weight="normal">×</text>
+<path d="M849 75 H955 V221" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="135" cy="245" r="4" fill="#202c38"/>
+<path d="M135 245 H802" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="300" y="229" font-family="DejaVu Sans, sans-serif" font-size="23" text-anchor="middle" fill="#202c38" font-weight="normal">x(n−1)</text>
+<circle cx="245" cy="245" r="4" fill="#202c38"/>
+<path d="M245 245 V327 H340" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="340" y="292" width="350" height="70" rx="5" fill="#eef3f7" stroke="#202c38" stroke-width="2.4"/>
+<text x="515.0" y="335.0" font-family="DejaVu Sans, sans-serif" font-size="25" text-anchor="middle" fill="#202c38" font-weight="normal">g<tspan baseline-shift="sub" font-size="70%">1</tspan>(|x(n−1)|)</text>
+<path d="M690 327 H825 V269" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="825" cy="245" r="23" fill="white" stroke="#202c38" stroke-width="2.4"/>
+<text x="825" y="253" font-family="DejaVu Sans, sans-serif" font-size="27" text-anchor="middle" fill="#202c38" font-weight="normal">×</text>
+<path d="M849 245 H931" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="135" cy="465" r="4" fill="#202c38"/>
+<path d="M135 465 H802" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="300" y="449" font-family="DejaVu Sans, sans-serif" font-size="23" text-anchor="middle" fill="#202c38" font-weight="normal">x(n−M)</text>
+<circle cx="245" cy="465" r="4" fill="#202c38"/>
+<path d="M245 465 V547 H340" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="340" y="512" width="350" height="70" rx="5" fill="#eef3f7" stroke="#202c38" stroke-width="2.4"/>
+<text x="515.0" y="555.0" font-family="DejaVu Sans, sans-serif" font-size="25" text-anchor="middle" fill="#202c38" font-weight="normal">g<tspan baseline-shift="sub" font-size="70%">M</tspan>(|x(n−M)|)</text>
+<path d="M690 547 H825 V489" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="825" cy="465" r="23" fill="white" stroke="#202c38" stroke-width="2.4"/>
+<text x="825" y="473" font-family="DejaVu Sans, sans-serif" font-size="27" text-anchor="middle" fill="#202c38" font-weight="normal">×</text>
+<path d="M849 465 H955 V269" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="105" y="135" width="60" height="52" rx="5" fill="#eef3f7" stroke="#202c38" stroke-width="2.4"/>
+<text x="135.0" y="169.0" font-family="DejaVu Sans, sans-serif" font-size="24" text-anchor="middle" fill="#202c38" font-weight="normal">z⁻¹</text>
+<path d="M135 75 V135" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M135 187 V245" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M135 245 V282" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="135" y="320" font-family="DejaVu Sans, sans-serif" font-size="36" text-anchor="middle" fill="#202c38" font-weight="normal">⋮</text>
+<path d="M135 340 V385" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="105" y="385" width="60" height="52" rx="5" fill="#eef3f7" stroke="#202c38" stroke-width="2.4"/>
+<text x="135.0" y="419.0" font-family="DejaVu Sans, sans-serif" font-size="24" text-anchor="middle" fill="#202c38" font-weight="normal">z⁻¹</text>
+<path d="M135 437 V465" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="520" y="398" font-family="DejaVu Sans, sans-serif" font-size="36" text-anchor="middle" fill="#202c38" font-weight="normal">⋮</text>
+<circle cx="955" cy="245" r="23" fill="white" stroke="#202c38" stroke-width="2.4"/>
+<text x="955" y="253" font-family="DejaVu Sans, sans-serif" font-size="27" text-anchor="middle" fill="#202c38" font-weight="normal">Σ</text>
+<path d="M979 245 H1080" fill="none" stroke="#202c38" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="1032" y="225" font-family="DejaVu Sans, sans-serif" font-size="25" text-anchor="middle" fill="#202c38" font-weight="normal">y(n)</text>
+<text x="550" y="635" font-family="DejaVu Sans, sans-serif" font-size="24" text-anchor="middle" fill="#202c38" font-weight="normal">gₘ(r) = ∑ₚ₌₁ᴾ hₚ,ₘ rᵖ⁻¹     •     m = 0, 1, …, M</text>
+<text x="550" y="672" font-family="DejaVu Sans, sans-serif" font-size="22" text-anchor="middle" fill="#202c38" font-weight="normal">Mesma ordem P em todos os ramos de memória</text>
+</svg>
