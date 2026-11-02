@@ -140,7 +140,7 @@ Devido a imperfeições nos componentes e às condições reais de operação, a
 #figure(
   image("Figuras/circuito_pa.svg", width: 85%),
   caption: [Circuito simplificado de um PA],
-  source: [#cite(<Luiza2016>, form: "prose")],
+  source: [Autor],
 ) <fig:circuitoparf>
 
 Tipicamente, a eficiência do PA aumenta com a potência de saída, atingindo valores mais elevados quando o dispositivo opera próximo à saturação. A potência que não é convertida em sinal útil é dissipada como calor, elevando custos de projeto, reduzindo a confiabilidade e exigindo estruturas de dissipação térmica. Assim, maximizar a eficiência do PA é um objetivo central no projeto de redes de telecomunicações.
@@ -150,7 +150,7 @@ Outra característica fundamental é a linearidade, normalmente avaliada pela cu
 #figure(
   image("Figuras/curva_transferencia_pa.svg", width: 85%),
   caption: [Curva de transferência de um PA],
-  source: [#cite(<Chavez2018>, form: "prose")],
+  source: [Autor],
 ) <fig:saidaparf>
 
 A largura de banda disponível para sistemas de comunicação sem fio é um recurso naturalmente limitado, o que torna essencial sua utilização de maneira eficiente. À medida que cresce a demanda por maiores taxas de transmissão de dados, surge a necessidade de empregar técnicas de modulação capazes de transmitir mais informação dentro da mesma faixa espectral. Nesse contexto, as maiores taxas de transmissão são alcançadas por esquemas de modulação que exploram simultaneamente variações de fase e de amplitude da onda portadora em radiofrequência @Kenington2000.
@@ -170,9 +170,9 @@ O amplificador de potência em radiofrequência desempenha papel fundamental na 
 A @fig:comportamentopassabanda ilustra, no domínio da frequência, os espectros dos sinais de entrada e saída de um PA passa banda. Enquanto o espectro de entrada está concentrado na banda desejada, o de saída apresenta espalhamento espectral, decorrente dos produtos de intermodulação gerados pelas não linearidades do amplificador.
 
 #figure(
-  image("Figuras/distorcao_espectral_pa.svg", width: 100%),
-  caption: [Exemplo de distorção espectral de um PA],
-  source: [#cite(<Pedro2005>, form: "prose")],
+  image("Figuras/distorcao_espectral_pa.png", width: 100%),
+  caption: [Exemplo de distorção espectral de um PA: comparação entre os espectros dos sinais de entrada e saída, evidenciando o alargamento espectral provocado pela intermodulação.],
+  source: [Autor],
 ) <fig:comportamentopassabanda>
 
 Esse espalhamento espectral é particularmente indesejável em sistemas de comunicação sem fio, pois pode causar interferência em canais adjacentes, degradando o desempenho de usuários vizinhos e violando requisitos regulatórios de emissão espectral. Além disso, a presença de distorções no sinal transmitido compromete a qualidade da comunicação e reduz a eficiência espectral do sistema. Dessa forma, a compreensão do comportamento passa banda do PA é essencial para o desenvolvimento de técnicas de linearização, como a pré-distorção digital, que visam mitigar os efeitos das não linearidades e preservar a integridade do sinal transmitido @Luiza2016.
@@ -188,9 +188,9 @@ Diante desse cenário, diversas técnicas de linearização têm sido desenvolvi
 Quando o sinal pré-distorcido é aplicado ao amplificador, as não linearidades do PA compensam a distorção introduzida pelo DPD, resultando em um comportamento global aproximadamente linear do sistema em cascata. Esse conceito é ilustrado na @fig:cascatadpd, que apresenta o esquema de um pré-distorcedor digital operando em conjunto com o PA para o qual foi projetado. Para que essa compensação seja eficaz, torna-se necessário que o DPD seja capaz de representar com precisão não apenas o comportamento não linear estático do amplificador, mas também seus efeitos de memória.
 
 #figure(
-  image("Figuras/DPDcascata.png", width: 55%),
-  caption: [Esquema de pré-distorcedor digital em cascata com PA],
-  source: [#cite(<Chavez2018>, form: "prose")],
+  image("Figuras/dpd_pa_cascata.svg", width: 100%),
+  caption: [Pré-distorção digital em cascata com o PA: (a) diagrama de blocos do sistema DPD + PA; (b) representação das características de transferência do pré-distorcedor, do amplificador e da cascata linearizada.],
+  source: [Autor],
 ) <fig:cascatadpd>
 
 Nesse contexto, a modelagem comportamental constitui uma etapa fundamental no desenvolvimento de técnicas de pré-distorção digital. O diagrama de blocos apresentado na @fig:diagramamodelagem exemplifica essa abordagem, na qual um modelo matemático é submetido ao mesmo sinal de entrada aplicado ao amplificador de potência, representado por $x(t)$. A saída simulada do modelo, $y_("sim")(t)$, é então comparada com a saída real do PA, $y_("real")(t)$.
@@ -200,14 +200,14 @@ Os coeficientes do modelo são ajustados a partir do erro entre $y_("real")(t)$ 
 #figure(
   image("Figuras/modelagem_comportamental.svg", width: 95%),
   caption: [Diagrama de modelagem comportamental],
-  source: [#cite(<Luiza2016>, form: "prose")],
+  source: [Autor],
 ) <fig:diagramamodelagem>
 
 == Modelos Comportamentais
 
 Conforme discutido na seção anterior, a técnica de DPD depende diretamente da capacidade de representar com precisão o comportamento não linear do PA. Para que a linearização seja eficaz, o pré-distorcedor deve reproduzir, de forma inversa, as características do amplificador, compensando tanto as não linearidades estáticas quanto os efeitos dinâmicos associados à memória do dispositivo. Dessa forma, torna-se indispensável o uso de modelos matemáticos capazes de descrever adequadamente o comportamento do PA sob diferentes condições de operação.
 
-Nos sistemas modernos de comunicação sem fio, a limitação de largura de banda disponível leva à adoção de esquemas de modulação com elevada variação de envoltória, caracterizados por altos valores de _Peak-to-Average Power Ratio_ (PAPR). Esses sinais impõem requisitos rigorosos ao PA, que deve operar de forma eficiente do ponto de vista energético sem comprometer a linearidade. Para atender a essas exigências, as técnicas de linearização demandam modelos computacionais precisos do comportamento do amplificador @John2016.
+Nos sistemas modernos de comunicação sem fio, a limitação de largura de banda disponível leva à adoção de esquemas de modulação com elevada variação de envoltória, caracterizados por altos valores de _Peak-to-Average Power Ratio_ (PAPR), definido como a razão entre a potência de pico e a potência média do sinal. Esses sinais impõem requisitos rigorosos ao PA, que deve operar de forma eficiente do ponto de vista energético sem comprometer a linearidade. Para atender a essas exigências, as técnicas de linearização demandam modelos computacionais precisos do comportamento do amplificador @John2016.
 
 De maneira geral, as abordagens de modelagem de amplificadores de potência podem ser classificadas em duas categorias principais: modelagem física e modelagem comportamental. A modelagem física baseia-se no conhecimento detalhado da topologia do circuito, dos dispositivos semicondutores e dos componentes passivos que constituem o amplificador. Embora essa abordagem possa oferecer elevada precisão, sua aplicação é limitada pela alta complexidade computacional e pela dificuldade de obtenção de todos os parâmetros físicos necessários. Em contrapartida, a modelagem comportamental, também conhecida como empírica, fundamenta-se exclusivamente na observação da relação entre os sinais de entrada e saída do sistema, sem a necessidade de informações detalhadas sobre a estrutura interna do circuito. Essa característica torna os modelos comportamentais particularmente atrativos para aplicações de simulação e linearização, devido à sua menor complexidade computacional.
 
@@ -359,7 +359,7 @@ Entre as principais características do modelo MP, destaca-se o fato de que ele 
 #figure(
   image("Figuras/mp_padrao.svg", width: 100%),
   caption: [Diagrama de blocos do modelo MP],
-  source: [#cite(<Kim2001>, form: "prose")],
+  source: [Autor],
 ) <fig:mp_padrao>
 
 === Polinômio com Memória com Truncamento Polinomial Dependente do Atraso
@@ -422,7 +422,7 @@ A @fig:pipeline-dpd-clock apresenta a organização funcional e a sequência tem
 #figure(
   image("Figuras/pipeline_dpd_por_clock.svg", width: 100%),
   caption: [Cronograma do _pipeline_ VHDL para três janelas consecutivas de entrada. Cada coluna identifica a borda em que o resultado é registrado; a lógica combinacional atua entre bordas. Os registros de alinhamento são detalhados na @tab:alinhamento-pipeline.],
-  source: [Autor.],
+  source: [Autor],
 ) <fig:pipeline-dpd-clock>
 
 
@@ -533,7 +533,13 @@ $ "NMSE" = 10 log_(10) lr(( frac(
 
 #par(first-line-indent: 0pt)[em que $y_"real" (n)$ é a amostra medida na saída do PA, $e(n) = y_"real" (n) - y_"model" (n)$ é o erro entre a saída medida e a estimada, e $N$ é o número de amostras consideradas. Valores de NMSE mais negativos indicam menor erro normalizado.]
 
-Foram considerados dois conjuntos de dados empíricos. O primeiro corresponde a medições de um amplificador de potência classe AB, do tipo GaN HEMT, excitado por uma portadora de 900~MHz modulada por um sinal WCDMA 3GPP com largura de banda aproximada de 3,84~MHz e amostrado a 61,44~MHz, conforme a caracterização experimental de Bonfim e Lima @Bonfim2016, também utilizada no TCC que antecede este trabalho. O segundo corresponde a medições de um amplificador LDMOS, organizadas em 4.500 amostras complexas para extração dos coeficientes e 4.500 amostras complexas para validação. Em ambos os casos, os dados disponíveis são pares complexos de entrada e saída do PA, adequados para identificação, validação e comparação entre estruturas de modelo. Os arquivos são, respectivamente, `in_out_SBRT2_direto.mat` e `data_LDMOS_formatted_4500p.mat`. Não se atribuem ao conjunto LDMOS as frequências e a largura de banda documentadas para o conjunto GaN HEMT.
+Foram considerados dois conjuntos de dados empíricos provenientes dos experimentos apresentados na tese de Lima @GonalvesdeLima2009, correspondentes a amplificadores GaN HEMT e LDMOS. A correspondência entre os arquivos utilizados nesta dissertação e os experimentos da tese foi confirmada pelo autor daquela pesquisa. Os arquivos são, respectivamente, `in_out_SBRT2_direto.mat` e `data_LDMOS_formatted_4500p.mat`. Em ambos os casos, os dados disponíveis são pares complexos de entrada e saída do PA, adequados para identificação, validação e comparação entre estruturas de modelo. O conjunto LDMOS está organizado em 4.500 amostras complexas para extração dos coeficientes e 4.500 amostras complexas para validação.
+
+O primeiro conjunto corresponde a medições de um amplificador de potência classe AB, do tipo GaN HEMT. Na Seção 5.1.1 de sua tese (p. 84), Lima @GonalvesdeLima2009 descreve a excitação desse PA por um sinal WCDMA 3GPP com largura de banda de 3,84~MHz e PAPR de 11,6~dB, para potência média de saída de 26~dBm e taxa de amostragem de 61,44~MHz. A caracterização experimental de Bonfim e Lima @Bonfim2016, também utilizada no TCC que antecede este trabalho, informa frequência de portadora de 900~MHz para o conjunto GaN HEMT.
+
+O segundo conjunto corresponde ao PA LDMOS classe AB com sintonia de saída no segundo harmônico descrito na Seção 6.4.3 da tese de Lima @GonalvesdeLima2009 (p. 200–201), avaliado com sinais WCDMA 3GPP de largura de banda de 3,84~MHz e taxa de amostragem de 30,72~MHz. A bancada empregou um gerador vetorial de sinais Agilent ESG E4433B e um analisador vetorial de sinais Agilent MXA N9020A. Para a identificação dos modelos, foram considerados dois cenários: PAPR de 3,5~dB, com potência média de saída de 37,5~dBm, e PAPR de 11~dB, com potência média de saída de 31,5~dBm. Esses valores caracterizam os ensaios de modelagem da fonte original e não devem ser confundidos com as condições dos testes de linearização apresentados naquela tese.
+
+A confirmação da procedência dos dois conjuntos não identifica, por si só, qual dos dois cenários LDMOS corresponde ao arquivo `data_LDMOS_formatted_4500p.mat`, nem documenta a manutenção da taxa de amostragem original após eventuais etapas de processamento. A tese também não documenta a divisão específica em 4.500 amostras para extração e 4.500 para validação utilizada neste trabalho. Não foram confirmados, para esse arquivo, a frequência da portadora, os fatores de normalização e a relação entre as amplitudes complexas e as potências físicas. Assim, a largura de banda e a taxa de amostragem acima são reportadas como características do experimento original, sem empregá-las para calibrar os espectros calculados a partir do arquivo. As análises espectrais desta dissertação utilizam frequência normalizada em ciclos por amostra e níveis relativos, sem atribuição de unidades de MHz ou dBm/Hz. Não se transferem ao LDMOS os parâmetros de aquisição documentados para o GaN HEMT.
 
 === Implementação em VHDL do modelo MP truncado
 
@@ -557,7 +563,7 @@ Na análise dos coeficientes, foi considerado um modelo MP completo com $P_0 = P
 
 $ E_m = sum_(p=1)^(P_"max") |h_(p,m)|^2, $
 
-#par(first-line-indent: 0pt)[em que $E_m$ é a norma quadrática do vetor de coeficientes do ramo $m$, $p$ enumera seus coeficientes e $P_"max"=5$ é o limite dessa análise. Essa medida descreve os coeficientes na base e na escala utilizadas; ela não é, isoladamente, a energia do sinal de saída do ramo, pois essa energia também depende das funções de base e de suas correlações. Adicionalmente, para avaliar a sensibilidade do modelo a cada ordem polinomial, dois parâmetros foram mantidos fixos em 1 enquanto o terceiro variou entre 1 e 5, medindo-se o ganho de NMSE produzido pelo aumento de complexidade em cada ramo. Por fim, o sinal de erro residual foi analisado no domínio da frequência com janela de Blackman, FFT de 8192 pontos e média de grupos de 50 bins espectrais consecutivos em dB, seguindo a organização do script de referência. Essa análise permite comparar o erro residual associado às configurações $P_0$, $P_1$ e $P_2$. Como não há registros de aquisição e calibração do conjunto LDMOS, os eixos herdados do exemplo não são empregados como frequências ou potências físicas desse PA. As figuras utilizam frequência normalizada em ciclos por amostra e níveis relativos a uma referência comum, definida pelo máximo do espectro médio da saída medida. Não são atribuídas a esses gráficos unidades de MHz ou dBm/Hz.]
+#par(first-line-indent: 0pt)[em que $E_m$ é a norma quadrática do vetor de coeficientes do ramo $m$, $p$ enumera seus coeficientes e $P_"max"=5$ é o limite dessa análise. Essa medida descreve os coeficientes na base e na escala utilizadas; ela não é, isoladamente, a energia do sinal de saída do ramo, pois essa energia também depende das funções de base e de suas correlações. Adicionalmente, para avaliar a sensibilidade do modelo a cada ordem polinomial, dois parâmetros foram mantidos fixos em 1 enquanto o terceiro variou entre 1 e 5, medindo-se o ganho de NMSE produzido pelo aumento de complexidade em cada ramo. Por fim, o sinal de erro residual foi analisado no domínio da frequência com janela de Blackman, FFT de 8192 pontos e média de grupos de 50 bins espectrais consecutivos em dB, seguindo a organização do script de referência. Essa análise permite comparar o erro residual associado às configurações $P_0$, $P_1$ e $P_2$. Como não foram confirmados a taxa de amostragem final e os fatores de calibração do arquivo LDMOS utilizado, os eixos herdados do exemplo não são empregados como frequências ou potências físicas desse PA. As figuras utilizam frequência normalizada em ciclos por amostra e níveis relativos a uma referência comum, definida pelo máximo do espectro médio da saída medida. Não são atribuídas a esses gráficos unidades de MHz ou dBm/Hz.]
 
 === Avaliação em múltiplos conjuntos de dados
 
@@ -666,7 +672,7 @@ A @tab:sensibilidade-nmse-ordens quantifica a melhora de NMSE para cada ramo, e 
 O erro residual foi analisado no domínio da frequência para diferentes configurações de modelo, com janela de Blackman, FFT de 8192 pontos e média de 50 bins espectrais consecutivos em dB. Os sete valores de NMSE reproduzem, ao arredondamento apresentado nos gráficos, os resultados da análise original. A frequência é normalizada e os níveis são relativos, conforme a @sec:metodologia-validacao; essa apresentação permite comparar as curvas sem presumir a calibração física do conjunto LDMOS.
 
 #figure(
-  image("Figuras/ev3_espectro_erro_normalizado.pdf", width: 100%),
+  image("Figuras/ev3_espectro_erro_normalizado.pdf", width: 95%),
   caption: [Espectros relativos do erro residual no conjunto LDMOS: (a) variação de $P_0$; (b) variação de $P_1$; (c) variação de $P_2$. Frequência em ciclos por amostra e referência comum no máximo do espectro da saída medida.],
   source: [Autor],
 ) <fig:ev3-espectro-erro>
