@@ -589,9 +589,11 @@ Os conjuntos de dados, a métrica NMSE e os procedimentos de validação estão 
 
 Nesta seção são apresentados os resultados da modelagem comportamental do amplificador de potência (PA) utilizando o modelo _Memory Polynomial_ (MP) original, conforme descrito no Capítulo~3. Esta etapa utiliza o conjunto LDMOS e tem como principal objetivo estabelecer uma referência de desempenho (_baseline_) que servirá de comparação para as abordagens alternativas propostas neste trabalho, em especial o modelo MP com truncamento polinomial dependente do atraso.
 
+A configuração de referência foi fixada em $M = 2$ e $bold(P) = (5, 5, 5)$, com três ramos de memória e 15 coeficientes complexos. Esses parâmetros constituem escolhas arbitrárias de delimitação do estudo e do espaço de busca adotado, sem pressupor uma configuração ótima universal. Separadamente da identificação desse _baseline_, a avaliação das 125 combinações do modelo com ordens dependentes do atraso, com $P_m in {1, 2, 3, 4, 5}$ para cada um dos três ramos, foi considerada suficiente para investigar as vantagens da proposta e o compromisso entre precisão e número de coeficientes no domínio delimitado. Nessa avaliação, conforme a @eq:mp-hardware, $P_m$ representa a quantidade de funções de base de ordem ímpar no ramo, cuja maior ordem polinomial é $2P_m - 1$; portanto, o valor 5 corresponde à ordem máxima 9. A ampliação desse limite tenderia a produzir configurações mais suscetíveis ao sobreajuste (_overfitting_), sem que a delimitação adotada implique a eliminação desse risco. Por sua vez, o aumento de $M$ provavelmente levaria à seleção de menores valores de $P_m$ nos atrasos maiores, possivelmente até $P_m = 1$, preservando apenas o termo linear nesses ramos, cuja contribuição seria principalmente a representação dos efeitos de memória.
+
 A implementação do modelo foi realizada em ambiente Python, empregando aritmética em vírgula flutuante, com o intuito de avaliar o desempenho do MP em um cenário de alta precisão numérica, sem restrições impostas por quantização ou limitações de hardware. Essa escolha permite isolar os efeitos da estrutura do modelo, garantindo que eventuais limitações observadas estejam associadas predominantemente à capacidade de representação do modelo MP, e não a aspectos relacionados à implementação ou à aritmética utilizada.
 
-A @fig:modelopafloat apresenta o diagrama representativo do modelo do PA implementado em vírgula flutuante.
+A @fig:modelopafloat apresenta a característica AM–AM do PA LDMOS, comparando os valores medidos com aqueles estimados pelo modelo MP original em vírgula flutuante.
 
 #figure(
   image("Figuras/modelopafloat.png", width: 50%),
@@ -672,7 +674,7 @@ A @tab:sensibilidade-nmse-ordens quantifica a melhora de NMSE para cada ramo, e 
 O erro residual foi analisado no domínio da frequência para diferentes configurações de modelo, com janela de Blackman, FFT de 8192 pontos e média de 50 bins espectrais consecutivos em dB. Os sete valores de NMSE reproduzem, ao arredondamento apresentado nos gráficos, os resultados da análise original. A frequência é normalizada e os níveis são relativos, conforme a @sec:metodologia-validacao; essa apresentação permite comparar as curvas sem presumir a calibração física do conjunto LDMOS.
 
 #figure(
-  image("Figuras/ev3_espectro_erro_normalizado.pdf", width: 95%),
+  image("Figuras/ev3_espectro_erro_normalizado.png", width: 95%),
   caption: [Espectros relativos do erro residual no conjunto LDMOS: (a) variação de $P_0$; (b) variação de $P_1$; (c) variação de $P_2$. Frequência em ciclos por amostra e referência comum no máximo do espectro da saída medida.],
   source: [Autor],
 ) <fig:ev3-espectro-erro>
@@ -680,7 +682,7 @@ O erro residual foi analisado no domínio da frequência para diferentes configu
 Na @fig:ev3-espectro-erro, os três painéis isolam a influência de cada ramo: o painel (a) varia $P_0$, mantendo $P_1 = P_2 = 1$; o painel (b) varia $P_1$, com $P_0 = P_2 = 1$; e o painel (c) varia $P_2$, com $P_0 = P_1 = 1$. A curva pontilhada representa a saída medida do PA, a referência cinza corresponde ao modelo $(1,1,1)$ e as demais curvas mostram o erro residual das ordens testadas. Ao aumentar $P_0$, o NMSE melhora de $-28,7$ dB para $-33,9$ dB e $-35,4$ dB. Para $P_1$, a melhora é de $-28,7$ dB para $-31,8$ dB e depois apenas para $-32,1$ dB; para $P_2$, chega a aproximadamente $-30,2$ dB e praticamente satura entre as ordens 3 e 5.
 
 #figure(
-  image("Figuras/ev_bonus_psd_normalizado.pdf", width: 100%),
+  image("Figuras/ev_bonus_psd_normalizado.png", width: 100%),
   caption: [Espectros relativos da entrada, da saída medida do PA e dos erros de modelagem no conjunto LDMOS. Frequência em ciclos por amostra e mesma referência de nível em todas as curvas.],
   source: [Autor],
 ) <fig:ev-bonus-psd-completo>
