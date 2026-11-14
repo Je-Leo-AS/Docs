@@ -129,12 +129,7 @@ page(numbering: none)[
 
     strong(upper(author)),
     [],
-    grid(
-      rows: 1fr,
-      align: center,
-      strong(upper(title)),
-      strong(title-foreign),
-    ),
+    strong(upper(title)),
     align(right, block(width: 50%)[
       #set  align(left)
       #set par(first-line-indent: 0cm, spacing: 0.5em,leading: 0.5em)
