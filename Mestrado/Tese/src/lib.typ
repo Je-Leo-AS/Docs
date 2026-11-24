@@ -39,6 +39,7 @@
   year: none,
 
   description: none,
+  post-title-pages: (),
 
   keywords: none,
   keywords-foreign: none,
@@ -139,6 +140,13 @@ page(numbering: none)[
     align(bottom, strong(upper[#city \ #year])),
   )
 ]
+
+for content in post-title-pages {
+  page(margin: 0pt, numbering: none)[
+    #set par(first-line-indent: 0pt)
+    #align(center + horizon, content)
+  ]
+}
 
 context {
 

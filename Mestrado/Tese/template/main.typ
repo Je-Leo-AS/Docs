@@ -26,6 +26,11 @@
     Coorientadora: Sibilla Batista da Luz Franca
   ],
 
+  post-title-pages: (
+    image("assets/Catalografica.pdf", width: 100%, height: 100%, fit: "contain", alt: "Ficha catalográfica"),
+    image("assets/Termo de defesa.pdf", width: 100%, height: 100%, fit: "contain", alt: "Termo de defesa"),
+  ),
+
   keywords: ([DPD], [Polinômio de memória], [VHDL]),
   keywords-foreign: ([DPD], [Memory polynomial], [VHDL]),
 
